@@ -295,6 +295,7 @@
                         <span>PWA</span>
                     </div>
                     <span class="demo-link">Смотреть демо &rarr;</span>
+                    <span class="btn-admin" data-product="univerid">Получить доступ к админке</span>
                 </div>
             </a>
             <a href="https://bestdeejay-design.github.io/foodie/" target="_blank" rel="noopener" class="demo-card reveal" data-demo>
@@ -510,6 +511,41 @@
         <p class="copy"><a href="/" class="footer-link">AXIIOM</a> · <a href="/tools/" class="footer-link">Инструменты</a> © 2026 — Разработка сайтов, мобильных и веб-приложений, UI/UX дизайн, highload-решения</p>    </div>
 </footer>
 
+<div class="modal-overlay" id="demoModal">
+    <div class="modal glass-card">
+        <button class="modal-close" id="modalClose" aria-label="Закрыть">&times;</button>
+        <h3>Получить доступ к админке</h3>
+        <p class="modal-sub">Вместе с доступом вы получите архитектурную схему и оценку стоимости аналогичного решения для вашего бизнеса.</p>
+        <form id="demoForm" class="modal-form">
+            <label>Имя</label>
+            <input type="text" name="name" placeholder="Иван Петров">
+            <label>Рабочий email <span class="req">*</span></label>
+            <input type="email" name="email" placeholder="ivan@company.ru" required>
+            <label>Компания</label>
+            <input type="text" name="company" placeholder="ООО «Компания»">
+            <label>Телефон</label>
+            <input type="tel" name="phone" placeholder="+7 999 123-45-67">
+            <label>Демо-продукт</label>
+            <select name="product">
+                <option value="">Выберите продукт</option>
+                <option value="univerid">UniverID</option>
+                <option value="foodie">Foodie</option>
+                <option value="app">App Demos</option>
+                <option value="qbis">Qbik</option>
+                <option value="padel">PadelPro</option>
+                <option value="catalog">Каталог заведений</option>
+                <option value="booking">Grand Hotel</option>
+                <option value="kodstudy">Код Доступа</option>
+                <option value="dajet">DAJET</option>
+                <option value="lovii">LOVII Platform</option>
+                <option value="ambar">AMBAR</option>
+            </select>
+            <button type="submit" class="btn">Отправить заявку</button>
+            <p class="modal-note">Отправляя форму, вы соглашаетесь с обработкой персональных данных.</p>
+        </form>
+    </div>
+</div>
+
 <script>
 const reveals = document.querySelectorAll('.reveal');
 const observer = new IntersectionObserver((entries) => {
@@ -637,6 +673,38 @@ document.querySelectorAll('.card, .fintech-card, .sec-card, .case-card, .demo-ca
     card.addEventListener('mouseleave', () => {
         card.style.transform = '';
     });
+});
+
+// Modal
+const modal = document.getElementById('demoModal');
+const modalClose = document.getElementById('modalClose');
+function openModal() { modal.classList.add('open'); document.body.style.overflow = 'hidden'; }
+function closeModal() { modal.classList.remove('open'); document.body.style.overflow = ''; }
+modalClose.addEventListener('click', closeModal);
+modal.addEventListener('click', (e) => { if (e.target === modal) closeModal(); });
+document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeModal(); });
+
+// Demo card admin buttons
+document.querySelectorAll('.btn-admin').forEach(btn => {
+    btn.addEventListener('click', (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        const product = btn.dataset.product;
+        const select = document.getElementById('demoModal').querySelector('select[name="product"]');
+        if (product && select) select.value = product;
+        openModal();
+    });
+});
+
+// Form submit
+document.getElementById('demoForm').addEventListener('submit', (e) => {
+    e.preventDefault();
+    const form = e.target;
+    const btn = form.querySelector('button');
+    btn.textContent = 'Отправлено!';
+    btn.style.background = 'var(--clr-accent2)';
+    btn.disabled = true;
+    setTimeout(() => { btn.textContent = 'Отправить заявку'; btn.style.background = ''; btn.disabled = false; closeModal(); }, 2000);
 });
 
 </script>
