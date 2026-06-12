@@ -263,11 +263,15 @@
     <ul class="nav-links" id="demosNavMobile"></ul>
   </div>
 
-  <section class="tool-page">
+  <div class="tool-page">
     <div class="container">
       <div class="tool-page-header">
         <a href="/" class="back-link"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5"/><path d="M12 19l-7-7 7-7"/></svg> На главную</a>
         <h1>SPA Demos</h1>
+        <button class="share-btn" onclick="copyPageUrl(this)" aria-label="Поделиться" title="Поделиться">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12v8a2 2 0 002 2h12a2 2 0 002-2v-8"/><polyline points="16 6 12 2 8 6"/><line x1="12" y1="2" x2="12" y2="15"/></svg>
+          <span class="share-tooltip">Ссылка скопирована</span>
+        </button>
       </div>
       <p class="tool-description">Интерактивные одностраничные приложения</p>
       <div class="demo-grid">
@@ -475,7 +479,7 @@
       </div>
       </div>
     </div>
-  </section>
+  </div>
 
   <footer class="footer">
     <div class="container">
@@ -484,6 +488,20 @@
   </footer>
 
   <script>
+    // Share
+    function copyPageUrl(btn) {
+      var url = window.location.href;
+      var ta = document.createElement('textarea');
+      ta.value = url; ta.style.position = 'fixed'; ta.style.left = '0'; ta.style.top = '0';
+      ta.style.width = '2em'; ta.style.height = '2em'; ta.style.padding = '0';
+      ta.style.border = 'none'; ta.style.outline = 'none';
+      ta.style.background = 'transparent'; ta.style.color = 'transparent';
+      document.body.appendChild(ta); ta.focus(); ta.select();
+      document.execCommand('copy'); document.body.removeChild(ta);
+      var tip = btn.querySelector('.share-tooltip');
+      if (tip) { tip.classList.add('show'); setTimeout(function() { tip.classList.remove('show'); }, 2000); }
+    }
+
     // Demo navigation
     var DEMOS = [
       { name: 'University Portal', path: '' },
