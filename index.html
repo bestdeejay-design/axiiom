@@ -86,7 +86,7 @@
                 <li><a href="/tools/" data-nav>Инструменты</a></li>
             </ul>
             <div class="nav-actions">
-                <a href="#contact" class="btn btn-nav" onclick="ym(109391253,'reachGoal','cta_nav')">Обсудить проект</a>
+                <a href="#contact" class="btn btn-nav" onclick="ym(109391253,'reachGoal','cta_nav'); gtag('event','cta_nav');">Обсудить проект</a>
                 <button class="theme-btn" id="themeToggle" aria-label="Сменить тему">
                     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>
                 </button>
@@ -115,8 +115,8 @@
             <h1>Финтех-инфраструктура<br>и IT-решения для бизнеса</h1>
             <p class="hero-desc">Разрабатываем платформы лояльности, маркетплейсы и платёжные системы под ключ. Берём на себя комплаенс (161-ФЗ, PCI&nbsp;DSS) и интеграцию с банками.</p>
             <div class="hero-btns">
-                <a href="#contact" class="btn" onclick="ym(109391253,'reachGoal','cta_hero')">Обсудить архитектуру проекта</a>
-                <a href="#demos" class="btn btn-outline" onclick="ym(109391253,'reachGoal','demo_view')">Смотреть демо-платформы</a>
+                <a href="#contact" class="btn" onclick="ym(109391253,'reachGoal','cta_hero'); gtag('event','cta_hero');">Обсудить архитектуру проекта</a>
+                <a href="#demos" class="btn btn-outline" onclick="ym(109391253,'reachGoal','demo_view'); gtag('event','demo_view');">Смотреть демо-платформы</a>
             </div>
             <div class="hero-trust">
                 <span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--clr-accent)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg> 50+ проектов</span>
@@ -792,6 +792,7 @@ document.getElementById('demoForm').addEventListener('submit', (e) => {
     btn.style.background = 'var(--clr-accent2)';
     btn.disabled = true;
     ym(109391253, 'reachGoal', 'form_demo');
+    gtag('event', 'form_demo');
     setTimeout(() => { btn.textContent = 'Отправить заявку'; btn.style.background = ''; btn.disabled = false; closeModal(); }, 2000);
 });
 
@@ -810,6 +811,14 @@ document.getElementById('demoForm').addEventListener('submit', (e) => {
 </script>
 <noscript><div><img src="https://mc.yandex.ru/watch/109391253" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
 <!-- /Yandex.Metrika counter -->
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-HFS4BDGTV4"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-HFS4BDGTV4');
+</script>
 
 </body>
 </html>
