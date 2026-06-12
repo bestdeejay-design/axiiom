@@ -739,6 +739,26 @@ a.logo:hover::after { width: 100%; }
     background: var(--clr-faint);
 }
 
+.case-step {
+    font-size: .9rem;
+    color: var(--clr-muted);
+    margin-bottom: 10px;
+    line-height: 1.6;
+}
+
+.case-step span {
+    color: var(--clr-heading);
+    font-weight: 600;
+}
+
+.case-result {
+    font-size: .95rem;
+    color: var(--clr-accent2);
+    font-weight: 600;
+    margin: 14px 0 18px;
+    line-height: 1.6;
+}
+
 /* Fintech */
 .fintech-grid {
     display: grid;
@@ -1075,6 +1095,114 @@ a.logo:hover::after { width: 100%; }
     color: var(--clr-faint);
     margin-top: 12px;
     text-align: center;
+}
+
+/* Process */
+.process-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 16px;
+    margin-top: 48px;
+}
+
+.process-num {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--clr-accent);
+    margin-bottom: 8px;
+    letter-spacing: -1px;
+}
+
+.process-grid h4 {
+    font-size: 1.05rem;
+    color: var(--clr-heading);
+    margin-bottom: 8px;
+}
+
+.process-grid p {
+    font-size: .9rem;
+    color: var(--clr-muted);
+    line-height: 1.6;
+}
+
+/* Stack */
+.stack-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 16px;
+    margin-top: 48px;
+}
+
+.stack-group {
+    text-align: left;
+    padding: 20px;
+}
+
+.stack-group h4 {
+    font-size: .85rem;
+    color: var(--clr-accent);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 10px;
+}
+
+.stack-group p {
+    font-size: .9rem;
+    color: var(--clr-muted);
+    line-height: 1.7;
+}
+
+/* FAQ */
+.faq-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 16px;
+    margin-top: 48px;
+}
+
+.faq-grid h4 {
+    font-size: 1.05rem;
+    color: var(--clr-heading);
+    margin-bottom: 10px;
+}
+
+.faq-grid p {
+    font-size: .9rem;
+    color: var(--clr-muted);
+    line-height: 1.6;
+}
+
+/* CTA */
+.cta-section {
+    padding: clamp(60px, 10vw, 110px) 0;
+    text-align: center;
+}
+
+.cta-card {
+    padding: 48px 32px;
+    text-align: center;
+}
+
+.cta-card h2 {
+    font-size: clamp(1.4rem, 3vw, 2rem);
+    color: var(--clr-heading);
+    margin-bottom: 16px;
+}
+
+.cta-card p {
+    font-size: 1rem;
+    color: var(--clr-muted);
+    margin-bottom: 32px;
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.cta-contacts {
+    display: flex;
+    gap: 14px;
+    justify-content: center;
+    flex-wrap: wrap;
 }
 
 /* Footer */
