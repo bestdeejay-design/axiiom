@@ -53,6 +53,11 @@
 
 [data-theme="light"] .btn {
     background: var(--clr-heading);
+    color: var(--clr-bg);
+}
+
+[data-theme="light"] .btn:not(.btn-outline) {
+    background: var(--clr-heading);
     color: #ffffff;
 }
 
