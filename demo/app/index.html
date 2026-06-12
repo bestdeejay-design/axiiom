@@ -10,7 +10,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/styles.css">
+  <link rel="stylesheet" href="/tools/styles.css">
   <style>
     :root {
       --clr-bg: #07070a;
@@ -233,11 +233,11 @@
   <div class="noise"></div>
   <div class="grid-overlay"></div>
 
-  <header class="header scrolled" id="header">
+  <header class="header" id="header">
     <div class="container">
       <nav class="nav">
         <a href="/" class="logo">
-          <svg width="36" height="36" viewBox="0 0 36 36" fill="none">
+          <svg width="30" height="30" viewBox="0 0 36 36" fill="none">
             <rect x="2" y="2" width="14" height="14" rx="2" stroke="currentColor" stroke-width="1.5" opacity=".4"/>
             <rect x="20" y="2" width="14" height="14" rx="2" stroke="currentColor" stroke-width="1.5" opacity=".4"/>
             <rect x="2" y="20" width="14" height="14" rx="2" stroke="currentColor" stroke-width="1.5" opacity=".4"/>
@@ -246,29 +246,32 @@
           </svg>
           <span>AXIIOM</span>
         </a>
-        <ul class="nav-links nav-links--desktop">
-          <li><a href="/#services">Услуги</a></li>
-          <li><a href="/#demos">Демо-платформы</a></li>
-          <li><a href="/#cases">Кейсы</a></li>
-          <li><a href="/#process">Процесс</a></li>
-          <li><a href="/#contact">Контакты</a></li>
-        </ul>
+        <ul class="nav-links nav-links--desktop tools-nav-links" id="demosNav"></ul>
         <div class="nav-actions">
-          <a href="/" class="btn btn-nav" style="background:transparent;color:var(--clr-muted);border:1px solid var(--clr-border);">← На главную</a>
           <button class="theme-btn" id="themeToggle" aria-label="Сменить тему">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>
+          </button>
+          <button class="nav-toggle tools-nav-toggle" id="navToggle" aria-label="Меню">
+            <span></span><span></span><span></span>
           </button>
         </div>
       </nav>
     </div>
   </header>
 
-  <section class="section">
-    <div class="container">
-    <h1 class="reveal">SPA Demos</h1>
-    <p class="desc reveal">Интерактивные одностраничные приложения</p>
+  <div class="nav-overlay" id="navOverlay">
+    <ul class="nav-links" id="demosNavMobile"></ul>
+  </div>
 
-    <div class="demo-grid">
+  <section class="tool-page">
+    <div class="container">
+      <div class="tool-page-header">
+        <a href="/" class="back-link"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5"/><path d="M12 19l-7-7 7-7"/></svg> На главную</a>
+        <h1>SPA Demos</h1>
+      </div>
+      <p class="tool-description">Интерактивные одностраничные приложения</p>
+      <div class="tool-page-card">
+        <div class="demo-grid">
       <a class="demo-card reveal" href="demo-template/">
         <div class="demo-accent" style="background:linear-gradient(135deg,#6c5ce7,#a29bfe)"></div>
         <div class="demo-body">
@@ -471,66 +474,115 @@
           </div>
         </div>
       </div>
-    </div>
+      </div>
+      </div>
     </div>
   </section>
 
   <footer class="footer">
     <div class="container">
-      <p class="copy"><a href="/" class="footer-link">AXIIOM</a> · <a href="/demo/app/" class="footer-link">Демо-проекты</a> © 2026</p>
+      <p class="copy"><a href="/" class="footer-link">AXIIOM</a> © 2026 — Демо-проекты</p>
     </div>
   </footer>
 
   <script>
-    const reveals = document.querySelectorAll('.reveal');
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) entry.target.classList.add('visible');
+    // Demo navigation
+    var DEMOS = [
+      { name: 'University Portal', path: '' },
+      { name: 'UniverID', path: '' },
+      { name: 'Foodie', path: '' },
+      { name: 'Lovii Demo', path: '' },
+      { name: 'eSIM Travel', path: '' },
+      { name: 'AXIIOM Logistics', path: '' },
+      { name: 'HR Motivation', path: '' },
+      { name: 'Мобильная касса', path: '' },
+      { name: 'Primary', path: '' },
+      { name: 'Alfred', path: '' },
+      { name: 'Qbik', path: '' },
+      { name: 'Код Доступа', path: '' },
+      { name: 'DAJET', path: '' },
+      { name: 'Hype', path: '' }
+    ];
+    var desktopNav = document.getElementById('demosNav');
+    var mobileNav = document.getElementById('demosNavMobile');
+    if (mobileNav) {
+      var extraLinks = [{ name: 'На главную axiiom.ru', href: '/' }];
+      extraLinks.forEach(function(e) {
+        var a = document.createElement('a'); a.href = e.href; a.textContent = e.name;
+        var li = document.createElement('li'); li.className = 'nav-extra-link'; li.appendChild(a);
+        mobileNav.appendChild(li);
       });
-    }, { threshold: 0.15 });
-    reveals.forEach(r => observer.observe(r));
-
-    const themeToggle = document.getElementById('themeToggle');
-    const html = document.documentElement;
-    const saved = localStorage.getItem('theme');
-    if (saved) html.setAttribute('data-theme', saved);
-    if (!saved && window.matchMedia('(prefers-color-scheme: light)').matches) {
-      html.setAttribute('data-theme', 'light');
+      var sep = document.createElement('li'); sep.className = 'nav-separator'; mobileNav.appendChild(sep);
     }
+    DEMOS.forEach(function(d) {
+      var link = document.createElement('a'); link.href = '#'; link.textContent = d.name;
+      link.addEventListener('click', function(e) { e.preventDefault(); });
+      var li = document.createElement('li'); li.appendChild(link);
+      if (desktopNav) { desktopNav.appendChild(li.cloneNode(true)); }
+      if (mobileNav) { mobileNav.appendChild(li.cloneNode(true)); }
+    });
+
+    // Reveal
+    var reveals = document.querySelectorAll('.reveal');
+    var observer = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) { if (entry.isIntersecting) entry.target.classList.add('visible'); });
+    }, { threshold: 0.15 });
+    reveals.forEach(function(r) { observer.observe(r); });
+
+    // Theme toggle
+    var themeToggle = document.getElementById('themeToggle');
+    var html = document.documentElement;
+    var saved = localStorage.getItem('theme');
+    if (saved) html.setAttribute('data-theme', saved);
+    if (!saved && window.matchMedia('(prefers-color-scheme: light)').matches) { html.setAttribute('data-theme', 'light'); }
     updateIcon();
-    themeToggle.addEventListener('click', () => {
-      const current = html.getAttribute('data-theme');
-      const next = current === 'light' ? '' : 'light';
+    themeToggle.addEventListener('click', function() {
+      var cur = html.getAttribute('data-theme');
+      var next = cur === 'light' ? '' : 'light';
       html.setAttribute('data-theme', next);
       localStorage.setItem('theme', next);
       updateIcon();
     });
     function updateIcon() {
-      const isLight = html.getAttribute('data-theme') === 'light';
+      var isLight = html.getAttribute('data-theme') === 'light';
       themeToggle.innerHTML = isLight
         ? '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>'
         : '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>';
     }
 
-    const cursor = document.getElementById('cursorGlow');
-    document.addEventListener('mousemove', (e) => {
-      cursor.style.transform = `translate(${e.clientX - 400}px, ${e.clientY - 400}px)`;
+    // Header scroll
+    var header = document.getElementById('header');
+    window.addEventListener('scroll', function() { header.classList.toggle('scrolled', window.scrollY > 40); }, { passive: true });
+
+    // Nav toggle
+    var navToggle = document.getElementById('navToggle');
+    var navOverlay = document.getElementById('navOverlay');
+    navToggle.addEventListener('click', function() {
+      navOverlay.classList.toggle('open');
+      navToggle.classList.toggle('active');
+      document.body.style.overflow = navOverlay.classList.contains('open') ? 'hidden' : '';
+    });
+    document.querySelectorAll('#navOverlay a').forEach(function(link) {
+      link.addEventListener('click', function() {
+        navOverlay.classList.remove('open');
+        navToggle.classList.remove('active');
+        document.body.style.overflow = '';
+      });
+    });
+    navOverlay.addEventListener('click', function(e) {
+      if (e.target === navOverlay) { navOverlay.classList.remove('open'); navToggle.classList.remove('active'); document.body.style.overflow = ''; }
     });
 
-    document.querySelectorAll('.demo-card').forEach(card => {
-      card.addEventListener('mousemove', (e) => {
-        const rect = card.getBoundingClientRect();
-        const x = e.clientX - rect.left;
-        const y = e.clientY - rect.top;
-        const cx = rect.width / 2;
-        const cy = rect.height / 2;
-        const rx = ((y - cy) / cy) * -10;
-        const ry = ((x - cx) / cx) * 10;
-        card.style.transform = `perspective(800px) rotateX(${rx}deg) rotateY(${ry}deg)`;
+    // 3D tilt
+    document.querySelectorAll('.demo-card').forEach(function(card) {
+      card.addEventListener('mousemove', function(e) {
+        var rect = card.getBoundingClientRect();
+        var cx = rect.width / 2; var cy = rect.height / 2;
+        var rx = ((e.clientY - rect.top - cy) / cy) * -10;
+        var ry = ((e.clientX - rect.left - cx) / cx) * 10;
+        card.style.transform = 'perspective(800px) rotateX(' + rx + 'deg) rotateY(' + ry + 'deg)';
       });
-      card.addEventListener('mouseleave', () => {
-        card.style.transform = '';
-      });
+      card.addEventListener('mouseleave', function() { card.style.transform = ''; });
     });
   </script>
   <!-- Yandex.Metrika counter -->
