@@ -422,23 +422,6 @@ a.logo:hover::after { width: 100%; }
     margin-bottom: 36px;
 }
 
-.btn-outline {
-    background: transparent;
-    color: var(--clr-heading);
-    border: 1px solid var(--clr-border-hover);
-}
-
-.btn-outline:hover {
-    background: var(--clr-surface);
-    border-color: var(--clr-heading);
-}
-
-[data-theme="light"] .btn-outline {
-    color: var(--clr-heading);
-    border-color: var(--clr-border);
-    background: transparent;
-}
-
 .hero-trust {
     display: flex;
     gap: 28px;
@@ -470,6 +453,27 @@ a.logo:hover::after { width: 100%; }
 .btn:hover {
     transform: translateY(-2px);
     box-shadow: 0 8px 30px rgba(0,0,0,.08);
+}
+
+.btn-outline {
+    background: transparent;
+    color: var(--clr-heading);
+    border: 1px solid var(--clr-border-hover);
+}
+
+.btn-outline:hover {
+    background: var(--clr-surface);
+    border-color: var(--clr-heading);
+}
+
+[data-theme="light"] .btn-outline {
+    color: var(--clr-heading);
+    border-color: var(--clr-border);
+    background: transparent;
+}
+
+[data-theme="light"] .btn-outline:hover {
+    color: var(--clr-heading);
 }
 
 .btn-nav {
