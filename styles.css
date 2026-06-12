@@ -532,6 +532,28 @@ a.logo:hover::after { width: 100%; }
     font-weight: 600;
 }
 
+/* Service card results */
+.result {
+    font-size: .85rem;
+    color: var(--clr-accent2);
+    font-weight: 600;
+    margin: 12px 0 16px;
+}
+
+.btn-card {
+    padding: 8px 20px;
+    font-size: .8rem;
+    border-radius: 20px;
+    background: transparent;
+    color: var(--clr-accent);
+    border: 1px solid var(--clr-accent);
+}
+
+.btn-card:hover {
+    background: var(--clr-accent);
+    color: var(--clr-bg);
+}
+
 /* Section */
 .section {
     padding: clamp(60px, 10vw, 110px) 0;
