@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Калькулятор дат онлайн — разница между датами — AXIIOM Tools</title>
+    <meta name="description" content="Бесплатный онлайн калькулятор дат. Вычислите разницу между двумя датами, прибавьте или отнимите дни от любой даты.">
+    <link rel="canonical" href="https://axiiom.ru/tools/date-calc/">
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://axiiom.ru/tools/date-calc/">
+    <meta property="og:title" content="Калькулятор дат онлайн — AXIIOM Tools">
+    <meta property="og:description" content="Расчёт разницы между датами в днях, прибавление и вычитание дней. Удобный онлайн-инструмент для работы с датами.">
+    <meta property="og:image" content="/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:locale" content="ru_RU">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://axiiom.ru/tools/date-calc/">
+    <meta name="twitter:title" content="Калькулятор дат онлайн — AXIIOM Tools">
+    <meta name="twitter:description" content="Расчёт разницы между датами в днях, прибавление и вычитание дней. Удобный онлайн-инструмент для работы с датами.">
+    <meta name="twitter:image" content="/og-image.png">
+
+    <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+<div class="noise"></div>
+<div class="grid-overlay"></div>
+
+<header class="header" id="header">
+    <div class="container">
+        <nav class="nav">
+            <a href="/" class="logo">
+                <svg width="30" height="30" viewBox="0 0 36 36" fill="none">
+                    <rect x="2" y="2" width="14" height="14" rx="2" stroke="currentColor" stroke-width="1.5" opacity=".4"/>
+                    <rect x="20" y="2" width="14" height="14" rx="2" stroke="currentColor" stroke-width="1.5" opacity=".4"/>
+                    <rect x="2" y="20" width="14" height="14" rx="2" stroke="currentColor" stroke-width="1.5" opacity=".4"/>
+                    <rect x="20" y="20" width="14" height="14" rx="2" stroke="currentColor" stroke-width="1.5"/>
+                    <circle cx="27" cy="27" r="3" fill="currentColor" opacity=".8"/>
+                </svg>
+                <span>AXIIOM</span>
+            </a>
+            <ul class="nav-links nav-links--desktop tools-nav-links" id="toolsNav"></ul>
+            <div class="nav-actions">
+                <button class="theme-btn" id="themeToggle" aria-label="Сменить тему">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>
+                </button>
+                <button class="nav-toggle tools-nav-toggle" id="navToggle" aria-label="Меню">
+                    <span></span><span></span><span></span>
+                </button>
+            </div>
+        </nav>
+    </div>
+</header>
+
+<div class="nav-overlay" id="navOverlay">
+    <ul class="nav-links" id="toolsNavMobile"></ul>
+</div>
+
+
+<section class="tool-page">
+    <div class="container">
+        <div class="tool-page-header">
+            <a href="../" class="back-link"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5"/><path d="M12 19l-7-7 7-7"/></svg> Все инструменты</a>
+            <h1>Калькулятор дат</h1>
+            <button class="share-btn" onclick="copyPageUrl(this)" aria-label="Поделиться" title="Поделиться">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M4 12v8a2 2 0 002 2h12a2 2 0 002-2v-8"/>
+                    <polyline points="16 6 12 2 8 6"/>
+                    <line x1="12" y1="2" x2="12" y2="15"/>
+                </svg>
+                <span class="share-tooltip">Ссылка скопирована</span>
+            </button>
+            
+            
+        </div>
+        <p class="tool-description">Расчёт разницы между датами, прибавление и вычитание дней.</p>
+        <div class="tool-page-card">
+            <div class="date-mode">
+                <h2>Разница между датами</h2>
+                <form class="calc-form" id="formDiff">
+                    <div class="row-2">
+                        <div class="field-group">
+                            <label class="tool-label" for="startDate">Дата начала</label>
+                            <input class="tool-input" type="date" id="startDate">
+                        </div>
+                        <div class="field-group">
+                            <label class="tool-label" for="endDate">Дата окончания</label>
+                            <input class="tool-input" type="date" id="endDate">
+                        </div>
+                    </div>
+                    <div class="tool-btn-group">
+                        <button class="tool-btn" type="submit">Рассчитать</button>
+                    </div>
+                </form>
+                <div id="resultDiff" style="display:none">
+                    <div class="result-grid">
+                        <div class="result-item"><span class="val" id="diffYears">0</span><span class="lbl">лет</span></div>
+                        <div class="result-item"><span class="val" id="diffMonths">0</span><span class="lbl">месяцев</span></div>
+                        <div class="result-item"><span class="val" id="diffDays">0</span><span class="lbl">дней</span></div>
+                        <div class="result-item"><span class="val" id="diffHours">0</span><span class="lbl">часов</span></div>
+                        <div class="result-item"><span class="val" id="diffMinutes">0</span><span class="lbl">минут</span></div>
+                    </div>
+                    <hr class="result-divider">
+                    <div class="result-sub">
+                        <div><span class="val" id="diffTotalDays">0</span><div class="lbl">всего дней</div></div>
+                        <div><span class="val" id="diffTotalWeeks">0</span><div class="lbl">всего недель</div></div>
+                    </div>
+                </div>
+            </div>
+
+            <hr class="result-divider">
+
+            <div class="date-mode">
+                <h2>Прибавить / вычесть дни</h2>
+                <form class="calc-form" id="formAddsub">
+                    <div class="row-2">
+                        <div class="field-group">
+                            <label class="tool-label" for="refDate">Исходная дата</label>
+                            <input class="tool-input" type="date" id="refDate">
+                        </div>
+                        <div class="field-group">
+                            <label class="tool-label" for="daysOffset">Количество дней</label>
+                            <input class="tool-input" type="number" id="daysOffset" value="0" step="1">
+                        </div>
+                    </div>
+                    <div class="tool-btn-group">
+                        <button class="tool-btn" type="submit">Рассчитать</button>
+                    </div>
+                </form>
+                <div id="resultAddsub" style="display:none">
+                    <div class="result-sub" style="margin-top:16px">
+                        <div><span class="val" id="addsubResult">—</span><div class="lbl">итоговая дата</div></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<footer class="footer">
+    <div class="container">
+        <div id="footerTools"></div>
+        <p class="copy"><a href="https://axiiom.ru/" class="footer-link">AXIIOM</a> © 2026 — Бесплатные онлайн-инструменты</p>
+    </div>
+</footer>
+
+<script>
+function copyPageUrl(btn) {
+    var url = window.location.href;
+    var ta = document.createElement('textarea');
+    ta.value = url;
+    ta.style.position = 'fixed';
+    ta.style.left = '0';
+    ta.style.top = '0';
+    ta.style.width = '2em';
+    ta.style.height = '2em';
+    ta.style.padding = '0';
+    ta.style.border = 'none';
+    ta.style.outline = 'none';
+    ta.style.background = 'transparent';
+    ta.style.color = 'transparent';
+    document.body.appendChild(ta);
+    ta.focus();
+    ta.select();
+    document.execCommand('copy');
+    document.body.removeChild(ta);
+    var tip = btn.querySelector('.share-tooltip');
+    if (tip) { tip.classList.add('show'); setTimeout(function() { tip.classList.remove('show'); }, 2000); }
+}
+</script>
+<script src="../nav.js"></script>
+<script>
+initToolsNav('date-calc/');
+
+var themeToggle = document.getElementById('themeToggle');
+var html = document.documentElement;
+var saved = localStorage.getItem('theme');
+if (saved) html.setAttribute('data-theme', saved);
+if (!saved && window.matchMedia('(prefers-color-scheme: light)').matches) {
+    html.setAttribute('data-theme', 'light');
+}
+updateIcon();
+themeToggle.addEventListener('click', function() {
+    var current = html.getAttribute('data-theme');
+    var next = current === 'light' ? '' : 'light';
+    html.setAttribute('data-theme', next);
+    localStorage.setItem('theme', next);
+    updateIcon();
+});
+function updateIcon() {
+    var isLight = html.getAttribute('data-theme') === 'light';
+    themeToggle.innerHTML = isLight
+        ? '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>'
+        : '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>';
+}
+
+var header = document.getElementById('header');
+window.addEventListener('scroll', function() {
+    header.classList.toggle('scrolled', window.scrollY > 40);
+}, { passive: true });
+
+var cursor = document.createElement('div');
+cursor.className = 'cursor-glow';
+document.body.appendChild(cursor);
+document.addEventListener('mousemove', function(e) {
+    cursor.style.transform = 'translate(' + (e.clientX - 400) + 'px, ' + (e.clientY - 400) + 'px)';
+});
+
+// --- Date Calc Logic ---
+function pad(n) { return String(n).padStart(2, '0'); }
+
+function todayStr() {
+    var d = new Date();
+    return d.getFullYear() + '-' + pad(d.getMonth() + 1) + '-' + pad(d.getDate());
+}
+
+// Mode 1: Difference
+var formDiff = document.getElementById('formDiff');
+var resultDiff = document.getElementById('resultDiff');
+
+formDiff.addEventListener('submit', function(e) {
+    e.preventDefault();
+    var startVal = document.getElementById('startDate').value;
+    var endVal = document.getElementById('endDate').value;
+    if (!startVal || !endVal) return;
+
+    var start = new Date(startVal + 'T00:00:00');
+    var end = new Date(endVal + 'T00:00:00');
+    if (isNaN(start.getTime()) || isNaN(end.getTime())) return;
+
+    var diffMs = Math.abs(end - start);
+    var diffMinutes = Math.floor(diffMs / 60000);
+    var diffHours = Math.floor(diffMinutes / 60);
+    var totalDays = Math.floor(diffHours / 24);
+    var totalWeeks = (totalDays / 7).toFixed(1);
+
+    var y1 = start.getFullYear(), m1 = start.getMonth(), d1 = start.getDate();
+    var y2 = end.getFullYear(), m2 = end.getMonth(), d2 = end.getDate();
+
+    var years = y2 - y1;
+    var months = m2 - m1;
+    var days = d2 - d1;
+
+    if (days < 0) {
+        months--;
+        var prevMonth = new Date(y2, m2, 0);
+        days += prevMonth.getDate();
+    }
+    if (months < 0) {
+        years--;
+        months += 12;
+    }
+    if (years < 0) {
+        years = 0; months = 0; days = totalDays;
+    }
+
+    var remHours = diffHours % 24;
+    var remMinutes = diffMinutes % 60;
+
+    document.getElementById('diffYears').textContent = years;
+    document.getElementById('diffMonths').textContent = months;
+    document.getElementById('diffDays').textContent = days;
+    document.getElementById('diffHours').textContent = remHours;
+    document.getElementById('diffMinutes').textContent = remMinutes;
+    document.getElementById('diffTotalDays').textContent = totalDays;
+    document.getElementById('diffTotalWeeks').textContent = totalWeeks;
+    resultDiff.style.display = 'block';
+});
+
+// Mode 2: Add / Subtract
+var formAddsub = document.getElementById('formAddsub');
+var resultAddsub = document.getElementById('resultAddsub');
+
+formAddsub.addEventListener('submit', function(e) {
+    e.preventDefault();
+    var refVal = document.getElementById('refDate').value;
+    var offsetVal = document.getElementById('daysOffset').value;
+    if (!refVal || offsetVal === '') return;
+
+    var ref = new Date(refVal + 'T12:00:00');
+    if (isNaN(ref.getTime())) return;
+
+    var offset = parseInt(offsetVal, 10);
+    if (isNaN(offset)) return;
+
+    ref.setDate(ref.getDate() + offset);
+
+    var y = ref.getFullYear();
+    var m = pad(ref.getMonth() + 1);
+    var d = pad(ref.getDate());
+    var formatted = y + '-' + m + '-' + d;
+
+    document.getElementById('addsubResult').textContent = formatted;
+    resultAddsub.style.display = 'block';
+});
+
+// Set defaults
+var ts = todayStr();
+if (document.getElementById('startDate')) document.getElementById('startDate').value = ts;
+if (document.getElementById('endDate')) document.getElementById('endDate').value = ts;
+if (document.getElementById('refDate')) document.getElementById('refDate').value = ts;
+</script>
+</body>
+</html>

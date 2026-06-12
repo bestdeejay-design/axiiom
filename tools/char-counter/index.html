@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Счётчик символов онлайн — подсчёт слов, букв, предложений — AXIIOM Tools</title>
+    <meta name="description" content="Бесплатный онлайн счётчик символов, слов, предложений и абзацев. Узнайте длину текста, количество цифр, среднюю длину слова.">
+    <link rel="canonical" href="https://axiiom.ru/tools/char-counter/">
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://axiiom.ru/tools/char-counter/">
+    <meta property="og:title" content="Счётчик символов онлайн — AXIIOM Tools">
+    <meta property="og:description" content="Подсчёт символов, слов, предложений, абзацев, цифр и средней длины слова в тексте. Бесплатный онлайн-инструмент.">
+    <meta property="og:image" content="/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:locale" content="ru_RU">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://axiiom.ru/tools/char-counter/">
+    <meta name="twitter:title" content="Счётчик символов онлайн — AXIIOM Tools">
+    <meta name="twitter:description" content="Подсчёт символов, слов, предложений, абзацев, цифр и средней длины слова в тексте. Бесплатный онлайн-инструмент.">
+    <meta name="twitter:image" content="/og-image.png">
+
+    <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+<div class="noise"></div>
+<div class="grid-overlay"></div>
+
+<header class="header" id="header">
+    <div class="container">
+        <nav class="nav">
+            <a href="/" class="logo">
+                <svg width="30" height="30" viewBox="0 0 36 36" fill="none">
+                    <rect x="2" y="2" width="14" height="14" rx="2" stroke="currentColor" stroke-width="1.5" opacity=".4"/>
+                    <rect x="20" y="2" width="14" height="14" rx="2" stroke="currentColor" stroke-width="1.5" opacity=".4"/>
+                    <rect x="2" y="20" width="14" height="14" rx="2" stroke="currentColor" stroke-width="1.5" opacity=".4"/>
+                    <rect x="20" y="20" width="14" height="14" rx="2" stroke="currentColor" stroke-width="1.5"/>
+                    <circle cx="27" cy="27" r="3" fill="currentColor" opacity=".8"/>
+                </svg>
+                <span>AXIIOM</span>
+            </a>
+            <ul class="nav-links nav-links--desktop tools-nav-links" id="toolsNav"></ul>
+            <div class="nav-actions">
+                <button class="theme-btn" id="themeToggle" aria-label="Сменить тему">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>
+                </button>
+                <button class="nav-toggle tools-nav-toggle" id="navToggle" aria-label="Меню">
+                    <span></span><span></span><span></span>
+                </button>
+            </div>
+        </nav>
+    </div>
+</header>
+
+<div class="nav-overlay" id="navOverlay">
+    <ul class="nav-links" id="toolsNavMobile"></ul>
+</div>
+
+
+<div class="tool-page">
+    <div class="container">
+        <div class="tool-page-header">
+            <a href="../" class="back-link"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5"/><path d="M12 19l-7-7 7-7"/></svg> Все инструменты</a>
+            <h1>Счётчик символов</h1>
+            <button class="share-btn" onclick="copyPageUrl(this)" aria-label="Поделиться" title="Поделиться">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M4 12v8a2 2 0 002 2h12a2 2 0 002-2v-8"/>
+                    <polyline points="16 6 12 2 8 6"/>
+                    <line x1="12" y1="2" x2="12" y2="15"/>
+                </svg>
+                <span class="share-tooltip">Ссылка скопирована</span>
+            </button>
+            
+            
+        </div>
+
+        <div class="tool-page-card">
+            <p class="tool-description">Подсчёт символов, слов, предложений и других параметров текста в реальном времени.</p>
+
+            <div class="tool-row">
+                <textarea class="tool-textarea" id="textInput" placeholder="Вставьте или введите текст..." rows="10"></textarea>
+            </div>
+
+            <div class="tool-btn-group">
+                <button class="tool-btn" id="clearBtn">Очистить</button>
+                <button class="tool-btn-secondary copy-btn" id="copyBtn">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>
+                    Копировать
+                </button>
+            </div>
+
+            <div class="stat-row">
+                <div class="stat-value">
+                    <span id="statChars">0</span>
+                    <span>Символов (с пробелами)</span>
+                </div>
+                <div class="stat-value">
+                    <span id="statCharsNoSpace">0</span>
+                    <span>Символов (без пробелов)</span>
+                </div>
+                <div class="stat-value">
+                    <span id="statWords">0</span>
+                    <span>Слов</span>
+                </div>
+                <div class="stat-value">
+                    <span id="statSentences">0</span>
+                    <span>Предложений</span>
+                </div>
+                <div class="stat-value">
+                    <span id="statParagraphs">0</span>
+                    <span>Абзацев</span>
+                </div>
+                <div class="stat-value">
+                    <span id="statDigits">0</span>
+                    <span>Цифр</span>
+                </div>
+                <div class="stat-value">
+                    <span id="statAvgWordLength">0</span>
+                    <span>Средняя длина слова</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<footer class="footer">
+    <div class="container">
+        <div id="footerTools"></div>
+        <p class="copy"><a href="https://axiiom.ru/" class="footer-link">AXIIOM</a> © 2026 — Бесплатные онлайн-инструменты</p>
+    </div>
+</footer>
+
+<script>
+function copyPageUrl(btn) {
+    var url = window.location.href;
+    var ta = document.createElement('textarea');
+    ta.value = url;
+    ta.style.position = 'fixed';
+    ta.style.left = '0';
+    ta.style.top = '0';
+    ta.style.width = '2em';
+    ta.style.height = '2em';
+    ta.style.padding = '0';
+    ta.style.border = 'none';
+    ta.style.outline = 'none';
+    ta.style.background = 'transparent';
+    ta.style.color = 'transparent';
+    document.body.appendChild(ta);
+    ta.focus();
+    ta.select();
+    document.execCommand('copy');
+    document.body.removeChild(ta);
+    var tip = btn.querySelector('.share-tooltip');
+    if (tip) { tip.classList.add('show'); setTimeout(function() { tip.classList.remove('show'); }, 2000); }
+}
+</script>
+<script src="../nav.js"></script>
+<script>
+initToolsNav('char-counter/');
+
+var themeToggle = document.getElementById('themeToggle');
+var html = document.documentElement;
+var saved = localStorage.getItem('theme');
+if (saved) html.setAttribute('data-theme', saved);
+if (!saved && window.matchMedia('(prefers-color-scheme: light)').matches) {
+    html.setAttribute('data-theme', 'light');
+}
+updateIcon();
+themeToggle.addEventListener('click', function() {
+    var current = html.getAttribute('data-theme');
+    var next = current === 'light' ? '' : 'light';
+    html.setAttribute('data-theme', next);
+    localStorage.setItem('theme', next);
+    updateIcon();
+});
+function updateIcon() {
+    var isLight = html.getAttribute('data-theme') === 'light';
+    themeToggle.innerHTML = isLight
+        ? '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>'
+        : '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>';
+}
+
+var header = document.getElementById('header');
+window.addEventListener('scroll', function() {
+    header.classList.toggle('scrolled', window.scrollY > 40);
+}, { passive: true });
+
+var cursor = document.createElement('div');
+cursor.className = 'cursor-glow';
+document.body.appendChild(cursor);
+document.addEventListener('mousemove', function(e) {
+    cursor.style.transform = 'translate(' + (e.clientX - 400) + 'px, ' + (e.clientY - 400) + 'px)';
+});
+
+var textInput = document.getElementById('textInput');
+
+function updateStats() {
+    var text = textInput.value;
+    document.getElementById('statChars').textContent = text.length;
+    document.getElementById('statCharsNoSpace').textContent = text.replace(/\s/g, '').length;
+
+    var words = text.trim() ? text.trim().split(/\s+/).length : 0;
+    document.getElementById('statWords').textContent = words;
+
+    var sentences = text ? (text.match(/[.!?…]+/g) || []).length : 0;
+    if (text.trim() && !/[.!?…]/.test(text.trim().slice(-1))) sentences = Math.max(1, sentences);
+    document.getElementById('statSentences').textContent = sentences;
+
+    var paragraphs = text ? text.split(/\n\s*\n/).filter(function(b) { return b.trim().length > 0; }).length : 0;
+    if (text.trim() && paragraphs === 0 && text.includes('\n')) paragraphs = 1;
+    if (text.trim() && !text.includes('\n')) paragraphs = text.trim() ? 1 : 0;
+    document.getElementById('statParagraphs').textContent = paragraphs;
+
+    var digits = (text.match(/\d/g) || []).length;
+    document.getElementById('statDigits').textContent = digits;
+
+    var avgLen = 0;
+    if (words > 0) {
+        var totalChars = text.trim().split(/\s+/).reduce(function(sum, w) { return sum + w.length; }, 0);
+        avgLen = (totalChars / words).toFixed(1);
+    }
+    document.getElementById('statAvgWordLength').textContent = avgLen;
+}
+
+textInput.addEventListener('input', updateStats);
+
+document.getElementById('clearBtn').addEventListener('click', function() {
+    textInput.value = '';
+    updateStats();
+    textInput.focus();
+});
+
+document.getElementById('copyBtn').addEventListener('click', function() {
+    if (!textInput.value) return;
+    var btn = this;
+    navigator.clipboard.writeText(textInput.value).then(function() {
+        btn.classList.add('copied');
+        setTimeout(function() { btn.classList.remove('copied'); }, 1800);
+    }).catch(function() {
+        textInput.select();
+        document.execCommand('copy');
+        btn.classList.add('copied');
+        setTimeout(function() { btn.classList.remove('copied'); }, 1800);
+    });
+});
+
+updateStats();
+</script>
+</body>
+</html>

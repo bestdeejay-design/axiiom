@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>URL Encode/Decode онлайн — кодирование URL — AXIIOM Tools</title>
+    <meta name="description" content="Бесплатный онлайн инструмент для URL-кодирования и декодирования. encodeURIComponent и decodeURIComponent с мгновенным результатом.">
+    <link rel="canonical" href="https://axiiom.ru/tools/url-encode/">
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://axiiom.ru/tools/url-encode/">
+    <meta property="og:title" content="URL Encode/Decode онлайн — AXIIOM Tools">
+    <meta property="og:description" content="Кодирование и декодирование URL онлайн. Поддержка encodeURIComponent/decodeURIComponent, копирование результата в один клик.">
+    <meta property="og:image" content="/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:locale" content="ru_RU">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://axiiom.ru/tools/url-encode/">
+    <meta name="twitter:title" content="URL Encode/Decode онлайн — AXIIOM Tools">
+    <meta name="twitter:description" content="Кодирование и декодирование URL онлайн. Поддержка encodeURIComponent/decodeURIComponent, копирование результата в один клик.">
+    <meta name="twitter:image" content="/og-image.png">
+
+    <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+<div class="noise"></div>
+<div class="grid-overlay"></div>
+
+<header class="header" id="header">
+    <div class="container">
+        <nav class="nav">
+            <a href="/" class="logo">
+                <svg width="30" height="30" viewBox="0 0 36 36" fill="none">
+                    <rect x="2" y="2" width="14" height="14" rx="2" stroke="currentColor" stroke-width="1.5" opacity=".4"/>
+                    <rect x="20" y="2" width="14" height="14" rx="2" stroke="currentColor" stroke-width="1.5" opacity=".4"/>
+                    <rect x="2" y="20" width="14" height="14" rx="2" stroke="currentColor" stroke-width="1.5" opacity=".4"/>
+                    <rect x="20" y="20" width="14" height="14" rx="2" stroke="currentColor" stroke-width="1.5"/>
+                    <circle cx="27" cy="27" r="3" fill="currentColor" opacity=".8"/>
+                </svg>
+                <span>AXIIOM</span>
+            </a>
+            <ul class="nav-links nav-links--desktop tools-nav-links" id="toolsNav"></ul>
+            <div class="nav-actions">
+                <button class="theme-btn" id="themeToggle" aria-label="Сменить тему">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>
+                </button>
+                <button class="nav-toggle tools-nav-toggle" id="navToggle" aria-label="Меню">
+                    <span></span><span></span><span></span>
+                </button>
+            </div>
+        </nav>
+    </div>
+</header>
+
+<div class="nav-overlay" id="navOverlay">
+    <ul class="nav-links" id="toolsNavMobile"></ul>
+</div>
+
+
+<section class="tool-page">
+    <div class="container">
+        <div class="tool-page-header">
+            <a href="../" class="back-link"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5"/><path d="M12 19l-7-7 7-7"/></svg> Все инструменты</a>
+            <h1>URL Encode</h1>
+            <button class="share-btn" onclick="copyPageUrl(this)" aria-label="Поделиться" title="Поделиться">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M4 12v8a2 2 0 002 2h12a2 2 0 002-2v-8"/>
+                    <polyline points="16 6 12 2 8 6"/>
+                    <line x1="12" y1="2" x2="12" y2="15"/>
+                </svg>
+                <span class="share-tooltip">Ссылка скопирована</span>
+            </button>
+            
+            
+        </div>
+        <div class="tool-page-card">
+            <p class="tool-description">Кодирование и декодирование URL-строк, экранирование спецсимволов.</p>
+
+            <div class="tool-row">
+                <label class="tool-label" for="input">Строка для преобразования</label>
+                <textarea class="tool-textarea" id="input" placeholder="Введите URL-строку для кодирования или декодирования..." rows="4"></textarea>
+            </div>
+
+            <div class="tool-btn-group">
+                <button class="tool-btn" id="encodeBtn">Закодировать (Encode)</button>
+                <button class="tool-btn-secondary" id="decodeBtn">Декодировать (Decode)</button>
+            </div>
+
+            <div class="tool-row" style="margin-top:20px">
+                <div style="display:flex;align-items:center;justify-content:space-between">
+                    <span class="tool-output-label">Результат</span>
+                    <button class="tool-btn-secondary copy-btn" id="copyBtn">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>
+                        Копировать
+                    </button>
+                </div>
+                <div class="tool-output" id="output"></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<footer class="footer">
+    <div class="container">
+        <div id="footerTools"></div>
+        <p class="copy"><a href="https://axiiom.ru/" class="footer-link">AXIIOM</a> © 2026 — Бесплатные онлайн-инструменты</p>
+    </div>
+</footer>
+
+<script>
+function copyPageUrl(btn) {
+    var url = window.location.href;
+    var ta = document.createElement('textarea');
+    ta.value = url;
+    ta.style.position = 'fixed';
+    ta.style.left = '0';
+    ta.style.top = '0';
+    ta.style.width = '2em';
+    ta.style.height = '2em';
+    ta.style.padding = '0';
+    ta.style.border = 'none';
+    ta.style.outline = 'none';
+    ta.style.background = 'transparent';
+    ta.style.color = 'transparent';
+    document.body.appendChild(ta);
+    ta.focus();
+    ta.select();
+    document.execCommand('copy');
+    document.body.removeChild(ta);
+    var tip = btn.querySelector('.share-tooltip');
+    if (tip) { tip.classList.add('show'); setTimeout(function() { tip.classList.remove('show'); }, 2000); }
+}
+</script>
+<script src="../nav.js"></script>
+<script>
+initToolsNav('url-encode/');
+
+var themeToggle = document.getElementById('themeToggle');
+var html = document.documentElement;
+var saved = localStorage.getItem('theme');
+if (saved) html.setAttribute('data-theme', saved);
+if (!saved && window.matchMedia('(prefers-color-scheme: light)').matches) {
+    html.setAttribute('data-theme', 'light');
+}
+updateIcon();
+themeToggle.addEventListener('click', function() {
+    var current = html.getAttribute('data-theme');
+    var next = current === 'light' ? '' : 'light';
+    html.setAttribute('data-theme', next);
+    localStorage.setItem('theme', next);
+    updateIcon();
+});
+function updateIcon() {
+    var isLight = html.getAttribute('data-theme') === 'light';
+    themeToggle.innerHTML = isLight
+        ? '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>'
+        : '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>';
+}
+
+var header = document.getElementById('header');
+window.addEventListener('scroll', function() {
+    header.classList.toggle('scrolled', window.scrollY > 40);
+}, { passive: true });
+
+var cursor = document.createElement('div');
+cursor.className = 'cursor-glow';
+document.body.appendChild(cursor);
+document.addEventListener('mousemove', function(e) {
+    cursor.style.transform = 'translate(' + (e.clientX - 400) + 'px, ' + (e.clientY - 400) + 'px)';
+});
+
+var input = document.getElementById('input');
+var output = document.getElementById('output');
+var encodeBtn = document.getElementById('encodeBtn');
+var decodeBtn = document.getElementById('decodeBtn');
+var copyBtn = document.getElementById('copyBtn');
+
+encodeBtn.addEventListener('click', function() {
+    try {
+        output.textContent = encodeURIComponent(input.value);
+    } catch (e) {
+        output.textContent = 'Ошибка кодирования';
+    }
+});
+
+decodeBtn.addEventListener('click', function() {
+    try {
+        output.textContent = decodeURIComponent(input.value);
+    } catch (e) {
+        output.textContent = 'Ошибка декодирования — проверьте строку';
+    }
+});
+
+copyBtn.addEventListener('click', function() {
+    var text = output.textContent;
+    if (!text) return;
+    navigator.clipboard.writeText(text).then(function() {
+        copyBtn.classList.add('copied');
+        setTimeout(function() { copyBtn.classList.remove('copied'); }, 2000);
+    }).catch(function() {
+        var ta = document.createElement('textarea');
+        ta.value = text;
+        document.body.appendChild(ta);
+        ta.select();
+        document.execCommand('copy');
+        document.body.removeChild(ta);
+        copyBtn.classList.add('copied');
+        setTimeout(function() { copyBtn.classList.remove('copied'); }, 2000);
+    });
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Color Picker онлайн — подбор цвета, HEX RGB HSL — AXIIOM Tools</title>
+    <meta name="description" content="Бесплатный онлайн Color Picker. Выбирайте цвет и мгновенно получайте его HEX, RGB и HSL значения. Удобный подбор цветов.">
+    <link rel="canonical" href="https://axiiom.ru/tools/color-picker/">
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://axiiom.ru/tools/color-picker/">
+    <meta property="og:title" content="Color Picker онлайн — подбор цвета HEX RGB HSL — AXIIOM Tools">
+    <meta property="og:description" content="Интерактивный подбор цвета с отображением HEX, RGB и HSL. Удобный интерфейс, копирование значения в один клик.">
+    <meta property="og:image" content="/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:locale" content="ru_RU">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://axiiom.ru/tools/color-picker/">
+    <meta name="twitter:title" content="Color Picker онлайн — подбор цвета HEX RGB HSL — AXIIOM Tools">
+    <meta name="twitter:description" content="Интерактивный подбор цвета с отображением HEX, RGB и HSL. Удобный интерфейс, копирование значения в один клик.">
+    <meta name="twitter:image" content="/og-image.png">
+
+    <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+<div class="noise"></div>
+<div class="grid-overlay"></div>
+
+<header class="header" id="header">
+    <div class="container">
+        <nav class="nav">
+            <a href="/" class="logo">
+                <svg width="30" height="30" viewBox="0 0 36 36" fill="none">
+                    <rect x="2" y="2" width="14" height="14" rx="2" stroke="currentColor" stroke-width="1.5" opacity=".4"/>
+                    <rect x="20" y="2" width="14" height="14" rx="2" stroke="currentColor" stroke-width="1.5" opacity=".4"/>
+                    <rect x="2" y="20" width="14" height="14" rx="2" stroke="currentColor" stroke-width="1.5" opacity=".4"/>
+                    <rect x="20" y="20" width="14" height="14" rx="2" stroke="currentColor" stroke-width="1.5"/>
+                    <circle cx="27" cy="27" r="3" fill="currentColor" opacity=".8"/>
+                </svg>
+                <span>AXIIOM</span>
+            </a>
+            <ul class="nav-links nav-links--desktop tools-nav-links" id="toolsNav"></ul>
+            <div class="nav-actions">
+                <button class="theme-btn" id="themeToggle" aria-label="Сменить тему">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>
+                </button>
+                <button class="nav-toggle tools-nav-toggle" id="navToggle" aria-label="Меню">
+                    <span></span><span></span><span></span>
+                </button>
+            </div>
+        </nav>
+    </div>
+</header>
+
+<div class="nav-overlay" id="navOverlay">
+    <ul class="nav-links" id="toolsNavMobile"></ul>
+</div>
+
+
+<section class="tool-page">
+    <div class="container">
+        <div class="tool-page-header">
+            <a href="../" class="back-link"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5"/><path d="M12 19l-7-7 7-7"/></svg> Все инструменты</a>
+            <h1>Color Picker</h1>
+            <button class="share-btn" onclick="copyPageUrl(this)" aria-label="Поделиться" title="Поделиться">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M4 12v8a2 2 0 002 2h12a2 2 0 002-2v-8"/>
+                    <polyline points="16 6 12 2 8 6"/>
+                    <line x1="12" y1="2" x2="12" y2="15"/>
+                </svg>
+                <span class="share-tooltip">Ссылка скопирована</span>
+            </button>
+            
+            
+        </div>
+        <p class="tool-description">Выбор цвета и конвертация между HEX, RGB и HSL.</p>
+        <div class="tool-page-card">
+            <div class="color-picker-layout">
+                <div class="color-swatch-wrap">
+                    <div class="color-swatch" id="swatch" style="background:#6c5ce7"></div>
+                    <div class="swatch-hex" id="swatchHex">#6c5ce7</div>
+                    <div class="color-input-wrap">
+                        <label class="tool-label" for="nativePicker">Палитра</label>
+                        <input type="color" id="nativePicker" value="#6c5ce7">
+                    </div>
+                </div>
+                <div class="fields-grid">
+                    <div class="field-group hex-field">
+                        <div class="format-label">HEX</div>
+                        <div class="field-row">
+                            <input class="tool-input" type="text" id="hexInput" value="#6c5ce7" maxlength="7">
+                        </div>
+                    </div>
+                    <div class="field-group">
+                        <div class="format-label">RGB</div>
+                        <div class="field-row">
+                            <label class="tool-label" for="rInput" style="min-width:16px">R</label>
+                            <input type="range" id="rRange" min="0" max="255" value="108">
+                            <input class="tool-input" type="number" id="rInput" min="0" max="255" value="108">
+                        </div>
+                        <div class="field-row">
+                            <label class="tool-label" for="gInput" style="min-width:16px">G</label>
+                            <input type="range" id="gRange" min="0" max="255" value="92">
+                            <input class="tool-input" type="number" id="gInput" min="0" max="255" value="92">
+                        </div>
+                        <div class="field-row">
+                            <label class="tool-label" for="bInput" style="min-width:16px">B</label>
+                            <input type="range" id="bRange" min="0" max="255" value="231">
+                            <input class="tool-input" type="number" id="bInput" min="0" max="255" value="231">
+                        </div>
+                    </div>
+                    <div class="field-group">
+                        <div class="format-label">HSL</div>
+                        <div class="field-row">
+                            <label class="tool-label" for="hInput" style="min-width:16px">H</label>
+                            <input type="range" id="hRange" min="0" max="360" value="248">
+                            <input class="tool-input" type="number" id="hInput" min="0" max="360" value="248">
+                            <span class="field-suffix">°</span>
+                        </div>
+                        <div class="field-row">
+                            <label class="tool-label" for="sInput" style="min-width:16px">S</label>
+                            <input type="range" id="sRange" min="0" max="100" value="74">
+                            <input class="tool-input" type="number" id="sInput" min="0" max="100" value="74">
+                            <span class="field-suffix">%</span>
+                        </div>
+                        <div class="field-row">
+                            <label class="tool-label" for="lInput" style="min-width:16px">L</label>
+                            <input type="range" id="lRange" min="0" max="100" value="63">
+                            <input class="tool-input" type="number" id="lInput" min="0" max="100" value="63">
+                            <span class="field-suffix">%</span>
+                        </div>
+                    </div>
+                    <div class="tool-btn-group">
+                        <button class="tool-btn" id="copyHexBtn">Копировать HEX</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<footer class="footer">
+    <div class="container">
+        <div id="footerTools"></div>
+        <p class="copy"><a href="https://axiiom.ru/" class="footer-link">AXIIOM</a> © 2026 — Бесплатные онлайн-инструменты</p>
+    </div>
+</footer>
+
+<script>
+function copyPageUrl(btn) {
+    var url = window.location.href;
+    var ta = document.createElement('textarea');
+    ta.value = url;
+    ta.style.position = 'fixed';
+    ta.style.left = '0';
+    ta.style.top = '0';
+    ta.style.width = '2em';
+    ta.style.height = '2em';
+    ta.style.padding = '0';
+    ta.style.border = 'none';
+    ta.style.outline = 'none';
+    ta.style.background = 'transparent';
+    ta.style.color = 'transparent';
+    document.body.appendChild(ta);
+    ta.focus();
+    ta.select();
+    document.execCommand('copy');
+    document.body.removeChild(ta);
+    var tip = btn.querySelector('.share-tooltip');
+    if (tip) { tip.classList.add('show'); setTimeout(function() { tip.classList.remove('show'); }, 2000); }
+}
+</script>
+<script src="../nav.js"></script>
+<script>
+initToolsNav('color-picker/');
+
+var themeToggle = document.getElementById('themeToggle');
+var html = document.documentElement;
+var saved = localStorage.getItem('theme');
+if (saved) html.setAttribute('data-theme', saved);
+if (!saved && window.matchMedia('(prefers-color-scheme: light)').matches) {
+    html.setAttribute('data-theme', 'light');
+}
+updateIcon();
+themeToggle.addEventListener('click', function() {
+    var current = html.getAttribute('data-theme');
+    var next = current === 'light' ? '' : 'light';
+    html.setAttribute('data-theme', next);
+    localStorage.setItem('theme', next);
+    updateIcon();
+});
+function updateIcon() {
+    var isLight = html.getAttribute('data-theme') === 'light';
+    themeToggle.innerHTML = isLight
+        ? '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>'
+        : '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>';
+}
+
+var header = document.getElementById('header');
+window.addEventListener('scroll', function() {
+    header.classList.toggle('scrolled', window.scrollY > 40);
+}, { passive: true });
+
+var cursor = document.createElement('div');
+cursor.className = 'cursor-glow';
+document.body.appendChild(cursor);
+document.addEventListener('mousemove', function(e) {
+    cursor.style.transform = 'translate(' + (e.clientX - 400) + 'px, ' + (e.clientY - 400) + 'px)';
+});
+
+// --- Color Picker Logic ---
+var nativePicker = document.getElementById('nativePicker');
+var swatch = document.getElementById('swatch');
+var swatchHex = document.getElementById('swatchHex');
+var hexInput = document.getElementById('hexInput');
+var rRange = document.getElementById('rRange');
+var gRange = document.getElementById('gRange');
+var bRange = document.getElementById('bRange');
+var rInput = document.getElementById('rInput');
+var gInput = document.getElementById('gInput');
+var bInput = document.getElementById('bInput');
+var hRange = document.getElementById('hRange');
+var sRange = document.getElementById('sRange');
+var lRange = document.getElementById('lRange');
+var hInput = document.getElementById('hInput');
+var sInput = document.getElementById('sInput');
+var lInput = document.getElementById('lInput');
+var copyBtn = document.getElementById('copyHexBtn');
+var updating = false;
+
+function hexToRgb(hex) {
+    var m = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
+    if (!m) return null;
+    return [parseInt(m[1], 16), parseInt(m[2], 16), parseInt(m[3], 16)];
+}
+
+function rgbToHex(r, g, b) {
+    return '#' + [r, g, b].map(function(c) { return Math.round(c).toString(16).padStart(2, '0'); }).join('');
+}
+
+function rgbToHsl(r, g, b) {
+    r /= 255; g /= 255; b /= 255;
+    var mx = Math.max(r, g, b), mn = Math.min(r, g, b);
+    var h, s, l = (mx + mn) / 2;
+    if (mx === mn) { h = s = 0; }
+    else {
+        var d = mx - mn;
+        s = l > 0.5 ? d / (2 - mx - mn) : d / (mx + mn);
+        switch (mx) {
+            case r: h = ((g - b) / d + (g < b ? 6 : 0)) / 6; break;
+            case g: h = ((b - r) / d + 2) / 6; break;
+            case b: h = ((r - g) / d + 4) / 6; break;
+        }
+    }
+    return [Math.round(h * 360), Math.round(s * 100), Math.round(l * 100)];
+}
+
+function hslToRgb(h, s, l) {
+    h /= 360; s /= 100; l /= 100;
+    if (s === 0) { var v = Math.round(l * 255); return [v, v, v]; }
+    var q = l < 0.5 ? l * (1 + s) : l + s - l * s;
+    var p = 2 * l - q;
+    var hue2rgb = function(p, q, t) {
+        if (t < 0) t += 1;
+        if (t > 1) t -= 1;
+        if (t < 1/6) return p + (q - p) * 6 * t;
+        if (t < 1/2) return q;
+        if (t < 2/3) return p + (q - p) * (2/3 - t) * 6;
+        return p;
+    };
+    return [
+        Math.round(hue2rgb(p, q, h + 1/3) * 255),
+        Math.round(hue2rgb(p, q, h) * 255),
+        Math.round(hue2rgb(p, q, h - 1/3) * 255)
+    ];
+}
+
+function clamp(v, min, max) { return Math.max(min, Math.min(max, v)); }
+
+function updateUI(r, g, b, skipNative) {
+    if (updating) return;
+    updating = true;
+    var hex = rgbToHex(r, g, b);
+    var hsl = rgbToHsl(r, g, b);
+    if (!skipNative) nativePicker.value = hex;
+    hexInput.value = hex;
+    swatch.style.background = hex;
+    swatchHex.textContent = hex;
+    rRange.value = rInput.value = r;
+    gRange.value = gInput.value = g;
+    bRange.value = bInput.value = b;
+    hRange.value = hInput.value = hsl[0];
+    sRange.value = sInput.value = hsl[1];
+    lRange.value = lInput.value = hsl[2];
+    updating = false;
+}
+
+function fromHex() {
+    var val = hexInput.value.trim();
+    if (val && !val.startsWith('#')) val = '#' + val;
+    var rgb = hexToRgb(val);
+    if (rgb) updateUI(rgb[0], rgb[1], rgb[2]);
+}
+
+function fromRgb() {
+    var r = clamp(parseInt(rInput.value) || 0, 0, 255);
+    var g = clamp(parseInt(gInput.value) || 0, 0, 255);
+    var b = clamp(parseInt(bInput.value) || 0, 0, 255);
+    updateUI(r, g, b);
+}
+
+function fromRgbRange() {
+    var r = clamp(parseInt(rRange.value) || 0, 0, 255);
+    var g = clamp(parseInt(gRange.value) || 0, 0, 255);
+    var b = clamp(parseInt(bRange.value) || 0, 0, 255);
+    updateUI(r, g, b);
+}
+
+function fromHsl() {
+    var h = clamp(parseInt(hInput.value) || 0, 0, 360);
+    var s = clamp(parseInt(sInput.value) || 0, 0, 100);
+    var l = clamp(parseInt(lInput.value) || 0, 0, 100);
+    var rgb = hslToRgb(h, s, l);
+    updateUI(rgb[0], rgb[1], rgb[2]);
+}
+
+function fromHslRange() {
+    var h = clamp(parseInt(hRange.value) || 0, 0, 360);
+    var s = clamp(parseInt(sRange.value) || 0, 0, 100);
+    var l = clamp(parseInt(lRange.value) || 0, 0, 100);
+    var rgb = hslToRgb(h, s, l);
+    updateUI(rgb[0], rgb[1], rgb[2]);
+}
+
+nativePicker.addEventListener('input', function() {
+    var rgb = hexToRgb(nativePicker.value);
+    if (rgb) updateUI(rgb[0], rgb[1], rgb[2], true);
+});
+hexInput.addEventListener('input', fromHex);
+[rInput, gInput, bInput].forEach(function(el) { el.addEventListener('input', fromRgb); });
+[rRange, gRange, bRange].forEach(function(el) { el.addEventListener('input', fromRgbRange); });
+[hInput, sInput, lInput].forEach(function(el) { el.addEventListener('input', fromHsl); });
+[hRange, sRange, lRange].forEach(function(el) { el.addEventListener('input', fromHslRange); });
+
+copyBtn.addEventListener('click', function() {
+    var hex = hexInput.value;
+    try { navigator.clipboard.writeText(hex); } catch(e) { var ta = document.createElement('textarea'); ta.value = hex; document.body.appendChild(ta); ta.select(); document.execCommand('copy'); document.body.removeChild(ta); }
+    copyBtn.textContent = 'Скопировано!';
+    setTimeout(function() { copyBtn.textContent = 'Копировать HEX'; }, 1500);
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Конвертер единиц измерения онлайн — AXIIOM Tools</title>
+    <meta name="description" content="Бесплатный онлайн конвертер единиц: длина, масса, температура, объём, скорость, площадь, давление. 7 категорий измерений.">
+    <link rel="canonical" href="https://axiiom.ru/tools/unit-converter/">
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://axiiom.ru/tools/unit-converter/">
+    <meta property="og:title" content="Конвертер единиц измерения онлайн — AXIIOM Tools">
+    <meta property="og:description" content="Перевод единиц в 7 категориях: длина, масса, температура, объём, скорость, площадь, давление. Удобный интерфейс.">
+    <meta property="og:image" content="/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:locale" content="ru_RU">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://axiiom.ru/tools/unit-converter/">
+    <meta name="twitter:title" content="Конвертер единиц измерения онлайн — AXIIOM Tools">
+    <meta name="twitter:description" content="Перевод единиц в 7 категориях: длина, масса, температура, объём, скорость, площадь, давление. Удобный интерфейс.">
+    <meta name="twitter:image" content="/og-image.png">
+
+    <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+<div class="noise"></div>
+<div class="grid-overlay"></div>
+
+<header class="header" id="header">
+    <div class="container">
+        <nav class="nav">
+            <a href="/" class="logo">
+                <svg width="30" height="30" viewBox="0 0 36 36" fill="none">
+                    <rect x="2" y="2" width="14" height="14" rx="2" stroke="currentColor" stroke-width="1.5" opacity=".4"/>
+                    <rect x="20" y="2" width="14" height="14" rx="2" stroke="currentColor" stroke-width="1.5" opacity=".4"/>
+                    <rect x="2" y="20" width="14" height="14" rx="2" stroke="currentColor" stroke-width="1.5" opacity=".4"/>
+                    <rect x="20" y="20" width="14" height="14" rx="2" stroke="currentColor" stroke-width="1.5"/>
+                    <circle cx="27" cy="27" r="3" fill="currentColor" opacity=".8"/>
+                </svg>
+                <span>AXIIOM</span>
+            </a>
+            <ul class="nav-links nav-links--desktop tools-nav-links" id="toolsNav"></ul>
+            <div class="nav-actions">
+                <button class="theme-btn" id="themeToggle" aria-label="Сменить тему">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>
+                </button>
+                <button class="nav-toggle tools-nav-toggle" id="navToggle" aria-label="Меню">
+                    <span></span><span></span><span></span>
+                </button>
+            </div>
+        </nav>
+    </div>
+</header>
+
+<div class="nav-overlay" id="navOverlay">
+    <ul class="nav-links" id="toolsNavMobile"></ul>
+</div>
+
+
+<section class="tool-page">
+    <div class="container">
+        <div class="tool-page-header">
+            <a href="../" class="back-link"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5"/><path d="M12 19l-7-7 7-7"/></svg> Все инструменты</a>
+            <h1>Конвертер единиц</h1>
+            <button class="share-btn" onclick="copyPageUrl(this)" aria-label="Поделиться" title="Поделиться">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M4 12v8a2 2 0 002 2h12a2 2 0 002-2v-8"/>
+                    <polyline points="16 6 12 2 8 6"/>
+                    <line x1="12" y1="2" x2="12" y2="15"/>
+                </svg>
+                <span class="share-tooltip">Ссылка скопирована</span>
+            </button>
+            
+            
+        </div>
+
+        <p class="tool-description">Перевод различных единиц измерения: длина, масса, температура, объём и другие.</p>
+
+        <div class="tool-page-card">
+            <div class="tool-row">
+                <label class="tool-label" for="category">Категория</label>
+                <select class="tool-select" id="category">
+                    <option value="length">Длина</option>
+                    <option value="mass">Масса</option>
+                    <option value="temperature">Температура</option>
+                    <option value="volume">Объём</option>
+                    <option value="speed">Скорость</option>
+                    <option value="area">Площадь</option>
+                    <option value="pressure">Давление</option>
+                </select>
+            </div>
+
+            <div class="tool-row">
+                <label class="tool-label" for="value">Значение</label>
+                <input class="tool-input" type="number" id="value" value="1" step="any">
+            </div>
+
+            <div class="tool-grid-2">
+                <div class="tool-row">
+                    <label class="tool-label" for="fromUnit">Из</label>
+                    <select class="tool-select" id="fromUnit"></select>
+                </div>
+                <div class="tool-row">
+                    <label class="tool-label" for="toUnit">В</label>
+                    <select class="tool-select" id="toUnit"></select>
+                </div>
+            </div>
+
+            <div class="tool-row">
+                <label class="tool-output-label">Результат</label>
+                <div class="tool-output" id="result">—</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<footer class="footer">
+    <div class="container">
+        <div id="footerTools"></div>
+        <p class="copy"><a href="https://axiiom.ru/" class="footer-link">AXIIOM</a> © 2026 — Бесплатные онлайн-инструменты</p>
+    </div>
+</footer>
+
+<script>
+function copyPageUrl(btn) {
+    var url = window.location.href;
+    var ta = document.createElement('textarea');
+    ta.value = url;
+    ta.style.position = 'fixed';
+    ta.style.left = '0';
+    ta.style.top = '0';
+    ta.style.width = '2em';
+    ta.style.height = '2em';
+    ta.style.padding = '0';
+    ta.style.border = 'none';
+    ta.style.outline = 'none';
+    ta.style.background = 'transparent';
+    ta.style.color = 'transparent';
+    document.body.appendChild(ta);
+    ta.focus();
+    ta.select();
+    document.execCommand('copy');
+    document.body.removeChild(ta);
+    var tip = btn.querySelector('.share-tooltip');
+    if (tip) { tip.classList.add('show'); setTimeout(function() { tip.classList.remove('show'); }, 2000); }
+}
+</script>
+<script src="../nav.js"></script>
+<script>
+initToolsNav('unit-converter/');
+
+var themeToggle = document.getElementById('themeToggle');
+var html = document.documentElement;
+var saved = localStorage.getItem('theme');
+if (saved) html.setAttribute('data-theme', saved);
+if (!saved && window.matchMedia('(prefers-color-scheme: light)').matches) {
+    html.setAttribute('data-theme', 'light');
+}
+updateIcon();
+themeToggle.addEventListener('click', function() {
+    var current = html.getAttribute('data-theme');
+    var next = current === 'light' ? '' : 'light';
+    html.setAttribute('data-theme', next);
+    localStorage.setItem('theme', next);
+    updateIcon();
+});
+function updateIcon() {
+    var isLight = html.getAttribute('data-theme') === 'light';
+    themeToggle.innerHTML = isLight
+        ? '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>'
+        : '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>';
+}
+
+var header = document.getElementById('header');
+window.addEventListener('scroll', function() {
+    header.classList.toggle('scrolled', window.scrollY > 40);
+}, { passive: true });
+
+var cursor = document.createElement('div');
+cursor.className = 'cursor-glow';
+document.body.appendChild(cursor);
+document.addEventListener('mousemove', function(e) {
+    cursor.style.transform = 'translate(' + (e.clientX - 400) + 'px, ' + (e.clientY - 400) + 'px)';
+});
+
+// Tool-specific JS
+var UNITS_DATA = {
+    length: [
+        { id: 'mm', label: 'мм' },
+        { id: 'cm', label: 'см' },
+        { id: 'm', label: 'м' },
+        { id: 'km', label: 'км' },
+        { id: 'in', label: 'дюйм' },
+        { id: 'ft', label: 'фут' },
+        { id: 'yd', label: 'ярд' },
+        { id: 'mi', label: 'миля' }
+    ],
+    mass: [
+        { id: 'mg', label: 'мг' },
+        { id: 'g', label: 'г' },
+        { id: 'kg', label: 'кг' },
+        { id: 't', label: 'т' },
+        { id: 'oz', label: 'унция' },
+        { id: 'lb', label: 'фунт' }
+    ],
+    temperature: [
+        { id: 'c', label: '°C' },
+        { id: 'f', label: '°F' },
+        { id: 'k', label: 'K' }
+    ],
+    volume: [
+        { id: 'ml', label: 'мл' },
+        { id: 'l', label: 'л' },
+        { id: 'm3', label: 'м³' },
+        { id: 'gal', label: 'галлон' },
+        { id: 'floz', label: 'fl oz' }
+    ],
+    speed: [
+        { id: 'ms', label: 'м/с' },
+        { id: 'kmh', label: 'км/ч' },
+        { id: 'mph', label: 'mph' },
+        { id: 'kt', label: 'узлы' }
+    ],
+    area: [
+        { id: 'mm2', label: 'мм²' },
+        { id: 'cm2', label: 'см²' },
+        { id: 'm2', label: 'м²' },
+        { id: 'ha', label: 'га' },
+        { id: 'km2', label: 'км²' },
+        { id: 'ac', label: 'акр' }
+    ],
+    pressure: [
+        { id: 'pa', label: 'Па' },
+        { id: 'kpa', label: 'кПа' },
+        { id: 'bar', label: 'бар' },
+        { id: 'atm', label: 'атм' },
+        { id: 'mmhg', label: 'мм рт. ст.' },
+        { id: 'psi', label: 'psi' }
+    ]
+};
+
+var TO_BASE = {
+    length: { mm: 0.001, cm: 0.01, m: 1, km: 1000, in: 0.0254, ft: 0.3048, yd: 0.9144, mi: 1609.344 },
+    mass: { mg: 0.001, g: 1, kg: 1000, t: 1000000, oz: 28.3495, lb: 453.592 },
+    volume: { ml: 0.001, l: 1, m3: 1000, gal: 3.78541, floz: 0.0295735 },
+    speed: { ms: 1, kmh: 0.277778, mph: 0.44704, kt: 0.514444 },
+    area: { mm2: 0.000001, cm2: 0.0001, m2: 1, ha: 10000, km2: 1000000, ac: 4046.86 },
+    pressure: { pa: 1, kpa: 1000, bar: 100000, atm: 101325, mmhg: 133.322, psi: 6894.76 }
+};
+
+var FROM_BASE = {
+    length: { mm: 1000, cm: 100, m: 1, km: 0.001, in: 39.3701, ft: 3.28084, yd: 1.09361, mi: 0.000621371 },
+    mass: { mg: 1000, g: 1, kg: 0.001, t: 0.000001, oz: 0.035274, lb: 0.00220462 },
+    volume: { ml: 1000, l: 1, m3: 0.001, gal: 0.264172, floz: 33.814 },
+    speed: { ms: 1, kmh: 3.6, mph: 2.23694, kt: 1.94384 },
+    area: { mm2: 1000000, cm2: 10000, m2: 1, ha: 0.0001, km2: 0.000001, ac: 0.000247105 },
+    pressure: { pa: 1, kpa: 0.001, bar: 0.00001, atm: 0.00000986923, mmhg: 0.00750062, psi: 0.000145038 }
+};
+
+var categoryEl = document.getElementById('category');
+var valueEl = document.getElementById('value');
+var fromEl = document.getElementById('fromUnit');
+var toEl = document.getElementById('toUnit');
+var resultEl = document.getElementById('result');
+
+function populateUnits() {
+    var cat = categoryEl.value;
+    var list = UNITS_DATA[cat];
+    var prevFrom = fromEl.value;
+    var prevTo = toEl.value;
+    fromEl.innerHTML = '';
+    toEl.innerHTML = '';
+    for (var i = 0; i < list.length; i++) {
+        var u = list[i];
+        fromEl.innerHTML += '<option value="' + u.id + '">' + u.label + '</option>';
+        toEl.innerHTML += '<option value="' + u.id + '">' + u.label + '</option>';
+    }
+    var fromFound = false;
+    var toFound = false;
+    for (var j = 0; j < list.length; j++) {
+        if (list[j].id === prevFrom) fromFound = true;
+        if (list[j].id === prevTo) toFound = true;
+    }
+    if (fromFound) fromEl.value = prevFrom;
+    else if (list.length > 1) fromEl.value = list[1].id;
+    if (toFound) toEl.value = prevTo;
+    else if (list.length > 0) toEl.value = list[0].id;
+    convert();
+}
+
+function convert() {
+    var cat = categoryEl.value;
+    var from = fromEl.value;
+    var to = toEl.value;
+    var val = parseFloat(valueEl.value);
+
+    if (isNaN(val) || !from || !to) {
+        resultEl.textContent = '—';
+        return;
+    }
+
+    var result;
+    if (cat === 'temperature') {
+        result = convertTemperature(from, to, val);
+    } else {
+        var baseVal = val * TO_BASE[cat][from];
+        result = baseVal * FROM_BASE[cat][to];
+    }
+
+    var formatted = result % 1 === 0 ? result.toString() : result.toFixed(10).replace(/\.?0+$/, '');
+    resultEl.textContent = formatted;
+}
+
+function convertTemperature(from, to, val) {
+    var celsius;
+    if (from === 'c') celsius = val;
+    else if (from === 'f') celsius = (val - 32) * 5 / 9;
+    else celsius = val - 273.15;
+
+    if (to === 'c') return celsius;
+    if (to === 'f') return celsius * 9 / 5 + 32;
+    return celsius + 273.15;
+}
+
+categoryEl.addEventListener('change', populateUnits);
+valueEl.addEventListener('input', convert);
+fromEl.addEventListener('change', convert);
+toEl.addEventListener('change', convert);
+
+populateUnits();
+</script>
+</body>
+</html>
