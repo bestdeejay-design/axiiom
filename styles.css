@@ -1,30 +1,32 @@
 :root {
-    --clr-bg: #07070a;
-    --clr-bg-alt: #0a0a0e;
-    --clr-surface: rgba(255,255,255,.02);
-    --clr-surface-hover: rgba(255,255,255,.04);
-    --clr-text: #f0f0f5;
-    --clr-heading: #fff;
-    --clr-muted: rgba(255,255,255,.55);
-    --clr-faint: rgba(255,255,255,.25);
-    --clr-border: rgba(255,255,255,.05);
+    --clr-bg: #0A0A0F;
+    --clr-bg-alt: #0E0E14;
+    --clr-surface: #12121A;
+    --clr-surface-hover: #1A1A24;
+    --clr-text: #C7C7CC;
+    --clr-heading: #F5F5F7;
+    --clr-muted: #8E8E93;
+    --clr-faint: #6E6E73;
+    --clr-border: rgba(255,255,255,.06);
     --clr-border-hover: rgba(255,255,255,.1);
-    --clr-hero-bg: #07070a;
-    --clr-accent: #8264ff;
+    --clr-hero-bg: #0A0A0F;
+    --clr-accent: #D4A574;
+    --clr-accent2: #8B9D83;
 }
 
 [data-theme="light"] {
-    --clr-bg: #f4f5f8;
-    --clr-bg-alt: #e8eaef;
-    --clr-surface: #ffffff;
-    --clr-surface-hover: #f0f2f6;
-    --clr-text: #1e1e2e;
-    --clr-heading: #0a0a14;
-    --clr-muted: #555568;
-    --clr-faint: #7d7d91;
-    --clr-border: #e0e2e8;
-    --clr-border-hover: #c8cbd4;
-    --clr-hero-bg: #f4f5f8;
+    --clr-bg: #FFFFFF;
+    --clr-bg-alt: #F5F5F7;
+    --clr-surface: #F5F5F7;
+    --clr-surface-hover: #EBEBED;
+    --clr-text: #424245;
+    --clr-heading: #1D1D1F;
+    --clr-muted: #6E6E73;
+    --clr-faint: #8E8E93;
+    --clr-border: #D2D2D7;
+    --clr-border-hover: #B0B0B8;
+    --clr-hero-bg: #FFFFFF;
+    --clr-accent: #B88A57;
 }
 
 [data-theme="light"] .card,
@@ -116,14 +118,16 @@
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
 
-html { scroll-behavior: smooth; }
+html { font-size: 16px; scroll-behavior: smooth; }
 
 body {
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    font-size: 1.0625rem;
     background: var(--clr-bg);
     color: var(--clr-text);
-    line-height: 1.6;
+    line-height: 1.65;
     -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
     overflow-x: hidden;
 }
 
