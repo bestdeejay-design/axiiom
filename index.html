@@ -783,16 +783,47 @@ document.querySelectorAll('.btn-admin').forEach(btn => {
 });
 
 // Form submit
-document.getElementById('demoForm').addEventListener('submit', (e) => {
+document.getElementById('demoForm').addEventListener('submit', async (e) => {
     e.preventDefault();
     const form = e.target;
     const btn = form.querySelector('button');
-    btn.textContent = 'Отправлено!';
-    btn.style.background = 'var(--clr-accent2)';
+    const data = new FormData(form);
+    const text = [
+        '🟠 Новая заявка с axiiom.ru',
+        '',
+        'Имя: ' + (data.get('name') || '—'),
+        'Email: ' + (data.get('email') || '—'),
+        'Компания: ' + (data.get('company') || '—'),
+        'Телефон: ' + (data.get('phone') || '—'),
+        'Продукт: ' + (data.get('product') || '—')
+    ].join('\n');
+
+    btn.textContent = 'Отправка...';
     btn.disabled = true;
-    ym(109391253, 'reachGoal', 'form_demo');
-    gtag('event', 'form_demo');
-    setTimeout(() => { btn.textContent = 'Отправить заявку'; btn.style.background = ''; btn.disabled = false; closeModal(); }, 2000);
+
+    try {
+        const res = await fetch('https://api.max.ru/messages?user_id=id7842223709_1_bot', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': 'Bearer f9LHodD0cOJp7f4B613X_1kze9HHocA6icNFjumQ4MMAVozfbVhNdkf6DeY7sa2RG_zqgMdCon4i_n78f3EL'
+            },
+            body: JSON.stringify({ text: text })
+        });
+        if (res.ok) {
+            btn.textContent = 'Отправлено!';
+            btn.style.background = 'var(--clr-accent2)';
+            ym(109391253, 'reachGoal', 'form_demo');
+            gtag('event', 'form_demo');
+            setTimeout(() => { btn.textContent = 'Отправить заявку'; btn.style.background = ''; btn.disabled = false; closeModal(); }, 2000);
+        } else {
+            throw new Error(res.status);
+        }
+    } catch (err) {
+        btn.textContent = 'Ошибка. Попробуйте ещё раз';
+        btn.style.background = '#e74c3c';
+        setTimeout(() => { btn.textContent = 'Отправить заявку'; btn.style.background = ''; btn.disabled = false; }, 3000);
+    }
 });
 
 </script>
