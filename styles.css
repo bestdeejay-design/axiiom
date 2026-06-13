@@ -1291,6 +1291,7 @@ a.logo:hover::after { width: 100%; }
 /* Responsive */
 @media (max-width: 768px) {
     .nav-links--desktop { display: none; }
+    .btn-nav { display: none; }
 
     /* Full-screen overlay */
     .nav-overlay {
