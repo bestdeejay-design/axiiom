@@ -510,7 +510,7 @@
                 <div class="price-badge">Предварительная оценка</div>
                 <div class="price-label">Ориентировочная стоимость</div>
                 <div class="price-amount" id="priceAmount">—</div>
-                <div class="price-note" id="priceNote">Итоговая цена зависит от требований и объёма работ</div>
+                <div class="price-note" id="priceNote">Итоговая цена зависит от требований, числа вовлеченных участников и объёма работ</div>
                 <a href="mailto:hello@axiiom.ru?subject=Уточнение%20стоимости%20проекта" class="btn" onclick="ym(109391253,'reachGoal','calc_cta'); gtag('event','calc_cta');">Обсудить проект</a>
                 <div>
                     <button class="calc-reset" id="resetCalc">← Рассчитать другой проект</button>
@@ -842,7 +842,7 @@ function calculatePrice() {
     document.getElementById('priceAmount').textContent = formatPrice(from) + ' – ' + formatPrice(to);
 
     var selectedName = selectedService.name;
-    var note = 'Итоговая цена зависит от требований и объёма работ. ';
+    var note = 'Итоговая цена зависит от требований, числа вовлеченных участников и объёма работ. ';
     if (selectedName === 'Финтех-платформы') note += 'Учитывается сложность интеграций и комплаенс.';
     else if (selectedName === 'Платформы лояльности') note += 'White Label снижает стоимость и сроки.';
     else if (selectedName === 'Highload-сервисы') note += 'Цена масштабируется под нагрузку.';
