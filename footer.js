@@ -11,5 +11,5 @@ document.getElementById('footerCopy').innerHTML =
     '<a href="/terms/" class="footer-link">Пользовательское соглашение</a>' +
   '</p>' +
   '<p class="copy" style="font-size:.65rem;margin-top:8px;border:none;padding-top:0;text-transform:none;letter-spacing:0;">' +
-    '© 2026 AXIIOM (ООО Аксиома). Все права защищены.' +
+    '© 2024\u2013' + new Date().getFullYear() + ' AXIIOM (ООО Аксиома). Все права защищены.' +
   '</p>';
