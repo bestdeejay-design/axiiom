@@ -1298,7 +1298,7 @@ a.logo:hover::after { width: 100%; }
 .reveal:nth-child(3) { transition-delay: .2s; }
 
 /* Responsive */
-@media (max-width: 768px) {
+@media (max-width: 1023px) {
     .nav-links--desktop { display: none; }
     .btn-nav { display: none; }
 

@@ -1205,7 +1205,7 @@ a.logo:hover::after { width: 100%; }
     overflow-x: auto;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1023px) {
     .nav-links--desktop { display: none; }
     .tool-page { margin-left: 0; }
     .nav-toggle { display: flex; }
