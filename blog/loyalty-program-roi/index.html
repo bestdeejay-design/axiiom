@@ -55,13 +55,12 @@
     <link rel="stylesheet" href="/styles.css">
     <style>
         .breadcrumbs{padding:16px 0 0;border-bottom:1px solid var(--clr-border);background:var(--clr-bg)}.breadcrumbs ol{list-style:none;display:flex;flex-wrap:wrap;gap:8px;align-items:center;padding:0;margin:0}.breadcrumbs li{font-size:.8125rem;color:var(--clr-faint)}.breadcrumbs li+li:before{content:"\203A";margin-right:8px;color:var(--clr-faint);opacity:.5}.breadcrumbs a{color:var(--clr-accent);text-decoration:none}.breadcrumbs a:hover{text-decoration:underline}
-        .article-page{min-height:70vh;padding:40px 0 80px}.article-page .article-wrap{max-width:740px;margin:0 auto}.article-page h1{font-size:clamp(1.5rem,3.5vw,2.2rem);color:var(--clr-heading);margin-bottom:12px}.article-page .art-date{font-size:.8rem;color:var(--clr-faint);margin-bottom:28px;display:block}.article-page p{font-size:.95rem;color:var(--clr-muted);line-height:1.8;margin-bottom:18px}.article-page h2{font-size:1.2rem;color:var(--clr-heading);margin:32px 0 14px}.article-page h3{font-size:1.05rem;color:var(--clr-heading);margin:24px 0 10px}.article-page ul,.article-page ol{margin-bottom:18px;padding-left:20px}.article-page li{font-size:.95rem;color:var(--clr-muted);line-height:1.8;margin-bottom:6px}.article-page a{color:var(--clr-accent)}.article-page strong{color:var(--clr-heading)}.article-page blockquote{border-left:3px solid var(--clr-accent);padding:12px 20px;margin:18px 0;background:rgba(255,255,255,.02);border-radius:0 12px 12px 0;color:var(--clr-muted);font-style:italic}@media(max-width:600px){.article-page{padding:24px 0 60px}}
+        .article-page{min-height:70vh;padding:40px 0 80px}.article-page .article-wrap{max-width:740px;margin:0 auto}.article-page h1{font-size:clamp(1.5rem,3.5vw,2.2rem);color:var(--clr-heading);margin-bottom:12px}.article-page .art-date{font-size:.8rem;color:var(--clr-faint);margin-bottom:28px;display:block}.article-page p{font-size:.95rem;color:var(--clr-muted);line-height:1.8;margin-bottom:18px}.article-page h2{font-size:1.2rem;color:var(--clr-heading);margin:32px 0 14px}.article-page h3{font-size:1.05rem;color:var(--clr-heading);margin:24px 0 10px}.article-page ul,.article-page ol{margin-bottom:18px;padding-left:20px}.article-page li{font-size:.95rem;color:var(--clr-muted);line-height:1.8;margin-bottom:6px}.article-page a{color:var(--clr-accent)}.article-page strong{color:var(--clr-heading)}.article-page blockquote{border-left:3px solid var(--clr-accent);padding:12px 20px;margin:18px 0;background:rgba(255,255,255,.02);border-radius:0 12px 12px 0;color:var(--clr-muted);font-style:italic}.article-page pre{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.08);border-radius:12px;padding:16px 20px;overflow-x:auto;font-size:.85rem;line-height:1.5;margin-bottom:18px}@media(max-width:600px){.article-page{padding:24px 0 60px}}
     </style>
 </head>
 <body>
 <div class="noise"></div>
 <div class="grid-overlay"></div>
-
 <div class="nav-overlay" id="navOverlay">
     <ul class="nav-links">
         <li><a href="/">Главная</a></li>
@@ -73,7 +72,6 @@
         <li><a href="/blog/" style="color:var(--clr-accent)">Блог</a></li>
     </ul>
 </div>
-
 <header class="header" id="header">
     <div class="container">
         <nav class="nav">
@@ -108,7 +106,6 @@
         </nav>
     </div>
 </header>
-
 <nav class="breadcrumbs" aria-label="Breadcrumb">
     <div class="container">
         <ol itemscope itemtype="https://schema.org/BreadcrumbList">
@@ -127,7 +124,6 @@
         </ol>
     </div>
 </nav>
-
 <section class="article-page">
     <div class="container">
         <div class="article-wrap">
@@ -139,13 +135,11 @@
         </div>
     </div>
 </section>
-
 <footer class="footer">
     <div class="container">
         <div id="footerCopy"></div>
     </div>
 </footer>
-
 <script src="/theme.js"></script>
 <script src="/footer.js"></script>
 <script>
@@ -179,5 +173,14 @@
     }, { passive: true });
 })();
 </script>
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript">
+(function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};m[i].l=1*new Date();for(var j=0;j<document.scripts.length;j++){if(document.scripts[j].src===r){return}}k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})(window,document,"script","https://mc.yandex.ru/metrika/tag.js?id=109391253","ym");
+ym(109391253,"init",{clickmap:true,trackLinks:true,accurateTrackBounce:true});
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/109391253" style="position:absolute;left:-9999px" alt=""></div></noscript>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-HFS4BDGTV4"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-HFS4BDGTV4');</script>
+
 </body>
 </html>
