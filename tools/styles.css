@@ -218,7 +218,7 @@ body {
 }
 
 .header {
-    position: fixed;
+    position: sticky;
     top: 0; left: 0; width: 100%;
     z-index: 1000;
     transition: background .35s, backdrop-filter .35s, border-color .35s;
