@@ -464,7 +464,6 @@
     }
     DEMOS.forEach(function(d) {
       var link = document.createElement('a'); link.href = d.href; link.textContent = d.name;
-      link.target = '_blank'; link.rel = 'noopener';
       var li = document.createElement('li'); li.appendChild(link);
       if (desktopNav) { desktopNav.appendChild(li.cloneNode(true)); }
       if (mobileNav) { mobileNav.appendChild(li.cloneNode(true)); }
