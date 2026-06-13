@@ -528,7 +528,7 @@ a.logo:hover::after { width: 100%; }
 /* Tool page layout */
 .tool-page {
     min-height: 100vh;
-    padding: 100px 0 60px;
+    padding: 40px 0 60px;
 }
 
 .tool-page-header {
