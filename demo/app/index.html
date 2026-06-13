@@ -436,20 +436,20 @@
 
     // Demo navigation
     var DEMOS = [
-      { name: 'University Portal', path: '' },
-      { name: 'UniverID', path: '' },
-      { name: 'Foodie', path: '' },
-      { name: 'Lovii Demo', path: '' },
-      { name: 'eSIM Travel', path: '' },
-      { name: 'AXIIOM Logistics', path: '' },
-      { name: 'HR Motivation', path: '' },
-      { name: 'Мобильная касса', path: '' },
-      { name: 'Primary', path: '' },
-      { name: 'Alfred', path: '' },
-      { name: 'Qbik', path: '' },
-      { name: 'Код Доступа', path: '' },
-      { name: 'DAJET', path: '' },
-      { name: 'Hype', path: '' }
+      { name: 'University Portal', href: 'demo-template/' },
+      { name: 'UniverID', href: 'https://univerid.ru/' },
+      { name: 'Foodie', href: 'https://bestdeejay-design.github.io/foodie/' },
+      { name: 'Lovii Demo', href: 'https://lovii.mobiap.com/mobile.html' },
+      { name: 'eSIM Travel', href: 'https://bestdeejay-design.github.io/mvno/' },
+      { name: 'AXIIOM Logistics', href: 'https://bestdeejay-design.github.io/logistics/' },
+      { name: 'HR Motivation', href: 'https://bestdeejay-design.github.io/hrmodule/' },
+      { name: 'Мобильная касса', href: 'https://bestdeejay-design.github.io/cashier/' },
+      { name: 'Primary', href: 'https://bestdeejay-design.github.io/primary/' },
+      { name: 'Alfred', href: 'https://bestdeejay-design.github.io/alfred/' },
+      { name: 'Qbik', href: 'https://bestdeejay-design.github.io/qbik/' },
+      { name: 'Код Доступа', href: 'https://bestdeejay-design.github.io/kodstudy/' },
+      { name: 'DAJET', href: 'https://dajet.ru/' },
+      { name: 'Hype', href: 'https://hype-marketplace-1.web.app/' }
     ];
     var desktopNav = document.getElementById('demosNav');
     var mobileNav = document.getElementById('demosNavMobile');
@@ -463,8 +463,8 @@
       var sep = document.createElement('li'); sep.className = 'nav-separator'; mobileNav.appendChild(sep);
     }
     DEMOS.forEach(function(d) {
-      var link = document.createElement('a'); link.href = '#'; link.textContent = d.name;
-      link.addEventListener('click', function(e) { e.preventDefault(); });
+      var link = document.createElement('a'); link.href = d.href; link.textContent = d.name;
+      link.target = '_blank'; link.rel = 'noopener';
       var li = document.createElement('li'); li.appendChild(link);
       if (desktopNav) { desktopNav.appendChild(li.cloneNode(true)); }
       if (mobileNav) { mobileNav.appendChild(li.cloneNode(true)); }
