@@ -1,0 +1,926 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="theme-color" content="#0A0A0F">
+    <title>Калькулятор стоимости — AXIIOM | Рассчитайте стоимость разработки</title>
+    <meta name="description" content="Калькулятор стоимости IT-решений от AXIIOM. Выберите тип услуги, настройте параметры и получите предварительную оценку стоимости разработки.">
+    <link rel="canonical" href="https://axiiom.ru/calculator/">
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://axiiom.ru/calculator/">
+    <meta property="og:title" content="Калькулятор стоимости разработки — AXIIOM">
+    <meta property="og:description" content="Рассчитайте предварительную стоимость вашего IT-проекта. Выберите услугу и настройте параметры.">
+    <meta property="og:image" content="https://axiiom.ru/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:locale" content="ru_RU">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://axiiom.ru/calculator/">
+    <meta name="twitter:title" content="Калькулятор стоимости разработки — AXIIOM">
+    <meta name="twitter:description" content="Рассчитайте предварительную стоимость вашего IT-проекта.">
+    <meta name="twitter:image" content="https://axiiom.ru/og-image.png">
+
+    <!-- JSON-LD -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "name": "Калькулятор стоимости разработки",
+      "description": "Рассчитайте предварительную стоимость IT-проекта",
+      "url": "https://axiiom.ru/calculator/",
+      "isPartOf": {
+        "@type": "Organization",
+        "name": "AXIIOM",
+        "url": "https://axiiom.ru/"
+      }
+    }
+    </script>
+
+    <link rel="stylesheet" href="/styles.css">
+    <style>
+        .calc-section {
+            padding: clamp(40px, 8vw, 80px) 0;
+            min-height: 70vh;
+        }
+
+        .calc-section .label {
+            text-align: center;
+        }
+
+        .calc-section h2 {
+            text-align: center;
+            margin-bottom: 12px;
+        }
+
+        .calc-desc {
+            text-align: center;
+            max-width: 500px;
+            margin: 0 auto 40px;
+            font-size: .95rem;
+            color: var(--clr-muted);
+            line-height: 1.7;
+        }
+
+        /* Steps */
+        .steps {
+            display: flex;
+            justify-content: center;
+            gap: 0;
+            margin-bottom: 48px;
+            position: relative;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .steps::before {
+            content: '';
+            position: absolute;
+            top: 16px;
+            left: 60px;
+            right: 60px;
+            height: 1px;
+            background: var(--clr-border);
+            z-index: 0;
+        }
+
+        .steps::after {
+            content: '';
+            position: absolute;
+            top: 16px;
+            left: 60px;
+            height: 1px;
+            background: var(--clr-accent);
+            z-index: 1;
+            transition: width .5s ease;
+        }
+
+        .steps.s1::after { width: 0; }
+        .steps.s2::after { width: calc(50% - 60px); }
+        .steps.s3::after { width: calc(100% - 120px); }
+
+        .step {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+            position: relative;
+            z-index: 2;
+            flex: 1;
+        }
+
+        .step-num {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: .75rem;
+            font-weight: 600;
+            background: var(--clr-surface);
+            border: 1px solid var(--clr-border);
+            color: var(--clr-faint);
+            transition: all .3s ease;
+        }
+
+        .step.active .step-num {
+            background: var(--clr-accent);
+            border-color: var(--clr-accent);
+            color: #0A0A0F;
+        }
+
+        .step.done .step-num {
+            background: var(--clr-accent2);
+            border-color: var(--clr-accent2);
+            color: #0A0A0F;
+        }
+
+        .step-label {
+            font-size: .7rem;
+            color: var(--clr-faint);
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            transition: color .3s;
+        }
+
+        .step.active .step-label {
+            color: var(--clr-heading);
+        }
+
+        .step.done .step-label {
+            color: var(--clr-accent2);
+        }
+
+        /* Step content */
+        .step-content {
+            display: none;
+            animation: fadeIn .4s ease;
+        }
+
+        .step-content.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Service grid */
+        .service-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 12px;
+            margin-bottom: 32px;
+        }
+
+        .service-option {
+            padding: 24px 20px;
+            text-align: left;
+            cursor: pointer;
+            transition: all .3s ease;
+            border: 2px solid transparent;
+            position: relative;
+        }
+
+        .service-option:hover {
+            border-color: var(--clr-border-hover);
+        }
+
+        .service-option.selected {
+            border-color: var(--clr-accent);
+            background: rgba(212, 165, 116, .08);
+        }
+
+        .service-option h3 {
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--clr-heading);
+            margin-bottom: 6px;
+        }
+
+        .service-option p {
+            font-size: .8rem;
+            color: var(--clr-muted);
+            line-height: 1.5;
+            margin-bottom: 8px;
+        }
+
+        .service-option .price-hint {
+            font-size: .75rem;
+            color: var(--clr-accent2);
+            font-weight: 600;
+        }
+
+        .service-option .check {
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            border: 1px solid var(--clr-border);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: all .3s;
+        }
+
+        .service-option.selected .check {
+            opacity: 1;
+            background: var(--clr-accent);
+            border-color: var(--clr-accent);
+        }
+
+        .service-option.selected .check svg {
+            width: 10px;
+            height: 10px;
+        }
+
+        /* Params */
+        .params-form {
+            max-width: 520px;
+            margin: 0 auto;
+        }
+
+        .param-group {
+            margin-bottom: 24px;
+        }
+
+        .param-group label {
+            display: block;
+            font-size: .85rem;
+            font-weight: 500;
+            color: var(--clr-heading);
+            margin-bottom: 8px;
+        }
+
+        .param-group label .hint {
+            font-weight: 400;
+            color: var(--clr-faint);
+            font-size: .8rem;
+        }
+
+        .param-select {
+            width: 100%;
+            padding: 12px 16px;
+            background: var(--clr-surface);
+            border: 1px solid var(--clr-border);
+            border-radius: 12px;
+            color: var(--clr-heading);
+            font-size: .9rem;
+            font-family: inherit;
+            cursor: pointer;
+            transition: border-color .2s;
+            appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg width='10' height='6' viewBox='0 0 10 6' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1L5 5L9 1' stroke='%238E8E93' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 14px center;
+            padding-right: 40px;
+        }
+
+        .param-select:focus {
+            outline: none;
+            border-color: var(--clr-accent);
+        }
+
+        .param-select option {
+            background: var(--clr-bg);
+            color: var(--clr-heading);
+        }
+
+        /* Price */
+        .price-result {
+            text-align: center;
+            padding: 40px 32px;
+            margin-top: 32px;
+        }
+
+        .price-result .price-label {
+            font-size: .8rem;
+            color: var(--clr-faint);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 12px;
+        }
+
+        .price-result .price-amount {
+            font-size: clamp(2rem, 5vw, 3rem);
+            font-weight: 700;
+            color: var(--clr-heading);
+            letter-spacing: -1px;
+            margin-bottom: 8px;
+        }
+
+        .price-result .price-note {
+            font-size: .85rem;
+            color: var(--clr-muted);
+            margin-bottom: 28px;
+            line-height: 1.6;
+        }
+
+        .price-result .price-badge {
+            display: inline-block;
+            padding: 4px 14px;
+            background: rgba(212, 165, 116, .12);
+            border: 1px solid rgba(212, 165, 116, .25);
+            border-radius: 20px;
+            font-size: .7rem;
+            color: var(--clr-accent);
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+        }
+
+        .price-result .btn {
+            min-width: 220px;
+        }
+
+        /* Nav buttons */
+        .calc-nav {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            margin-top: 32px;
+        }
+
+        .calc-nav .btn-back {
+            background: transparent;
+            color: var(--clr-muted);
+            border: 1px solid var(--clr-border);
+            cursor: pointer;
+            padding: 12px 32px;
+            border-radius: 30px;
+            font-size: .85rem;
+            font-family: inherit;
+            font-weight: 500;
+            transition: all .2s;
+        }
+
+        .calc-nav .btn-back:hover {
+            color: var(--clr-heading);
+            border-color: var(--clr-border-hover);
+        }
+
+        .calc-nav .btn-next {
+            cursor: pointer;
+        }
+
+        /* Reset button */
+        .calc-reset {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-size: .8rem;
+            color: var(--clr-faint);
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-family: inherit;
+            transition: color .2s;
+            padding: 8px 16px;
+            margin-top: 8px;
+        }
+
+        .calc-reset:hover {
+            color: var(--clr-heading);
+        }
+
+        @media (max-width: 768px) {
+            .service-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+            .service-option {
+                padding: 16px 14px;
+            }
+            .service-option h3 {
+                font-size: .85rem;
+            }
+            .service-option p {
+                font-size: .7rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .service-grid {
+                grid-template-columns: 1fr;
+            }
+            .steps::before,
+            .steps::after {
+                left: 40px;
+                right: 40px;
+            }
+            .steps.s1::after { width: 0; }
+            .steps.s2::after { width: calc(50% - 40px); }
+            .steps.s3::after { width: calc(100% - 80px); }
+        }
+    </style>
+</head>
+<body>
+
+<div class="noise"></div>
+<div class="grid-overlay"></div>
+
+<header class="header" id="header">
+    <div class="container">
+        <nav class="nav">
+            <a href="/" class="logo">
+                <svg width="36" height="36" viewBox="0 0 36 36" fill="none">
+                    <rect x="2" y="2" width="14" height="14" rx="2" stroke="currentColor" stroke-width="1.5" opacity=".4"/>
+                    <rect x="20" y="2" width="14" height="14" rx="2" stroke="currentColor" stroke-width="1.5" opacity=".4"/>
+                    <rect x="2" y="20" width="14" height="14" rx="2" stroke="currentColor" stroke-width="1.5" opacity=".4"/>
+                    <rect x="20" y="20" width="14" height="14" rx="2" stroke="currentColor" stroke-width="1.5"/>
+                    <circle cx="27" cy="27" r="3" fill="currentColor" opacity=".8"/>
+                </svg>
+                <span>AXIIOM</span>
+            </a>
+            <ul class="nav-links nav-links--desktop">
+                <li><a href="/#services">Услуги</a></li>
+                <li><a href="/#demos">Демо-платформы</a></li>
+                <li><a href="/#cases">Кейсы</a></li>
+                <li><a href="/#process">Процесс</a></li>
+                <li><a href="/#contact">Контакты</a></li>
+                <li><a href="/calculator/" style="color:var(--clr-accent);">Калькулятор</a></li>
+                <li><a href="/tools/">Инструменты</a></li>
+            </ul>
+            <div class="nav-actions">
+                <a href="/#contact" class="btn btn-nav">Обсудить проект</a>
+                <button class="theme-btn" id="themeToggle" aria-label="Сменить тему">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>
+                </button>
+            </div>
+        </nav>
+    </div>
+</header>
+
+<section class="calc-section section dark">
+    <div class="container">
+        <p class="label">Калькулятор</p>
+        <h2>Рассчитайте стоимость вашего проекта</h2>
+        <p class="calc-desc">Выберите тип услуги, настройте параметры — получите предварительную оценку. Итоговая стоимость уточняется после брифа.</p>
+
+        <!-- Steps -->
+        <div class="steps s1" id="steps">
+            <div class="step active" id="step1">
+                <span class="step-num">1</span>
+                <span class="step-label">Услуга</span>
+            </div>
+            <div class="step" id="step2">
+                <span class="step-num">2</span>
+                <span class="step-label">Параметры</span>
+            </div>
+            <div class="step" id="step3">
+                <span class="step-num">3</span>
+                <span class="step-label">Результат</span>
+            </div>
+        </div>
+
+        <!-- Step 1: Service selection -->
+        <div class="step-content active" id="content1">
+            <div class="service-grid" id="serviceGrid"></div>
+            <div class="calc-nav">
+                <button class="btn btn-next" id="toStep2" disabled>Далее</button>
+            </div>
+        </div>
+
+        <!-- Step 2: Parameters -->
+        <div class="step-content" id="content2">
+            <div class="params-form" id="paramsForm"></div>
+            <div class="calc-nav">
+                <button class="btn-back" id="backTo1">Назад</button>
+                <button class="btn btn-next" id="toStep3">Рассчитать</button>
+            </div>
+        </div>
+
+        <!-- Step 3: Result -->
+        <div class="step-content" id="content3">
+            <div class="glass-card price-result" id="priceResult">
+                <div class="price-badge">Предварительная оценка</div>
+                <div class="price-label">Ориентировочная стоимость</div>
+                <div class="price-amount" id="priceAmount">—</div>
+                <div class="price-note" id="priceNote">Итоговая цена зависит от требований и объёма работ</div>
+                <a href="mailto:hello@axiiom.ru?subject=Уточнение%20стоимости%20проекта" class="btn" onclick="ym(109391253,'reachGoal','calc_cta'); gtag('event','calc_cta');">Обсудить проект</a>
+                <div>
+                    <button class="calc-reset" id="resetCalc">← Рассчитать другой проект</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<footer class="footer section dark">
+    <div class="container">
+        <div class="copy">
+            <a href="/" class="footer-link">AXIIOM</a> ·
+            <a href="/calculator/" class="footer-link">Калькулятор</a> ·
+            <a href="/tools/" class="footer-link">Инструменты</a>
+            © 2026 — Все права защищены.
+            <br>
+            <a href="/privacy/" class="footer-link">Политика конфиденциальности</a> ·
+            <a href="/terms/" class="footer-link">Пользовательское соглашение</a>
+        </div>
+    </div>
+</footer>
+
+<script>
+var SERVICES = [
+    {
+        id: 'fintech',
+        name: 'Финтех-платформы',
+        desc: 'Сплитование, escrow, мультиэквайринг, соответствие 161-ФЗ',
+        price: 'от 1 500 000 ₽',
+        params: [
+            { key: 'methods', label: 'Платёжные методы', hint: 'количество', options: [
+                { label: '1–2 базовых', price: 0 },
+                { label: '3–5 популярных', price: 500000 },
+                { label: '5+ с кастомными', price: 1500000 }
+            ]},
+            { key: 'integrations', label: 'Внешние интеграции', hint: 'с банками, CRM, ERP', options: [
+                { label: '1–2 интеграции', price: 0 },
+                { label: '3–5 интеграций', price: 400000 },
+                { label: '5+ интеграций', price: 1200000 }
+            ]},
+            { key: 'timeline', label: 'Желаемый срок запуска', hint: '', options: [
+                { label: '3 месяца', price: 500000 },
+                { label: '4–6 месяцев', price: 0 },
+                { label: 'Гибкий срок', price: -300000 }
+            ]}
+        ],
+        baseMin: 1500000,
+        baseMax: 5000000
+    },
+    {
+        id: 'loyalty',
+        name: 'Платформы лояльности',
+        desc: 'White Label LOVII или кастомное решение',
+        price: 'от 2 000 000 ₽',
+        params: [
+            { key: 'type', label: 'Тип решения', hint: '', options: [
+                { label: 'White Label LOVII', price: 0 },
+                { label: 'Кастомное решение', price: 1500000 }
+            ]},
+            { key: 'users', label: 'Аудитория', hint: 'количество пользователей', options: [
+                { label: 'До 10 000', price: 0 },
+                { label: '10 000 – 100 000', price: 500000 },
+                { label: '100 000+', price: 1500000 }
+            ]},
+            { key: 'mobile', label: 'Мобильное приложение', hint: '', options: [
+                { label: 'Без приложения', price: 0 },
+                { label: 'Только iOS', price: 600000 },
+                { label: 'iOS + Android', price: 1000000 }
+            ]}
+        ],
+        baseMin: 2000000,
+        baseMax: 4000000
+    },
+    {
+        id: 'highload',
+        name: 'Highload-сервисы',
+        desc: 'Микросервисы, Kubernetes, миллионы запросов',
+        price: 'от 1 000 000 ₽',
+        params: [
+            { key: 'rps', label: 'Ожидаемая нагрузка', hint: 'RPS', options: [
+                { label: 'До 1 000 RPS', price: 0 },
+                { label: '1 000 – 10 000 RPS', price: 800000 },
+                { label: '10 000+ RPS', price: 2000000 }
+            ]},
+            { key: 'microservices', label: 'Архитектура', hint: '', options: [
+                { label: 'Монолит', price: 0 },
+                { label: 'Микросервисы (до 10)', price: 500000 },
+                { label: 'Микросервисы (10+)', price: 1200000 }
+            ]},
+            { key: 'infra', label: 'Инфраструктура', hint: '', options: [
+                { label: 'Базовый VPS/VDS', price: 0 },
+                { label: 'Kubernetes', price: 600000 },
+                { label: 'Kubernetes + DevOps', price: 1000000 }
+            ]}
+        ],
+        baseMin: 1000000,
+        baseMax: 3000000
+    },
+    {
+        id: 'security',
+        name: 'Кибербезопасность',
+        desc: 'Пентест, SAST/DAST, WAF, аудит и сертификация',
+        price: 'от 300 000 ₽',
+        params: [
+            { key: 'audit', label: 'Тип аудита', hint: '', options: [
+                { label: 'Пентест', price: 0 },
+                { label: 'SAST/DAST', price: 200000 },
+                { label: 'Полный аудит', price: 500000 }
+            ]},
+            { key: 'endpoints', label: 'Объём', hint: 'количество эндпоинтов', options: [
+                { label: 'До 50', price: 0 },
+                { label: '50–200', price: 200000 },
+                { label: '200+', price: 500000 }
+            ]},
+            { key: 'waf', label: 'WAF', hint: '', options: [
+                { label: 'Без WAF', price: 0 },
+                { label: 'WAF + настройка', price: 150000 },
+                { label: 'WAF + сопровождение', price: 300000 }
+            ]}
+        ],
+        baseMin: 300000,
+        baseMax: 1500000
+    },
+    {
+        id: 'website',
+        name: 'Сайты и лендинги',
+        desc: 'Интернет-магазины, визитки, корпоративные сайты',
+        price: 'от 250 000 ₽',
+        params: [
+            { key: 'type', label: 'Тип сайта', hint: '', options: [
+                { label: 'Лендинг', price: 0 },
+                { label: 'Корпоративный сайт', price: 200000 },
+                { label: 'Интернет-магазин', price: 600000 }
+            ]},
+            { key: 'pages', label: 'Количество страниц', hint: '', options: [
+                { label: 'До 5', price: 0 },
+                { label: '5–15', price: 150000 },
+                { label: '15+', price: 350000 }
+            ]},
+            { key: 'cms', label: 'Интеграции', hint: 'CRM, платёжные системы', options: [
+                { label: 'Без интеграций', price: 0 },
+                { label: '1–3 интеграции', price: 100000 },
+                { label: '3+ интеграций', price: 250000 }
+            ]}
+        ],
+        baseMin: 250000,
+        baseMax: 800000
+    },
+    {
+        id: 'webapp',
+        name: 'WEB-приложения',
+        desc: 'На React, Vue, Node.js, Python, Go',
+        price: 'от 300 000 ₽',
+        params: [
+            { key: 'screens', label: 'Количество экранов', hint: '', options: [
+                { label: 'До 10', price: 0 },
+                { label: '10–30', price: 500000 },
+                { label: '30+', price: 1200000 }
+            ]},
+            { key: 'api', label: 'Интеграции', hint: 'API, внешние сервисы', options: [
+                { label: 'Без интеграций', price: 0 },
+                { label: '1–3 интеграции', price: 150000 },
+                { label: '3+ интеграций', price: 400000 }
+            ]},
+            { key: 'stack', label: 'Стек технологий', hint: '', options: [
+                { label: 'React / Vue SPA', price: 0 },
+                { label: 'Next.js / Nuxt SSR', price: 200000 },
+                { label: 'Кастомный стек', price: 400000 }
+            ]}
+        ],
+        baseMin: 300000,
+        baseMax: 2000000
+    },
+    {
+        id: 'mobile',
+        name: 'Мобильные приложения',
+        desc: 'Нативные и кроссплатформенные iOS/Android',
+        price: 'от 300 000 ₽',
+        params: [
+            { key: 'platform', label: 'Платформа', hint: '', options: [
+                { label: 'iOS', price: 0 },
+                { label: 'Android', price: 0 },
+                { label: 'iOS + Android', price: 900000 }
+            ]},
+            { key: 'screens', label: 'Экраны', hint: '', options: [
+                { label: 'До 10', price: 0 },
+                { label: '10–30', price: 400000 },
+                { label: '30+', price: 1000000 }
+            ]},
+            { key: 'backend', label: 'Бэкенд', hint: '', options: [
+                { label: 'Без бэкенда', price: 0 },
+                { label: 'Базовый (API)', price: 300000 },
+                { label: 'Полный (API + админка)', price: 700000 }
+            ]}
+        ],
+        baseMin: 300000,
+        baseMax: 3000000
+    },
+    {
+        id: 'uiux',
+        name: 'UI/UX дизайн',
+        desc: 'Figma, исследования, прототипирование',
+        price: 'от 150 000 ₽',
+        params: [
+            { key: 'screens', label: 'Количество экранов', hint: '', options: [
+                { label: 'До 5', price: 0 },
+                { label: '5–20', price: 150000 },
+                { label: '20+', price: 350000 }
+            ]},
+            { key: 'research', label: 'Исследования', hint: '', options: [
+                { label: 'Без исследований', price: 0 },
+                { label: 'CustDev + аналитика', price: 100000 },
+                { label: 'Полное исследование', price: 200000 }
+            ]},
+            { key: 'proto', label: 'Прототипирование', hint: '', options: [
+                { label: 'Только дизайн', price: 0 },
+                { label: 'Интерактивный прототип', price: 100000 },
+                { label: 'Прототип + анимация', price: 200000 }
+            ]}
+        ],
+        baseMin: 150000,
+        baseMax: 800000
+    },
+    {
+        id: 'graphic',
+        name: 'Графический дизайн',
+        desc: 'Логотипы, фирменный стиль, брендбуки',
+        price: 'от 100 000 ₽',
+        params: [
+            { key: 'type', label: 'Тип работы', hint: '', options: [
+                { label: 'Логотип', price: 0 },
+                { label: 'Фирменный стиль', price: 100000 },
+                { label: 'Брендбук', price: 200000 }
+            ]},
+            { key: 'items', label: 'Количество носителей', hint: '', options: [
+                { label: 'До 5', price: 0 },
+                { label: '5–15', price: 50000 },
+                { label: '15+', price: 100000 }
+            ]}
+        ],
+        baseMin: 100000,
+        baseMax: 400000
+    }
+];
+
+var currentStep = 1;
+var selectedService = null;
+var paramValues = {};
+
+// Render services
+function renderServices() {
+    var grid = document.getElementById('serviceGrid');
+    grid.innerHTML = SERVICES.map(function(s) {
+        return '<div class="glass-card service-option" data-id="' + s.id + '">' +
+            '<div class="check"><svg viewBox="0 0 12 12" fill="none"><path d="M2.5 6L5 8.5L9.5 3.5" stroke="#0A0A0F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>' +
+            '<h3>' + s.name + '</h3>' +
+            '<p>' + s.desc + '</p>' +
+            '<span class="price-hint">' + s.price + '</span>' +
+        '</div>';
+    }).join('');
+
+    grid.querySelectorAll('.service-option').forEach(function(el) {
+        el.addEventListener('click', function() {
+            grid.querySelectorAll('.service-option').forEach(function(c) { c.classList.remove('selected'); });
+            el.classList.add('selected');
+            selectedService = SERVICES.find(function(s) { return s.id === el.dataset.id; });
+            document.getElementById('toStep2').disabled = false;
+        });
+    });
+}
+
+// Render params for selected service
+function renderParams() {
+    var form = document.getElementById('paramsForm');
+    if (!selectedService) return;
+    paramValues = {};
+
+    form.innerHTML = '<h3 style="text-align:center;font-size:1.1rem;color:var(--clr-heading);margin-bottom:24px;">' + selectedService.name + '</h3>';
+
+    selectedService.params.forEach(function(p, idx) {
+        var group = document.createElement('div');
+        group.className = 'param-group';
+        var hintHtml = p.hint ? ' <span class="hint">— ' + p.hint + '</span>' : '';
+        group.innerHTML = '<label>' + p.label + hintHtml + '</label>';
+
+        var select = document.createElement('select');
+        select.className = 'param-select';
+        select.dataset.key = p.key;
+
+        p.options.forEach(function(o, oIdx) {
+            var opt = document.createElement('option');
+            opt.value = oIdx;
+            opt.textContent = o.label;
+            select.appendChild(opt);
+        });
+
+        select.addEventListener('change', function() {
+            paramValues[p.key] = parseInt(this.value);
+        });
+
+        // Default selection
+        paramValues[p.key] = 0;
+
+        group.appendChild(select);
+        form.appendChild(group);
+    });
+}
+
+// Calculate price
+function calculatePrice() {
+    if (!selectedService) return;
+    var extra = 0;
+    selectedService.params.forEach(function(p) {
+        var idx = paramValues[p.key] || 0;
+        if (p.options[idx]) {
+            extra += p.options[idx].price;
+        }
+    });
+
+    var from = selectedService.baseMin + extra;
+    var to = selectedService.baseMax + extra;
+
+    // Keep reasonable ranges
+    if (from < 0) from = 0;
+    if (to < from) to = from + Math.round(selectedService.baseMax * 0.3);
+
+    document.getElementById('priceAmount').textContent = formatPrice(from) + ' – ' + formatPrice(to);
+
+    var selectedName = selectedService.name;
+    var note = 'Итоговая цена зависит от требований и объёма работ. ';
+    if (selectedName === 'Финтех-платформы') note += 'Учитывается сложность интеграций и комплаенс.';
+    else if (selectedName === 'Платформы лояльности') note += 'White Label снижает стоимость и сроки.';
+    else if (selectedName === 'Highload-сервисы') note += 'Цена масштабируется под нагрузку.';
+    else if (selectedName === 'Кибербезопасность') note += 'Глубина аудита влияет на итог.';
+    else note += 'Уточняется после брифа.';
+    document.getElementById('priceNote').textContent = note;
+
+    // Update mailto link with service info
+    var mailLink = document.querySelector('#priceResult .btn');
+    var subject = 'Уточнение стоимости: ' + selectedName;
+    var body = 'Здравствуйте! Меня интересует: ' + selectedName + '\n\n';
+    selectedService.params.forEach(function(p) {
+        var idx = paramValues[p.key] || 0;
+        if (p.options[idx]) {
+            body += p.label + ': ' + p.options[idx].label + '\n';
+        }
+    });
+    body += '\nОриентировочная стоимость: ' + formatPrice(from) + ' – ' + formatPrice(to) + '\n\n---\nРассчитано на axiiom.ru/calculator/';
+    mailLink.href = 'mailto:hello@axiiom.ru?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
+}
+
+function formatPrice(n) {
+    return n.toLocaleString('ru-RU') + ' ₽';
+}
+
+// Step navigation
+function goToStep(step) {
+    currentStep = step;
+    document.querySelectorAll('.step-content').forEach(function(el) { el.classList.remove('active'); });
+    document.getElementById('content' + step).classList.add('active');
+
+    document.querySelectorAll('.step').forEach(function(el) { el.classList.remove('active', 'done'); });
+    for (var i = 1; i < step; i++) {
+        document.getElementById('step' + i).classList.add('done');
+    }
+    document.getElementById('step' + step).classList.add('active');
+
+    var stepsEl = document.getElementById('steps');
+    stepsEl.className = 'steps s' + step;
+
+    if (step === 2) renderParams();
+    if (step === 3) calculatePrice();
+
+    window.scrollTo({ top: document.querySelector('.calc-section').offsetTop - 100, behavior: 'smooth' });
+}
+
+// Init
+document.addEventListener('DOMContentLoaded', function() {
+    renderServices();
+
+    document.getElementById('toStep2').addEventListener('click', function() { goToStep(2); });
+    document.getElementById('backTo1').addEventListener('click', function() { goToStep(1); });
+    document.getElementById('toStep3').addEventListener('click', function() { goToStep(3); });
+    document.getElementById('resetCalc').addEventListener('click', function() {
+        selectedService = null;
+        paramValues = {};
+        document.querySelectorAll('.service-option').forEach(function(c) { c.classList.remove('selected'); });
+        document.getElementById('toStep2').disabled = true;
+        goToStep(1);
+    });
+
+    // Theme toggle
+    var themeBtn = document.getElementById('themeToggle');
+    if (themeBtn) {
+        themeBtn.addEventListener('click', function() {
+            var html = document.documentElement;
+            var current = html.getAttribute('data-theme');
+            html.setAttribute('data-theme', current === 'light' ? 'dark' : 'light');
+        });
+    }
+});
+</script>
+
+<!-- Yandex.Metrika -->
+<script type="text/javascript">
+(function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};m[i].l=1*new Date();for(var j=0;j<document.scripts.length;j++){if(document.scripts[j].src===r){return}}k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})(window,document,'script','https://mc.yandex.ru/metrika/tag.js?id=109391253','ym');ym(109391253,'init',{clickmap:true,trackLinks:true,accurateTrackBounce:true,webvisor:true});</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/109391253" style="position:absolute;left:-9999px;" alt=""></div></noscript>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-HFS4BDGTV4"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-HFS4BDGTV4');</script>
+
+</body>
+</html>
