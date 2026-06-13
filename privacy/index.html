@@ -121,28 +121,10 @@
 </footer>
 
 <script>
-var themeToggle = document.getElementById('themeToggle');
-var html = document.documentElement;
-var saved = localStorage.getItem('theme');
-if (saved) html.setAttribute('data-theme', saved);
-if (!saved && window.matchMedia('(prefers-color-scheme: light)').matches) { html.setAttribute('data-theme', 'light'); }
-updateIcon();
-themeToggle.addEventListener('click', function() {
-    var cur = html.getAttribute('data-theme');
-    var next = cur === 'light' ? '' : 'light';
-    html.setAttribute('data-theme', next);
-    localStorage.setItem('theme', next);
-    updateIcon();
-});
-function updateIcon() {
-    var isLight = html.getAttribute('data-theme') === 'light';
-    themeToggle.innerHTML = isLight
-        ? '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>'
-        : '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>';
-}
 var header = document.getElementById('header');
 window.addEventListener('scroll', function() { header.classList.toggle('scrolled', window.scrollY > 40); }, { passive: true });
 </script>
+<script src="/theme.js"></script>
 <script src="/footer.js"></script>
 <!-- Yandex.Metrika counter -->
 <script type="text/javascript">(function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};m[i].l=1*new Date();for(var j=0;j<document.scripts.length;j++){if(document.scripts[j].src===r){return}}k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})(window,document,"script","https://mc.yandex.ru/metrika/tag.js?id=109391253","ym");ym(109391253,"init",{clickmap:true,trackLinks:true,accurateTrackBounce:true});</script>

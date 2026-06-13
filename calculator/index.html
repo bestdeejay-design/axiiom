@@ -970,17 +970,9 @@ document.addEventListener('DOMContentLoaded', function() {
         goToStep(1);
     });
 
-    // Theme toggle
-    var themeBtn = document.getElementById('themeToggle');
-    if (themeBtn) {
-        themeBtn.addEventListener('click', function() {
-            var html = document.documentElement;
-            var current = html.getAttribute('data-theme');
-            html.setAttribute('data-theme', current === 'light' ? 'dark' : 'light');
-        });
-    }
 });
 </script>
+<script src="/theme.js"></script>
 <script src="/footer.js"></script>
 
 <!-- Yandex.Metrika -->
