@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#0A0A0F">
+    <title>Блог AXIIOM — статьи о финтехе, разработке и технологиях</title>
+    <meta name="description" content="Блог компании AXIIOM: тренды финтеха, руководства по PCI DSS и 161-ФЗ, архитектура highload-систем, UX платёжных приложений.">
+    <link rel="canonical" href="https://axiiom.ru/blog/">
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" as="style">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://axiiom.ru/blog/">
+    <meta property="og:title" content="Блог AXIIOM — статьи о финтехе, разработке и технологиях">
+    <meta property="og:description" content="Блог компании AXIIOM: тренды финтеха, руководства по PCI DSS и 161-ФЗ, архитектура highload-систем, UX платёжных приложений.">
+    <meta property="og:image" content="/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:locale" content="ru_RU">
+    <meta property="og:site_name" content="AXIIOM">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://axiiom.ru/blog/">
+    <meta name="twitter:title" content="Блог AXIIOM — статьи о финтехе, разработке и технологиях">
+    <meta name="twitter:description" content="Блог компании AXIIOM: тренды финтеха, руководства по PCI DSS и 161-ФЗ, архитектура highload-систем, UX платёжных приложений.">
+    <meta name="twitter:image" content="/og-image.png">
+
+    <!-- JSON-LD BreadcrumbList -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "WebPage",
+          "name": "Блог AXIIOM",
+          "description": "Статьи о финтехе, разработке и технологиях от компании AXIIOM.",
+          "url": "https://axiiom.ru/blog/",
+          "isPartOf": { "@type": "WebSite", "name": "AXIIOM", "url": "https://axiiom.ru/" }
+        },
+        {
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "Главная", "item": "https://axiiom.ru/" },
+            { "@type": "ListItem", "position": 2, "name": "Блог", "item": "https://axiiom.ru/blog/" }
+          ]
+        }
+      ]
+    }
+    </script>
+
+    <link rel="stylesheet" href="/styles.css">
+    <style>
+        .breadcrumbs{padding:16px 0 0;border-bottom:1px solid var(--clr-border);background:var(--clr-bg)}.breadcrumbs ol{list-style:none;display:flex;flex-wrap:wrap;gap:8px;align-items:center;padding:0;margin:0}.breadcrumbs li{font-size:.8125rem;color:var(--clr-faint)}.breadcrumbs li+li:before{content:"›";margin-right:8px;color:var(--clr-faint);opacity:.5}.breadcrumbs a{color:var(--clr-accent);text-decoration:none}.breadcrumbs a:hover{text-decoration:underline}
+
+        .blog-page{min-height:70vh;padding:60px 0 80px}
+        .blog-page h1{font-size:clamp(1.6rem,4vw,2.4rem);color:var(--clr-heading);margin-bottom:8px;text-align:center}
+        .blog-subtitle{text-align:center;color:var(--clr-muted);font-size:.95rem;margin-bottom:48px;max-width:600px;margin-left:auto;margin-right:auto}
+
+        .blog-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:20px}
+        .blog-card{background:rgba(255,255,255,.03);backdrop-filter:blur(20px) saturate(180%);-webkit-backdrop-filter:blur(20px) saturate(180%);border:1px solid rgba(255,255,255,.08);border-radius:24px;padding:28px 24px;cursor:pointer;transition:all .3s cubic-bezier(.4,0,.2,1);position:relative}
+        .blog-card:hover{background:rgba(255,255,255,.05);transform:translateY(-4px);border-color:rgba(255,255,255,.12)}
+        .blog-card h2{font-size:1.1rem;font-weight:600;color:var(--clr-heading);margin-bottom:8px;line-height:1.4}
+        .blog-card .blog-date{font-size:.75rem;color:var(--clr-faint);margin-bottom:10px;display:block}
+        .blog-card p{font-size:.88rem;color:var(--clr-muted);line-height:1.6;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+        .blog-card .blog-read{color:var(--clr-accent);font-size:.82rem;font-weight:500;margin-top:14px;display:inline-block}
+
+        .blog-article{display:none;max-width:740px;margin:0 auto}
+        .blog-article.visible{display:block}
+        .blog-article .back-btn{display:inline-flex;align-items:center;gap:6px;color:var(--clr-muted);text-decoration:none;font-size:.85rem;margin-bottom:28px;transition:color .2s;cursor:pointer;background:none;border:none;font-family:inherit;padding:0}
+        .blog-article .back-btn:hover{color:var(--clr-heading)}
+        .blog-article h1{font-size:clamp(1.5rem,3.5vw,2.2rem);color:var(--clr-heading);margin-bottom:12px;text-align:left}
+        .blog-article .blog-art-date{font-size:.8rem;color:var(--clr-faint);margin-bottom:28px;display:block}
+        .blog-article p{font-size:.95rem;color:var(--clr-muted);line-height:1.8;margin-bottom:18px}
+        .blog-article h2{font-size:1.2rem;color:var(--clr-heading);margin:32px 0 14px}
+        .blog-article ul{margin-bottom:18px;padding-left:20px}
+        .blog-article li{font-size:.95rem;color:var(--clr-muted);line-height:1.8;margin-bottom:6px}
+        .blog-article a{color:var(--clr-accent)}
+
+        @media(max-width:600px){
+            .blog-grid{grid-template-columns:1fr}
+            .blog-page{padding:40px 0 60px}
+        }
+    </style>
+</head>
+<body>
+<div class="noise"></div>
+<div class="grid-overlay"></div>
+
+<div class="nav-overlay" id="navOverlay">
+    <ul class="nav-links">
+        <li><a href="/">Главная</a></li>
+        <li><a href="/#services">Услуги</a></li>
+        <li><a href="/#demos">Демо-платформы</a></li>
+        <li><a href="/#cases">Кейсы</a></li>
+        <li><a href="/calculator/">Калькулятор</a></li>
+        <li><a href="/tools/">Инструменты</a></li>
+        <li><a href="/blog/" style="color:var(--clr-accent)">Блог</a></li>
+    </ul>
+</div>
+
+<header class="header" id="header">
+    <div class="container">
+        <nav class="nav">
+            <a href="/" class="logo">
+                <svg width="36" height="36" viewBox="0 0 36 36" fill="none">
+                    <rect x="2" y="2" width="14" height="14" rx="2" stroke="currentColor" stroke-width="1.5" opacity=".4"/>
+                    <rect x="20" y="2" width="14" height="14" rx="2" stroke="currentColor" stroke-width="1.5" opacity=".4"/>
+                    <rect x="2" y="20" width="14" height="14" rx="2" stroke="currentColor" stroke-width="1.5" opacity=".4"/>
+                    <rect x="20" y="20" width="14" height="14" rx="2" stroke="currentColor" stroke-width="1.5"/>
+                    <circle cx="27" cy="27" r="3" fill="currentColor" opacity=".8"/>
+                </svg>
+                <span>AXIIOM</span>
+            </a>
+            <ul class="nav-links nav-links--desktop">
+                <li><a href="/">Главная</a></li>
+                <li><a href="/#services">Услуги</a></li>
+                <li><a href="/#demos">Демо-платформы</a></li>
+                <li><a href="/#cases">Кейсы</a></li>
+                <li><a href="/calculator/">Калькулятор</a></li>
+                <li><a href="/tools/">Инструменты</a></li>
+                <li><a href="/blog/" style="color:var(--clr-accent)">Блог</a></li>
+            </ul>
+            <div class="nav-actions">
+                <a href="/#contact" class="btn btn-nav">Обсудить проект</a>
+                <button class="theme-btn" id="themeToggle" aria-label="Сменить тему">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>
+                </button>
+                <button class="nav-toggle" id="navToggle" aria-label="Меню">
+                    <span></span><span></span><span></span>
+                </button>
+            </div>
+        </nav>
+    </div>
+</header>
+
+<nav class="breadcrumbs" aria-label="Breadcrumb">
+    <div class="container">
+        <ol itemscope itemtype="https://schema.org/BreadcrumbList">
+            <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+                <a itemprop="item" href="/"><span itemprop="name">Главная</span></a>
+                <meta itemprop="position" content="1">
+            </li>
+            <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+                <span itemprop="name">Блог</span>
+                <meta itemprop="position" content="2">
+            </li>
+        </ol>
+    </div>
+</nav>
+
+<section class="blog-page">
+    <div class="container">
+        <div id="blogList">
+            <h1>Блог AXIIOM</h1>
+            <p class="blog-subtitle">Статьи о финтехе, платёжных системах, highload-архитектуре и разработке под ключ</p>
+            <div class="blog-grid" id="blogGrid"></div>
+        </div>
+        <div class="blog-article" id="blogArticle">
+            <button class="back-btn" id="backBtn"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5"/><path d="M12 19l-7-7 7-7"/></svg> Назад к списку</button>
+            <h1 id="articleTitle"></h1>
+            <span class="blog-art-date" id="articleDate"></span>
+            <div id="articleContent"></div>
+        </div>
+    </div>
+</section>
+
+<footer class="footer">
+    <div class="container">
+        <div id="footerCopy"></div>
+    </div>
+</footer>
+
+<script src="/blog/posts.js"></script>
+<script>
+(function() {
+    var grid = document.getElementById('blogGrid');
+    var list = document.getElementById('blogList');
+    var article = document.getElementById('blogArticle');
+    var artTitle = document.getElementById('articleTitle');
+    var artDate = document.getElementById('articleDate');
+    var artContent = document.getElementById('articleContent');
+    var backBtn = document.getElementById('backBtn');
+
+    function formatDate(str) {
+        var d = new Date(str + 'T00:00:00');
+        var months = ['января','февраля','марта','апреля','мая','июня','июля','августа','сентября','октября','ноября','декабря'];
+        return d.getDate() + ' ' + months[d.getMonth()] + ' ' + d.getFullYear();
+    }
+
+    function renderList() {
+        grid.innerHTML = POSTS.map(function(p) {
+            return '<div class="blog-card" data-slug="' + p.slug + '">' +
+                '<span class="blog-date">' + formatDate(p.date) + '</span>' +
+                '<h2>' + p.title + '</h2>' +
+                '<p>' + p.desc + '</p>' +
+                '<span class="blog-read">Читать →</span>' +
+            '</div>';
+        }).join('');
+        grid.querySelectorAll('.blog-card').forEach(function(card) {
+            card.addEventListener('click', function() {
+                openArticle(this.dataset.slug);
+            });
+        });
+    }
+
+    function openArticle(slug) {
+        var post = POSTS.find(function(p) { return p.slug === slug; });
+        if (!post) return;
+
+        list.style.display = 'none';
+        article.classList.add('visible');
+        artTitle.textContent = post.title;
+        artDate.textContent = formatDate(post.date);
+        artContent.innerHTML = post.content;
+
+        document.title = post.title + ' | Блог AXIIOM';
+        document.querySelector('meta[name="description"]').content = post.desc;
+        document.querySelector('meta[property="og:title"]').content = post.title + ' | Блог AXIIOM';
+        document.querySelector('meta[property="og:description"]').content = post.desc;
+        document.querySelector('meta[name="twitter:title"]').content = post.title + ' | Блог AXIIOM';
+        document.querySelector('meta[name="twitter:description"]').content = post.desc;
+        document.querySelector('link[rel="canonical"]').href = 'https://axiiom.ru/blog/#' + slug;
+
+        window.location.hash = slug;
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function closeArticle() {
+        list.style.display = '';
+        article.classList.remove('visible');
+
+        document.title = 'Блог AXIIOM — статьи о финтехе, разработке и технологиях';
+        document.querySelector('meta[name="description"]').content = 'Блог компании AXIIOM: тренды финтеха, руководства по PCI DSS и 161-ФЗ, архитектура highload-систем, UX платёжных приложений.';
+        document.querySelector('meta[property="og:title"]').content = 'Блог AXIIOM — статьи о финтехе, разработке и технологиях';
+        document.querySelector('meta[property="og:description"]').content = 'Блог компании AXIIOM: тренды финтеха, руководства по PCI DSS и 161-ФЗ, архитектура highload-систем, UX платёжных приложений.';
+        document.querySelector('meta[name="twitter:title"]').content = 'Блог AXIIOM — статьи о финтехе, разработке и технологиях';
+        document.querySelector('meta[name="twitter:description"]').content = 'Блог компании AXIIOM: тренды финтеха, руководства по PCI DSS и 161-ФЗ, архитектура highload-систем, UX платёжных приложений.';
+        document.querySelector('link[rel="canonical"]').href = 'https://axiiom.ru/blog/';
+
+        window.location.hash = '';
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    backBtn.addEventListener('click', closeArticle);
+
+    window.addEventListener('hashchange', function() {
+        var slug = window.location.hash.replace('#', '');
+        if (slug && POSTS.some(function(p) { return p.slug === slug; })) {
+            openArticle(slug);
+        } else {
+            closeArticle();
+        }
+    });
+
+    var initialSlug = window.location.hash.replace('#', '');
+    if (initialSlug && POSTS.some(function(p) { return p.slug === initialSlug; })) {
+        openArticle(initialSlug);
+    } else {
+        renderList();
+    }
+
+    // Nav toggle
+    var navToggle = document.getElementById('navToggle');
+    var navOverlay = document.getElementById('navOverlay');
+    if (navToggle && navOverlay) {
+        navToggle.addEventListener('click', function() {
+            navOverlay.classList.toggle('open');
+            navToggle.classList.toggle('active');
+            document.body.style.overflow = navOverlay.classList.contains('open') ? 'hidden' : '';
+        });
+        navOverlay.querySelectorAll('a').forEach(function(link) {
+            link.addEventListener('click', function() {
+                navOverlay.classList.remove('open');
+                navToggle.classList.remove('active');
+                document.body.style.overflow = '';
+            });
+        });
+        navOverlay.addEventListener('click', function(e) {
+            if (e.target === navOverlay) {
+                navOverlay.classList.remove('open');
+                navToggle.classList.remove('active');
+                document.body.style.overflow = '';
+            }
+        });
+    }
+
+    // Header scroll
+    var header = document.getElementById('header');
+    window.addEventListener('scroll', function() {
+        header.classList.toggle('scrolled', window.scrollY > 40);
+    }, { passive: true });
+})();
+</script>
+<script src="/theme.js"></script>
+<script src="/footer.js"></script>
+</body>
+</html>
