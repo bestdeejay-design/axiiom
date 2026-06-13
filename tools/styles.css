@@ -956,16 +956,20 @@ a.logo:hover::after { width: 100%; }
     color: var(--clr-faint);
     padding-top: 30px;
     border-top: 1px solid var(--clr-border);
-    letter-spacing: 1px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
 }
 
 .copy .footer-link {
-    color: var(--clr-heading);
+    color: var(--clr-accent);
     text-decoration: none;
-    transition: opacity .3s;
+    transition: opacity .3s, color .3s;
 }
 
-.copy .footer-link:hover { opacity: .7; }
+.copy .footer-link:hover {
+    opacity: 1;
+    color: var(--clr-heading);
+}
 
 /* Footer tools list (desktop only) */
 .footer-tools { display: none; }
