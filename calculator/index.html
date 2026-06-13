@@ -510,6 +510,9 @@
                 <div class="price-badge">Предварительная оценка</div>
                 <div class="price-label">Ориентировочная стоимость</div>
                 <div class="price-amount" id="priceAmount">—</div>
+                <div style="margin-bottom:12px;font-size:.85rem;color:var(--clr-accent2);font-weight:500;">
+                    <span id="priceTimeline"></span>
+                </div>
                 <div class="price-note" id="priceNote">Итоговая цена зависит от требований, числа вовлеченных участников и объёма работ</div>
                 <a href="mailto:hello@axiiom.ru?subject=Уточнение%20стоимости%20проекта" class="btn" onclick="ym(109391253,'reachGoal','calc_cta'); gtag('event','calc_cta');">Обсудить проект</a>
                 <div>
@@ -821,6 +824,24 @@ function renderParams() {
     });
 }
 
+// Timeline estimates per service
+function getTimeline(service) {
+    var map = {
+        'Финтех-платформы': '3–6 месяцев',
+        'Платформы лояльности': '2–5 месяцев',
+        'Highload-сервисы': '2–6 месяцев',
+        'Кибербезопасность': '2–8 недель',
+        'Сайты и лендинги': '2–12 недель',
+        'WEB-приложения': '1–6 месяцев',
+        'Мобильные приложения и PWA': '2–8 месяцев',
+        'UI/UX дизайн': '2–8 недель',
+        'Графический дизайн': '1–4 недели'
+    };
+    var isPwa = service.id === 'mobile' && paramValues.platform === 0;
+    if (isPwa) return '1–3 месяца';
+    return map[service.name] || 'уточняется';
+}
+
 // Calculate price
 function calculatePrice() {
     if (!selectedService) return;
@@ -842,6 +863,9 @@ function calculatePrice() {
     document.getElementById('priceAmount').textContent = formatPrice(from) + ' – ' + formatPrice(to);
 
     var selectedName = selectedService.name;
+    var timeline = getTimeline(selectedService);
+    document.getElementById('priceTimeline').textContent = 'Срок: ' + timeline;
+
     var note = 'Итоговая цена зависит от требований, числа вовлеченных участников и объёма работ. ';
     if (selectedName === 'Финтех-платформы') note += 'Учитывается сложность интеграций и комплаенс.';
     else if (selectedName === 'Платформы лояльности') note += 'White Label снижает стоимость и сроки.';
@@ -860,7 +884,9 @@ function calculatePrice() {
             body += p.label + ': ' + p.options[idx].label + '\n';
         }
     });
-    body += '\nОриентировочная стоимость: ' + formatPrice(from) + ' – ' + formatPrice(to) + '\n\n---\nРассчитано на axiiom.ru/calculator/';
+    body += '\nОриентировочная стоимость: ' + formatPrice(from) + ' – ' + formatPrice(to);
+    body += '\nСрок: ' + timeline;
+    body += '\n\n---\nРассчитано на axiiom.ru/calculator/';
     mailLink.href = 'mailto:hello@axiiom.ru?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
 }
 
