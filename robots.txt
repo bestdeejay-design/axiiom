@@ -1,4 +1,6 @@
-User-Agent: *
-Disallow:
+User-agent: *
+Allow: /
+Disallow: /admin/
+Disallow: /demo/*/admin/
 
 Sitemap: https://axiiom.ru/sitemap.xml
