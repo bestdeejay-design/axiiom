@@ -159,6 +159,33 @@
 
 <section class="section">
   <div class="container">
+    <p class="label">Интерактивное демо</p>
+    <h2>Попробуйте прямо сейчас</h2>
+    <div class="dw">
+  <h3 class="dw-t">📊 Портфель проектов</h3>
+  <div style="display:flex;flex-direction:column;gap:10px">
+    <div class="pp-p" data-i="0"><div style="flex:1"><div style="font-size:14px;font-weight:500;color:var(--clr-text)">Маркетплейс V2</div><div style="font-size:12px;color:var(--clr-muted);margin-top:2px">Сен 2024 — Мар 2025</div></div><div class="pp-bar"><div class="pp-fill" style="width:70%;background:linear-gradient(90deg,#6c5ce7,#a29bfe)"></div><div class="pp-today"></div></div><div style="font-size:12px;color:var(--clr-muted);min-width:50px;text-align:right">70%</div></div>
+    <div class="pp-p" data-i="1"><div style="flex:1"><div style="font-size:14px;font-weight:500;color:var(--clr-text)">Кредитный конвейер</div><div style="font-size:12px;color:var(--clr-muted);margin-top:2px">Янв 2025 — Июн 2025</div></div><div class="pp-bar"><div class="pp-fill" style="width:35%;background:linear-gradient(90deg,#00b894,#55efc4)"></div><div class="pp-today"></div></div><div style="font-size:12px;color:var(--clr-muted);min-width:50px;text-align:right">35%</div></div>
+    <div class="pp-p" data-i="2"><div style="flex:1"><div style="font-size:14px;font-weight:500;color:var(--clr-text)">Mobile App</div><div style="font-size:12px;color:var(--clr-muted);margin-top:2px">Май 2025 — Авг 2025</div></div><div class="pp-bar"><div class="pp-fill" style="width:15%;background:linear-gradient(90deg,#fdcb6e,#f39c12)"></div><div class="pp-today"></div></div><div style="font-size:12px;color:var(--clr-muted);min-width:50px;text-align:right">15%</div></div>
+  </div>
+  <div id="pp-d" style="display:none;margin-top:12px;padding:14px;background:var(--clr-bg);border:1px solid var(--clr-border);border-radius:10px;font-size:13px;color:var(--clr-text);animation:fcIn .3s ease"></div>
+</div>
+<style>.dw{margin:12px 0;background:var(--clr-surface);border:1px solid var(--clr-border);border-radius:16px;padding:24px}.dw-t{font-size:16px;font-weight:600;margin:0 0 16px;color:var(--clr-heading)}.pp-p{display:flex;align-items:center;gap:12px;padding:10px 14px;background:var(--clr-bg);border:1px solid var(--clr-border);border-radius:10px;cursor:pointer;transition:all .2s}.pp-p:hover{border-color:var(--clr-accent)}.pp-bar{flex:2;height:28px;background:var(--clr-surface);border-radius:6px;position:relative;overflow:hidden}.pp-fill{height:100%;border-radius:6px;position:relative}.pp-today{position:absolute;top:0;bottom:0;width:2px;background:#e17055;left:50%;box-shadow:0 0 4px #e1705566}@keyframes fcIn{from{opacity:0;transform:translateY(-5px)}to{opacity:1;transform:translateY(0)}}</style>
+<script>(function(){var details=[{n:'Маркетплейс V2',s:'Статус: Active
+Бюджет: 15 млн ₽
+Команда: 5 чел.
+Риски: низкие'},{n:'Кредитный конвейер',s:'Статус: Active
+Бюджет: 8 млн ₽
+Команда: 4 чел.
+Риски: средние'},{n:'Mobile App',s:'Статус: Planning
+Бюджет: 6 млн ₽
+Команда: 3 чел.
+Риски: высокие'}],dEl=document.getElementById('pp-d');document.querySelectorAll('.pp-p').forEach(function(p,i){p.addEventListener('click',function(){dEl.style.display='block';dEl.innerHTML='<strong>'+details[i].n+'</strong><br>'+details[i].s.replace(/\n/g,'<br>')});});})();</script>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
     <p class="label">Пример кода</p>
     <h2>Интеграция за 5 минут</h2>
     <div class="code-block"><code>// Создание портфеля проектов

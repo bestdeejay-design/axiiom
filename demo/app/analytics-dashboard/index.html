@@ -159,6 +159,30 @@
 
 <section class="section">
   <div class="container">
+    <p class="label">Интерактивное демо</p>
+    <h2>Попробуйте прямо сейчас</h2>
+    <div class="dw">
+  <h3 class="dw-t">📈 Аналитическая панель</h3>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px">
+    <div class="an-c"><div class="an-l">DAU</div><div class="an-v" id="an-dau">0</div></div>
+    <div class="an-c"><div class="an-l">MAU</div><div class="an-v" id="an-mau">0</div></div>
+    <div class="an-c"><div class="an-l">LTV</div><div class="an-v" id="an-ltv">0 ₽</div></div>
+    <div class="an-c"><div class="an-l">Конверсия</div><div class="an-v" id="an-conv">0%</div></div>
+  </div>
+  <div style="margin-top:12px;padding:12px;background:var(--clr-bg);border-radius:10px">
+    <div style="font-size:12px;color:var(--clr-muted);margin-bottom:8px">Активность за неделю</div>
+    <div style="display:flex;gap:4px;align-items:flex-end;height:60px">
+      <div class="an-bar" style="height:60%"></div><div class="an-bar" style="height:45%"></div><div class="an-bar" style="height:70%"></div><div class="an-bar" style="height:55%"></div><div class="an-bar" style="height:85%"></div><div class="an-bar" style="height:65%"></div><div class="an-bar" style="height:50%"></div>
+    </div>
+  </div>
+</div>
+<style>.dw{margin:12px 0;background:var(--clr-surface);border:1px solid var(--clr-border);border-radius:16px;padding:24px}.dw-t{font-size:16px;font-weight:600;margin:0 0 16px;color:var(--clr-heading)}.an-c{background:var(--clr-bg);border:1px solid var(--clr-border);border-radius:10px;padding:14px;text-align:center}.an-l{font-size:12px;color:var(--clr-muted);margin-bottom:4px;font-weight:500}.an-v{font-size:22px;font-weight:700;color:var(--clr-heading);font-variant-numeric:tabular-nums}.an-bar{flex:1;background:linear-gradient(to top,var(--clr-accent),transparent);border-radius:3px 3px 0 0;min-height:8px;opacity:.7;transition:height .5s}</style>
+<script>(function(){function an(e,v){var el=document.getElementById(e),s=0,i=setInterval(function(){s++;var d=Math.round(v*s/60);el.textContent=d+(e==='an-ltv'?' ₽':e==='an-conv'?'.'+(d%10)+'%':'');if(s>=60){clearInterval(i);el.textContent=v+(e==='an-ltv'?' ₽':e==='an-conv'?'.'+String(v).split('.')[1]+'%':'')}},20)}an('an-dau',12450);an('an-mau',45200);an('an-ltv',12500);setTimeout(function(){an('an-conv',32)},200);})();</script>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
     <p class="label">Пример кода</p>
     <h2>Интеграция за 5 минут</h2>
     <div class="code-block"><code>// Получение метрик за период

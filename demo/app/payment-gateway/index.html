@@ -159,6 +159,50 @@
 
 <section class="section">
   <div class="container">
+    <p class="label">Интерактивное демо</p>
+    <h2>Попробуйте прямо сейчас</h2>
+    <div class="dw">
+  <h3 class="dw-t">💳 Оплата картой</h3>
+  <div class="dw-b">
+    <div class="dw-f"><label class="dw-l">Номер карты</label><input class="dw-i" id="w1n" placeholder="0000 0000 0000 0000" maxlength="19"></div>
+    <div class="dw-r3">
+      <div class="dw-f"><label class="dw-l">ММ/ГГ</label><input class="dw-i" id="w1e" placeholder="MM/YY" maxlength="5"></div>
+      <div class="dw-f"><label class="dw-l">CVV</label><input class="dw-i" id="w1c" placeholder="***" maxlength="3"></div>
+      <div class="dw-f"><label class="dw-l">Сумма, ₽</label><input class="dw-i" id="w1a" type="number" value="1500"></div>
+    </div>
+    <button class="dw-btn" id="w1b">Оплатить 1 500 ₽</button>
+    <div class="dw-x" id="w1x" style="display:none">
+      <div class="dw-sp" id="w1sp"></div>
+      <div class="dw-ok" id="w1ok" style="display:none"><svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#00b894" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg><span>Платёж выполнен</span></div>
+    </div>
+  </div>
+</div>
+<style>
+.dw{margin:12px 0;background:var(--clr-surface);border:1px solid var(--clr-border);border-radius:16px;padding:24px}
+.dw-t{font-size:16px;font-weight:600;margin:0 0 16px;color:var(--clr-heading)}
+.dw-b{display:flex;flex-direction:column;gap:10px}
+.dw-f{display:flex;flex-direction:column;gap:3px}
+.dw-l{font-size:12px;color:var(--clr-muted);font-weight:500}
+.dw-i{width:100%;padding:10px 14px;background:var(--clr-bg);border:1px solid var(--clr-border);border-radius:10px;color:var(--clr-text);font-size:14px;font-family:'SF Mono',monospace;box-sizing:border-box;transition:border-color .2s,box-shadow .2s}
+.dw-i:focus{outline:none;border-color:var(--clr-accent);box-shadow:0 0 0 3px color-mix(in srgb,var(--clr-accent) 20%,transparent)}
+.dw-r3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px}
+.dw-btn{padding:12px;background:var(--clr-accent);border:none;border-radius:10px;color:#fff;font-size:15px;font-weight:600;cursor:pointer;transition:opacity .2s}
+.dw-btn:hover{opacity:.85}
+.dw-x{text-align:center;padding:8px}
+.dw-sp{width:28px;height:28px;border:2px solid var(--clr-border);border-top-color:var(--clr-accent);border-radius:50%;animation:dws .7s linear infinite;margin:0 auto}
+.dw-ok{display:flex;flex-direction:column;align-items:center;gap:6px;color:#00b894;font-weight:600;font-size:14px}
+@keyframes dws{to{transform:rotate(360deg)}}
+@media(max-width:500px){.dw-r3{grid-template-columns:1fr}}
+</style>
+<script>(function(){
+['n','e','c','a'].forEach(function(id){var el=document.getElementById('w1'+id);if(el)el.addEventListener('input',function(e){if(id==='n')e.target.value=e.target.value.replace(/\D/g,'').replace(/(.{4})/g,'$1 ').trim();else if(id==='e'){var v=e.target.value.replace(/\D/g,'');if(v.length>2)v=v.slice(0,2)+'/'+v.slice(2);e.target.value=v}else if(id==='c')e.target.value=e.target.value.replace(/\D/g,'');});});
+document.getElementById('w1b').addEventListener('click',function(){var b=this,x=document.getElementById('w1x'),sp=document.getElementById('w1sp'),ok=document.getElementById('w1ok');b.style.display='none';x.style.display='block';sp.style.display='block';ok.style.display='none';setTimeout(function(){sp.style.display='none';ok.style.display='flex'},1800);});
+})();</script>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
     <p class="label">Пример кода</p>
     <h2>Интеграция за 5 минут</h2>
     <div class="code-block"><code>// Инициализация платёжного шлюза

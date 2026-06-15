@@ -159,6 +159,35 @@
 
 <section class="section">
   <div class="container">
+    <p class="label">Интерактивное демо</p>
+    <h2>Попробуйте прямо сейчас</h2>
+    <div class="dw">
+  <h3 class="dw-t">💳 POS-терминал</h3>
+  <div style="display:flex;flex-direction:column;align-items:center;gap:12px">
+    <div style="background:var(--clr-bg);border:1px solid var(--clr-border);border-radius:12px;padding:16px;width:100%;text-align:center">
+      <div style="font-size:12px;color:var(--clr-muted);margin-bottom:4px">Сумма к оплате</div>
+      <div id="pt-amt" style="font-size:36px;font-weight:700;color:var(--clr-heading);font-variant-numeric:tabular-nums;min-height:44px">0 ₽</div>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:8px;width:100%;max-width:280px">
+      <button class="pt-k" data-v="1">1</button><button class="pt-k" data-v="2">2</button><button class="pt-k" data-v="3">3</button>
+      <button class="pt-k" data-v="4">4</button><button class="pt-k" data-v="5">5</button><button class="pt-k" data-v="6">6</button>
+      <button class="pt-k" data-v="7">7</button><button class="pt-k" data-v="8">8</button><button class="pt-k" data-v="9">9</button>
+      <button class="pt-k" data-v="00">00</button><button class="pt-k" data-v="0">0</button><button class="pt-k pt-clr" id="pt-clr">C</button>
+    </div>
+    <button class="dw-btn" id="pt-pay" style="width:100%;max-width:280px">Оплатить</button>
+    <div id="pt-st" style="display:none;text-align:center;padding:12px">
+      <div class="dw-sp" id="pt-sp"></div>
+      <div id="pt-ok" style="display:none;color:#00b894;font-weight:600;font-size:15px">✅ Оплата принята</div>
+    </div>
+  </div>
+</div>
+<style>.dw{margin:12px 0;background:var(--clr-surface);border:1px solid var(--clr-border);border-radius:16px;padding:24px}.dw-t{font-size:16px;font-weight:600;margin:0 0 16px;color:var(--clr-heading)}.dw-btn{padding:12px;background:var(--clr-accent);border:none;border-radius:10px;color:#fff;font-size:15px;font-weight:600;cursor:pointer;transition:opacity .2s}.dw-btn:hover{opacity:.85}.dw-sp{width:28px;height:28px;border:2px solid var(--clr-border);border-top-color:var(--clr-accent);border-radius:50%;animation:dws .7s linear infinite;margin:0 auto}.pt-k{padding:14px;background:var(--clr-bg);border:1px solid var(--clr-border);border-radius:10px;color:var(--clr-text);font-size:20px;font-weight:600;cursor:pointer;transition:all .15s;text-align:center}.pt-k:hover{background:var(--clr-surface);border-color:var(--clr-accent)}.pt-k:active{transform:scale(.95)}.pt-clr{color:#e17055;border-color:#e1705544}@keyframes dws{to{transform:rotate(360deg)}}</style>
+<script>(function(){var amt=0,e=document.getElementById('pt-amt'),b=document.getElementById('pt-pay'),st=document.getElementById('pt-st'),sp=document.getElementById('pt-sp'),ok=document.getElementById('pt-ok');document.querySelectorAll('.pt-k').forEach(function(k){k.addEventListener('click',function(){if(this.id==='pt-clr'){amt=0}else{var v=this.dataset.v;amt=amt*100+parseInt(v)}e.textContent=Math.round(amt).toLocaleString('ru')+' ₽'});});b.addEventListener('click',function(){if(amt<=0)return;b.style.display='none';st.style.display='block';sp.style.display='block';ok.style.display='none';setTimeout(function(){sp.style.display='none';ok.style.display='block'},1500);});})();</script>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
     <p class="label">Пример кода</p>
     <h2>Интеграция за 5 минут</h2>
     <div class="code-block"><code>// Инициализация терминала

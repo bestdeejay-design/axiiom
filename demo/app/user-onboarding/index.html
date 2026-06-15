@@ -159,6 +159,32 @@
 
 <section class="section">
   <div class="container">
+    <p class="label">Интерактивное демо</p>
+    <h2>Попробуйте прямо сейчас</h2>
+    <div class="dw">
+  <h3 class="dw-t">🚀 Онбординг</h3>
+  <div style="display:flex;align-items:center;gap:8px;margin-bottom:20px;position:relative">
+    <div class="ub s" data-s="1"><div class="ub-n">1</div><div class="ub-lb">Данные</div></div><div class="ub-l"></div>
+    <div class="ub" data-s="0"><div class="ub-n">2</div><div class="ub-lb">Документы</div></div><div class="ub-l"></div>
+    <div class="ub" data-s="0"><div class="ub-n">3</div><div class="ub-lb">Биометрия</div></div><div class="ub-l"></div>
+    <div class="ub" data-s="0"><div class="ub-n">4</div><div class="ub-lb">Готово</div></div>
+  </div>
+  <div id="ub-c" style="padding:16px;background:var(--clr-bg);border:1px solid var(--clr-border);border-radius:12px;min-height:80px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;transition:all .3s">
+    <div style="font-size:14px;color:var(--clr-text);text-align:center" id="ub-t">Заполните личные данные для регистрации</div>
+    <div id="ub-f" style="width:100%;max-width:280px;display:flex;flex-direction:column;gap:8px">
+      <input class="dw-i" placeholder="Имя" value="Иван" style="padding:10px 14px;font-size:14px">
+      <input class="dw-i" placeholder="Телефон" value="+7 (999) 123-45-67" style="padding:10px 14px;font-size:14px">
+    </div>
+  </div>
+  <button class="dw-btn" id="ub-btn" style="margin-top:12px;width:100%">Далее</button>
+</div>
+<style>.dw{margin:12px 0;background:var(--clr-surface);border:1px solid var(--clr-border);border-radius:16px;padding:24px}.dw-t{font-size:16px;font-weight:600;margin:0 0 16px;color:var(--clr-heading)}.dw-i{background:var(--clr-bg);border:1px solid var(--clr-border);border-radius:10px;color:var(--clr-text);box-sizing:border-box;width:100%}.dw-i:focus{outline:none;border-color:var(--clr-accent)}.dw-btn{padding:12px;background:var(--clr-accent);border:none;border-radius:10px;color:#fff;font-size:15px;font-weight:600;cursor:pointer;transition:opacity .2s}.dw-btn:hover{opacity:.85}.ub{display:flex;flex-direction:column;align-items:center;gap:4px;flex:1}.ub-n{width:32px;height:32px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;background:var(--clr-bg);border:2px solid var(--clr-border);color:var(--clr-muted);transition:all .3s}.ub.s .ub-n{background:var(--clr-accent);border-color:var(--clr-accent);color:#fff}.ub-l{height:2px;flex:1;background:var(--clr-border);margin-bottom:22px}.ub-lb{font-size:11px;color:var(--clr-muted);white-space:nowrap}</style>
+<script>(function(){var s=1,btn=document.getElementById('ub-btn'),ct=document.getElementById('ub-c'),tt=document.getElementById('ub-t'),ff=document.getElementById('ub-f'),steps=['Заполните личные данные для регистрации','Загрузите скан паспорта','Пройдите биометрию','Регистрация завершена!'],cont=[true,true,true,false];function upd(){document.querySelectorAll('.ub').forEach(function(el,i){var idx=parseInt(el.dataset.s);el.classList.toggle('s',i+1<=s);});tt.textContent=steps[s-1];if(cont[s-1]){ff.style.display='flex';btn.textContent=s<4?'Далее':'Завершить'}else{ff.style.display='none';btn.style.display='none';ct.innerHTML='<div style="font-size:42px;margin-bottom:8px">✅</div><div style="font-size:16px;font-weight:600;color:#00b894">'+steps[s-1]+'</div>';}}btn.addEventListener('click',function(){if(s<4){s++;upd()}else{ct.innerHTML='<div style="font-size:42px;margin-bottom:8px">✅</div><div style="font-size:16px;font-weight:600;color:#00b894">Добро пожаловать!</div>';btn.style.display='none'}});upd()})();</script>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
     <p class="label">Пример кода</p>
     <h2>Интеграция за 5 минут</h2>
     <div class="code-block"><code>// Начало онбординга

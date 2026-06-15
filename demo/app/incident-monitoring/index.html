@@ -159,6 +159,27 @@
 
 <section class="section">
   <div class="container">
+    <p class="label">Интерактивное демо</p>
+    <h2>Попробуйте прямо сейчас</h2>
+    <div class="dw">
+  <h3 class="dw-t">🔍 Мониторинг сервисов</h3>
+  <div style="display:flex;flex-direction:column;gap:8px">
+    <div class="im-r" data-s="ok"><span class="im-d im-g"></span><span class="im-n">API Gateway</span><span class="im-s">Operational</span></div>
+    <div class="im-r" data-s="ok"><span class="im-d im-g"></span><span class="im-n">Database</span><span class="im-s">Operational</span></div>
+    <div class="im-r" data-s="warn"><span class="im-d im-y"></span><span class="im-n">Cache (Redis)</span><span class="im-s">Degraded</span></div>
+    <div class="im-r" data-s="ok"><span class="im-d im-g"></span><span class="im-n">Message Queue</span><span class="im-s">Operational</span></div>
+    <div class="im-r" data-s="ok"><span class="im-d im-g"></span><span class="im-n">Frontend CDN</span><span class="im-s">Operational</span></div>
+  </div>
+  <div id="im-alert" style="display:none;margin-top:10px;padding:10px 14px;background:#e1705522;border:1px solid #e1705544;border-radius:10px;color:#e17055;font-size:13px;font-weight:500">⚠️ Инцидент: сервис недоступен</div>
+  <div style="margin-top:10px;font-size:11px;color:var(--clr-muted)">Нажмите на сервис, чтобы переключить статус</div>
+</div>
+<style>.dw{margin:12px 0;background:var(--clr-surface);border:1px solid var(--clr-border);border-radius:16px;padding:24px}.dw-t{font-size:16px;font-weight:600;margin:0 0 16px;color:var(--clr-heading)}.im-r{display:flex;align-items:center;gap:10px;padding:10px 14px;background:var(--clr-bg);border:1px solid var(--clr-border);border-radius:10px;cursor:pointer;transition:all .2s}.im-r:hover{border-color:var(--clr-accent)}.im-d{width:10px;height:10px;border-radius:50%;flex-shrink:0}.im-g{background:#00b894;box-shadow:0 0 6px #00b89466}.im-y{background:#fdcb6e;box-shadow:0 0 6px #fdcb6e66}.im-r{background:#e17055;box-shadow:0 0 6px #e1705566}.im-n{flex:1;font-size:14px;font-weight:500;color:var(--clr-text)}.im-s{font-size:12px;color:var(--clr-muted)}</style>
+<script>(function(){var st={0:'ok',1:'ok',2:'warn',3:'ok',4:'ok'},al=document.getElementById('im-alert');document.querySelectorAll('.im-r').forEach(function(r,i){r.addEventListener('click',function(){var sts=['ok','warn','down'];var ci=sts.indexOf(st[i]);st[i]=sts[(ci+1)%3];var d=r.querySelector('.im-d');d.className='im-d';if(st[i]==='ok'){d.classList.add('im-g');r.querySelector('.im-s').textContent='Operational'}else if(st[i]==='warn'){d.classList.add('im-y');r.querySelector('.im-s').textContent='Degraded'}else{d.classList.add('im-r');r.querySelector('.im-s').textContent='Down'}var hasDown=Object.values(st).some(function(s){return s==='down'});al.style.display=hasDown?'block':'none';al.textContent=hasDown?'⚠️ Инцидент: требуется внимание':'✅ Все сервисы работают';al.style.color=hasDown?'#e17055':'#00b894'});});})();</script>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
     <p class="label">Пример кода</p>
     <h2>Интеграция за 5 минут</h2>
     <div class="code-block"><code>// Создание алерта

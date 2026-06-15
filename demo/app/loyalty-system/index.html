@@ -159,6 +159,29 @@
 
 <section class="section">
   <div class="container">
+    <p class="label">Интерактивное демо</p>
+    <h2>Попробуйте прямо сейчас</h2>
+    <div class="dw">
+  <h3 class="dw-t">⭐ Система лояльности</h3>
+  <div style="text-align:center">
+    <div style="display:flex;justify-content:center;gap:16px;margin-bottom:16px">
+      <div style="text-align:center"><div style="font-size:12px;color:var(--clr-muted);margin-bottom:4px">Текущий</div><div id="ls-cur" style="padding:6px 16px;border-radius:20px;font-size:14px;font-weight:600;background:linear-gradient(135deg,#a8edea,#fed6e3);color:#1a1a2e">Silver</div></div>
+      <div style="text-align:center"><div style="font-size:12px;color:var(--clr-muted);margin-bottom:4px">Следующий</div><div id="ls-nxt" style="padding:6px 16px;border-radius:20px;font-size:14px;font-weight:600;background:linear-gradient(135deg,#f6d365,#fda085);color:#1a1a2e">Gold</div></div>
+    </div>
+    <div style="margin-bottom:8px"><span style="font-size:13px;color:var(--clr-muted)">Прогресс: </span><strong id="ls-pct" style="color:var(--clr-heading)">67%</strong></div>
+    <div style="height:8px;background:var(--clr-bg);border-radius:4px;overflow:hidden;margin-bottom:16px"><div id="ls-bar" style="height:100%;width:67%;background:linear-gradient(90deg,var(--clr-accent),#f6d365);border-radius:4px;transition:width .4s ease"></div></div>
+    <div style="font-size:28px;font-weight:700;color:var(--clr-heading);font-variant-numeric:tabular-nums" id="ls-pt">1 340</div>
+    <div style="font-size:13px;color:var(--clr-muted);margin-bottom:12px">баллов / 2 000 для Gold</div>
+    <button class="dw-btn" id="ls-btn">Начислить +50 баллов</button>
+  </div>
+</div>
+<style>.dw{margin:12px 0;background:var(--clr-surface);border:1px solid var(--clr-border);border-radius:16px;padding:24px}.dw-t{font-size:16px;font-weight:600;margin:0 0 16px;color:var(--clr-heading)}.dw-btn{padding:12px 20px;background:var(--clr-accent);border:none;border-radius:10px;color:#fff;font-size:14px;font-weight:600;cursor:pointer;transition:opacity .2s}.dw-btn:hover{opacity:.85}</style>
+<script>(function(){var pts=1340,tg=2000,next='Gold',lvs=[{n:'Silver',t:1000,next:'Gold',g:'linear-gradient(135deg,#a8edea,#fed6e3)'},{n:'Gold',t:3000,next:'Platinum',g:'linear-gradient(135deg,#f6d365,#fda085)'},{n:'Platinum',t:99999,next:'MAX',g:'linear-gradient(135deg,#a18cd1,#fbc2eb)'}];var ce=document.getElementById('ls-cur'),ne=document.getElementById('ls-nxt'),pe=document.getElementById('ls-pct'),be=document.getElementById('ls-bar'),pe2=document.getElementById('ls-pt');document.getElementById('ls-btn').addEventListener('click',function(){var t=this;t.disabled=1;var si=setInterval(function(){pts++;if(pts<=tg){var pc=Math.round((pts-1000)/(tg-1000)*100);pe.textContent=pc+'%';be.style.width=pc+'%'}pe2.textContent=pts.toLocaleString('ru');var cl=lvs.filter(function(l){return pts>=l.t});var cu=cl[cl.length-1];if(cu){ce.textContent=cu.n;ce.style.background=cu.g;if(cu.next){ne.textContent=cu.next;tg=lvs.filter(function(l){return l.t>pts})[0]?.t||99999;ne.style.background=lvs.filter(function(l){return l.t>pts})[0]?.g||'#333'}}if(pts>=tg+30||pts%50===0){clearInterval(si);t.disabled=0}},25);});})();</script>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
     <p class="label">Пример кода</p>
     <h2>Интеграция за 5 минут</h2>
     <div class="code-block"><code>// Создание правила лояльности

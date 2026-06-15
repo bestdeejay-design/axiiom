@@ -159,6 +159,29 @@
 
 <section class="section">
   <div class="container">
+    <p class="label">Интерактивное демо</p>
+    <h2>Попробуйте прямо сейчас</h2>
+    <div class="dw">
+  <h3 class="dw-t">🏆 Программа лояльности</h3>
+  <div class="dw-b" style="text-align:center">
+    <div style="font-size:13px;color:var(--clr-muted);margin-bottom:4px">Ваш баланс</div>
+    <div id="loy-bal" style="font-size:42px;font-weight:700;color:var(--clr-heading);font-variant-numeric:tabular-nums;transition:all .3s">2 450</div>
+    <div style="font-size:13px;color:var(--clr-muted);margin-bottom:12px">баллов</div>
+    <div id="loy-lvl" style="display:inline-block;padding:4px 14px;border-radius:20px;font-size:13px;font-weight:600;margin-bottom:12px;background:linear-gradient(135deg,#f6d365,#fda085);color:#1a1a2e">Silver</div>
+    <div style="margin:12px 0 16px">
+      <div style="display:flex;justify-content:space-between;font-size:12px;color:var(--clr-muted);margin-bottom:4px"><span>Silver</span><span>Gold</span></div>
+      <div style="height:6px;background:var(--clr-bg);border-radius:3px;overflow:hidden"><div id="loy-bar" style="height:100%;width:45%;background:linear-gradient(90deg,var(--clr-accent),#f6d365);border-radius:3px;transition:width .5s ease"></div></div>
+    </div>
+    <button class="dw-btn" id="loy-btn">Начислить 100 баллов</button>
+  </div>
+</div>
+<style>.dw{margin:12px 0;background:var(--clr-surface);border:1px solid var(--clr-border);border-radius:16px;padding:24px}.dw-t{font-size:16px;font-weight:600;margin:0 0 16px;color:var(--clr-heading)}.dw-b{display:flex;flex-direction:column;gap:2px}.dw-btn{padding:12px 20px;background:var(--clr-accent);border:none;border-radius:10px;color:#fff;font-size:14px;font-weight:600;cursor:pointer;transition:opacity .2s;display:inline-block;margin:0 auto}.dw-btn:hover{opacity:.85}</style>
+<script>(function(){var bal=2450,lvlEl=document.getElementById('loy-lvl'),bar=document.getElementById('loy-bar'),balEl=document.getElementById('loy-bal'),lvls=[{n:'Silver',m:0},{n:'Gold',m:1000},{n:'Platinum',m:3000}];document.getElementById('loy-btn').addEventListener('click',function(){var t=this;t.disabled=1;var st=setInterval(function(){bal++;balEl.textContent=bal.toLocaleString('ru');var p=bal%1000/10;bar.style.width=p+'%';var cl=lvls.filter(function(l){return bal>=l.m});var cu=cl[cl.length-1];if(cu){lvlEl.textContent=cu.n;lvlEl.style.background=cu.n==='Platinum'?'linear-gradient(135deg,#a18cd1,#fbc2eb)':cu.n==='Gold'?'linear-gradient(135deg,#f6d365,#fda085)':'linear-gradient(135deg,#a8edea,#fed6e3)'}if(bal>=2550||bal%100===0&&bal>=2550||bal===2550){clearInterval(st);t.disabled=0}},30);});})();</script>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
     <p class="label">Пример кода</p>
     <h2>Интеграция за 5 минут</h2>
     <div class="code-block"><code>// Начисление баллов

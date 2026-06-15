@@ -159,6 +159,52 @@
 
 <section class="section">
   <div class="container">
+    <p class="label">Интерактивное демо</p>
+    <h2>Попробуйте прямо сейчас</h2>
+    <div class="dw">
+  <h3 class="dw-t">🛍️ Checkout Page</h3>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px">
+    <div style="display:flex;flex-direction:column;gap:10px">
+      <div class="dw-f"><label class="dw-l">Email</label><input class="dw-i" id="pp-email" value="user@example.com" style="padding:10px 14px"></div>
+      <div class="dw-f"><label class="dw-l">Номер карты</label><input class="dw-i" id="pp-card" placeholder="0000 0000 0000 0000" maxlength="19" style="padding:10px 14px"></div>
+      <div class="dw-f"><label class="dw-l">Имя на карте</label><input class="dw-i" id="pp-name" value="IVAN PETROV" style="padding:10px 14px"></div>
+      <button class="dw-btn" id="pp-btn" style="margin-top:4px">Оплатить 5 499 ₽</button>
+    </div>
+    <div style="background:var(--clr-bg);border:1px solid var(--clr-border);border-radius:12px;padding:14px">
+      <div style="font-size:13px;font-weight:600;color:var(--clr-heading);margin-bottom:10px">Ваш заказ</div>
+      <div style="display:flex;justify-content:space-between;font-size:13px;color:var(--clr-text);padding:6px 0;border-bottom:1px solid var(--clr-border)"><span>Смартфон X Pro × 1</span><span>79 990 ₽</span></div>
+      <div style="display:flex;justify-content:space-between;font-size:13px;color:var(--clr-text);padding:6px 0;border-bottom:1px solid var(--clr-border)"><span>Доставка</span><span>Бесплатно</span></div>
+      <div style="display:flex;justify-content:space-between;font-size:15px;font-weight:700;color:var(--clr-heading);padding:10px 0 0"><span>Итого</span><span>79 990 ₽</span></div>
+    </div>
+  </div>
+  <div id="pp-modal" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,.7);z-index:99999;align-items:center;justify-content:center">
+    <div style="background:var(--clr-surface);border:1px solid var(--clr-border);border-radius:20px;padding:32px;text-align:center;max-width:340px;animation:fcIn .3s ease">
+      <div style="font-size:36px;margin-bottom:12px">🔐</div>
+      <div style="font-size:16px;font-weight:600;color:var(--clr-heading);margin-bottom:6px">3D Secure</div>
+      <div style="font-size:13px;color:var(--clr-muted);margin-bottom:16px">Подтвердите оплату через ваш банк</div>
+      <div style="display:flex;gap:10px;justify-content:center">
+        <button class="dw-btn" onclick="ppSuccess()" style="padding:10px 24px;font-size:13px">Подтвердить</button>
+        <button class="dw-btn" onclick="ppClose()" style="padding:10px 24px;font-size:13px;background:var(--clr-bg);color:var(--clr-text);border:1px solid var(--clr-border)">Отмена</button>
+      </div>
+    </div>
+  </div>
+  <div id="pp-ok" style="display:none;text-align:center;padding:16px;margin-top:10px">
+    <div style="font-size:40px;margin-bottom:8px">✅</div>
+    <div style="font-size:16px;font-weight:600;color:#00b894">Оплата подтверждена</div>
+  </div>
+</div>
+<style>.dw{margin:12px 0;background:var(--clr-surface);border:1px solid var(--clr-border);border-radius:16px;padding:24px}.dw-t{font-size:16px;font-weight:600;margin:0 0 16px;color:var(--clr-heading)}.dw-f{display:flex;flex-direction:column;gap:3px}.dw-l{font-size:12px;color:var(--clr-muted);font-weight:500}.dw-i{width:100%;background:var(--clr-bg);border:1px solid var(--clr-border);border-radius:10px;color:var(--clr-text);font-size:14px;font-family:'SF Mono',monospace;box-sizing:border-box;transition:border-color .2s}.dw-i:focus{outline:none;border-color:var(--clr-accent)}.dw-btn{padding:12px;background:var(--clr-accent);border:none;border-radius:10px;color:#fff;font-size:15px;font-weight:600;cursor:pointer;transition:opacity .2s}.dw-btn:hover{opacity:.85}@keyframes fcIn{from{opacity:0;transform:scale(.95)}to{opacity:1;transform:scale(1)}}@media(max-width:600px){.dw>div:first-child{grid-template-columns:1fr!important}}</style>
+<script>
+document.getElementById('pp-card').addEventListener('input',function(e){e.target.value=e.target.value.replace(/\D/g,'').replace(/(.{4})/g,'$1 ').trim();});
+document.getElementById('pp-btn').addEventListener('click',function(){document.getElementById('pp-modal').style.display='flex';});
+function ppSuccess(){document.getElementById('pp-modal').style.display='none';document.getElementById('pp-ok').style.display='block';var b=document.getElementById('pp-btn');b.textContent='✓ Оплачено';b.style.display='block';b.disabled=1;}
+function ppClose(){document.getElementById('pp-modal').style.display='none';}
+</script>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
     <p class="label">Пример кода</p>
     <h2>Интеграция за 5 минут</h2>
     <div class="code-block"><code>// Встраивание платёжной страницы

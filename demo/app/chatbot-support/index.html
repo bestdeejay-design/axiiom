@@ -159,6 +159,32 @@
 
 <section class="section">
   <div class="container">
+    <p class="label">Интерактивное демо</p>
+    <h2>Попробуйте прямо сейчас</h2>
+    <div class="dw">
+  <h3 class="dw-t">💬 Чат техподдержки</h3>
+  <div style="border:1px solid var(--clr-border);border-radius:12px;overflow:hidden;background:var(--clr-bg)">
+    <div id="ch-msgs" style="height:220px;overflow-y:auto;padding:12px;display:flex;flex-direction:column;gap:8px">
+      <div style="align-self:flex-start;background:var(--clr-surface);padding:10px 14px;border-radius:12px 12px 12px 4px;max-width:80%;font-size:14px;color:var(--clr-text);border:1px solid var(--clr-border)">Здравствуйте! Чем могу помочь?</div>
+    </div>
+    <div style="display:flex;gap:8px;padding:10px 12px;border-top:1px solid var(--clr-border)">
+      <input id="ch-inp" placeholder="Напишите сообщение..." class="dw-i" style="flex:1" onkeydown="if(event.key==='Enter')chSend()">
+      <button class="dw-btn" id="ch-btn" style="padding:10px 16px;font-size:13px" onclick="chSend()">→</button>
+    </div>
+  </div>
+  <div style="margin-top:10px;display:flex;flex-wrap:wrap;gap:6px">
+    <button class="dw-btn ch-q" style="padding:6px 12px;font-size:12px" data-q="Привет">Привет</button>
+    <button class="dw-btn ch-q" style="padding:6px 12px;font-size:12px" data-q="Как пополнить?">Как пополнить?</button>
+    <button class="dw-btn ch-q" style="padding:6px 12px;font-size:12px" data-q="Проблема с платежом">Проблема с платежом</button>
+  </div>
+</div>
+<style>.dw{margin:12px 0;background:var(--clr-surface);border:1px solid var(--clr-border);border-radius:16px;padding:24px}.dw-t{font-size:16px;font-weight:600;margin:0 0 16px;color:var(--clr-heading)}.dw-i{width:100%;padding:10px 14px;background:var(--clr-bg);border:1px solid var(--clr-border);border-radius:10px;color:var(--clr-text);font-size:14px;box-sizing:border-box}.dw-i:focus{outline:none;border-color:var(--clr-accent)}.dw-btn{padding:12px;background:var(--clr-accent);border:none;border-radius:10px;color:#fff;font-size:15px;font-weight:600;cursor:pointer;transition:opacity .2s}.dw-btn:hover{opacity:.85}</style>
+<script>var chMsgs=document.getElementById('ch-msgs'),chInp=document.getElementById('ch-inp');var chRes={'привет':'Привет! Чем могу помочь?','как пополнить':'Пополнить баланс можно через личный кабинет или приложение. Выберите способ: карта, SBP или кошелёк.','проблема с платежом':'Опишите проблему подробнее. Возможно, потребуется проверить статус транзакции. Напишите номер операции.','по умолчанию':'Передаю ваш вопрос специалисту. Пожалуйста, ожидайте.'};function chAdd(m,u){var d=document.createElement('div');d.style.cssText='align-self:'+(u?'flex-end':'flex-start')+';background:'+(u?'var(--clr-accent)':'var(--clr-surface)')+';padding:10px 14px;border-radius:'+(u?'4px 12px 12px 12px':'12px 12px 12px 4px')+';max-width:80%;font-size:14px;color:'+(u?'#fff':'var(--clr-text)')+';'+(u?'':'border:1px solid var(--clr-border)');d.textContent=m;chMsgs.appendChild(d);chMsgs.scrollTop=chMsgs.scrollHeight}function chSend(){var t=chInp.value.trim();if(!t)return;chAdd(t,1);chInp.value='';var r=t.toLowerCase();var a=chRes[r]||Object.keys(chRes).filter(function(k){return r.includes(k)}).map(function(k){return chRes[k]})[0]||chRes['по умолчанию'];setTimeout(function(){chAdd(a,0)},500)}document.querySelectorAll('.ch-q').forEach(function(b){b.addEventListener('click',function(){chInp.value=this.dataset.q;chSend()})});</script>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
     <p class="label">Пример кода</p>
     <h2>Интеграция за 5 минут</h2>
     <div class="code-block"><code>// Обработка входящего сообщения

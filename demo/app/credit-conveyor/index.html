@@ -159,6 +159,28 @@
 
 <section class="section">
   <div class="container">
+    <p class="label">Интерактивное демо</p>
+    <h2>Попробуйте прямо сейчас</h2>
+    <div class="dw">
+  <h3 class="dw-t">📊 Кредитный калькулятор</h3>
+  <div class="dw-b">
+    <div class="dw-f"><label class="dw-l">Сумма кредита: <strong id="cc-a">500 000</strong> ₽</label><input class="dw-i" id="cc-as" type="range" min="100000" max="5000000" step="10000" value="500000" style="accent-color:var(--clr-accent);width:100%"></div>
+    <div class="dw-f"><label class="dw-l">Срок: <strong id="cc-t">12</strong> мес.</label><input class="dw-i" id="cc-ts" type="range" min="3" max="24" step="1" value="12" style="accent-color:var(--clr-accent);width:100%"></div>
+    <div style="padding:16px;background:var(--clr-bg);border-radius:12px;margin:8px 0;text-align:center">
+      <div style="font-size:12px;color:var(--clr-muted)">Ежемесячный платёж</div>
+      <div id="cc-pm" style="font-size:28px;font-weight:700;color:var(--clr-heading);font-variant-numeric:tabular-nums">43 124 ₽</div>
+      <div style="font-size:12px;color:var(--clr-muted);margin-top:4px">Ставка: 12.9% годовых</div>
+    </div>
+    <div style="display:flex;align-items:center;justify-content:center;gap:8px;color:#00b894;font-weight:600;font-size:14px"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#00b894" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> Предварительное одобрение</div>
+  </div>
+</div>
+<style>.dw{margin:12px 0;background:var(--clr-surface);border:1px solid var(--clr-border);border-radius:16px;padding:24px}.dw-t{font-size:16px;font-weight:600;margin:0 0 16px;color:var(--clr-heading)}.dw-b{display:flex;flex-direction:column;gap:10px}.dw-f{display:flex;flex-direction:column;gap:3px}.dw-l{font-size:13px;color:var(--clr-text);font-weight:500}.dw-i{background:var(--clr-bg);border:1px solid var(--clr-border);border-radius:10px;color:var(--clr-text);font-size:14px;box-sizing:border-box}.dw-i[type=range]{border:none;background:none;padding:4px 0}</style>
+<script>(function(){var as=document.getElementById('cc-as'),ts=document.getElementById('cc-ts'),pm=document.getElementById('cc-pm'),ae=document.getElementById('cc-a'),te=document.getElementById('cc-t');function calc(){var a=parseFloat(as.value),t=parseInt(ts.value),r=0.129/12;if(r===0){pm.textContent=Math.round(a/t).toLocaleString('ru')+' ₽'}else{var mp=a*r*Math.pow(1+r,t)/(Math.pow(1+r,t)-1);pm.textContent=Math.round(mp).toLocaleString('ru')+' ₽'}ae.textContent=Math.round(a).toLocaleString('ru');te.textContent=t}as.addEventListener('input',calc);ts.addEventListener('input',calc);calc()})();</script>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
     <p class="label">Пример кода</p>
     <h2>Интеграция за 5 минут</h2>
     <div class="code-block"><code>// Создание заявки на кредит

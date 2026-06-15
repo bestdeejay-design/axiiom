@@ -33,7 +33,46 @@ const payment = await gateway.createPayment({
 window.location.href = payment.paymentUrl;""",
         "features": ["Мультиэквайринг (Visa, MC, Мир, SBP)", "Сплитование платежей и escrow", "Токенизация карт (PCI DSS)", "Холдирование и возвраты", "Webhook-уведомления", "Личный кабинет мерчанта"],
         "tags": ["PHP", "Go", "Node.js", "PostgreSQL", "PCI DSS"],
-        "gradient": "#6c5ce7,#a29bfe"
+        "gradient": "#6c5ce7,#a29bfe",
+        "widget_html": """<div class="dw">
+  <h3 class="dw-t">💳 Оплата картой</h3>
+  <div class="dw-b">
+    <div class="dw-f"><label class="dw-l">Номер карты</label><input class="dw-i" id="w1n" placeholder="0000 0000 0000 0000" maxlength="19"></div>
+    <div class="dw-r3">
+      <div class="dw-f"><label class="dw-l">ММ/ГГ</label><input class="dw-i" id="w1e" placeholder="MM/YY" maxlength="5"></div>
+      <div class="dw-f"><label class="dw-l">CVV</label><input class="dw-i" id="w1c" placeholder="***" maxlength="3"></div>
+      <div class="dw-f"><label class="dw-l">Сумма, ₽</label><input class="dw-i" id="w1a" type="number" value="1500"></div>
+    </div>
+    <button class="dw-btn" id="w1b">Оплатить 1 500 ₽</button>
+    <div class="dw-x" id="w1x" style="display:none">
+      <div class="dw-sp" id="w1sp"></div>
+      <div class="dw-ok" id="w1ok" style="display:none"><svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#00b894" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg><span>Платёж выполнен</span></div>
+    </div>
+  </div>
+</div>
+<style>
+.dw{margin:12px 0;background:var(--clr-surface);border:1px solid var(--clr-border);border-radius:16px;padding:24px}
+.dw-t{font-size:16px;font-weight:600;margin:0 0 16px;color:var(--clr-heading)}
+.dw-b{display:flex;flex-direction:column;gap:10px}
+.dw-f{display:flex;flex-direction:column;gap:3px}
+.dw-l{font-size:12px;color:var(--clr-muted);font-weight:500}
+.dw-i{width:100%;padding:10px 14px;background:var(--clr-bg);border:1px solid var(--clr-border);border-radius:10px;color:var(--clr-text);font-size:14px;font-family:'SF Mono',monospace;box-sizing:border-box;transition:border-color .2s,box-shadow .2s}
+.dw-i:focus{outline:none;border-color:var(--clr-accent);box-shadow:0 0 0 3px color-mix(in srgb,var(--clr-accent) 20%,transparent)}
+.dw-r3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px}
+.dw-btn{padding:12px;background:var(--clr-accent);border:none;border-radius:10px;color:#fff;font-size:15px;font-weight:600;cursor:pointer;transition:opacity .2s}
+.dw-btn:hover{opacity:.85}
+.dw-x{text-align:center;padding:8px}
+.dw-sp{width:28px;height:28px;border:2px solid var(--clr-border);border-top-color:var(--clr-accent);border-radius:50%;animation:dws .7s linear infinite;margin:0 auto}
+.dw-ok{display:flex;flex-direction:column;align-items:center;gap:6px;color:#00b894;font-weight:600;font-size:14px}
+@keyframes dws{to{transform:rotate(360deg)}}
+@media(max-width:500px){.dw-r3{grid-template-columns:1fr}}
+</style>
+<script>(function(){
+['n','e','c','a'].forEach(function(id){var el=document.getElementById('w1'+id);if(el)el.addEventListener('input',function(e){if(id==='n')e.target.value=e.target.value.replace(/\D/g,'').replace(/(.{4})/g,'$1 ').trim();else if(id==='e'){var v=e.target.value.replace(/\D/g,'');if(v.length>2)v=v.slice(0,2)+'/'+v.slice(2);e.target.value=v}else if(id==='c')e.target.value=e.target.value.replace(/\D/g,'');});});
+document.getElementById('w1b').addEventListener('click',function(){var b=this,x=document.getElementById('w1x'),sp=document.getElementById('w1sp'),ok=document.getElementById('w1ok');b.style.display='none';x.style.display='block';sp.style.display='block';ok.style.display='none';setTimeout(function(){sp.style.display='none';ok.style.display='flex'},1800);});
+})();</script>""",
+        "widget_css": "",
+        "widget_js": ""
     },
     {
         "slug": "loyalty-program",
@@ -59,7 +98,25 @@ const promo = await loyalty.applyPromo({
 });""",
         "features": ["Балльно-бонусная система с уровнями", "Промокоды и персональные офферы", "Push и Email-уведомления", "Интеграция с iiko, r_keeper, 1С", "Аналитика LTV и когорт", "White Label под ваш бренд"],
         "tags": ["React", "Node.js", "PostgreSQL", "Redis", "Kafka"],
-        "gradient": "#fd79a8,#e84393"
+        "gradient": "#fd79a8,#e84393",
+        "widget_html": """<div class="dw">
+  <h3 class="dw-t">🏆 Программа лояльности</h3>
+  <div class="dw-b" style="text-align:center">
+    <div style="font-size:13px;color:var(--clr-muted);margin-bottom:4px">Ваш баланс</div>
+    <div id="loy-bal" style="font-size:42px;font-weight:700;color:var(--clr-heading);font-variant-numeric:tabular-nums;transition:all .3s">2 450</div>
+    <div style="font-size:13px;color:var(--clr-muted);margin-bottom:12px">баллов</div>
+    <div id="loy-lvl" style="display:inline-block;padding:4px 14px;border-radius:20px;font-size:13px;font-weight:600;margin-bottom:12px;background:linear-gradient(135deg,#f6d365,#fda085);color:#1a1a2e">Silver</div>
+    <div style="margin:12px 0 16px">
+      <div style="display:flex;justify-content:space-between;font-size:12px;color:var(--clr-muted);margin-bottom:4px"><span>Silver</span><span>Gold</span></div>
+      <div style="height:6px;background:var(--clr-bg);border-radius:3px;overflow:hidden"><div id="loy-bar" style="height:100%;width:45%;background:linear-gradient(90deg,var(--clr-accent),#f6d365);border-radius:3px;transition:width .5s ease"></div></div>
+    </div>
+    <button class="dw-btn" id="loy-btn">Начислить 100 баллов</button>
+  </div>
+</div>
+<style>.dw{margin:12px 0;background:var(--clr-surface);border:1px solid var(--clr-border);border-radius:16px;padding:24px}.dw-t{font-size:16px;font-weight:600;margin:0 0 16px;color:var(--clr-heading)}.dw-b{display:flex;flex-direction:column;gap:2px}.dw-btn{padding:12px 20px;background:var(--clr-accent);border:none;border-radius:10px;color:#fff;font-size:14px;font-weight:600;cursor:pointer;transition:opacity .2s;display:inline-block;margin:0 auto}.dw-btn:hover{opacity:.85}</style>
+<script>(function(){var bal=2450,lvlEl=document.getElementById('loy-lvl'),bar=document.getElementById('loy-bar'),balEl=document.getElementById('loy-bal'),lvls=[{n:'Silver',m:0},{n:'Gold',m:1000},{n:'Platinum',m:3000}];document.getElementById('loy-btn').addEventListener('click',function(){var t=this;t.disabled=1;var st=setInterval(function(){bal++;balEl.textContent=bal.toLocaleString('ru');var p=bal%1000/10;bar.style.width=p+'%';var cl=lvls.filter(function(l){return bal>=l.m});var cu=cl[cl.length-1];if(cu){lvlEl.textContent=cu.n;lvlEl.style.background=cu.n==='Platinum'?'linear-gradient(135deg,#a18cd1,#fbc2eb)':cu.n==='Gold'?'linear-gradient(135deg,#f6d365,#fda085)':'linear-gradient(135deg,#a8edea,#fed6e3)'}if(bal>=2550||bal%100===0&&bal>=2550||bal===2550){clearInterval(st);t.disabled=0}},30);});})();</script>""",
+        "widget_css": "",
+        "widget_js": ""
     },
     {
         "slug": "credit-conveyor",
@@ -87,7 +144,24 @@ const decision = await credit.score(application.id);
 await credit.issue(application.id);""",
         "features": ["Скоринг-модели (ML + правила)", "Интеграция с 4+ БКИ", "Андеррайтинг в реальном времени", "Конвейерная обработка заявок", "Личный кабинет заёмщика", "Соответствие 161-ФЗ, 152-ФЗ"],
         "tags": ["Python", "ML", "PostgreSQL", "Kubernetes", "161-ФЗ"],
-        "gradient": "#00b894,#55efc4"
+        "gradient": "#00b894,#55efc4",
+        "widget_html": """<div class="dw">
+  <h3 class="dw-t">📊 Кредитный калькулятор</h3>
+  <div class="dw-b">
+    <div class="dw-f"><label class="dw-l">Сумма кредита: <strong id="cc-a">500 000</strong> ₽</label><input class="dw-i" id="cc-as" type="range" min="100000" max="5000000" step="10000" value="500000" style="accent-color:var(--clr-accent);width:100%"></div>
+    <div class="dw-f"><label class="dw-l">Срок: <strong id="cc-t">12</strong> мес.</label><input class="dw-i" id="cc-ts" type="range" min="3" max="24" step="1" value="12" style="accent-color:var(--clr-accent);width:100%"></div>
+    <div style="padding:16px;background:var(--clr-bg);border-radius:12px;margin:8px 0;text-align:center">
+      <div style="font-size:12px;color:var(--clr-muted)">Ежемесячный платёж</div>
+      <div id="cc-pm" style="font-size:28px;font-weight:700;color:var(--clr-heading);font-variant-numeric:tabular-nums">43 124 ₽</div>
+      <div style="font-size:12px;color:var(--clr-muted);margin-top:4px">Ставка: 12.9% годовых</div>
+    </div>
+    <div style="display:flex;align-items:center;justify-content:center;gap:8px;color:#00b894;font-weight:600;font-size:14px"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#00b894" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> Предварительное одобрение</div>
+  </div>
+</div>
+<style>.dw{margin:12px 0;background:var(--clr-surface);border:1px solid var(--clr-border);border-radius:16px;padding:24px}.dw-t{font-size:16px;font-weight:600;margin:0 0 16px;color:var(--clr-heading)}.dw-b{display:flex;flex-direction:column;gap:10px}.dw-f{display:flex;flex-direction:column;gap:3px}.dw-l{font-size:13px;color:var(--clr-text);font-weight:500}.dw-i{background:var(--clr-bg);border:1px solid var(--clr-border);border-radius:10px;color:var(--clr-text);font-size:14px;box-sizing:border-box}.dw-i[type=range]{border:none;background:none;padding:4px 0}</style>
+<script>(function(){var as=document.getElementById('cc-as'),ts=document.getElementById('cc-ts'),pm=document.getElementById('cc-pm'),ae=document.getElementById('cc-a'),te=document.getElementById('cc-t');function calc(){var a=parseFloat(as.value),t=parseInt(ts.value),r=0.129/12;if(r===0){pm.textContent=Math.round(a/t).toLocaleString('ru')+' ₽'}else{var mp=a*r*Math.pow(1+r,t)/(Math.pow(1+r,t)-1);pm.textContent=Math.round(mp).toLocaleString('ru')+' ₽'}ae.textContent=Math.round(a).toLocaleString('ru');te.textContent=t}as.addEventListener('input',calc);ts.addEventListener('input',calc);calc()})();</script>""",
+        "widget_css": "",
+        "widget_js": ""
     },
     {
         "slug": "marketplace",
@@ -117,7 +191,25 @@ const order = await marketplace.checkout({
 await marketplace.settle(order.id);""",
         "features": ["Каталог с фильтрацией и поиском", "Мультиэквайринг и сплитование", "Личный кабинет продавца", "Интеграция с СДЭК, Почтой России", "Система отзывов и рейтингов", "Аналитика продаж"],
         "tags": ["Vue.js", "Node.js", "PostgreSQL", "Elasticsearch", "Redis"],
-        "gradient": "#0984e3,#74b9ff"
+        "gradient": "#0984e3,#74b9ff",
+        "widget_html": """<div class="dw">
+  <h3 class="dw-t">🛒 Маркетплейс</h3>
+  <div style="position:relative">
+    <div style="position:absolute;top:-8px;right:-4px;background:var(--clr-accent);color:#fff;font-size:12px;font-weight:600;min-width:22px;height:22px;border-radius:11px;display:flex;align-items:center;justify-content:center" id="mp-cnt">0</div>
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--clr-text)" stroke-width="2" style="position:absolute;top:-8px;right:8px;opacity:.5"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 002 1.61h9.72a2 2 0 002-1.61L23 6H6"/></svg>
+  </div>
+  <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(130px,1fr));gap:10px;margin-top:8px">
+    <div class="mp-c"><div class="mp-img" style="background:linear-gradient(135deg,#6c5ce7,#a29bfe)">📱</div><div class="mp-n">Phone X Pro</div><div class="mp-p">79 990 ₽</div><button class="dw-btn mp-b" data-n="Phone X Pro" data-p="79990">В корзину</button></div>
+    <div class="mp-c"><div class="mp-img" style="background:linear-gradient(135deg,#00b894,#55efc4)">💻</div><div class="mp-n">NoteBook Air</div><div class="mp-p">129 990 ₽</div><button class="dw-btn mp-b" data-n="NoteBook Air" data-p="129990">В корзину</button></div>
+    <div class="mp-c"><div class="mp-img" style="background:linear-gradient(135deg,#fd79a8,#e84393)">🎧</div><div class="mp-n">Headphones Pro</div><div class="mp-p">14 990 ₽</div><button class="dw-btn mp-b" data-n="Headphones Pro" data-p="14990">В корзину</button></div>
+    <div class="mp-c"><div class="mp-img" style="background:linear-gradient(135deg,#fdcb6e,#f39c12)">⌚</div><div class="mp-n">Watch Ultra</div><div class="mp-p">49 990 ₽</div><button class="dw-btn mp-b" data-n="Watch Ultra" data-p="49990">В корзину</button></div>
+  </div>
+  <div id="mp-tot" style="margin-top:12px;padding:12px;background:var(--clr-bg);border-radius:10px;text-align:center;font-size:14px;color:var(--clr-muted);display:none">Итого: <strong id="mp-tn" style="color:var(--clr-heading)">0</strong> товаров на <strong id="mp-ts" style="color:var(--clr-heading)">0 ₽</strong></div>
+</div>
+<style>.dw{margin:12px 0;background:var(--clr-surface);border:1px solid var(--clr-border);border-radius:16px;padding:24px}.dw-t{font-size:16px;font-weight:600;margin:0 0 16px;color:var(--clr-heading)}.dw-btn{padding:8px 12px;background:var(--clr-accent);border:none;border-radius:8px;color:#fff;font-size:13px;font-weight:600;cursor:pointer;transition:opacity .2s;width:100%}.dw-btn:hover{opacity:.85}.mp-c{background:var(--clr-bg);border:1px solid var(--clr-border);border-radius:12px;padding:12px;text-align:center}.mp-img{width:100%;height:80px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:32px;margin-bottom:8px}.mp-n{font-size:13px;font-weight:500;color:var(--clr-text);margin-bottom:4px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.mp-p{font-size:15px;font-weight:700;color:var(--clr-heading);margin-bottom:8px}</style>
+<script>(function(){var cnt=0,tot=0,ce=document.getElementById('mp-cnt'),tn=document.getElementById('mp-tn'),ts=document.getElementById('mp-ts'),tt=document.getElementById('mp-tot');document.querySelectorAll('.mp-b').forEach(function(b){b.addEventListener('click',function(){cnt++;tot+=parseInt(this.dataset.p);ce.textContent=cnt;tn.textContent=cnt;ts.textContent=tot.toLocaleString('ru')+' ₽';tt.style.display='block';var t=this;t.textContent='✓ В корзине';setTimeout(function(){t.textContent='В корзину'},1500);});});})();</script>""",
+        "widget_css": "",
+        "widget_js": ""
     },
     {
         "slug": "payment-terminal",
@@ -148,7 +240,31 @@ const qrPayment = await terminal.processSBP({
 await terminal.printReceipt(payment.id);""",
         "features": ["Приём карт, NFC, QR, SBP", "Онлайн-касса (ФНС/ККТ)", "Печать чеков (Bluetooth)", "Возвраты и отмены", "Офлайн-режим", "Аналитика и отчёты"],
         "tags": ["Swift", "Kotlin", "Flutter", "PCI DSS", "54-ФЗ"],
-        "gradient": "#fdcb6e,#f39c12"
+        "gradient": "#fdcb6e,#f39c12",
+        "widget_html": """<div class="dw">
+  <h3 class="dw-t">💳 POS-терминал</h3>
+  <div style="display:flex;flex-direction:column;align-items:center;gap:12px">
+    <div style="background:var(--clr-bg);border:1px solid var(--clr-border);border-radius:12px;padding:16px;width:100%;text-align:center">
+      <div style="font-size:12px;color:var(--clr-muted);margin-bottom:4px">Сумма к оплате</div>
+      <div id="pt-amt" style="font-size:36px;font-weight:700;color:var(--clr-heading);font-variant-numeric:tabular-nums;min-height:44px">0 ₽</div>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:8px;width:100%;max-width:280px">
+      <button class="pt-k" data-v="1">1</button><button class="pt-k" data-v="2">2</button><button class="pt-k" data-v="3">3</button>
+      <button class="pt-k" data-v="4">4</button><button class="pt-k" data-v="5">5</button><button class="pt-k" data-v="6">6</button>
+      <button class="pt-k" data-v="7">7</button><button class="pt-k" data-v="8">8</button><button class="pt-k" data-v="9">9</button>
+      <button class="pt-k" data-v="00">00</button><button class="pt-k" data-v="0">0</button><button class="pt-k pt-clr" id="pt-clr">C</button>
+    </div>
+    <button class="dw-btn" id="pt-pay" style="width:100%;max-width:280px">Оплатить</button>
+    <div id="pt-st" style="display:none;text-align:center;padding:12px">
+      <div class="dw-sp" id="pt-sp"></div>
+      <div id="pt-ok" style="display:none;color:#00b894;font-weight:600;font-size:15px">✅ Оплата принята</div>
+    </div>
+  </div>
+</div>
+<style>.dw{margin:12px 0;background:var(--clr-surface);border:1px solid var(--clr-border);border-radius:16px;padding:24px}.dw-t{font-size:16px;font-weight:600;margin:0 0 16px;color:var(--clr-heading)}.dw-btn{padding:12px;background:var(--clr-accent);border:none;border-radius:10px;color:#fff;font-size:15px;font-weight:600;cursor:pointer;transition:opacity .2s}.dw-btn:hover{opacity:.85}.dw-sp{width:28px;height:28px;border:2px solid var(--clr-border);border-top-color:var(--clr-accent);border-radius:50%;animation:dws .7s linear infinite;margin:0 auto}.pt-k{padding:14px;background:var(--clr-bg);border:1px solid var(--clr-border);border-radius:10px;color:var(--clr-text);font-size:20px;font-weight:600;cursor:pointer;transition:all .15s;text-align:center}.pt-k:hover{background:var(--clr-surface);border-color:var(--clr-accent)}.pt-k:active{transform:scale(.95)}.pt-clr{color:#e17055;border-color:#e1705544}@keyframes dws{to{transform:rotate(360deg)}}</style>
+<script>(function(){var amt=0,e=document.getElementById('pt-amt'),b=document.getElementById('pt-pay'),st=document.getElementById('pt-st'),sp=document.getElementById('pt-sp'),ok=document.getElementById('pt-ok');document.querySelectorAll('.pt-k').forEach(function(k){k.addEventListener('click',function(){if(this.id==='pt-clr'){amt=0}else{var v=this.dataset.v;amt=amt*100+parseInt(v)}e.textContent=Math.round(amt).toLocaleString('ru')+' ₽'});});b.addEventListener('click',function(){if(amt<=0)return;b.style.display='none';st.style.display='block';sp.style.display='block';ok.style.display='none';setTimeout(function(){sp.style.display='none';ok.style.display='block'},1500);});})();</script>""",
+        "widget_css": "",
+        "widget_js": ""
     },
     {
         "slug": "chatbot-support",
@@ -177,7 +293,28 @@ const ticket = await chatbot.createTicket({
 await chatbot.notifyOperator(ticket.id);""",
         "features": ["NLP-движок с кастомизацией", "Интеграция с Telegram, WhatsApp, VK", "Создание и эскалация тикетов", "База знаний (FAQ)", "Аналитика диалогов", "Передача оператору с контекстом"],
         "tags": ["Python", "Node.js", "NLP/LLM", "Redis", "WebSocket"],
-        "gradient": "#e17055,#fab1a0"
+        "gradient": "#e17055,#fab1a0",
+        "widget_html": """<div class="dw">
+  <h3 class="dw-t">💬 Чат техподдержки</h3>
+  <div style="border:1px solid var(--clr-border);border-radius:12px;overflow:hidden;background:var(--clr-bg)">
+    <div id="ch-msgs" style="height:220px;overflow-y:auto;padding:12px;display:flex;flex-direction:column;gap:8px">
+      <div style="align-self:flex-start;background:var(--clr-surface);padding:10px 14px;border-radius:12px 12px 12px 4px;max-width:80%;font-size:14px;color:var(--clr-text);border:1px solid var(--clr-border)">Здравствуйте! Чем могу помочь?</div>
+    </div>
+    <div style="display:flex;gap:8px;padding:10px 12px;border-top:1px solid var(--clr-border)">
+      <input id="ch-inp" placeholder="Напишите сообщение..." class="dw-i" style="flex:1" onkeydown="if(event.key==='Enter')chSend()">
+      <button class="dw-btn" id="ch-btn" style="padding:10px 16px;font-size:13px" onclick="chSend()">→</button>
+    </div>
+  </div>
+  <div style="margin-top:10px;display:flex;flex-wrap:wrap;gap:6px">
+    <button class="dw-btn ch-q" style="padding:6px 12px;font-size:12px" data-q="Привет">Привет</button>
+    <button class="dw-btn ch-q" style="padding:6px 12px;font-size:12px" data-q="Как пополнить?">Как пополнить?</button>
+    <button class="dw-btn ch-q" style="padding:6px 12px;font-size:12px" data-q="Проблема с платежом">Проблема с платежом</button>
+  </div>
+</div>
+<style>.dw{margin:12px 0;background:var(--clr-surface);border:1px solid var(--clr-border);border-radius:16px;padding:24px}.dw-t{font-size:16px;font-weight:600;margin:0 0 16px;color:var(--clr-heading)}.dw-i{width:100%;padding:10px 14px;background:var(--clr-bg);border:1px solid var(--clr-border);border-radius:10px;color:var(--clr-text);font-size:14px;box-sizing:border-box}.dw-i:focus{outline:none;border-color:var(--clr-accent)}.dw-btn{padding:12px;background:var(--clr-accent);border:none;border-radius:10px;color:#fff;font-size:15px;font-weight:600;cursor:pointer;transition:opacity .2s}.dw-btn:hover{opacity:.85}</style>
+<script>var chMsgs=document.getElementById('ch-msgs'),chInp=document.getElementById('ch-inp');var chRes={'привет':'Привет! Чем могу помочь?','как пополнить':'Пополнить баланс можно через личный кабинет или приложение. Выберите способ: карта, SBP или кошелёк.','проблема с платежом':'Опишите проблему подробнее. Возможно, потребуется проверить статус транзакции. Напишите номер операции.','по умолчанию':'Передаю ваш вопрос специалисту. Пожалуйста, ожидайте.'};function chAdd(m,u){var d=document.createElement('div');d.style.cssText='align-self:'+(u?'flex-end':'flex-start')+';background:'+(u?'var(--clr-accent)':'var(--clr-surface)')+';padding:10px 14px;border-radius:'+(u?'4px 12px 12px 12px':'12px 12px 12px 4px')+';max-width:80%;font-size:14px;color:'+(u?'#fff':'var(--clr-text)')+';'+(u?'':'border:1px solid var(--clr-border)');d.textContent=m;chMsgs.appendChild(d);chMsgs.scrollTop=chMsgs.scrollHeight}function chSend(){var t=chInp.value.trim();if(!t)return;chAdd(t,1);chInp.value='';var r=t.toLowerCase();var a=chRes[r]||Object.keys(chRes).filter(function(k){return r.includes(k)}).map(function(k){return chRes[k]})[0]||chRes['по умолчанию'];setTimeout(function(){chAdd(a,0)},500)}document.querySelectorAll('.ch-q').forEach(function(b){b.addEventListener('click',function(){chInp.value=this.dataset.q;chSend()})});</script>""",
+        "widget_css": "",
+        "widget_js": ""
     },
     {
         "slug": "analytics-dashboard",
@@ -205,7 +342,26 @@ const cohorts = await analytics.cohortAnalysis({
 });""",
         "features": ["Real-time метрики (WebSocket)", "Когортный анализ", "Воронки конверсий", "Custom report builder", "Экспорт в PDF/Excel", "Alerting и аномалии"],
         "tags": ["React", "D3.js", "ClickHouse", "Go", "Kafka"],
-        "gradient": "#74b9ff,#0984e3"
+        "gradient": "#74b9ff,#0984e3",
+        "widget_html": """<div class="dw">
+  <h3 class="dw-t">📈 Аналитическая панель</h3>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px">
+    <div class="an-c"><div class="an-l">DAU</div><div class="an-v" id="an-dau">0</div></div>
+    <div class="an-c"><div class="an-l">MAU</div><div class="an-v" id="an-mau">0</div></div>
+    <div class="an-c"><div class="an-l">LTV</div><div class="an-v" id="an-ltv">0 ₽</div></div>
+    <div class="an-c"><div class="an-l">Конверсия</div><div class="an-v" id="an-conv">0%</div></div>
+  </div>
+  <div style="margin-top:12px;padding:12px;background:var(--clr-bg);border-radius:10px">
+    <div style="font-size:12px;color:var(--clr-muted);margin-bottom:8px">Активность за неделю</div>
+    <div style="display:flex;gap:4px;align-items:flex-end;height:60px">
+      <div class="an-bar" style="height:60%"></div><div class="an-bar" style="height:45%"></div><div class="an-bar" style="height:70%"></div><div class="an-bar" style="height:55%"></div><div class="an-bar" style="height:85%"></div><div class="an-bar" style="height:65%"></div><div class="an-bar" style="height:50%"></div>
+    </div>
+  </div>
+</div>
+<style>.dw{margin:12px 0;background:var(--clr-surface);border:1px solid var(--clr-border);border-radius:16px;padding:24px}.dw-t{font-size:16px;font-weight:600;margin:0 0 16px;color:var(--clr-heading)}.an-c{background:var(--clr-bg);border:1px solid var(--clr-border);border-radius:10px;padding:14px;text-align:center}.an-l{font-size:12px;color:var(--clr-muted);margin-bottom:4px;font-weight:500}.an-v{font-size:22px;font-weight:700;color:var(--clr-heading);font-variant-numeric:tabular-nums}.an-bar{flex:1;background:linear-gradient(to top,var(--clr-accent),transparent);border-radius:3px 3px 0 0;min-height:8px;opacity:.7;transition:height .5s}</style>
+<script>(function(){function an(e,v){var el=document.getElementById(e),s=0,i=setInterval(function(){s++;var d=Math.round(v*s/60);el.textContent=d+(e==='an-ltv'?' ₽':e==='an-conv'?'.'+(d%10)+'%':'');if(s>=60){clearInterval(i);el.textContent=v+(e==='an-ltv'?' ₽':e==='an-conv'?'.'+String(v).split('.')[1]+'%':'')}},20)}an('an-dau',12450);an('an-mau',45200);an('an-ltv',12500);setTimeout(function(){an('an-conv',32)},200);})();</script>""",
+        "widget_css": "",
+        "widget_js": ""
     },
     {
         "slug": "incident-monitoring",
@@ -237,7 +393,23 @@ await monitoring.acknowledge(incident.id, {
 });""",
         "features": ["Сбор метрик (Prometheus/StatsD)", "Гибкие алерты с эскалацией", "On-call scheduling", "Postmortem и RCA", "SLA/SLO дашборд", "Интеграция с PagerDuty, Telegram"],
         "tags": ["Go", "Prometheus", "Grafana", "Kubernetes", "ClickHouse"],
-        "gradient": "#2d3436,#636e72"
+        "gradient": "#2d3436,#636e72",
+        "widget_html": """<div class="dw">
+  <h3 class="dw-t">🔍 Мониторинг сервисов</h3>
+  <div style="display:flex;flex-direction:column;gap:8px">
+    <div class="im-r" data-s="ok"><span class="im-d im-g"></span><span class="im-n">API Gateway</span><span class="im-s">Operational</span></div>
+    <div class="im-r" data-s="ok"><span class="im-d im-g"></span><span class="im-n">Database</span><span class="im-s">Operational</span></div>
+    <div class="im-r" data-s="warn"><span class="im-d im-y"></span><span class="im-n">Cache (Redis)</span><span class="im-s">Degraded</span></div>
+    <div class="im-r" data-s="ok"><span class="im-d im-g"></span><span class="im-n">Message Queue</span><span class="im-s">Operational</span></div>
+    <div class="im-r" data-s="ok"><span class="im-d im-g"></span><span class="im-n">Frontend CDN</span><span class="im-s">Operational</span></div>
+  </div>
+  <div id="im-alert" style="display:none;margin-top:10px;padding:10px 14px;background:#e1705522;border:1px solid #e1705544;border-radius:10px;color:#e17055;font-size:13px;font-weight:500">⚠️ Инцидент: сервис недоступен</div>
+  <div style="margin-top:10px;font-size:11px;color:var(--clr-muted)">Нажмите на сервис, чтобы переключить статус</div>
+</div>
+<style>.dw{margin:12px 0;background:var(--clr-surface);border:1px solid var(--clr-border);border-radius:16px;padding:24px}.dw-t{font-size:16px;font-weight:600;margin:0 0 16px;color:var(--clr-heading)}.im-r{display:flex;align-items:center;gap:10px;padding:10px 14px;background:var(--clr-bg);border:1px solid var(--clr-border);border-radius:10px;cursor:pointer;transition:all .2s}.im-r:hover{border-color:var(--clr-accent)}.im-d{width:10px;height:10px;border-radius:50%;flex-shrink:0}.im-g{background:#00b894;box-shadow:0 0 6px #00b89466}.im-y{background:#fdcb6e;box-shadow:0 0 6px #fdcb6e66}.im-r{background:#e17055;box-shadow:0 0 6px #e1705566}.im-n{flex:1;font-size:14px;font-weight:500;color:var(--clr-text)}.im-s{font-size:12px;color:var(--clr-muted)}</style>
+<script>(function(){var st={0:'ok',1:'ok',2:'warn',3:'ok',4:'ok'},al=document.getElementById('im-alert');document.querySelectorAll('.im-r').forEach(function(r,i){r.addEventListener('click',function(){var sts=['ok','warn','down'];var ci=sts.indexOf(st[i]);st[i]=sts[(ci+1)%3];var d=r.querySelector('.im-d');d.className='im-d';if(st[i]==='ok'){d.classList.add('im-g');r.querySelector('.im-s').textContent='Operational'}else if(st[i]==='warn'){d.classList.add('im-y');r.querySelector('.im-s').textContent='Degraded'}else{d.classList.add('im-r');r.querySelector('.im-s').textContent='Down'}var hasDown=Object.values(st).some(function(s){return s==='down'});al.style.display=hasDown?'block':'none';al.textContent=hasDown?'⚠️ Инцидент: требуется внимание':'✅ Все сервисы работают';al.style.color=hasDown?'#e17055':'#00b894'});});})();</script>""",
+        "widget_css": "",
+        "widget_js": ""
     },
     {
         "slug": "user-onboarding",
@@ -266,7 +438,28 @@ const biometric = await onboarding.verifyBiometric({
 });""",
         "features": ["KYC и AML-проверки", "Верификация документов (AI)", "Биометрия (liveness detection)", "Интеграция с Госуслугами", "Скоринг и фрод-мониторинг", "Соответствие 115-ФЗ, 161-ФЗ"],
         "tags": ["Python", "React", "PostgreSQL", "ML/AI", "115-ФЗ"],
-        "gradient": "#a29bfe,#6c5ce7"
+        "gradient": "#a29bfe,#6c5ce7",
+        "widget_html": """<div class="dw">
+  <h3 class="dw-t">🚀 Онбординг</h3>
+  <div style="display:flex;align-items:center;gap:8px;margin-bottom:20px;position:relative">
+    <div class="ub s" data-s="1"><div class="ub-n">1</div><div class="ub-lb">Данные</div></div><div class="ub-l"></div>
+    <div class="ub" data-s="0"><div class="ub-n">2</div><div class="ub-lb">Документы</div></div><div class="ub-l"></div>
+    <div class="ub" data-s="0"><div class="ub-n">3</div><div class="ub-lb">Биометрия</div></div><div class="ub-l"></div>
+    <div class="ub" data-s="0"><div class="ub-n">4</div><div class="ub-lb">Готово</div></div>
+  </div>
+  <div id="ub-c" style="padding:16px;background:var(--clr-bg);border:1px solid var(--clr-border);border-radius:12px;min-height:80px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;transition:all .3s">
+    <div style="font-size:14px;color:var(--clr-text);text-align:center" id="ub-t">Заполните личные данные для регистрации</div>
+    <div id="ub-f" style="width:100%;max-width:280px;display:flex;flex-direction:column;gap:8px">
+      <input class="dw-i" placeholder="Имя" value="Иван" style="padding:10px 14px;font-size:14px">
+      <input class="dw-i" placeholder="Телефон" value="+7 (999) 123-45-67" style="padding:10px 14px;font-size:14px">
+    </div>
+  </div>
+  <button class="dw-btn" id="ub-btn" style="margin-top:12px;width:100%">Далее</button>
+</div>
+<style>.dw{margin:12px 0;background:var(--clr-surface);border:1px solid var(--clr-border);border-radius:16px;padding:24px}.dw-t{font-size:16px;font-weight:600;margin:0 0 16px;color:var(--clr-heading)}.dw-i{background:var(--clr-bg);border:1px solid var(--clr-border);border-radius:10px;color:var(--clr-text);box-sizing:border-box;width:100%}.dw-i:focus{outline:none;border-color:var(--clr-accent)}.dw-btn{padding:12px;background:var(--clr-accent);border:none;border-radius:10px;color:#fff;font-size:15px;font-weight:600;cursor:pointer;transition:opacity .2s}.dw-btn:hover{opacity:.85}.ub{display:flex;flex-direction:column;align-items:center;gap:4px;flex:1}.ub-n{width:32px;height:32px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;background:var(--clr-bg);border:2px solid var(--clr-border);color:var(--clr-muted);transition:all .3s}.ub.s .ub-n{background:var(--clr-accent);border-color:var(--clr-accent);color:#fff}.ub-l{height:2px;flex:1;background:var(--clr-border);margin-bottom:22px}.ub-lb{font-size:11px;color:var(--clr-muted);white-space:nowrap}</style>
+<script>(function(){var s=1,btn=document.getElementById('ub-btn'),ct=document.getElementById('ub-c'),tt=document.getElementById('ub-t'),ff=document.getElementById('ub-f'),steps=['Заполните личные данные для регистрации','Загрузите скан паспорта','Пройдите биометрию','Регистрация завершена!'],cont=[true,true,true,false];function upd(){document.querySelectorAll('.ub').forEach(function(el,i){var idx=parseInt(el.dataset.s);el.classList.toggle('s',i+1<=s);});tt.textContent=steps[s-1];if(cont[s-1]){ff.style.display='flex';btn.textContent=s<4?'Далее':'Завершить'}else{ff.style.display='none';btn.style.display='none';ct.innerHTML='<div style=\"font-size:42px;margin-bottom:8px\">✅</div><div style=\"font-size:16px;font-weight:600;color:#00b894\">'+steps[s-1]+'</div>';}}btn.addEventListener('click',function(){if(s<4){s++;upd()}else{ct.innerHTML='<div style=\"font-size:42px;margin-bottom:8px\">✅</div><div style=\"font-size:16px;font-weight:600;color:#00b894\">Добро пожаловать!</div>';btn.style.display='none'}});upd()})();</script>""",
+        "widget_css": "",
+        "widget_js": ""
     },
     {
         "slug": "telegram-storefront",
@@ -300,7 +493,27 @@ const order = await store.createOrder({
 tg.close();""",
         "features": ["Telegram Mini App (TWA)", "Каталог с поиском и фильтрацией", "Оплата через Telegram Stars", "Push-уведомления через бота", "История заказов", "Аналитика продаж"],
         "tags": ["React", "Node.js", "Telegram API", "PostgreSQL"],
-        "gradient": "#55efc4,#00b894"
+        "gradient": "#55efc4,#00b894",
+        "widget_html": """<div class="dw">
+  <h3 class="dw-t">📱 Telegram Shop</h3>
+  <div style="border:2px solid var(--clr-border);border-radius:20px;padding:12px;max-width:300px;margin:0 auto;position:relative">
+    <div style="height:20px;width:120px;background:var(--clr-bg);border-radius:0 0 10px 10px;margin:0 auto 12px;border:1px solid var(--clr-border);border-top:none"></div>
+    <div style="display:flex;flex-direction:column;gap:10px">
+      <div class="ts-c"><div style="background:linear-gradient(135deg,#6c5ce7,#a29bfe);width:40px;height:40px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:20px">📱</div><div style="flex:1"><div style="font-size:13px;font-weight:500;color:var(--clr-text)">Phone X</div><div style="font-size:14px;font-weight:700;color:var(--clr-heading)">79 990 ₽</div></div><button class="ts-b">Купить</button></div>
+      <div class="ts-c"><div style="background:linear-gradient(135deg,#00b894,#55efc4);width:40px;height:40px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:20px">🎧</div><div style="flex:1"><div style="font-size:13px;font-weight:500;color:var(--clr-text)">Buds Pro</div><div style="font-size:14px;font-weight:700;color:var(--clr-heading)">14 990 ₽</div></div><button class="ts-b">Купить</button></div>
+      <div class="ts-c"><div style="background:linear-gradient(135deg,#fdcb6e,#f39c12);width:40px;height:40px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:20px">⌚</div><div style="flex:1"><div style="font-size:13px;font-weight:500;color:var(--clr-text)">Watch</div><div style="font-size:14px;font-weight:700;color:var(--clr-heading)">49 990 ₽</div></div><button class="ts-b">Купить</button></div>
+    </div>
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-top:12px;padding-top:10px;border-top:1px solid var(--clr-border)">
+      <span style="font-size:12px;color:var(--clr-muted)">Итого:</span>
+      <span id="ts-tot" style="font-size:16px;font-weight:700;color:var(--clr-heading)">0 ₽</span>
+      <span style="background:var(--clr-accent);color:#fff;font-size:11px;font-weight:600;padding:2px 8px;border-radius:10px" id="ts-cnt">0</span>
+    </div>
+  </div>
+</div>
+<style>.dw{margin:12px 0;background:var(--clr-surface);border:1px solid var(--clr-border);border-radius:16px;padding:24px}.dw-t{font-size:16px;font-weight:600;margin:0 0 16px;color:var(--clr-heading)}.ts-c{display:flex;align-items:center;gap:10px;padding:8px;background:var(--clr-bg);border-radius:10px;border:1px solid var(--clr-border)}.ts-b{padding:6px 14px;background:var(--clr-accent);border:none;border-radius:8px;color:#fff;font-size:12px;font-weight:600;cursor:pointer;transition:opacity .2s;white-space:nowrap}.ts-b:hover{opacity:.85}</style>
+<script>(function(){var tc=0,tt=0,ce=document.getElementById('ts-cnt'),te=document.getElementById('ts-tot');document.querySelectorAll('.ts-b').forEach(function(b,i){var ps=[79990,14990,49990];b.addEventListener('click',function(){tc++;tt+=ps[i];ce.textContent=tc;te.textContent=tt.toLocaleString('ru')+' ₽';var t=this;t.textContent='✓';setTimeout(function(){t.textContent='Купить'},1000);});});})();</script>""",
+        "widget_css": "",
+        "widget_js": ""
     },
     {
         "slug": "loyalty-system",
@@ -338,7 +551,25 @@ const ab = await loyalty.startABTest({
 });""",
         "features": ["Конструктор правил и триггеров", "Сегментация аудитории", "A/B-тестирование механик", "Real-time аналитика", "Персонализированные офферы", "API для внешних систем"],
         "tags": ["Node.js", "React", "PostgreSQL", "Redis", "Kafka"],
-        "gradient": "#e84393,#fd79a8"
+        "gradient": "#e84393,#fd79a8",
+        "widget_html": """<div class="dw">
+  <h3 class="dw-t">⭐ Система лояльности</h3>
+  <div style="text-align:center">
+    <div style="display:flex;justify-content:center;gap:16px;margin-bottom:16px">
+      <div style="text-align:center"><div style="font-size:12px;color:var(--clr-muted);margin-bottom:4px">Текущий</div><div id="ls-cur" style="padding:6px 16px;border-radius:20px;font-size:14px;font-weight:600;background:linear-gradient(135deg,#a8edea,#fed6e3);color:#1a1a2e">Silver</div></div>
+      <div style="text-align:center"><div style="font-size:12px;color:var(--clr-muted);margin-bottom:4px">Следующий</div><div id="ls-nxt" style="padding:6px 16px;border-radius:20px;font-size:14px;font-weight:600;background:linear-gradient(135deg,#f6d365,#fda085);color:#1a1a2e">Gold</div></div>
+    </div>
+    <div style="margin-bottom:8px"><span style="font-size:13px;color:var(--clr-muted)">Прогресс: </span><strong id="ls-pct" style="color:var(--clr-heading)">67%</strong></div>
+    <div style="height:8px;background:var(--clr-bg);border-radius:4px;overflow:hidden;margin-bottom:16px"><div id="ls-bar" style="height:100%;width:67%;background:linear-gradient(90deg,var(--clr-accent),#f6d365);border-radius:4px;transition:width .4s ease"></div></div>
+    <div style="font-size:28px;font-weight:700;color:var(--clr-heading);font-variant-numeric:tabular-nums" id="ls-pt">1 340</div>
+    <div style="font-size:13px;color:var(--clr-muted);margin-bottom:12px">баллов / 2 000 для Gold</div>
+    <button class="dw-btn" id="ls-btn">Начислить +50 баллов</button>
+  </div>
+</div>
+<style>.dw{margin:12px 0;background:var(--clr-surface);border:1px solid var(--clr-border);border-radius:16px;padding:24px}.dw-t{font-size:16px;font-weight:600;margin:0 0 16px;color:var(--clr-heading)}.dw-btn{padding:12px 20px;background:var(--clr-accent);border:none;border-radius:10px;color:#fff;font-size:14px;font-weight:600;cursor:pointer;transition:opacity .2s}.dw-btn:hover{opacity:.85}</style>
+<script>(function(){var pts=1340,tg=2000,next='Gold',lvs=[{n:'Silver',t:1000,next:'Gold',g:'linear-gradient(135deg,#a8edea,#fed6e3)'},{n:'Gold',t:3000,next:'Platinum',g:'linear-gradient(135deg,#f6d365,#fda085)'},{n:'Platinum',t:99999,next:'MAX',g:'linear-gradient(135deg,#a18cd1,#fbc2eb)'}];var ce=document.getElementById('ls-cur'),ne=document.getElementById('ls-nxt'),pe=document.getElementById('ls-pct'),be=document.getElementById('ls-bar'),pe2=document.getElementById('ls-pt');document.getElementById('ls-btn').addEventListener('click',function(){var t=this;t.disabled=1;var si=setInterval(function(){pts++;if(pts<=tg){var pc=Math.round((pts-1000)/(tg-1000)*100);pe.textContent=pc+'%';be.style.width=pc+'%'}pe2.textContent=pts.toLocaleString('ru');var cl=lvs.filter(function(l){return pts>=l.t});var cu=cl[cl.length-1];if(cu){ce.textContent=cu.n;ce.style.background=cu.g;if(cu.next){ne.textContent=cu.next;tg=lvs.filter(function(l){return l.t>pts})[0]?.t||99999;ne.style.background=lvs.filter(function(l){return l.t>pts})[0]?.g||'#333'}}if(pts>=tg+30||pts%50===0){clearInterval(si);t.disabled=0}},25);});})();</script>""",
+        "widget_css": "",
+        "widget_js": ""
     },
     {
         "slug": "fintech-constructor",
@@ -366,7 +597,23 @@ const test = await constructor.testScenario(scenario.id, {
 });""",
         "features": ["Drag-and-drop редактор сценариев", "Rules-engine с версионированием", "API-first архитектура", "Песочница для тестирования", "Audit log всех изменений", "Готовые шаблоны"],
         "tags": ["React", "Node.js", "GraphQL", "Docker", "PostgreSQL"],
-        "gradient": "#8B5CF6,#c4b5fd"
+        "gradient": "#8B5CF6,#c4b5fd",
+        "widget_html": """<div class="dw">
+  <h3 class="dw-t">🧩 Конструктор сценариев</h3>
+  <div style="display:flex;flex-wrap:wrap;gap:8px;margin-bottom:14px">
+    <button class="fc-b" data-i="0">💳 Приём платежа</button>
+    <button class="fc-b" data-i="1">💰 Комиссия</button>
+    <button class="fc-b" data-i="2">🔔 Уведомление</button>
+  </div>
+  <div id="fc-flow" style="min-height:80px;border:2px dashed var(--clr-border);border-radius:12px;padding:12px;display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:8px;transition:all .3s">
+    <div style="color:var(--clr-muted);font-size:13px" id="fc-ph">Нажмите на блок, чтобы добавить в сценарий</div>
+  </div>
+  <div id="fc-info" style="display:none;margin-top:10px;padding:10px 14px;background:var(--clr-bg);border:1px solid var(--clr-border);border-radius:10px;font-size:13px;color:var(--clr-muted)">✅ Сценарий готов к деплою</div>
+</div>
+<style>.dw{margin:12px 0;background:var(--clr-surface);border:1px solid var(--clr-border);border-radius:16px;padding:24px}.dw-t{font-size:16px;font-weight:600;margin:0 0 16px;color:var(--clr-heading)}.fc-b{padding:10px 16px;background:var(--clr-bg);border:1px solid var(--clr-border);border-radius:10px;color:var(--clr-text);font-size:13px;font-weight:500;cursor:pointer;transition:all .15s}.fc-b:hover{border-color:var(--clr-accent);background:var(--clr-surface)}.fc-b:active{transform:scale(.97)}</style>
+<script>(function(){var flow=document.getElementById('fc-flow'),ph=document.getElementById('fc-ph'),info=document.getElementById('fc-info'),blocks=[{n:'Приём платежа',c:'#6c5ce7'},{n:'Комиссия',c:'#f39c12'},{n:'Уведомление',c:'#00b894'}],added=[];document.querySelectorAll('.fc-b').forEach(function(b){b.addEventListener('click',function(){var i=parseInt(this.dataset.i),bl=blocks[i];if(added.some(function(a){return a===i}))return;added.push(i);ph.style.display='none';var el=document.createElement('div');el.style.cssText='padding:10px 16px;background:'+bl.c+'22;border:1px solid '+bl.c+'44;border-radius:10px;font-size:13px;font-weight:500;color:var(--clr-text);display:flex;align-items:center;gap:6px;animation:fcIn .3s ease';el.textContent='● '+bl.n;var rm=document.createElement('span');rm.style.cssText='margin-left:6px;cursor:pointer;opacity:.6;font-size:16px';rm.textContent='×';rm.addEventListener('click',function(e){e.stopPropagation();el.remove();added=added.filter(function(a){return a!==i});if(added.length===0){ph.style.display='block';info.style.display='none'}});el.appendChild(rm);flow.appendChild(el);if(added.length>0)info.style.display='block'});});})();@keyframes fcIn{from{opacity:0;transform:scale(.9)}to{opacity:1;transform:scale(1)}}</script>""",
+        "widget_css": "",
+        "widget_js": ""
     },
     {
         "slug": "project-portfolio",
@@ -403,7 +650,20 @@ const risk = await pmo.assessRisk(project.id, {
 });""",
         "features": ["Иерархия: портфель → программа → проект", "Gantt-диаграммы и вехи", "Управление ресурсами", "Бюджетный контроль", "Риск-менеджмент", "Power BI-отчёты"],
         "tags": ["React", "Python", "PostgreSQL", "D3.js", "Docker"],
-        "gradient": "#D4A574,#8b5e3c"
+        "gradient": "#D4A574,#8b5e3c",
+        "widget_html": """<div class="dw">
+  <h3 class="dw-t">📊 Портфель проектов</h3>
+  <div style="display:flex;flex-direction:column;gap:10px">
+    <div class="pp-p" data-i="0"><div style="flex:1"><div style="font-size:14px;font-weight:500;color:var(--clr-text)">Маркетплейс V2</div><div style="font-size:12px;color:var(--clr-muted);margin-top:2px">Сен 2024 — Мар 2025</div></div><div class="pp-bar"><div class="pp-fill" style="width:70%;background:linear-gradient(90deg,#6c5ce7,#a29bfe)"></div><div class="pp-today"></div></div><div style="font-size:12px;color:var(--clr-muted);min-width:50px;text-align:right">70%</div></div>
+    <div class="pp-p" data-i="1"><div style="flex:1"><div style="font-size:14px;font-weight:500;color:var(--clr-text)">Кредитный конвейер</div><div style="font-size:12px;color:var(--clr-muted);margin-top:2px">Янв 2025 — Июн 2025</div></div><div class="pp-bar"><div class="pp-fill" style="width:35%;background:linear-gradient(90deg,#00b894,#55efc4)"></div><div class="pp-today"></div></div><div style="font-size:12px;color:var(--clr-muted);min-width:50px;text-align:right">35%</div></div>
+    <div class="pp-p" data-i="2"><div style="flex:1"><div style="font-size:14px;font-weight:500;color:var(--clr-text)">Mobile App</div><div style="font-size:12px;color:var(--clr-muted);margin-top:2px">Май 2025 — Авг 2025</div></div><div class="pp-bar"><div class="pp-fill" style="width:15%;background:linear-gradient(90deg,#fdcb6e,#f39c12)"></div><div class="pp-today"></div></div><div style="font-size:12px;color:var(--clr-muted);min-width:50px;text-align:right">15%</div></div>
+  </div>
+  <div id="pp-d" style="display:none;margin-top:12px;padding:14px;background:var(--clr-bg);border:1px solid var(--clr-border);border-radius:10px;font-size:13px;color:var(--clr-text);animation:fcIn .3s ease"></div>
+</div>
+<style>.dw{margin:12px 0;background:var(--clr-surface);border:1px solid var(--clr-border);border-radius:16px;padding:24px}.dw-t{font-size:16px;font-weight:600;margin:0 0 16px;color:var(--clr-heading)}.pp-p{display:flex;align-items:center;gap:12px;padding:10px 14px;background:var(--clr-bg);border:1px solid var(--clr-border);border-radius:10px;cursor:pointer;transition:all .2s}.pp-p:hover{border-color:var(--clr-accent)}.pp-bar{flex:2;height:28px;background:var(--clr-surface);border-radius:6px;position:relative;overflow:hidden}.pp-fill{height:100%;border-radius:6px;position:relative}.pp-today{position:absolute;top:0;bottom:0;width:2px;background:#e17055;left:50%;box-shadow:0 0 4px #e1705566}@keyframes fcIn{from{opacity:0;transform:translateY(-5px)}to{opacity:1;transform:translateY(0)}}</style>
+<script>(function(){var details=[{n:'Маркетплейс V2',s:'Статус: Active\nБюджет: 15 млн ₽\nКоманда: 5 чел.\nРиски: низкие'},{n:'Кредитный конвейер',s:'Статус: Active\nБюджет: 8 млн ₽\nКоманда: 4 чел.\nРиски: средние'},{n:'Mobile App',s:'Статус: Planning\nБюджет: 6 млн ₽\nКоманда: 3 чел.\nРиски: высокие'}],dEl=document.getElementById('pp-d');document.querySelectorAll('.pp-p').forEach(function(p,i){p.addEventListener('click',function(){dEl.style.display='block';dEl.innerHTML='<strong>'+details[i].n+'</strong><br>'+details[i].s.replace(/\\n/g,'<br>')});});})();</script>""",
+        "widget_css": "",
+        "widget_js": ""
     },
     {
         "slug": "payment-page",
@@ -436,7 +696,48 @@ const route = await checkout.smartRoute({
 // Выбирает оптимальный эквайринг""",
         "features": ["Кастомизация под бренд (скины)", "Умная маршрутизация платежей", "Мультиэквайринг на одной странице", "Invoice-ссылки", "Антифрод (3DS 2.0)", "Аналитика конверсий"],
         "tags": ["React", "Node.js", "PCI DSS", "3DS 2.0", "PostgreSQL"],
-        "gradient": "#0984e3,#74b9ff"
+        "gradient": "#0984e3,#74b9ff",
+        "widget_html": """<div class="dw">
+  <h3 class="dw-t">🛍️ Checkout Page</h3>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px">
+    <div style="display:flex;flex-direction:column;gap:10px">
+      <div class="dw-f"><label class="dw-l">Email</label><input class="dw-i" id="pp-email" value="user@example.com" style="padding:10px 14px"></div>
+      <div class="dw-f"><label class="dw-l">Номер карты</label><input class="dw-i" id="pp-card" placeholder="0000 0000 0000 0000" maxlength="19" style="padding:10px 14px"></div>
+      <div class="dw-f"><label class="dw-l">Имя на карте</label><input class="dw-i" id="pp-name" value="IVAN PETROV" style="padding:10px 14px"></div>
+      <button class="dw-btn" id="pp-btn" style="margin-top:4px">Оплатить 5 499 ₽</button>
+    </div>
+    <div style="background:var(--clr-bg);border:1px solid var(--clr-border);border-radius:12px;padding:14px">
+      <div style="font-size:13px;font-weight:600;color:var(--clr-heading);margin-bottom:10px">Ваш заказ</div>
+      <div style="display:flex;justify-content:space-between;font-size:13px;color:var(--clr-text);padding:6px 0;border-bottom:1px solid var(--clr-border)"><span>Смартфон X Pro × 1</span><span>79 990 ₽</span></div>
+      <div style="display:flex;justify-content:space-between;font-size:13px;color:var(--clr-text);padding:6px 0;border-bottom:1px solid var(--clr-border)"><span>Доставка</span><span>Бесплатно</span></div>
+      <div style="display:flex;justify-content:space-between;font-size:15px;font-weight:700;color:var(--clr-heading);padding:10px 0 0"><span>Итого</span><span>79 990 ₽</span></div>
+    </div>
+  </div>
+  <div id="pp-modal" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,.7);z-index:99999;align-items:center;justify-content:center">
+    <div style="background:var(--clr-surface);border:1px solid var(--clr-border);border-radius:20px;padding:32px;text-align:center;max-width:340px;animation:fcIn .3s ease">
+      <div style="font-size:36px;margin-bottom:12px">🔐</div>
+      <div style="font-size:16px;font-weight:600;color:var(--clr-heading);margin-bottom:6px">3D Secure</div>
+      <div style="font-size:13px;color:var(--clr-muted);margin-bottom:16px">Подтвердите оплату через ваш банк</div>
+      <div style="display:flex;gap:10px;justify-content:center">
+        <button class="dw-btn" onclick="ppSuccess()" style="padding:10px 24px;font-size:13px">Подтвердить</button>
+        <button class="dw-btn" onclick="ppClose()" style="padding:10px 24px;font-size:13px;background:var(--clr-bg);color:var(--clr-text);border:1px solid var(--clr-border)">Отмена</button>
+      </div>
+    </div>
+  </div>
+  <div id="pp-ok" style="display:none;text-align:center;padding:16px;margin-top:10px">
+    <div style="font-size:40px;margin-bottom:8px">✅</div>
+    <div style="font-size:16px;font-weight:600;color:#00b894">Оплата подтверждена</div>
+  </div>
+</div>
+<style>.dw{margin:12px 0;background:var(--clr-surface);border:1px solid var(--clr-border);border-radius:16px;padding:24px}.dw-t{font-size:16px;font-weight:600;margin:0 0 16px;color:var(--clr-heading)}.dw-f{display:flex;flex-direction:column;gap:3px}.dw-l{font-size:12px;color:var(--clr-muted);font-weight:500}.dw-i{width:100%;background:var(--clr-bg);border:1px solid var(--clr-border);border-radius:10px;color:var(--clr-text);font-size:14px;font-family:'SF Mono',monospace;box-sizing:border-box;transition:border-color .2s}.dw-i:focus{outline:none;border-color:var(--clr-accent)}.dw-btn{padding:12px;background:var(--clr-accent);border:none;border-radius:10px;color:#fff;font-size:15px;font-weight:600;cursor:pointer;transition:opacity .2s}.dw-btn:hover{opacity:.85}@keyframes fcIn{from{opacity:0;transform:scale(.95)}to{opacity:1;transform:scale(1)}}@media(max-width:600px){.dw>div:first-child{grid-template-columns:1fr!important}}</style>
+<script>
+document.getElementById('pp-card').addEventListener('input',function(e){e.target.value=e.target.value.replace(/\D/g,'').replace(/(.{4})/g,'$1 ').trim();});
+document.getElementById('pp-btn').addEventListener('click',function(){document.getElementById('pp-modal').style.display='flex';});
+function ppSuccess(){document.getElementById('pp-modal').style.display='none';document.getElementById('pp-ok').style.display='block';var b=document.getElementById('pp-btn');b.textContent='✓ Оплачено';b.style.display='block';b.disabled=1;}
+function ppClose(){document.getElementById('pp-modal').style.display='none';}
+</script>""",
+        "widget_css": "",
+        "widget_js": ""
     }
 ]
 
@@ -597,6 +898,14 @@ TEMPLATE = """<!doctype html>
 
 <section class="section">
   <div class="container">
+    <p class="label">Интерактивное демо</p>
+    <h2>Попробуйте прямо сейчас</h2>
+    {DEMO_WIDGET}
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
     <p class="label">Пример кода</p>
     <h2>Интеграция за 5 минут</h2>
     <div class="code-block"><code>{CODE}</code></div>
@@ -716,6 +1025,7 @@ def main():
             CODE=demo["code"],
             TAGS=make_tags(demo["tags"]),
             FEATURES=make_features(demo["features"], color),
+            DEMO_WIDGET=demo.get("widget_html", ""),
             COLOR=color,
             R=r, G=g, B=b
         )

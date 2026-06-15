@@ -159,6 +159,27 @@
 
 <section class="section">
   <div class="container">
+    <p class="label">Интерактивное демо</p>
+    <h2>Попробуйте прямо сейчас</h2>
+    <div class="dw">
+  <h3 class="dw-t">🧩 Конструктор сценариев</h3>
+  <div style="display:flex;flex-wrap:wrap;gap:8px;margin-bottom:14px">
+    <button class="fc-b" data-i="0">💳 Приём платежа</button>
+    <button class="fc-b" data-i="1">💰 Комиссия</button>
+    <button class="fc-b" data-i="2">🔔 Уведомление</button>
+  </div>
+  <div id="fc-flow" style="min-height:80px;border:2px dashed var(--clr-border);border-radius:12px;padding:12px;display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:8px;transition:all .3s">
+    <div style="color:var(--clr-muted);font-size:13px" id="fc-ph">Нажмите на блок, чтобы добавить в сценарий</div>
+  </div>
+  <div id="fc-info" style="display:none;margin-top:10px;padding:10px 14px;background:var(--clr-bg);border:1px solid var(--clr-border);border-radius:10px;font-size:13px;color:var(--clr-muted)">✅ Сценарий готов к деплою</div>
+</div>
+<style>.dw{margin:12px 0;background:var(--clr-surface);border:1px solid var(--clr-border);border-radius:16px;padding:24px}.dw-t{font-size:16px;font-weight:600;margin:0 0 16px;color:var(--clr-heading)}.fc-b{padding:10px 16px;background:var(--clr-bg);border:1px solid var(--clr-border);border-radius:10px;color:var(--clr-text);font-size:13px;font-weight:500;cursor:pointer;transition:all .15s}.fc-b:hover{border-color:var(--clr-accent);background:var(--clr-surface)}.fc-b:active{transform:scale(.97)}</style>
+<script>(function(){var flow=document.getElementById('fc-flow'),ph=document.getElementById('fc-ph'),info=document.getElementById('fc-info'),blocks=[{n:'Приём платежа',c:'#6c5ce7'},{n:'Комиссия',c:'#f39c12'},{n:'Уведомление',c:'#00b894'}],added=[];document.querySelectorAll('.fc-b').forEach(function(b){b.addEventListener('click',function(){var i=parseInt(this.dataset.i),bl=blocks[i];if(added.some(function(a){return a===i}))return;added.push(i);ph.style.display='none';var el=document.createElement('div');el.style.cssText='padding:10px 16px;background:'+bl.c+'22;border:1px solid '+bl.c+'44;border-radius:10px;font-size:13px;font-weight:500;color:var(--clr-text);display:flex;align-items:center;gap:6px;animation:fcIn .3s ease';el.textContent='● '+bl.n;var rm=document.createElement('span');rm.style.cssText='margin-left:6px;cursor:pointer;opacity:.6;font-size:16px';rm.textContent='×';rm.addEventListener('click',function(e){e.stopPropagation();el.remove();added=added.filter(function(a){return a!==i});if(added.length===0){ph.style.display='block';info.style.display='none'}});el.appendChild(rm);flow.appendChild(el);if(added.length>0)info.style.display='block'});});})();@keyframes fcIn{from{opacity:0;transform:scale(.9)}to{opacity:1;transform:scale(1)}}</script>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
     <p class="label">Пример кода</p>
     <h2>Интеграция за 5 минут</h2>
     <div class="code-block"><code>// Создание платёжного сценария
