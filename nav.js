@@ -233,7 +233,8 @@
 
         if (n.children && n.children.length > 0) {
           li.className = 'nav-has-dropdown';
-          var dd = el('ul', { 'class': 'nav-dropdown' });
+          var ddClass = n.children.length > 15 ? 'nav-dropdown mega' : 'nav-dropdown';
+          var dd = el('ul', { 'class': ddClass });
           for (var j = 0; j < n.children.length; j++) {
             var ch = n.children[j];
             if (ch.separator) {
