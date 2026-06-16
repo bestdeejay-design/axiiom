@@ -705,20 +705,46 @@ const test = await constructor.testScenario(scenario.id, {
         "tags": ["React", "Node.js", "GraphQL", "Docker", "PostgreSQL"],
         "gradient": "#8B5CF6,#c4b5fd",
         "widget_html": """<div class="dw">
-  <h3 class="dw-t">🧩 Pipeline сценария</h3>
-  <div style="display:flex;flex-direction:column;gap:8px;margin-bottom:16px">
-    <div id="fc-s0" class="fc-step"><span class="fc-ic">💳</span><span class="fc-l">Приём платежа</span><span class="fc-st"></span></div>
-    <div id="fc-s1" class="fc-step"><span class="fc-ic">💰</span><span class="fc-l">Расчёт комиссии</span><span class="fc-st"></span></div>
-    <div id="fc-s2" class="fc-step"><span class="fc-ic">🔔</span><span class="fc-l">Уведомление</span><span class="fc-st"></span></div>
+  <h3 class="dw-t">🧩 Финтех-конструктор</h3>
+  <div style="display:flex;gap:8px;margin-bottom:16px">
+    <div style="flex:1;position:relative">
+      <input type="text" id="fc-amount" value="1 000" style="width:100%;padding:10px 14px;background:var(--clr-bg);border:1px solid var(--clr-border);border-radius:10px;color:var(--clr-text);font-size:16px;font-weight:600;box-sizing:border-box;font-variant-numeric:tabular-nums;text-align:center">
+      <span style="position:absolute;right:14px;top:50%;transform:translateY(-50%);font-size:13px;color:var(--clr-muted);pointer-events:none">₽</span>
+    </div>
+    <button class="dw-btn" id="fc-test" style="flex:0 0 auto;padding:10px 20px">🧪 Тест</button>
   </div>
-  <div style="display:flex;gap:8px">
-    <button class="dw-btn" id="fc-deploy">🚀 Deploy</button>
-    <button class="dw-btn dw-btn-o" id="fc-reset">↺ Reset</button>
+  <div style="display:flex;flex-direction:column;gap:10px;margin-bottom:16px">
+    <div class="fc-node" id="fc-n0">
+      <div style="display:flex;align-items:center;gap:8px;flex:1">
+        <span style="font-size:22px">💳</span>
+        <div style="flex:1"><div style="font-size:13px;font-weight:600;color:var(--clr-heading)">Приём платежа</div><div style="font-size:11px;color:var(--clr-muted)">Visa, MC, Мир, SBP</div></div>
+      </div>
+      <div style="text-align:right"><div style="font-size:13px;color:var(--clr-muted)">Комиссия эквайринга</div><div style="font-size:14px;font-weight:600;color:var(--clr-accent)" id="fc-fee1">2.5%</div></div>
+    </div>
+    <div class="fc-arr">↓</div>
+    <div class="fc-node" id="fc-n1">
+      <div style="display:flex;align-items:center;gap:8px;flex:1">
+        <span style="font-size:22px">💰</span>
+        <div style="flex:1"><div style="font-size:13px;font-weight:600;color:var(--clr-heading)">Комиссия платформы</div><div style="font-size:11px;color:var(--clr-muted)" id="fc-after1">После эквайринга: 975 ₽</div></div>
+      </div>
+      <div style="text-align:right"><div style="font-size:13px;color:var(--clr-muted)">Ставка AXIIOM</div><div style="font-size:14px;font-weight:600;color:var(--clr-accent)" id="fc-fee2">0.5% + 10 ₽</div></div>
+    </div>
+    <div class="fc-arr">↓</div>
+    <div class="fc-node" id="fc-n2">
+      <div style="display:flex;align-items:center;gap:8px;flex:1">
+        <span style="font-size:22px">🔔</span>
+        <div style="flex:1"><div style="font-size:13px;font-weight:600;color:var(--clr-heading)">Уведомления</div><div style="font-size:11px;color:var(--clr-muted);display:flex;gap:4px;flex-wrap:wrap"><span style="padding:1px 6px;background:var(--clr-accent)15;border-radius:4px;color:var(--clr-accent);font-size:10px;font-weight:600">SMS</span><span style="padding:1px 6px;background:var(--clr-accent)15;border-radius:4px;color:var(--clr-accent);font-size:10px;font-weight:600">Push</span><span style="padding:1px 6px;background:var(--clr-accent)15;border-radius:4px;color:var(--clr-accent);font-size:10px;font-weight:600">Email</span></div></div>
+      </div>
+      <div style="text-align:right"><div style="font-size:13px;color:var(--clr-muted)">После комиссии</div><div style="font-size:14px;font-weight:700;color:var(--clr-heading)" id="fc-after2">960 ₽</div></div>
+    </div>
   </div>
-  <div id="fc-info" style="display:none;margin-top:12px;padding:12px 14px;background:#00b89414;border:1px solid #00b89444;border-radius:10px;font-size:14px;font-weight:600;color:#00b894;text-align:center">✅ Сценарий выполнен успешно</div>
+  <div id="fc-result" style="padding:12px 14px;background:var(--clr-bg);border:1px solid var(--clr-border);border-radius:10px;display:flex;justify-content:space-between;align-items:center">
+    <div><div style="font-size:12px;color:var(--clr-muted)">Магазин получит</div><div style="font-size:20px;font-weight:700;color:var(--clr-heading)" id="fc-payout">960 ₽</div></div>
+    <div style="text-align:right"><div style="font-size:12px;color:var(--clr-muted)">Комиссия AXIIOM</div><div style="font-size:14px;font-weight:600;color:var(--clr-muted)" id="fc-commission">40 ₽ (4.0%)</div></div>
+  </div>
 </div>
-<style>.dw{margin:12px 0;background:var(--clr-surface);border:1px solid var(--clr-border);border-radius:16px;padding:24px}.dw-t{font-size:16px;font-weight:600;margin:0 0 16px;color:var(--clr-heading)}.dw-btn{padding:10px 20px;border:none;border-radius:10px;font-size:14px;font-weight:600;cursor:pointer;transition:opacity .2s;flex:1}.dw-btn:hover{opacity:.85}.dw-btn-o{background:transparent;border:1px solid var(--clr-border);color:var(--clr-text)}.fc-step{display:flex;align-items:center;gap:10px;padding:12px 14px;background:var(--clr-bg);border:1px solid var(--clr-border);border-radius:10px;transition:all .4s}.fc-step.done{border-color:#00b894;background:#00b8940a}.fc-step.active{border-color:var(--clr-accent);box-shadow:0 0 0 2px var(--clr-accent)33}.fc-ic{font-size:20px;width:32px;text-align:center}.fc-l{flex:1;font-size:14px;font-weight:500;color:var(--clr-text)}.fc-st{width:20px;height:20px;border-radius:50%;flex-shrink:0;font-size:14px;font-weight:700;display:flex;align-items:center;justify-content:center}.fc-step.active .fc-st{border:2px solid var(--clr-accent);border-top-color:transparent;animation:fcSpin .6s linear infinite;color:transparent}.fc-step.done .fc-st{border:none;background:none;color:#00b894}.fc-step.done .fc-st::after{content:'\\2713'}@keyframes fcSpin{to{transform:rotate(360deg)}}@media(min-width:768px){.dw{max-width:480px;margin-left:auto;margin-right:auto}}</style>
-<script>(function(){var deploy=document.getElementById('fc-deploy'),reset=document.getElementById('fc-reset'),info=document.getElementById('fc-info'),steps=[document.getElementById('fc-s0'),document.getElementById('fc-s1'),document.getElementById('fc-s2')],running=false,timer;function r(){running=false;clearTimeout(timer);steps.forEach(function(s){s.className='fc-step';});info.style.display='none';deploy.disabled=false}reset.addEventListener('click',r);deploy.addEventListener('click',function(){if(running)return;r();running=true;deploy.disabled=true;var i=0;(function n(){if(i>=3){running=false;deploy.disabled=false;info.style.display='block';return}var s=steps[i];s.classList.add('active');timer=setTimeout(function(){s.classList.remove('active');s.classList.add('done');i++;n()},800);})();});})();</script>""",
+<style>.dw{margin:12px 0;background:var(--clr-surface);border:1px solid var(--clr-border);border-radius:16px;padding:24px}.dw-t{font-size:16px;font-weight:600;margin:0 0 16px;color:var(--clr-heading)}.dw-btn{padding:10px 20px;background:var(--clr-accent);border:none;border-radius:10px;color:#fff;font-size:14px;font-weight:600;cursor:pointer;transition:opacity .2s}.dw-btn:hover{opacity:.85}.fc-node{display:flex;align-items:center;gap:12px;padding:12px 14px;background:var(--clr-bg);border:1px solid var(--clr-border);border-radius:10px;transition:all .3s}.fc-node.highlight{border-color:var(--clr-accent);box-shadow:0 0 0 2px var(--clr-accent)22}.fc-arr{text-align:center;font-size:18px;color:var(--clr-muted);line-height:1;margin:-4px 0}@media(min-width:768px){.dw{max-width:520px;margin-left:auto;margin-right:auto}}</style>
+<script>(function(){var input=document.getElementById('fc-amount'),test=document.getElementById('fc-test'),after1=document.getElementById('fc-after1'),after2=document.getElementById('fc-after2'),payout=document.getElementById('fc-payout'),comm=document.getElementById('fc-commission'),nodes=[document.getElementById('fc-n0'),document.getElementById('fc-n1'),document.getElementById('fc-n2')];function calc(){var raw=input.value.replace(/\s/g,'').replace(',','.');var amount=parseFloat(raw);if(isNaN(amount)||amount<1)amount=1000;input.value=Math.round(amount).toLocaleString('ru-RU');var fee1Rate=2.5;var step1=Math.round(amount*(1-fee1Rate/100));after1.textContent='После эквайринга: '+step1.toLocaleString('ru-RU')+' ₽';var fee2Pct=0.5,fee2Fix=10;var step2=Math.round(step1*(1-fee2Pct/100)-fee2Fix);after2.textContent=Math.max(0,step2).toLocaleString('ru-RU')+' ₽';payout.textContent=Math.max(0,step2).toLocaleString('ru-RU')+' ₽';var totalCom=amount-Math.max(0,step2);var pct=Math.round(totalCom/amount*1000)/10;comm.textContent=totalCom.toLocaleString('ru-RU')+' ₽ ('+pct+'%)'}test.addEventListener('click',function(){calc();nodes.forEach(function(n,i){n.classList.add('highlight');setTimeout(function(){n.classList.remove('highlight')},600+i*200)})});input.addEventListener('keydown',function(e){if(e.key==='Enter')calc()});calc()})();</script>""",
         "widget_css": "",
         "widget_js": ""
     },
