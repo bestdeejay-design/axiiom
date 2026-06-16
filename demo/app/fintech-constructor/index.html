@@ -162,19 +162,20 @@
     <p class="label">Интерактивное демо</p>
     <h2>Попробуйте прямо сейчас</h2>
     <div class="dw">
-  <h3 class="dw-t">🧩 Конструктор сценариев</h3>
-  <div style="display:flex;flex-wrap:wrap;gap:8px;margin-bottom:14px">
-    <button class="fc-b" data-i="0">💳 Приём платежа</button>
-    <button class="fc-b" data-i="1">💰 Комиссия</button>
-    <button class="fc-b" data-i="2">🔔 Уведомление</button>
+  <h3 class="dw-t">🧩 Pipeline сценария</h3>
+  <div style="display:flex;flex-direction:column;gap:8px;margin-bottom:16px">
+    <div id="fc-s0" class="fc-step"><span class="fc-ic">💳</span><span class="fc-l">Приём платежа</span><span class="fc-st"></span></div>
+    <div id="fc-s1" class="fc-step"><span class="fc-ic">💰</span><span class="fc-l">Расчёт комиссии</span><span class="fc-st"></span></div>
+    <div id="fc-s2" class="fc-step"><span class="fc-ic">🔔</span><span class="fc-l">Уведомление</span><span class="fc-st"></span></div>
   </div>
-  <div id="fc-flow" style="min-height:80px;border:2px dashed var(--clr-border);border-radius:12px;padding:12px;display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:8px;transition:all .3s">
-    <div style="color:var(--clr-muted);font-size:13px" id="fc-ph">Нажмите на блок, чтобы добавить в сценарий</div>
+  <div style="display:flex;gap:8px">
+    <button class="dw-btn" id="fc-deploy">🚀 Deploy</button>
+    <button class="dw-btn dw-btn-o" id="fc-reset">↺ Reset</button>
   </div>
-  <div id="fc-info" style="display:none;margin-top:10px;padding:10px 14px;background:var(--clr-bg);border:1px solid var(--clr-border);border-radius:10px;font-size:13px;color:var(--clr-muted)">✅ Сценарий готов к деплою</div>
+  <div id="fc-info" style="display:none;margin-top:12px;padding:12px 14px;background:#00b89414;border:1px solid #00b89444;border-radius:10px;font-size:14px;font-weight:600;color:#00b894;text-align:center">✅ Сценарий выполнен успешно</div>
 </div>
-<style>.dw{margin:12px 0;background:var(--clr-surface);border:1px solid var(--clr-border);border-radius:16px;padding:24px}.dw-t{font-size:16px;font-weight:600;margin:0 0 16px;color:var(--clr-heading)}.fc-b{padding:10px 16px;background:var(--clr-bg);border:1px solid var(--clr-border);border-radius:10px;color:var(--clr-text);font-size:13px;font-weight:500;cursor:pointer;transition:all .15s}.fc-b:hover{border-color:var(--clr-accent);background:var(--clr-surface)}.fc-b:active{transform:scale(.97)}@keyframes fcIn{from{opacity:0;transform:scale(.9)}to{opacity:1;transform:scale(1)}}@media(min-width:768px){.dw{max-width:520px;margin-left:auto;margin-right:auto}}</style>
-<script>(function(){var flow=document.getElementById('fc-flow'),ph=document.getElementById('fc-ph'),info=document.getElementById('fc-info'),blocks=[{n:'Приём платежа',c:'#6c5ce7'},{n:'Комиссия',c:'#f39c12'},{n:'Уведомление',c:'#00b894'}],added=[];document.querySelectorAll('.fc-b').forEach(function(b){b.addEventListener('click',function(){var i=parseInt(this.dataset.i),bl=blocks[i];if(added.some(function(a){return a===i}))return;added.push(i);ph.style.display='none';var el=document.createElement('div');el.style.cssText='padding:10px 16px;background:'+bl.c+'22;border:1px solid '+bl.c+'44;border-radius:10px;font-size:13px;font-weight:500;color:var(--clr-text);display:flex;align-items:center;gap:6px;animation:fcIn .3s ease';el.textContent='● '+bl.n;var rm=document.createElement('span');rm.style.cssText='margin-left:6px;cursor:pointer;opacity:.6;font-size:16px';rm.textContent='×';rm.addEventListener('click',function(e){e.stopPropagation();el.remove();added=added.filter(function(a){return a!==i});if(added.length===0){ph.style.display='block';info.style.display='none'}});el.appendChild(rm);flow.appendChild(el);if(added.length>0)info.style.display='block'});});})();</script>
+<style>.dw{margin:12px 0;background:var(--clr-surface);border:1px solid var(--clr-border);border-radius:16px;padding:24px}.dw-t{font-size:16px;font-weight:600;margin:0 0 16px;color:var(--clr-heading)}.dw-btn{padding:10px 20px;border:none;border-radius:10px;font-size:14px;font-weight:600;cursor:pointer;transition:opacity .2s;flex:1}.dw-btn:hover{opacity:.85}.dw-btn-o{background:transparent;border:1px solid var(--clr-border);color:var(--clr-text)}.fc-step{display:flex;align-items:center;gap:10px;padding:12px 14px;background:var(--clr-bg);border:1px solid var(--clr-border);border-radius:10px;transition:all .4s}.fc-step.done{border-color:#00b894;background:#00b8940a}.fc-step.active{border-color:var(--clr-accent);box-shadow:0 0 0 2px var(--clr-accent)33}.fc-ic{font-size:20px;width:32px;text-align:center}.fc-l{flex:1;font-size:14px;font-weight:500;color:var(--clr-text)}.fc-st{width:20px;height:20px;border-radius:50%;flex-shrink:0;font-size:14px;font-weight:700;display:flex;align-items:center;justify-content:center}.fc-step.active .fc-st{border:2px solid var(--clr-accent);border-top-color:transparent;animation:fcSpin .6s linear infinite;color:transparent}.fc-step.done .fc-st{border:none;background:none;color:#00b894}.fc-step.done .fc-st::after{content:'\2713'}@keyframes fcSpin{to{transform:rotate(360deg)}}@media(min-width:768px){.dw{max-width:480px;margin-left:auto;margin-right:auto}}</style>
+<script>(function(){var deploy=document.getElementById('fc-deploy'),reset=document.getElementById('fc-reset'),info=document.getElementById('fc-info'),steps=[document.getElementById('fc-s0'),document.getElementById('fc-s1'),document.getElementById('fc-s2')],running=false,timer;function r(){running=false;clearTimeout(timer);steps.forEach(function(s){s.className='fc-step';});info.style.display='none';deploy.disabled=false}reset.addEventListener('click',r);deploy.addEventListener('click',function(){if(running)return;r();running=true;deploy.disabled=true;var i=0;(function n(){if(i>=3){running=false;deploy.disabled=false;info.style.display='block';return}var s=steps[i];s.classList.add('active');timer=setTimeout(function(){s.classList.remove('active');s.classList.add('done');i++;n()},800);})();});})();</script>
   </div>
 </section>
 
