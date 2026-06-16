@@ -330,7 +330,8 @@
     _renderFooter: function() {
       var container = $('footerCopy');
       if (!container) return;
-
+      var cfg = w.AXIIOM_CONFIG || {};
+      var c = cfg.company || {};
       var mainLinks = [];
       var legalLinks = [];
       for (var i = 0; i < TREE.length; i++) {
@@ -342,7 +343,7 @@
       var html = '<p class="copy">';
       for (var i = 0; i < mainLinks.length; i++) {
         if (i > 0) html += ' \u00B7 ';
-        var name = mainLinks[i].path === '/' ? '\u0410\u041A\u0421\u0418\u041E\u041C\u0410' : mainLinks[i].name;
+        var name = mainLinks[i].path === '/' ? (c.shortName || '\u0410\u041A\u0421\u0418\u041E\u041C\u0410') : mainLinks[i].name;
         html += '<a href="' + mainLinks[i].path + '" class="footer-link">' + name + '</a>';
       }
       html += '</p>';
@@ -357,8 +358,9 @@
       }
 
       var year = new Date().getFullYear();
+      var start = c.copyrightStart || 2024;
       html += '<p class="copy" style="font-size:.65rem;margin-top:8px;border:none;padding-top:0;text-transform:none;letter-spacing:0;">' +
-        '\u00A9 2024\u2013' + year + ' AXIIOM (\u041E\u041E\u041E \u0410\u043A\u0441\u0438\u043E\u043C\u0430). \u0412\u0441\u0435 \u043F\u0440\u0430\u0432\u0430 \u0437\u0430\u0449\u0438\u0449\u0435\u043D\u044B.' +
+        '\u00A9 ' + start + '\u2013' + year + ' ' + (c.name || 'AXIIOM') + ' (' + (c.nameRu || '\u041E\u041E\u041E \u0410\u043A\u0441\u0438\u043E\u043C\u0430') + '). \u0412\u0441\u0435 \u043F\u0440\u0430\u0432\u0430 \u0437\u0430\u0449\u0438\u0449\u0435\u043D\u044B.' +
       '</p>';
 
       container.innerHTML = html;

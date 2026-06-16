@@ -4,6 +4,30 @@
 import os
 import re
 
+# ── Shared configuration ────────────────────────────────────────────────
+CONFIG = {
+    "company": {
+        "name": "AXIIOM",
+        "nameRu": "ООО Аксиома",
+        "shortName": "Аксиома",
+        "domain": "axiiom.ru",
+        "siteUrl": "https://axiiom.ru/",
+        "ogImage": "https://axiiom.ru/og-image.png",
+        "copyrightStart": 2024,
+    },
+    "contact": {
+        "email": "hello@axiiom.ru",
+        "phone": "+7 (812) 928-74-78",
+        "phoneLink": "+78129287478",
+        "telegram": "https://t.me/axiiom",
+    },
+    "analytics": {
+        "yandexMetrika": "109391253",
+        "googleAnalytics": "G-HFS4BDGTV4",
+    },
+}
+# ─────────────────────────────────────────────────────────────────────────
+
 DEMOS = [
     {
         "slug": "payment-gateway",
@@ -34,42 +58,96 @@ window.location.href = payment.paymentUrl;""",
         "features": ["Мультиэквайринг (Visa, MC, Мир, SBP)", "Сплитование платежей и escrow", "Токенизация карт (PCI DSS)", "Холдирование и возвраты", "Webhook-уведомления", "Личный кабинет мерчанта"],
         "tags": ["PHP", "Go", "Node.js", "PostgreSQL", "PCI DSS"],
         "gradient": "#6c5ce7,#a29bfe",
-        "widget_html": """<div class="dw">
-  <h3 class="dw-t">💳 Оплата картой</h3>
-  <div class="dw-b">
-    <div class="dw-f"><label class="dw-l">Номер карты</label><input class="dw-i" id="w1n" placeholder="0000 0000 0000 0000" maxlength="19"></div>
-    <div class="dw-r3">
-      <div class="dw-f"><label class="dw-l">ММ/ГГ</label><input class="dw-i" id="w1e" placeholder="MM/YY" maxlength="5"></div>
-      <div class="dw-f"><label class="dw-l">CVV</label><input class="dw-i" id="w1c" placeholder="***" maxlength="3"></div>
-      <div class="dw-f"><label class="dw-l">Сумма, ₽</label><input class="dw-i" id="w1a" type="number" value="1500"></div>
+        "widget_html": """<div class="pg-card">
+  <div class="pg-header">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--clr-accent)" stroke-width="1.8"><rect x="1" y="4" width="22" height="16" rx="2"/><line x1="1" y1="10" x2="23" y2="10"/><line x1="7" y1="15" x2="11" y2="15"/></svg>
+    <span>Оплата картой</span>
+  </div>
+  <div class="pg-body">
+    <div class="pg-fld">
+      <label class="pg-lbl">Номер карты</label>
+      <div class="pg-inp-wrap">
+        <input class="pg-inp" id="w1n" placeholder="0000 0000 0000 0000" maxlength="19">
+        <svg class="pg-card-icon" width="22" height="16" viewBox="0 0 24 16" fill="none">
+          <rect x="1" y="1" width="22" height="14" rx="2" stroke="var(--clr-faint)" stroke-width="1.2" fill="none"/>
+          <line x1="1" y1="6" x2="23" y2="6" stroke="var(--clr-faint)" stroke-width="1.2"/>
+          <circle cx="9" cy="10" r="2.5" stroke="var(--clr-accent)" stroke-width="1.2" fill="none" opacity=".5"/>
+          <circle cx="15" cy="10" r="2.5" stroke="var(--clr-accent)" stroke-width="1.2" fill="none" opacity=".5"/>
+        </svg>
+      </div>
     </div>
-    <button class="dw-btn" id="w1b">Оплатить 1 500 ₽</button>
-    <div class="dw-x" id="w1x" style="display:none">
-      <div class="dw-sp" id="w1sp"></div>
-      <div class="dw-ok" id="w1ok" style="display:none"><svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#00b894" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg><span>Платёж выполнен</span></div>
+    <div class="pg-row">
+      <div class="pg-fld">
+        <label class="pg-lbl">Срок действия</label>
+        <input class="pg-inp" id="w1e" placeholder="MM / YY" maxlength="7">
+      </div>
+      <div class="pg-fld">
+        <label class="pg-lbl">CVV</label>
+        <div class="pg-inp-wrap">
+          <input class="pg-inp" id="w1c" placeholder="•••" maxlength="4" type="password">
+          <svg class="pg-cvv-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--clr-faint)" stroke-width="1.5"><rect x="3" y="7" width="18" height="12" rx="1.5"/><line x1="7" y1="11" x2="9" y2="11"/><line x1="7" y1="14" x2="11" y2="14"/></svg>
+        </div>
+      </div>
+      <div class="pg-fld">
+        <label class="pg-lbl">Сумма</label>
+        <div class="pg-inp-wrap">
+          <span class="pg-currency">₽</span>
+          <input class="pg-inp pg-inp-amt" id="w1a" type="number" value="1500">
+        </div>
+      </div>
+    </div>
+    <button class="pg-btn" id="w1b">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="10" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/><circle cx="12" cy="16" r="1"/></svg>
+      Оплатить 1 500 ₽
+    </button>
+    <div class="pg-secure">
+      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="var(--clr-faint)" stroke-width="2"><rect x="3" y="11" width="18" height="10" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+      Защищено PCI DSS
+    </div>
+    <div class="pg-result" id="w1x">
+      <div class="pg-spinner" id="w1sp"></div>
+      <div class="pg-success" id="w1ok">
+        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#00b894" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="16 8 10 16 7 12"/></svg>
+        <span class="pg-success-t">Платёж выполнен</span>
+        <span class="pg-success-sub">Спасибо! Ваш платёж прошёл успешно.</span>
+      </div>
     </div>
   </div>
 </div>
 <style>
-.dw{margin:12px 0;background:var(--clr-surface);border:1px solid var(--clr-border);border-radius:16px;padding:24px}
-.dw-t{font-size:16px;font-weight:600;margin:0 0 16px;color:var(--clr-heading)}
-.dw-b{display:flex;flex-direction:column;gap:10px}
-.dw-f{display:flex;flex-direction:column;gap:3px}
-.dw-l{font-size:12px;color:var(--clr-muted);font-weight:500}
-.dw-i{width:100%;padding:10px 14px;background:var(--clr-bg);border:1px solid var(--clr-border);border-radius:10px;color:var(--clr-text);font-size:14px;font-family:'SF Mono',monospace;box-sizing:border-box;transition:border-color .2s,box-shadow .2s}
-.dw-i:focus{outline:none;border-color:var(--clr-accent);box-shadow:0 0 0 3px color-mix(in srgb,var(--clr-accent) 20%,transparent)}
-.dw-r3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px}
-.dw-btn{padding:12px;background:var(--clr-accent);border:none;border-radius:10px;color:#fff;font-size:15px;font-weight:600;cursor:pointer;transition:opacity .2s}
-.dw-btn:hover{opacity:.85}
-.dw-x{text-align:center;padding:8px}
-.dw-sp{width:28px;height:28px;border:2px solid var(--clr-border);border-top-color:var(--clr-accent);border-radius:50%;animation:dws .7s linear infinite;margin:0 auto}
-.dw-ok{display:flex;flex-direction:column;align-items:center;gap:6px;color:#00b894;font-weight:600;font-size:14px}
-@keyframes dws{to{transform:rotate(360deg)}}
-@media(max-width:500px){.dw-r3{grid-template-columns:1fr}}
+.pg-card{margin:12px 0;background:var(--clr-surface);border:1px solid var(--clr-border);border-radius:20px;overflow:hidden}
+.pg-header{display:flex;align-items:center;gap:10px;padding:18px 24px 0;font-size:15px;font-weight:600;color:var(--clr-heading)}
+.pg-body{display:flex;flex-direction:column;gap:18px;padding:20px 24px 24px}
+.pg-fld{display:flex;flex-direction:column;gap:5px}
+.pg-lbl{font-size:12px;color:var(--clr-faint);font-weight:500;letter-spacing:.3px;text-transform:uppercase}
+.pg-inp-wrap{position:relative;display:flex;align-items:center}
+.pg-inp{width:100%;padding:12px 14px;background:var(--clr-bg);border:1px solid var(--clr-border);border-radius:12px;color:var(--clr-text);font-size:15px;font-family:'SF Mono','Fira Code',monospace;box-sizing:border-box;transition:border-color .25s,box-shadow .25s;letter-spacing:.5px}
+.pg-inp:focus{outline:none;border-color:var(--clr-accent);box-shadow:0 0 0 3px color-mix(in srgb,var(--clr-accent) 18%,transparent)}
+.pg-inp::placeholder{color:var(--clr-faint);opacity:.5;letter-spacing:0}
+.pg-card-icon{position:absolute;right:12px;pointer-events:none;opacity:.6}
+.pg-cvv-icon{position:absolute;right:12px;pointer-events:none;opacity:.5}
+.pg-currency{position:absolute;left:14px;color:var(--clr-faint);font-size:14px;font-weight:500;pointer-events:none}
+.pg-inp-amt{padding-left:28px}
+.pg-row{display:grid;grid-template-columns:1fr 80px 1fr;gap:12px}
+.pg-btn{display:flex;align-items:center;justify-content:center;gap:10px;padding:14px;background:var(--clr-accent);border:none;border-radius:14px;color:#fff;font-size:16px;font-weight:600;cursor:pointer;transition:opacity .25s,transform .15s;font-family:inherit}
+.pg-btn:hover{opacity:.9;transform:translateY(-1px)}
+.pg-btn:active{transform:translateY(0)}
+.pg-secure{display:flex;align-items:center;justify-content:center;gap:6px;font-size:11px;color:var(--clr-faint);opacity:.6}
+.pg-result{text-align:center;padding:8px 0 0}
+.pg-spinner{display:none;width:32px;height:32px;border:2px solid var(--clr-border);border-top-color:var(--clr-accent);border-radius:50%;animation:pgs .7s linear infinite;margin:0 auto}
+.pg-success{display:none;flex-direction:column;align-items:center;gap:4px;padding:8px 0}
+.pg-success-t{color:#00b894;font-weight:600;font-size:15px}
+.pg-success-sub{color:var(--clr-faint);font-size:12px;opacity:.6}
+@keyframes pgs{to{transform:rotate(360deg)}}
+@media (min-width:768px){.pg-card{max-width:460px;margin-left:auto;margin-right:auto}}
+@media (max-width:500px){.pg-row{grid-template-columns:1fr 1fr}.pg-row .pg-fld:last-child{grid-column:1/-1}}
 </style>
 <script>(function(){
-['n','e','c','a'].forEach(function(id){var el=document.getElementById('w1'+id);if(el)el.addEventListener('input',function(e){if(id==='n')e.target.value=e.target.value.replace(/\D/g,'').replace(/(.{4})/g,'$1 ').trim();else if(id==='e'){var v=e.target.value.replace(/\D/g,'');if(v.length>2)v=v.slice(0,2)+'/'+v.slice(2);e.target.value=v}else if(id==='c')e.target.value=e.target.value.replace(/\D/g,'');});});
-document.getElementById('w1b').addEventListener('click',function(){var b=this,x=document.getElementById('w1x'),sp=document.getElementById('w1sp'),ok=document.getElementById('w1ok');b.style.display='none';x.style.display='block';sp.style.display='block';ok.style.display='none';setTimeout(function(){sp.style.display='none';ok.style.display='flex'},1800);});
+function fm(id,fn){var el=document.getElementById('w1'+id);if(el)el.addEventListener('input',fn)}
+fm('n',function(e){e.target.value=e.target.value.replace(/\D/g,'').replace(/(.{4})/g,'$1 ').trim()});
+fm('e',function(e){var v=e.target.value.replace(/[^\d\/]/g,'');if(v.length===2&&!v.includes('/'))v=v+' / ';e.target.value=v});
+fm('c',function(e){e.target.value=e.target.value.replace(/\D/g,'')});
+document.getElementById('w1b').addEventListener('click',function(){var b=this,x=document.getElementById('w1x'),sp=document.getElementById('w1sp'),ok=document.getElementById('w1ok');b.style.display='none';x.style.display='block';sp.style.display='block';ok.style.display='none';setTimeout(function(){sp.style.display='none';ok.style.display='flex'},1800)});
 })();</script>""",
         "widget_css": "",
         "widget_js": ""
@@ -190,7 +268,7 @@ await credit.issue(application.id);""",
     <div id="mp-modal-total" style="font-size:18px;font-weight:700;color:var(--clr-heading);margin-bottom:20px"></div>
     <button class="dw-btn" id="mp-confirm" style="width:100%;margin-bottom:8px">Подтвердить заказ</button>
     <button class="dw-btn" id="mp-cancel" style="background:transparent;border:1px solid var(--clr-border);color:var(--clr-muted)">Отмена</button>
-    <div id="mp-success" style="display:none;padding:20px"><svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#00b894" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg><h3 style="color:#00b894;margin-top:12px">Заказ оформлен!</h3><p style="font-size:13px;color:var(--clr-muted);margin-top:4px">Номер: MK-2024-{RAND}</p></div>
+    <div id="mp-success" style="display:none;padding:20px"><svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#00b894" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg><h3 style="color:#00b894;margin-top:12px">Заказ оформлен!</h3><p style="font-size:13px;color:var(--clr-muted);margin-top:4px">Номер: MK-<span id="mp-order-year"></span>-<span id="mp-order-num"></span></p></div>
   </div>
 </div>
 <style>.dw{margin:12px 0;background:var(--clr-surface);border:1px solid var(--clr-border);border-radius:16px;padding:24px}.dw-t{font-size:16px;font-weight:600;margin:0 0 16px;color:var(--clr-heading)}.dw-btn{padding:8px 12px;background:var(--clr-accent);border:none;border-radius:8px;color:#fff;font-size:13px;font-weight:600;cursor:pointer;transition:opacity .2s;width:100%}.dw-btn:hover{opacity:.85}.mp-c{background:var(--clr-bg);border:1px solid var(--clr-border);border-radius:12px;padding:12px;text-align:center}.mp-img{width:100%;height:80px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:32px;margin-bottom:8px}.mp-n{font-size:13px;font-weight:500;color:var(--clr-text);margin-bottom:4px}.mp-p{font-size:15px;font-weight:700;color:var(--clr-heading);margin-bottom:8px}.mp-ci{display:flex;justify-content:space-between;padding:4px 0;font-size:13px;color:var(--clr-text)}.mp-ci button{background:none;border:none;color:var(--clr-muted);cursor:pointer;font-size:11px;text-decoration:underline;padding:0}</style>
@@ -199,7 +277,7 @@ var items={},badge=document.getElementById('mp-cnt-badge'),cart=document.getElem
 function render(){var html='',t=0,c=0;for(var k in items){var it=items[k];html+='<div class="mp-ci"><span>'+it.n+' × '+it.q+'</span><span>'+((it.p*it.q).toLocaleString('ru'))+' ₽ <button class="mp-rm" data-k="'+k+'">✕</button></span></div>';t+=it.p*it.q;c+=it.q}list.innerHTML=html;total.textContent=t.toLocaleString('ru')+' ₽';badge.textContent=c;badge.style.display=c?'flex':'none';cart.style.display=c?'block':'none';Array.from(list.querySelectorAll('.mp-rm')).forEach(function(b){b.addEventListener('click',function(){var k=this.dataset.k;delete items[k];render()})})};
 document.querySelectorAll('.mp-b').forEach(function(b){b.addEventListener('click',function(){var n=this.dataset.n,p=parseInt(this.dataset.p);if(!items[n])items[n]={n:n,p:p,q:0};items[n].q++;render();this.textContent='✓ '+n;var t=this;setTimeout(function(){t.textContent='В корзину'},800)})});
 document.getElementById('mp-checkout-btn').addEventListener('click',function(){var h='';for(var k in items){h+='<div style="display:flex;justify-content:space-between;padding:2px 0"><span>'+items[k].n+' × '+items[k].q+'</span><span>'+((items[k].p*items[k].q).toLocaleString('ru'))+' ₽</span></div>'}mItems.innerHTML=h;var t=0;for(var k in items)t+=items[k].p*items[k].q;mTotal.textContent='Итого: '+t.toLocaleString('ru')+' ₽';modal.style.display='flex'});
-document.getElementById('mp-confirm').addEventListener('click',function(){var s=document.getElementById('mp-success');s.style.display='block';s.querySelector('h3').textContent='Заказ оформлен!';document.querySelector('#mp-modal > div > h3').style.display='none';document.getElementById('mp-modal-items').style.display='none';document.getElementById('mp-modal-total').style.display='none';this.style.display='none';document.getElementById('mp-cancel').style.display='none';items={};render();setTimeout(function(){modal.style.display='none';location.reload()},2500)});
+document.getElementById('mp-confirm').addEventListener('click',function(){var s=document.getElementById('mp-success');s.style.display='block';s.querySelector('h3').textContent='Заказ оформлен!';document.getElementById('mp-order-year').textContent=new Date().getFullYear();document.getElementById('mp-order-num').textContent=Math.floor(100000+Math.random()*900000);document.querySelector('#mp-modal > div > h3').style.display='none';document.getElementById('mp-modal-items').style.display='none';document.getElementById('mp-modal-total').style.display='none';this.style.display='none';document.getElementById('mp-cancel').style.display='none';items={};render();setTimeout(function(){modal.style.display='none';location.reload()},2500)});
 document.getElementById('mp-cancel').addEventListener('click',function(){modal.style.display='none'});
 modal.addEventListener('click',function(e){if(e.target===modal)modal.style.display='none'});
 })();</script>""",
@@ -945,8 +1023,8 @@ TEMPLATE = """<!doctype html>
       <h2 style="margin-bottom:16px;">Хотите такое решение?</h2>
       <p style="color:var(--clr-text);margin-bottom:24px;max-width:480px;margin-left:auto;margin-right:auto;">Обсудим ваш проект, покажем демо и рассчитаем стоимость.</p>
       <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap;">
-        <a href="mailto:hello@axiiom.ru" class="btn">hello@axiiom.ru</a>
-        <a href="tel:+78129287478" class="btn btn-outline">+7 (812) 928-74-78</a>
+        <a href="mailto:{CONTACT_EMAIL}" class="btn">{CONTACT_EMAIL}</a>
+        <a href="tel:{CONTACT_PHONE_LINK}" class="btn btn-outline">{CONTACT_PHONE}</a>
       </div>
     </div>
   </div>
@@ -973,6 +1051,7 @@ var ro = new IntersectionObserver(function(e) {{
 reveals.forEach(function(r) {{ ro.observe(r); }});
 </script>
 
+<script src="/config.js"></script>
 <script src="/nav.js"></script>
 <script>Nav.init({{ cta: true, breadcrumbs: true }});</script>
 <script src="/theme.js"></script>
@@ -993,10 +1072,10 @@ reveals.forEach(function(r) {{ ro.observe(r); }});
 </script>
 
 <!-- Yandex.Metrika counter -->
-<script type="text/javascript">(function(m,e,t,r,i,k,a){{m[i]=m[i]||function(){{(m[i].a=m[i].a||[]).push(arguments)}};m[i].l=1*new Date();for(var j=0;j<document.scripts.length;j++){{if(document.scripts[j].src===r){{return}}}}k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)}})(window,document,"script","https://mc.yandex.ru/metrika/tag.js?id=109391253","ym");ym(109391253,"init",{{clickmap:true,trackLinks:true,accurateTrackBounce:true}});</script>
-<noscript><div><img src="https://mc.yandex.ru/watch/109391253" style="position:absolute;left:-9999px" alt=""></div></noscript>
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-HFS4BDGTV4"></script>
-<script>window.dataLayer=window.dataLayer||[];function gtag(){{dataLayer.push(arguments)}}gtag('js',new Date());gtag('config','G-HFS4BDGTV4');</script>
+<script type="text/javascript">(function(m,e,t,r,i,k,a){{m[i]=m[i]||function(){{(m[i].a=m[i].a||[]).push(arguments)}};m[i].l=1*new Date();for(var j=0;j<document.scripts.length;j++){{if(document.scripts[j].src===r){{return}}}}k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)}})(window,document,"script","https://mc.yandex.ru/metrika/tag.js?id={YM_ID}","ym");ym({YM_ID},"init",{{clickmap:true,trackLinks:true,accurateTrackBounce:true}});</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/{YM_ID}" style="position:absolute;left:-9999px" alt=""></div></noscript>
+<script async src="https://www.googletagmanager.com/gtag/js?id={GA_ID}"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){{dataLayer.push(arguments)}}gtag('js',new Date());gtag('config','{GA_ID}');</script>
 </body>
 </html>"""
 
@@ -1044,7 +1123,12 @@ def main():
             FEATURES=make_features(demo["features"], color),
             DEMO_WIDGET=demo.get("widget_html", ""),
             COLOR=color,
-            R=r, G=g, B=b
+            R=r, G=g, B=b,
+            CONTACT_EMAIL=CONFIG["contact"]["email"],
+            CONTACT_PHONE=CONFIG["contact"]["phone"],
+            CONTACT_PHONE_LINK=CONFIG["contact"]["phoneLink"],
+            YM_ID=CONFIG["analytics"]["yandexMetrika"],
+            GA_ID=CONFIG["analytics"]["googleAnalytics"],
         )
 
         dir_path = os.path.join(base, slug)
