@@ -101,6 +101,7 @@
         { header: true, name: 'Аналитика и мониторинг' },
         { name: 'Аналитическая панель', path: '/demo/app/analytics-dashboard/' },
         { name: 'Мониторинг инцидентов', path: '/demo/app/incident-monitoring/' },
+        { name: 'Карта функциональных требований', path: 'https://bestdeejay-design.github.io/srs-docs/visualizations/07-force-graph.html' },
         { name: 'Портфель проектов', path: '/demo/app/project-portfolio/' },
         { separator: true },
         { header: true, name: 'Сервисы' },
