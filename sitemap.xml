@@ -1,152 +1,302 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://mobiap.com/</loc>
-    <lastmod>2026-06-27</lastmod>
+    <loc>https://axiiom.ru/</loc>
+    <lastmod>2026-06-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://mobiap.com/industries/</loc>
-    <lastmod>2026-06-27</lastmod>
+    <loc>https://axiiom.ru/</loc>
+    <lastmod>2026-06-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://axiiom.ru/tools/base64/</loc>
+    <lastmod>2026-06-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://axiiom.ru/tools/char-counter/</loc>
+    <lastmod>2026-06-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://axiiom.ru/tools/checklist/</loc>
+    <lastmod>2026-06-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://axiiom.ru/tools/color-picker/</loc>
+    <lastmod>2026-06-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://axiiom.ru/tools/currency/</loc>
+    <lastmod>2026-06-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://axiiom.ru/tools/date-calc/</loc>
+    <lastmod>2026-06-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://axiiom.ru/tools/lorem-ipsum/</loc>
+    <lastmod>2026-06-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://axiiom.ru/tools/password-gen/</loc>
+    <lastmod>2026-06-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://axiiom.ru/tools/snippet-gen/</loc>
+    <lastmod>2026-06-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://axiiom.ru/tools/translit/</loc>
+    <lastmod>2026-06-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://axiiom.ru/tools/unit-converter/</loc>
+    <lastmod>2026-06-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://axiiom.ru/tools/url-encode/</loc>
+    <lastmod>2026-06-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://axiiom.ru/tools/</loc>
+    <lastmod>2026-06-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://mobiap.com/industries/fintech-saas/</loc>
-    <lastmod>2026-06-27</lastmod>
+    <loc>https://axiiom.ru/industries/avtomatizaciya-restoranov.html</loc>
+    <lastmod>2026-06-14</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://mobiap.com/industries/healthcare/</loc>
-    <lastmod>2026-06-27</lastmod>
+    <loc>https://axiiom.ru/industries/avtoservice.html</loc>
+    <lastmod>2026-06-14</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://mobiap.com/industries/real-estate/</loc>
-    <lastmod>2026-06-27</lastmod>
+    <loc>https://axiiom.ru/industries/bronirovanie-gostinits.html</loc>
+    <lastmod>2026-06-14</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://mobiap.com/industries/logistics-supply-chain/</loc>
-    <lastmod>2026-06-27</lastmod>
+    <loc>https://axiiom.ru/industries/crm-medcentry.html</loc>
+    <lastmod>2026-06-14</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://mobiap.com/industries/cybersecurity/</loc>
-    <lastmod>2026-06-27</lastmod>
+    <loc>https://axiiom.ru/industries/crm-nedvizhimost.html</loc>
+    <lastmod>2026-06-14</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://mobiap.com/industries/hospitality/</loc>
-    <lastmod>2026-06-27</lastmod>
+    <loc>https://axiiom.ru/industries/dostavka-edы.html</loc>
+    <lastmod>2026-06-14</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://mobiap.com/calculator/</loc>
-    <lastmod>2026-06-27</lastmod>
+    <loc>https://axiiom.ru/industries/erp-proizvodstvo.html</loc>
+    <lastmod>2026-06-14</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://mobiap.com/demo/app/</loc>
-    <lastmod>2026-06-27</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://axiiom.ru/industries/fitness-apps.html</loc>
+    <lastmod>2026-06-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://mobiap.com/tools/</loc>
-    <lastmod>2026-06-27</lastmod>
+    <loc>https://axiiom.ru/industries/iot-umnyy-dom.html</loc>
+    <lastmod>2026-06-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://axiiom.ru/industries/kiberbezopasnost.html</loc>
+    <lastmod>2026-06-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://axiiom.ru/industries/kraudfanding.html</loc>
+    <lastmod>2026-06-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://axiiom.ru/industries/marketing-analitika.html</loc>
+    <lastmod>2026-06-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://axiiom.ru/industries/online-obuchenie.html</loc>
+    <lastmod>2026-06-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://axiiom.ru/industries/platforma-frilans.html</loc>
+    <lastmod>2026-06-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://axiiom.ru/industries/po-stroitelnye-kompanii.html</loc>
+    <lastmod>2026-06-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://axiiom.ru/industries/pravovie-firmu.html</loc>
+    <lastmod>2026-06-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://axiiom.ru/industries/saas-startupy.html</loc>
+    <lastmod>2026-06-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://axiiom.ru/industries/selskokhozyaystvo.html</loc>
+    <lastmod>2026-06-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://axiiom.ru/industries/sistemy-logistika.html</loc>
+    <lastmod>2026-06-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://axiiom.ru/industries/udalennaya-rabota.html</loc>
+    <lastmod>2026-06-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://axiiom.ru/industries/upravlenie-cepochkami.html</loc>
+    <lastmod>2026-06-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://axiiom.ru/industries/upravlenie-proektami.html</loc>
+    <lastmod>2026-06-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://axiiom.ru/industries/</loc>
+    <lastmod>2026-06-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://mobiap.com/tools/base64/</loc>
-    <lastmod>2026-06-27</lastmod>
+    <loc>https://axiiom.ru/blog/161-fz-guideline/</loc>
+    <lastmod>2026-06-14</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://mobiap.com/tools/char-counter/</loc>
-    <lastmod>2026-06-27</lastmod>
+    <loc>https://axiiom.ru/blog/fintech-trends-2026/</loc>
+    <lastmod>2026-06-14</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://mobiap.com/tools/checklist/</loc>
-    <lastmod>2026-06-27</lastmod>
+    <loc>https://axiiom.ru/blog/highload-architecture/</loc>
+    <lastmod>2026-06-14</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://mobiap.com/tools/color-picker/</loc>
-    <lastmod>2026-06-27</lastmod>
+    <loc>https://axiiom.ru/blog/loyalty-platform-not-option-necessity/</loc>
+    <lastmod>2026-06-14</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://mobiap.com/tools/currency/</loc>
-    <lastmod>2026-06-27</lastmod>
+    <loc>https://axiiom.ru/blog/loyalty-program-roi/</loc>
+    <lastmod>2026-06-14</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://mobiap.com/tools/date-calc/</loc>
-    <lastmod>2026-06-27</lastmod>
+    <loc>https://axiiom.ru/blog/mobile-payment-ux/</loc>
+    <lastmod>2026-06-14</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://mobiap.com/tools/lorem-ipsum/</loc>
-    <lastmod>2026-06-27</lastmod>
+    <loc>https://axiiom.ru/blog/pci-dss-compliance/</loc>
+    <lastmod>2026-06-14</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://mobiap.com/tools/password-gen/</loc>
-    <lastmod>2026-06-27</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <loc>https://axiiom.ru/blog/</loc>
+    <lastmod>2026-06-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://mobiap.com/tools/snippet-gen/</loc>
-    <lastmod>2026-06-27</lastmod>
+    <loc>https://axiiom.ru/calculator/</loc>
+    <lastmod>2026-06-14</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://mobiap.com/tools/translit/</loc>
-    <lastmod>2026-06-27</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <loc>https://axiiom.ru/demo/app/</loc>
+    <lastmod>2026-06-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://mobiap.com/tools/unit-converter/</loc>
-    <lastmod>2026-06-27</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://mobiap.com/tools/url-encode/</loc>
-    <lastmod>2026-06-27</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://mobiap.com/privacy/</loc>
-    <lastmod>2026-06-27</lastmod>
+    <loc>https://axiiom.ru/privacy/</loc>
+    <lastmod>2026-06-14</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.3</priority>
   </url>
   <url>
-    <loc>https://mobiap.com/terms/</loc>
-    <lastmod>2026-06-27</lastmod>
+    <loc>https://axiiom.ru/terms/</loc>
+    <lastmod>2026-06-14</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.3</priority>
   </url>

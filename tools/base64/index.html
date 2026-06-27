@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="theme-color" content="#0A0A0F">
-    <title>Base64 Encode/Decode Online — MOBIAP Tools</title>
-    <meta name="description" content="Free online tool for Base64 encoding and decoding of text. UTF-8 support, copy result with one click.">
-    <link rel="canonical" href="https://mobiap.com/tools/base64/">
+    <title>Base64 кодирование и декодирование онлайн — AXIIOM Tools</title>
+    <meta name="description" content="Бесплатный онлайн инструмент для Base64 кодирования и декодирования текста. Поддержка UTF-8, возможность копирования результата.">
+    <link rel="canonical" href="https://axiiom.ru/tools/base64/">
     <link rel="icon" type="image/svg+xml" href="/favicon.svg">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -15,31 +15,31 @@
 
     <!-- Open Graph -->
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://mobiap.com/tools/base64/">
-    <meta property="og:title" content="Base64 Encode/Decode Online — MOBIAP Tools">
-    <meta property="og:description" content="Encode and decode text to/from Base64 online. UTF-8 support, fast processing, user-friendly interface.">
+    <meta property="og:url" content="https://axiiom.ru/tools/base64/">
+    <meta property="og:title" content="Base64 кодирование/декодирование онлайн — AXIIOM Tools">
+    <meta property="og:description" content="Кодируйте и декодируйте текст в Base64 онлайн. Поддержка UTF-8, быстрая обработка, удобный интерфейс.">
     <meta property="og:image" content="/og-image.png">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
-    <meta property="og:locale" content="en_US">
+    <meta property="og:locale" content="ru_RU">
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:url" content="https://mobiap.com/tools/base64/">
-    <meta name="twitter:title" content="Base64 Encode/Decode Online — MOBIAP Tools">
-    <meta name="twitter:description" content="Encode and decode text to/from Base64 online. UTF-8 support, fast processing, user-friendly interface.">
+    <meta name="twitter:url" content="https://axiiom.ru/tools/base64/">
+    <meta name="twitter:title" content="Base64 кодирование/декодирование онлайн — AXIIOM Tools">
+    <meta name="twitter:description" content="Кодируйте и декодируйте текст в Base64 онлайн. Поддержка UTF-8, быстрая обработка, удобный интерфейс.">
     <meta name="twitter:image" content="/og-image.png">
 
         <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "WebApplication",
-      "name": "Base64 Encode and Decode Online",
-      "url": "https://mobiap.com/tools/base64/",
+      "name": "Base64 кодирование и декодирование онлайн",
+      "url": "https://axiiom.ru/tools/base64/",
       "applicationCategory": "UtilityApplication",
       "operatingSystem": "Any",
       "offers": { "@type": "Offer", "price": "0" },
-      "isPartOf": { "@type": "WebSite", "name": "MOBIAP", "url": "https://mobiap.com/" }
+      "isPartOf": { "@type": "WebSite", "name": "AXIIOM", "url": "https://axiiom.ru/" }
     }
     </script>
 
@@ -49,7 +49,8 @@
 </head>
 <body>
 <div id="preloader">
-<svg class="preloader-svg" viewBox="0 0 36 36" width="80" height="80">
+<script>(function(){var p=document.getElementById('preloader');if(!p)return;if(sessionStorage.getItem('_seen')){p.style.display='none';return}sessionStorage.setItem('_seen','1');var t=Date.now();p._start=t;setTimeout(function(){p.classList.add('_rdy')},500);window.addEventListener('load',function(){var e=Date.now()-t;if(e<2000){setTimeout(function(){p.classList.add('hidden');setTimeout(function(){p.classList.add('hidden-done')},500)},2000-e)}else{p.classList.add('hidden');setTimeout(function(){p.classList.add('hidden-done')},500)}})})()</script>
+  <svg class="preloader-svg" viewBox="0 0 36 36" width="80" height="80">
     <rect class="pr1" x="2" y="2" width="14" height="14" rx="2"/>
     <rect class="pr2" x="20" y="2" width="14" height="14" rx="2"/>
     <rect class="pr3" x="2" y="20" width="14" height="14" rx="2"/>
@@ -60,44 +61,74 @@
 <div class="noise"></div>
 <div class="grid-overlay"></div>
 
+<header class="header" id="header">
+    <div class="container">
+        <nav class="nav">
+            <a href="/" class="logo">
+                <svg width="30" height="30" viewBox="0 0 36 36" fill="none">
+                    <rect x="2" y="2" width="14" height="14" rx="2" stroke="currentColor" stroke-width="1.5" opacity=".4"/>
+                    <rect x="20" y="2" width="14" height="14" rx="2" stroke="currentColor" stroke-width="1.5" opacity=".4"/>
+                    <rect x="2" y="20" width="14" height="14" rx="2" stroke="currentColor" stroke-width="1.5" opacity=".4"/>
+                    <rect x="20" y="20" width="14" height="14" rx="2" stroke="currentColor" stroke-width="1.5"/>
+                    <circle cx="27" cy="27" r="3" fill="currentColor" opacity=".8"/>
+                </svg>
+                <span>AXIIOM</span>
+            </a>
+            <ul class="nav-links nav-links--desktop" id="desktopNav"></ul>
+            <div class="nav-actions">
+                <button class="theme-btn" id="themeToggle" aria-label="Сменить тему">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>
+                </button>
+                <button class="nav-toggle nav-toggle" id="navToggle" aria-label="Меню">
+                    <span></span><span></span><span></span>
+                </button>
+            </div>
+        </nav>
+    </div>
+</header>
 
-<div id="header-mount"></div>
+<nav class="breadcrumbs" id="breadcrumbs" aria-label="Breadcrumb">
+    <div class="container"></div>
+</nav>
 
+<div class="nav-overlay" id="navOverlay">
+    <ul class="nav-links" id="mobileNav"></ul>
+</div>
 
 <section class="tool-page">
     <div class="container">
         <div class="tool-page-header">
             <h1>Base64</h1>
-            <button class="share-btn" onclick="copyPageUrl(this)" aria-label="Share" title="Share">
+            <button class="share-btn" onclick="copyPageUrl(this)" aria-label="Поделиться" title="Поделиться">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                     <path d="M4 12v8a2 2 0 002 2h12a2 2 0 002-2v-8"/>
                     <polyline points="16 6 12 2 8 6"/>
                     <line x1="12" y1="2" x2="12" y2="15"/>
                 </svg>
-                <span class="share-tooltip">Link copied</span>
+                <span class="share-tooltip">Ссылка скопирована</span>
             </button>
             
             
         </div>
         <div class="tool-page-card">
-            <p class="tool-description">Encode and decode strings to/from Base64 format.</p>
+            <p class="tool-description">Кодирование и декодирование строк в формат Base64.</p>
 
             <div class="tool-row">
-                <label class="tool-label" for="inputText">Source Text</label>
-                <textarea class="tool-textarea" id="inputText" placeholder="Enter text to encode or decode..." rows="6"></textarea>
+                <label class="tool-label" for="inputText">Исходный текст</label>
+                <textarea class="tool-textarea" id="inputText" placeholder="Введите текст для кодирования или декодирования..." rows="6"></textarea>
             </div>
 
             <div class="tool-btn-group">
-                <button class="tool-btn" id="encodeBtn">Encode → Base64</button>
-                <button class="tool-btn-secondary" id="decodeBtn">Decode ←</button>
+                <button class="tool-btn" id="encodeBtn">Закодировать → Base64</button>
+                <button class="tool-btn-secondary" id="decodeBtn">Декодировать ←</button>
             </div>
 
             <div class="tool-row" style="margin-top:20px">
                 <div style="display:flex;align-items:center;justify-content:space-between">
-                    <span class="tool-output-label">Result</span>
+                    <span class="tool-output-label">Результат</span>
                     <button class="tool-btn-secondary copy-btn" id="copyBtn">
                         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>
-                        Copy
+                        Копировать
                     </button>
                 </div>
                 <div class="tool-output" id="output"></div>
@@ -164,26 +195,26 @@ encodeBtn.addEventListener('click', function() {
     try {
         output.textContent = b64Encode(input.value);
     } catch (e) {
-        output.textContent = 'Encoding error: ' + e.message;
+        output.textContent = 'Ошибка кодирования: ' + e.message;
     }
 });
 
 decodeBtn.addEventListener('click', function() {
     var val = input.value.trim();
     if (!val) {
-        output.textContent = 'Enter a Base64 string to decode.';
+        output.textContent = 'Введите Base64-строку для декодирования.';
         return;
     }
     try {
         output.textContent = b64Decode(val);
     } catch (e) {
-        output.textContent = 'Error: invalid Base64 string. Check your input.';
+        output.textContent = 'Ошибка: неверная Base64-строка. Проверьте ввод.';
     }
 });
 
 copyBtn.addEventListener('click', function() {
     var text = output.textContent;
-    if (!text || text === 'Encoding error: ' || text.startsWith('Error')) return;
+    if (!text || text === 'Ошибка кодирования: ' || text.startsWith('Ошибка')) return;
     navigator.clipboard.writeText(text).then(function() {
         copyBtn.classList.add('copied');
         setTimeout(function() { copyBtn.classList.remove('copied'); }, 2000);
@@ -199,6 +230,13 @@ copyBtn.addEventListener('click', function() {
     });
 });
 </script>
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript">
+(function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};m[i].l=1*new Date();for(var j=0;j<document.scripts.length;j++){if(document.scripts[j].src===r){return}}k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})(window,document,"script","https://mc.yandex.ru/metrika/tag.js?id=109391253","ym");
+ym(109391253,"init",{clickmap:true,trackLinks:true,accurateTrackBounce:true});
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/109391253" style="position:absolute;left:-9999px" alt=""></div></noscript>
+<!-- /Yandex.Metrika counter -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-HFS4BDGTV4"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
@@ -207,10 +245,22 @@ copyBtn.addEventListener('click', function() {
   gtag('config', 'G-HFS4BDGTV4');
 </script>
 <script src="/nav.js"></script>
-<script>Nav.init({ cta: true, breadcrumbs: true });</script>
+<script>Nav.init({ cta: false, breadcrumbs: true });</script>
 <script src="/theme.js"></script>
   <script src="/preloader.js"></script>
 
-<script src="/footer.js"></script>
+<script>
+(function() {
+  var t = document.getElementById('navToggle');
+  var o = document.getElementById('navOverlay');
+  if (!t || !o) return;
+  t.addEventListener('click', function(e) {
+    e.stopPropagation();
+    o.classList.toggle('open');
+    t.classList.toggle('active');
+    document.body.style.overflow = o.classList.contains('open') ? 'hidden' : '';
+  });
+})();
+</script>
 </body>
 </html>

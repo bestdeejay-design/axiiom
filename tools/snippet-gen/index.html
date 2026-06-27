@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="theme-color" content="#0A0A0F">
-    <title>SEO Snippet Generator — Search Result Preview — MOBIAP Tools</title>
-    <meta name="description" content="Free SEO snippet generator with Google-style preview. Analyze title, description and URL length with color indicators.">
-    <link rel="canonical" href="https://mobiap.com/tools/snippet-gen/">
+    <title>SEO сниппет генератор — предпросмотр в выдаче — AXIIOM Tools</title>
+    <meta name="description" content="Бесплатный генератор SEO сниппетов с предпросмотром в стиле Google. Анализ длины заголовка, описания и URL с цветовой индикацией.">
+    <link rel="canonical" href="https://axiiom.ru/tools/snippet-gen/">
     <link rel="icon" type="image/svg+xml" href="/favicon.svg">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -15,31 +15,31 @@
 
     <!-- Open Graph -->
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://mobiap.com/tools/snippet-gen/">
-    <meta property="og:title" content="SEO Snippet Generator — Google Search Preview — MOBIAP Tools">
-    <meta property="og:description" content="Create and preview SEO snippets in Google style. Monitor title and description length with color indicators.">
+    <meta property="og:url" content="https://axiiom.ru/tools/snippet-gen/">
+    <meta property="og:title" content="SEO сниппет генератор — предпросмотр выдачи Google — AXIIOM Tools">
+    <meta property="og:description" content="Создание и предпросмотр SEO-сниппетов в стиле Google. Контроль длины заголовка и описания с цветовой индикацией.">
     <meta property="og:image" content="/og-image.png">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
-    <meta property="og:locale" content="en_US">
+    <meta property="og:locale" content="ru_RU">
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:url" content="https://mobiap.com/tools/snippet-gen/">
-    <meta name="twitter:title" content="SEO Snippet Generator — Google Search Preview — MOBIAP Tools">
-    <meta name="twitter:description" content="Create and preview SEO snippets in Google style. Monitor title and description length with color indicators.">
+    <meta name="twitter:url" content="https://axiiom.ru/tools/snippet-gen/">
+    <meta name="twitter:title" content="SEO сниппет генератор — предпросмотр выдачи Google — AXIIOM Tools">
+    <meta name="twitter:description" content="Создание и предпросмотр SEO-сниппетов в стиле Google. Контроль длины заголовка и описания с цветовой индикацией.">
     <meta name="twitter:image" content="/og-image.png">
 
         <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "WebApplication",
-      "name": "SEO Snippet — Google Snippet Preview",
-      "url": "https://mobiap.com/tools/snippet-gen/",
+      "name": "SEO Сниппет — предпросмотр сниппета в Google",
+      "url": "https://axiiom.ru/tools/snippet-gen/",
       "applicationCategory": "UtilityApplication",
       "operatingSystem": "Any",
       "offers": { "@type": "Offer", "price": "0" },
-      "isPartOf": { "@type": "WebSite", "name": "MOBIAP", "url": "https://mobiap.com/" }
+      "isPartOf": { "@type": "WebSite", "name": "AXIIOM", "url": "https://axiiom.ru/" }
     }
     </script>
 
@@ -49,7 +49,8 @@
 </head>
 <body>
 <div id="preloader">
-<svg class="preloader-svg" viewBox="0 0 36 36" width="80" height="80">
+<script>(function(){var p=document.getElementById('preloader');if(!p)return;if(sessionStorage.getItem('_seen')){p.style.display='none';return}sessionStorage.setItem('_seen','1');var t=Date.now();p._start=t;setTimeout(function(){p.classList.add('_rdy')},500);window.addEventListener('load',function(){var e=Date.now()-t;if(e<2000){setTimeout(function(){p.classList.add('hidden');setTimeout(function(){p.classList.add('hidden-done')},500)},2000-e)}else{p.classList.add('hidden');setTimeout(function(){p.classList.add('hidden-done')},500)}})})()</script>
+  <svg class="preloader-svg" viewBox="0 0 36 36" width="80" height="80">
     <rect class="pr1" x="2" y="2" width="14" height="14" rx="2"/>
     <rect class="pr2" x="20" y="2" width="14" height="14" rx="2"/>
     <rect class="pr3" x="2" y="20" width="14" height="14" rx="2"/>
@@ -60,75 +61,105 @@
 <div class="noise"></div>
 <div class="grid-overlay"></div>
 
+<header class="header" id="header">
+    <div class="container">
+        <nav class="nav">
+            <a href="/" class="logo">
+                <svg width="30" height="30" viewBox="0 0 36 36" fill="none">
+                    <rect x="2" y="2" width="14" height="14" rx="2" stroke="currentColor" stroke-width="1.5" opacity=".4"/>
+                    <rect x="20" y="2" width="14" height="14" rx="2" stroke="currentColor" stroke-width="1.5" opacity=".4"/>
+                    <rect x="2" y="20" width="14" height="14" rx="2" stroke="currentColor" stroke-width="1.5" opacity=".4"/>
+                    <rect x="20" y="20" width="14" height="14" rx="2" stroke="currentColor" stroke-width="1.5"/>
+                    <circle cx="27" cy="27" r="3" fill="currentColor" opacity=".8"/>
+                </svg>
+                <span>AXIIOM</span>
+            </a>
+            <ul class="nav-links nav-links--desktop" id="desktopNav"></ul>
+            <div class="nav-actions">
+                <button class="theme-btn" id="themeToggle" aria-label="Сменить тему">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>
+                </button>
+                <button class="nav-toggle nav-toggle" id="navToggle" aria-label="Меню">
+                    <span></span><span></span><span></span>
+                </button>
+            </div>
+        </nav>
+    </div>
+</header>
 
-<div id="header-mount"></div>
+<nav class="breadcrumbs" id="breadcrumbs" aria-label="Breadcrumb">
+    <div class="container"></div>
+</nav>
 
+<div class="nav-overlay" id="navOverlay">
+    <ul class="nav-links" id="mobileNav"></ul>
+</div>
 
 <section class="tool-page">
     <div class="container">
         <div class="tool-page-header">
-            <h1>SEO Snippet</h1>
-            <button class="share-btn" onclick="copyPageUrl(this)" aria-label="Share" title="Share">
+            <h1>SEO Сниппет</h1>
+            <button class="share-btn" onclick="copyPageUrl(this)" aria-label="Поделиться" title="Поделиться">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                     <path d="M4 12v8a2 2 0 002 2h12a2 2 0 002-2v-8"/>
                     <polyline points="16 6 12 2 8 6"/>
                     <line x1="12" y1="2" x2="12" y2="15"/>
                 </svg>
-                <span class="share-tooltip">Link copied</span>
+                <span class="share-tooltip">Ссылка скопирована</span>
             </button>
             
             
         </div>
 
-        <p class="tool-description">Preview snippets in Google search results and link previews for social networks and messengers.</p>
+        <p class="tool-description">Предпросмотр сниппета в выдаче Google и превью ссылок для соцсетей и мессенджеров.</p>
 
         <div class="tool-page-card">
             <div class="snippet-tabs" id="snippetTabs">
-                <button class="snippet-tab active" data-tab="link">Link Preview</button>
-                <button class="snippet-tab" data-tab="seo">Google Snippet</button>
+                <button class="snippet-tab active" data-tab="link">Предпросмотр ссылки</button>
+                <button class="snippet-tab" data-tab="seo">Сниппет Google</button>
             </div>
 
             <div class="snippet-tab-content" id="tabSeo">
-            <p class="tool-description">Enter title and description — see the snippet in Google search results and check its length.</p>
+            <p class="tool-description">Введите заголовок и описание — увидите сниппет в выдаче Google и проверите длину.</p>
             <div class="tool-row">
                 <div class="label-row">
-                    <label class="tool-label" for="titleInput">Title</label>
+                    <label class="tool-label" for="titleInput">Заголовок (Title)</label>
                     <span class="status-dot" id="titleDot"></span>
                 </div>
-                <input class="tool-input" type="text" id="titleInput" maxlength="60" placeholder="Example: Buy an Apartment in Moscow — Best Offers" autocomplete="off">
+                <input class="tool-input" type="text" id="titleInput" maxlength="60" placeholder="Например: Купить квартиру в Москве — лучшие предложения" autocomplete="off">
                 <div class="char-counter ok" id="titleCounter">0 / 60</div>
             </div>
 
             <div class="tool-row">
                 <div class="label-row">
-                    <label class="tool-label" for="descInput">Description</label>
+                    <label class="tool-label" for="descInput">Описание (Description)</label>
                     <span class="status-dot" id="descDot"></span>
                 </div>
-                <textarea class="tool-textarea" id="descInput" maxlength="160" placeholder="Example: Wide selection of apartments in new Moscow developments. Competitive prices, convenient locations, selection assistance."></textarea>
+                <textarea class="tool-textarea" id="descInput" maxlength="160" placeholder="Например: Широкий выбор квартир в новостройках Москвы. Выгодные цены, удобное расположение, помощь в выборе."></textarea>
                 <div class="char-counter ok" id="descCounter">0 / 160</div>
             </div>
 
             <div class="tool-row">
-                <label class="tool-label" for="urlInput">Page URL</label>
+                <label class="tool-label" for="urlInput">URL страницы</label>
                 <input class="tool-input" type="text" id="urlInput" placeholder="example.com/page" autocomplete="off">
             </div>
 
             <div class="snippet-preview" id="snippetPreview">
-                <div class="snippet-breadcrumb" id="snippetBreadcrumb">example.com <span>›</span> Result</div>
-                <div class="snippet-title" id="snippetTitle">Page Title</div>
-                <div class="snippet-desc" id="snippetDesc">Page description will appear here after entering text in the fields above.</div>
+                <div class="snippet-breadcrumb" id="snippetBreadcrumb">example.com <span>›</span> Результат</div>
+                <div class="snippet-title" id="snippetTitle">Заголовок страницы</div>
+                <div class="snippet-desc" id="snippetDesc">Описание страницы появится здесь после ввода текста в поля выше.</div>
                 <div class="snippet-url" id="snippetDisplayUrl">example.com/page</div>
             </div>
             </div>
 
             <!-- Tab 2: Link Preview -->
             <div class="snippet-tab-content active" id="tabLink">
-            <p class="tool-description">Enter a URL — the service will load og-tags and show a preview for Telegram, WhatsApp, VK and X/Twitter.</p>
+            <p class="tool-description">Вставьте URL — сервис загрузит og-теги и покажет превью для Telegram, WhatsApp, VK и X/Twitter.</p>
             <div class="tool-row">
-                <label class="tool-label" for="linkUrl">Enter a URL</label>
+                <label class="tool-label" for="linkUrl">Вставьте ссылку</label>
                 <div class="input-btn-row">
-                    <input class="tool-input" type="text" id="linkUrl" placeholder="https://mobiap.com/tools/password-gen/">
-                    <button class="link-load-btn" id="linkLoadBtn">Load</button>
+                    <input class="tool-input" type="text" id="linkUrl" placeholder="https://axiiom.ru/tools/password-gen/">
+                    <button class="link-load-btn" id="linkLoadBtn">Загрузить</button>
                 </div>
                 <div class="link-status" id="linkStatus"></div>
             </div>
@@ -173,7 +204,7 @@
             </div>
 
             <details class="link-og-details">
-                <summary>Found OG Tags</summary>
+                <summary>Найденные OG-теги</summary>
                 <pre class="link-og-raw" id="linkOgRaw"></pre>
             </details>
             </div>
@@ -240,7 +271,7 @@ function updateSnippet() {
     var desc = descInput.value;
     var url = urlInput.value;
 
-    var titleDisplay = title.length > 60 ? title.slice(0, 57) + '...' : title || 'Page Title';
+    var titleDisplay = title.length > 60 ? title.slice(0, 57) + '...' : title || 'Заголовок страницы';
     snippetTitle.textContent = titleDisplay;
 
     var tLen = title.length;
@@ -258,7 +289,7 @@ function updateSnippet() {
         titleDot.className += ' bad';
     }
 
-    var descDisplay = desc.length > 160 ? desc.slice(0, 157) + '...' : desc || 'Page description will appear here after entering text in the fields above.';
+    var descDisplay = desc.length > 160 ? desc.slice(0, 157) + '...' : desc || 'Описание страницы появится здесь после ввода текста в поля выше.';
     snippetDesc.textContent = descDisplay;
 
     var dLen = desc.length;
@@ -281,7 +312,7 @@ function updateSnippet() {
 
     var parts = displayUrl.split('/').filter(Boolean);
     if (parts.length <= 1) {
-        snippetBreadcrumb.innerHTML = displayUrl + ' <span>›</span> Result';
+        snippetBreadcrumb.innerHTML = displayUrl + ' <span>›</span> Результат';
     } else {
         var domain = parts[0];
         var rest = parts.slice(1).join(' › ');
@@ -323,8 +354,8 @@ function populateCards(title, desc, image, domain) {
     var cards = document.querySelectorAll('.preview-card');
     cards.forEach(function(card) {
         card.querySelector('.pv-domain').textContent = domain;
-        card.querySelector('.pv-title').textContent = title || '(not found)';
-        card.querySelector('.pv-desc').textContent = desc || '(not found)';
+        card.querySelector('.pv-title').textContent = title || '(не найден)';
+        card.querySelector('.pv-desc').textContent = desc || '(не найден)';
         var imgWrap = card.querySelector('.pv-img-wrap');
         var img = card.querySelector('.pv-img');
         if (image) {
@@ -339,9 +370,9 @@ function populateCards(title, desc, image, domain) {
 
 linkLoadBtn.addEventListener('click', function() {
     var url = linkUrl.value.trim();
-    if (!url) { showLinkStatus('Enter a URL', false); return; }
+    if (!url) { showLinkStatus('Введите URL', false); return; }
     linkLoadBtn.disabled = true;
-    linkLoadBtn.textContent = 'Loading...';
+    linkLoadBtn.textContent = 'Загрузка...';
     showLinkStatus('', true);
     fetch(url, { cache: 'no-store' })
         .then(function(resp) { return resp.text(); })
@@ -368,14 +399,14 @@ linkLoadBtn.addEventListener('click', function() {
             try { domain = new URL(url).hostname; } catch(e) {}
             populateCards(title, desc, image, domain);
             linkOgRaw.textContent = JSON.stringify({ ogTitle: title || '', ogDescription: desc || '', ogImage: image || '' }, null, 2);
-            showLinkStatus('Done', true);
+            showLinkStatus('Готово', true);
             linkLoadBtn.disabled = false;
-            linkLoadBtn.textContent = 'Load';
+            linkLoadBtn.textContent = 'Загрузить';
         })
         .catch(function() {
-            showLinkStatus('Failed to load — check the URL', false);
+            showLinkStatus('Не удалось загрузить — проверьте URL', false);
             linkLoadBtn.disabled = false;
-            linkLoadBtn.textContent = 'Load';
+            linkLoadBtn.textContent = 'Загрузить';
         });
 });
 
@@ -384,6 +415,13 @@ linkUrl.addEventListener('keydown', function(e) {
     if (e.key === 'Enter') linkLoadBtn.click();
 });
 </script>
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript">
+(function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};m[i].l=1*new Date();for(var j=0;j<document.scripts.length;j++){if(document.scripts[j].src===r){return}}k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})(window,document,"script","https://mc.yandex.ru/metrika/tag.js?id=109391253","ym");
+ym(109391253,"init",{clickmap:true,trackLinks:true,accurateTrackBounce:true});
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/109391253" style="position:absolute;left:-9999px" alt=""></div></noscript>
+<!-- /Yandex.Metrika counter -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-HFS4BDGTV4"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
@@ -392,10 +430,22 @@ linkUrl.addEventListener('keydown', function(e) {
   gtag('config', 'G-HFS4BDGTV4');
 </script>
 <script src="/nav.js"></script>
-<script>Nav.init({ cta: true, breadcrumbs: true });</script>
+<script>Nav.init({ cta: false, breadcrumbs: true });</script>
 <script src="/theme.js"></script>
   <script src="/preloader.js"></script>
 
-<script src="/footer.js"></script>
+<script>
+(function() {
+  var t = document.getElementById('navToggle');
+  var o = document.getElementById('navOverlay');
+  if (!t || !o) return;
+  t.addEventListener('click', function(e) {
+    e.stopPropagation();
+    o.classList.toggle('open');
+    t.classList.toggle('active');
+    document.body.style.overflow = o.classList.contains('open') ? 'hidden' : '';
+  });
+})();
+</script>
 </body>
 </html>

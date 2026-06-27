@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="theme-color" content="#0A0A0F">
-    <title>Password Generator Online — Create Strong Passwords — MOBIAP Tools</title>
-    <meta name="description" content="Free password generator with customizable length, character sets and separators. Generate up to 20 passwords at once.">
-    <link rel="canonical" href="https://mobiap.com/tools/password-gen/">
+    <title>Генератор паролей онлайн — создание надёжных паролей — AXIIOM Tools</title>
+    <meta name="description" content="Бесплатный генератор паролей с настраиваемой длиной, набором символов и разделителями. Создавайте до 20 паролей одновременно.">
+    <link rel="canonical" href="https://axiiom.ru/tools/password-gen/">
     <link rel="icon" type="image/svg+xml" href="/favicon.svg">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -15,31 +15,31 @@
 
     <!-- Open Graph -->
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://mobiap.com/tools/password-gen/">
-    <meta property="og:title" content="Password Generator Online — MOBIAP Tools">
-    <meta property="og:description" content="Generate strong passwords with customizable length (4-64), uppercase/lowercase letters, digits, special characters, separators. Up to 20 passwords at once.">
+    <meta property="og:url" content="https://axiiom.ru/tools/password-gen/">
+    <meta property="og:title" content="Генератор паролей онлайн — AXIIOM Tools">
+    <meta property="og:description" content="Создание надёжных паролей с настраиваемой длиной (4-64), заглавные/строчные буквы, цифры, спецсимволы, разделители. До 20 паролей за раз.">
     <meta property="og:image" content="/og-image.png">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
-    <meta property="og:locale" content="en_US">
+    <meta property="og:locale" content="ru_RU">
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:url" content="https://mobiap.com/tools/password-gen/">
-    <meta name="twitter:title" content="Password Generator Online — MOBIAP Tools">
-    <meta name="twitter:description" content="Generate strong passwords with customizable length (4-64), uppercase/lowercase letters, digits, special characters, separators. Up to 20 passwords at once.">
+    <meta name="twitter:url" content="https://axiiom.ru/tools/password-gen/">
+    <meta name="twitter:title" content="Генератор паролей онлайн — AXIIOM Tools">
+    <meta name="twitter:description" content="Создание надёжных паролей с настраиваемой длиной (4-64), заглавные/строчные буквы, цифры, спецсимволы, разделители. До 20 паролей за раз.">
     <meta name="twitter:image" content="/og-image.png">
 
         <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "WebApplication",
-      "name": "Password Generator Online — Create Strong Passwords",
-      "url": "https://mobiap.com/tools/password-gen/",
+      "name": "Генератор паролей онлайн — создание надёжных паролей",
+      "url": "https://axiiom.ru/tools/password-gen/",
       "applicationCategory": "UtilityApplication",
       "operatingSystem": "Any",
       "offers": { "@type": "Offer", "price": "0" },
-      "isPartOf": { "@type": "WebSite", "name": "MOBIAP", "url": "https://mobiap.com/" }
+      "isPartOf": { "@type": "WebSite", "name": "AXIIOM", "url": "https://axiiom.ru/" }
     }
     </script>
 
@@ -49,7 +49,8 @@
 </head>
 <body>
 <div id="preloader">
-<svg class="preloader-svg" viewBox="0 0 36 36" width="80" height="80">
+<script>(function(){var p=document.getElementById('preloader');if(!p)return;if(sessionStorage.getItem('_seen')){p.style.display='none';return}sessionStorage.setItem('_seen','1');var t=Date.now();p._start=t;setTimeout(function(){p.classList.add('_rdy')},500);window.addEventListener('load',function(){var e=Date.now()-t;if(e<2000){setTimeout(function(){p.classList.add('hidden');setTimeout(function(){p.classList.add('hidden-done')},500)},2000-e)}else{p.classList.add('hidden');setTimeout(function(){p.classList.add('hidden-done')},500)}})})()</script>
+  <svg class="preloader-svg" viewBox="0 0 36 36" width="80" height="80">
     <rect class="pr1" x="2" y="2" width="14" height="14" rx="2"/>
     <rect class="pr2" x="20" y="2" width="14" height="14" rx="2"/>
     <rect class="pr3" x="2" y="20" width="14" height="14" rx="2"/>
@@ -60,31 +61,61 @@
 <div class="noise"></div>
 <div class="grid-overlay"></div>
 
+<header class="header" id="header">
+    <div class="container">
+        <nav class="nav">
+            <a href="/" class="logo">
+                <svg width="30" height="30" viewBox="0 0 36 36" fill="none">
+                    <rect x="2" y="2" width="14" height="14" rx="2" stroke="currentColor" stroke-width="1.5" opacity=".4"/>
+                    <rect x="20" y="2" width="14" height="14" rx="2" stroke="currentColor" stroke-width="1.5" opacity=".4"/>
+                    <rect x="2" y="20" width="14" height="14" rx="2" stroke="currentColor" stroke-width="1.5" opacity=".4"/>
+                    <rect x="20" y="20" width="14" height="14" rx="2" stroke="currentColor" stroke-width="1.5"/>
+                    <circle cx="27" cy="27" r="3" fill="currentColor" opacity=".8"/>
+                </svg>
+                <span>AXIIOM</span>
+            </a>
+            <ul class="nav-links nav-links--desktop" id="desktopNav"></ul>
+            <div class="nav-actions">
+                <button class="theme-btn" id="themeToggle" aria-label="Сменить тему">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>
+                </button>
+                <button class="nav-toggle nav-toggle" id="navToggle" aria-label="Меню">
+                    <span></span><span></span><span></span>
+                </button>
+            </div>
+        </nav>
+    </div>
+</header>
 
-<div id="header-mount"></div>
+<nav class="breadcrumbs" id="breadcrumbs" aria-label="Breadcrumb">
+    <div class="container"></div>
+</nav>
 
+<div class="nav-overlay" id="navOverlay">
+    <ul class="nav-links" id="mobileNav"></ul>
+</div>
 
 <div class="tool-page">
     <div class="container">
         <div class="tool-page-header">
-            <h1>Password Generator</h1>
-            <button class="share-btn" onclick="copyPageUrl(this)" aria-label="Share" title="Share">
+            <h1>Генератор паролей</h1>
+            <button class="share-btn" onclick="copyPageUrl(this)" aria-label="Поделиться" title="Поделиться">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                     <path d="M4 12v8a2 2 0 002 2h12a2 2 0 002-2v-8"/>
                     <polyline points="16 6 12 2 8 6"/>
                     <line x1="12" y1="2" x2="12" y2="15"/>
                 </svg>
-                <span class="share-tooltip">Link copied</span>
+                <span class="share-tooltip">Ссылка скопирована</span>
             </button>
             
             
         </div>
 
         <div class="tool-page-card">
-            <p class="tool-description">Create strong passwords with customizable length and character sets.</p>
+            <p class="tool-description">Создание надёжных паролей с настраиваемой длиной и набором символов.</p>
 
             <div class="tool-row">
-                <label class="tool-label" for="countSlider">Number of passwords: <strong id="countDisplay">5</strong></label>
+                <label class="tool-label" for="countSlider">Количество паролей: <strong id="countDisplay">5</strong></label>
                 <input type="range" class="tool-range" id="countSlider" min="1" max="20" value="5">
             </div>
 
@@ -95,11 +126,11 @@
             <div class="tool-btn-group">
                 <button class="tool-btn" id="generateBtn">
                     <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>
-                    Generate
+                    Сгенерировать
                 </button>
                 <button class="tool-btn-secondary" id="copyAllBtn">
                     <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>
-                    Copy All
+                    Копировать все
                 </button>
             </div>
 
@@ -110,51 +141,51 @@
                     <span></span>
                 </div>
                 <div style="display:flex;justify-content:space-between;margin-top:4px;">
-                    <span style="font-size:.72rem;color:var(--clr-faint)">Strength: <strong id="strengthText">—</strong></span>
+                    <span style="font-size:.72rem;color:var(--clr-faint)">Надёжность: <strong id="strengthText">—</strong></span>
                 </div>
             </div>
 
             <div class="tool-row">
-                <label class="tool-label" for="lengthSlider">Password Length: <strong id="lengthDisplay">16</strong></label>
+                <label class="tool-label" for="lengthSlider">Длина пароля: <strong id="lengthDisplay">16</strong></label>
                 <input type="range" class="tool-range" id="lengthSlider" min="4" max="64" value="16">
             </div>
 
             <div class="tool-row">
-                <label class="tool-label">Character Set</label>
+                <label class="tool-label">Набор символов</label>
                 <div class="checkbox-group">
                     <label class="checkbox-label">
                         <input type="checkbox" id="chkUpper" checked>
-                        Uppercase (A-Z)
+                        Заглавные (A-Z)
                     </label>
                     <label class="checkbox-label">
                         <input type="checkbox" id="chkLower" checked>
-                        Lowercase (a-z)
+                        Строчные (a-z)
                     </label>
                     <label class="checkbox-label">
                         <input type="checkbox" id="chkDigits" checked>
-                        Digits (0-9)
+                        Цифры (0-9)
                     </label>
                     <label class="checkbox-label">
                         <input type="checkbox" id="chkSpecial">
-                        Special chars (~!@#$%^&amp;*()+)
+                        Спецсимволы (~!@#$%^&amp;*()+)
                     </label>
                 </div>
             </div>
 
             <div class="tool-row">
-                <label class="tool-label">Separators</label>
+                <label class="tool-label">Разделители</label>
                 <div class="checkbox-group">
                     <label class="checkbox-label">
                         <input type="checkbox" id="sepNone" checked>
-                        No Separator
+                        Без разделителя
                     </label>
                     <label class="checkbox-label">
                         <input type="checkbox" id="sepHyphen">
-                        Hyphen (-)
+                        Дефис (-)
                     </label>
                     <label class="checkbox-label">
                         <input type="checkbox" id="sepUnderscore">
-                        Underscore (_)
+                        Подчёркивание (_)
                     </label>
                 </div>
             </div>
@@ -163,7 +194,7 @@
                 <div class="checkbox-group">
                     <label class="checkbox-label">
                         <input type="checkbox" id="chkNoAmbiguous">
-                        Exclude Ambiguous (<span style="font-family:monospace">Il1oO0oOsS5</span>)
+                        Исключить неоднозначные (<span style="font-family:monospace">Il1oO0оОsS5</span>)
                     </label>
                 </div>
             </div>
@@ -215,7 +246,7 @@ var UPPER = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
 var LOWER = 'abcdefghijklmnopqrstuvwxyz';
 var DIGITS = '0123456789';
 var SPECIAL = '~!@#$%^&*()+';
-var AMBIGUOUS = 'Il1oO0oOsS5';
+var AMBIGUOUS = 'Il1oO0оОsS5';
 
 function removeAmbiguous(s) {
     var r = '';
@@ -350,7 +381,7 @@ function generatePasswords() {
     }
 
     if (passwords.length === 0) {
-        passwordList.innerHTML = '<div class="tool-output" style="text-align:center;color:var(--clr-faint)">Select at least one character set</div>';
+        passwordList.innerHTML = '<div class="tool-output" style="text-align:center;color:var(--clr-faint)">Выберите хотя бы один набор символов</div>';
         updateStrength(0, 0);
         return;
     }
@@ -359,7 +390,7 @@ function generatePasswords() {
     for (var j = 0; j < passwords.length; j++) {
         html += '<div class="password-item" data-pw="' + passwords[j].replace(/"/g, '&quot;') + '">';
         html += '<code class="password-code">' + passwords[j] + '</code>';
-        html += '<span class="password-copied-hint">Copied</span>';
+        html += '<span class="password-copied-hint">Скопировано</span>';
         html += '</div>';
     }
     passwordList.innerHTML = html;
@@ -412,15 +443,15 @@ function updateStrength(length, variety) {
         cssClass = '';
     } else if (score < 40) {
         pct = 1;
-        label = 'Weak';
+        label = 'Слабый';
         cssClass = 'weak';
     } else if (score < 70) {
         pct = 2;
-        label = 'Medium';
+        label = 'Средний';
         cssClass = 'medium';
     } else {
         pct = 3;
-        label = 'Strong';
+        label = 'Надёжный';
         cssClass = 'strong';
     }
 
@@ -489,6 +520,13 @@ copyAllBtn.addEventListener('click', function() {
 
 generatePasswords();
 </script>
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript">
+(function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};m[i].l=1*new Date();for(var j=0;j<document.scripts.length;j++){if(document.scripts[j].src===r){return}}k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})(window,document,"script","https://mc.yandex.ru/metrika/tag.js?id=109391253","ym");
+ym(109391253,"init",{clickmap:true,trackLinks:true,accurateTrackBounce:true});
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/109391253" style="position:absolute;left:-9999px" alt=""></div></noscript>
+<!-- /Yandex.Metrika counter -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-HFS4BDGTV4"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
@@ -497,10 +535,22 @@ generatePasswords();
   gtag('config', 'G-HFS4BDGTV4');
 </script>
 <script src="/nav.js"></script>
-<script>Nav.init({ cta: true, breadcrumbs: true });</script>
+<script>Nav.init({ cta: false, breadcrumbs: true });</script>
 <script src="/theme.js"></script>
   <script src="/preloader.js"></script>
 
-<script src="/footer.js"></script>
+<script>
+(function() {
+  var t = document.getElementById('navToggle');
+  var o = document.getElementById('navOverlay');
+  if (!t || !o) return;
+  t.addEventListener('click', function(e) {
+    e.stopPropagation();
+    o.classList.toggle('open');
+    t.classList.toggle('active');
+    document.body.style.overflow = o.classList.contains('open') ? 'hidden' : '';
+  });
+})();
+</script>
 </body>
 </html>

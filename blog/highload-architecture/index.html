@@ -1,52 +1,52 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="theme-color" content="#0A0A0F">
-    <title>Highload System Architecture: MOBIAP Experience | MOBIAP Blog</title>
-    <meta name="description" content="How to design highload systems: microservices vs monolith, load balancing, multi-level caching, K8s, DB sharding, queues and observability. MOBIAP Experience.">
-    <link rel="canonical" href="https://mobiap.com/blog/highload-architecture/">
+    <title>Архитектура highload-систем: опыт AXIIOM | Блог AXIIOM</title>
+    <meta name="description" content="Как проектировать highload-системы: микросервисы vs монолит, балансировка, многоуровневое кэширование, K8s, шардирование БД, очереди и observability. Опыт AXIIOM.">
+    <link rel="canonical" href="https://axiiom.ru/blog/highload-architecture/">
     <link rel="icon" type="image/svg+xml" href="/favicon.svg">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" as="style">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <meta property="og:type" content="article">
-    <meta property="og:url" content="https://mobiap.com/blog/highload-architecture/">
-    <meta property="og:title" content="Highload System Architecture: MOBIAP Experience | MOBIAP Blog">
-    <meta property="og:description" content="How to design highload systems: microservices vs monolith, load balancing, multi-level caching, K8s, DB sharding, queues and observability. MOBIAP Experience.">
-    <meta property="og:image" content="https://mobiap.com/og-image.png">
+    <meta property="og:url" content="https://axiiom.ru/blog/highload-architecture/">
+    <meta property="og:title" content="Архитектура highload-систем: опыт AXIIOM | Блог AXIIOM">
+    <meta property="og:description" content="Как проектировать highload-системы: микросервисы vs монолит, балансировка, многоуровневое кэширование, K8s, шардирование БД, очереди и observability. Опыт AXIIOM.">
+    <meta property="og:image" content="https://axiiom.ru/og-image.png">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
-    <meta property="og:locale" content="en_US">
-    <meta property="og:site_name" content="MOBIAP">
+    <meta property="og:locale" content="ru_RU">
+    <meta property="og:site_name" content="AXIIOM">
     <meta property="article:published_time" content="2026-07-05">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:url" content="https://mobiap.com/blog/highload-architecture/">
-    <meta name="twitter:title" content="Highload System Architecture: MOBIAP Experience | MOBIAP Blog">
-    <meta name="twitter:description" content="How to design highload systems: microservices vs monolith, load balancing, multi-level caching, K8s, DB sharding, queues and observability. MOBIAP Experience.">
-    <meta name="twitter:image" content="https://mobiap.com/og-image.png">
+    <meta name="twitter:url" content="https://axiiom.ru/blog/highload-architecture/">
+    <meta name="twitter:title" content="Архитектура highload-систем: опыт AXIIOM | Блог AXIIOM">
+    <meta name="twitter:description" content="Как проектировать highload-системы: микросервисы vs монолит, балансировка, многоуровневое кэширование, K8s, шардирование БД, очереди и observability. Опыт AXIIOM.">
+    <meta name="twitter:image" content="https://axiiom.ru/og-image.png">
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@graph": [
         {
           "@type": "Article",
-          "headline": "Highload Systems Architecture: MOBIAP Experience",
-          "description": "How to design highload systems: microservices vs monolith, load balancing, multi-level caching, K8s, DB sharding, queues and observability. MOBIAP Experience.",
+          "headline": "Архитектура highload-систем: опыт AXIIOM",
+          "description": "Как проектировать highload-системы: микросервисы vs монолит, балансировка, многоуровневое кэширование, K8s, шардирование БД, очереди и observability. Опыт AXIIOM.",
           "datePublished": "2026-07-05",
-          "author": { "@type": "Organization", "name": "MOBIAP", "url": "https://mobiap.com/" },
-          "publisher": { "@type": "Organization", "name": "MOBIAP", "url": "https://mobiap.com/" },
-          "mainEntityOfPage": { "@type": "WebPage", "@id": "https://mobiap.com/blog/highload-architecture/" },
-          "image": "https://mobiap.com/og-image.png"
+          "author": { "@type": "Organization", "name": "AXIIOM", "url": "https://axiiom.ru/" },
+          "publisher": { "@type": "Organization", "name": "AXIIOM", "url": "https://axiiom.ru/" },
+          "mainEntityOfPage": { "@type": "WebPage", "@id": "https://axiiom.ru/blog/highload-architecture/" },
+          "image": "https://axiiom.ru/og-image.png"
         },
         {
           "@type": "BreadcrumbList",
           "itemListElement": [
-            { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://mobiap.com/" },
-            { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://mobiap.com/blog/" },
-            { "@type": "ListItem", "position": 3, "name": "Highload Systems Architecture: MOBIAP Experience", "item": "https://mobiap.com/blog/highload-architecture/" }
+            { "@type": "ListItem", "position": 1, "name": "Главная", "item": "https://axiiom.ru/" },
+            { "@type": "ListItem", "position": 2, "name": "Блог", "item": "https://axiiom.ru/blog/" },
+            { "@type": "ListItem", "position": 3, "name": "Архитектура highload-систем: опыт AXIIOM", "item": "https://axiiom.ru/blog/highload-architecture/" }
           ]
         }
       ]
@@ -57,15 +57,117 @@
 </head>
 <body>
 <div id="preloader">
-<svg class="preloader-svg" viewBox="0 0 36 36" width="80" height="80"><rect class="pr1" x="2" y="2" width="14" height="14" rx="2"/><rect class="pr2" x="20" y="2" width="14" height="14" rx="2"/><rect class="pr3" x="2" y="20" width="14" height="14" rx="2"/><rect class="pr4" x="20" y="20" width="14" height="14" rx="2"/><circle class="pc" cx="27" cy="27" r="3"/></svg>
+<script>(function(){var p=document.getElementById('preloader');if(!p)return;if(sessionStorage.getItem('_seen')){p.style.display='none';return}sessionStorage.setItem('_seen','1');var t=Date.now();p._start=t;setTimeout(function(){p.classList.add('_rdy')},500);window.addEventListener('load',function(){var e=Date.now()-t;if(e<2000){setTimeout(function(){p.classList.add('hidden');setTimeout(function(){p.classList.add('hidden-done')},500)},2000-e)}else{p.classList.add('hidden');setTimeout(function(){p.classList.add('hidden-done')},500)}})})()</script>
+  <svg class="preloader-svg" viewBox="0 0 36 36" width="80" height="80">
+    <rect class="pr1" x="2" y="2" width="14" height="14" rx="2"/>
+    <rect class="pr2" x="20" y="2" width="14" height="14" rx="2"/>
+    <rect class="pr3" x="2" y="20" width="14" height="14" rx="2"/>
+    <rect class="pr4" x="20" y="20" width="14" height="14" rx="2"/>
+    <circle class="pc" cx="27" cy="27" r="3"/>
+  </svg>
+</div>
+<div class="noise"></div>
+<div class="grid-overlay"></div>
+<div class="nav-overlay" id="navOverlay">
+    <ul class="nav-links" id="mobileNav"></ul>
+</div>
+<header class="header" id="header">
+    <div class="container">
+        <nav class="nav">
+            <a href="/" class="logo">
+                <svg width="36" height="36" viewBox="0 0 36 36" fill="none">
+                    <rect x="2" y="2" width="14" height="14" rx="2" stroke="currentColor" stroke-width="1.5" opacity=".4"/>
+                    <rect x="20" y="2" width="14" height="14" rx="2" stroke="currentColor" stroke-width="1.5" opacity=".4"/>
+                    <rect x="2" y="20" width="14" height="14" rx="2" stroke="currentColor" stroke-width="1.5" opacity=".4"/>
+                    <rect x="20" y="20" width="14" height="14" rx="2" stroke="currentColor" stroke-width="1.5"/>
+                    <circle cx="27" cy="27" r="3" fill="currentColor" opacity=".8"/>
+                </svg>
+                <span>AXIIOM</span>
+            </a>
+            <ul class="nav-links nav-links--desktop" id="desktopNav"></ul>
+            <div class="nav-actions">
+                <a href="/#contact" class="btn btn-nav">Обсудить проект</a>
+                <button class="theme-btn" id="themeToggle" aria-label="Сменить тему">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>
+                </button>
+                <button class="nav-toggle" id="navToggle" aria-label="Меню">
+                    <span></span><span></span><span></span>
+                </button>
+            </div>
+        </nav>
+    </div>
+</header>
+<nav class="breadcrumbs" id="breadcrumbs" aria-label="Breadcrumb">
+    <div class="container"></div>
+</nav>
+<section class="article-page">
+    <div class="container">
+        <div class="article-wrap">
+            <span class="art-date">5 июля 2026</span>
+            <h1>Архитектура highload-систем: опыт AXIIOM</h1>
+            <div>
+<p>Highload — это не только про миллионы пользователей. Это про предсказуемость, отказоустойчивость и стоимость ошибки. Когда ваша система обрабатывает 1000+ запросов в секунду (RPS), каждая непродуманная деталь превращается в инцидент.</p><p>В этой статье команда AXIIOM делится практическим опытом: что работает, а что нет, как выбирать между монолитом и микросервисами, строить кэширование, балансировку и оркестрацию. И главное — как не наломать дров на старте.</p><h2>Highload — это не про технологии, а про подход</h2><p>Highload начинается с архитектурных принципов: масштабируемость (способность расти горизонтально без переписывания кода); отказоустойчивость (выход одного сервера не должен ронять всю систему); наблюдаемость (метрики, логи и трейсы каждой транзакции); асинхронность (очереди и события вместо блокировок).</p><h2>Микросервисы vs Монолит: когда что выбирать</h2><p>Начинать лучше с хорошо структурированного монолита, а микросервисы вводить по мере необходимости. Монолит — простой деплой, лучшая производительность на низкой нагрузке, ACID-транзакции. Подходит для команды до 10 разработчиков и нагрузки до 1000 RPS. Микросервисы — независимое масштабирование, слабые связи, но выше DevOps-нагрузка. Оправданы от 1000 RPS и команде от 20 человек.</p><p>Компромисс: модульный монолит с чёткими доменными границами. При росте нагрузки горячие модули выносятся в отдельные сервисы постепенно.</p><h2>Балансировка нагрузки: уровни и алгоритмы</h2><p>Используем L7-балансировку (nginx, HAProxy) — она даёт гибкость по заголовкам, cookies, URL-роутингу. Health Check: балансировщик стучится в /health каждого бэкенда. Circuit Breaker (Hystrix, Resilience4j): при превышении порога ошибок клиент перестаёт слать запросы и возвращает fallback.</p><p><strong>Пример из AXIIOM:</strong> в платёжной системе с пиками 3000 RPS circuit breaker для сервиса банка-эквайера переключал трафик на резервного при проблемах. Процент отказов упал с 5% до 0.3%.</p><p>Алгоритмы: Round Robin (простой), Least Connections (для длительных запросов), Random (для stateless бэкендов).</p><h2>Кэширование: многоуровневая стратегия</h2><p>Уровни: CDN (статику, 1-24ч), HTTP-кэш Nginx (страницы для неавторизованных, 1-60мин), локальный кэш приложения (повторяющиеся запросы, 5-30сек), Redis (сессии и частые объекты, 30сек-1ч), БД-кэш (InnoDB buffer pool).</p><p>Правила: кэшируй как можно выше (ближе к клиенту); не кэшируй персонализированный контент; для Redis используй maxmemory-policy allkeys-lru и кластеризацию. Cache stampede — решается через SETNX или случайное TTL.</p><p><strong>Кейс AXIIOM:</strong> для онлайн-кинотеатра с 2 млн DAU настроили многоуровневое кэширование: CDN (постеры), Redis (описания, рейтинги), локальный кэш в API. 98% запросов к каталогу из кэша, нагрузка на базу упала на 90%.</p><h2>Горизонтальное масштабирование: Kubernetes</h2><p>Kubernetes — стандарт для highload: HPA (Horizontal Pod Autoscaler) по CPU, памяти или кастомным метрикам; самовосстановление; декларативность.</p><pre><code>apiVersion: autoscaling/v2
+kind: HorizontalPodAutoscaler
+metadata:
+  name: payments-hpa
+spec:
+  scaleTargetRef:
+    apiVersion: apps/v1
+    kind: Deployment
+    name: payments
+  minReplicas: 3
+  maxReplicas: 20
+  metrics:
+  - type: Resource
+    resource:
+      name: cpu
+      target:
+        type: Utilization
+        averageUtilization: 70</code></pre><p>Что важно: stateless приложения, graceful shutdown, readiness и liveness probe. Когда K8s избыточен: меньше 5 микросервисов и нагрузки &lt;100 RPS.</p><h2>Работа с базами данных: шардирование и репликация</h2><p>Три паттерна: Master-Replica (чтение/запись, read-heavy), шардирование по ключу (горизонтальное), NewSQL (CockroachDB, TiDB). Начинаем с PostgreSQL + реплики чтения. Когда реплики перестают справляться — шардирование на уровне приложения.</p><p><strong>Кейс:</strong> для B2B платформы с 2000 записей/сек шардировали таблицу счетов на 64 шарда PostgreSQL с consistent hashing.</p><h2>Асинхронность и очереди</h2><p>Синхронные вызовы убивают highload. Очереди нужны для: обработки изображений, рассылок, логирования, компенсационных транзакций. Выбор: Redis Streams (простые задачи), Kafka (высокая нагрузка, хранение событий), RabbitMQ (worker-очереди).</p><h2>Наблюдаемость (Observability)</h2><p>Три столпа: метрики (Prometheus + Grafana) — CPU, память, RPS, latency p50/p95/p99; логи (ELK или Loki) — ошибки и события; трейсинг (Jaeger, Zipkin) — распределённая трассировка. Внедряйте с первого дня.</p><h2>Частые ошибки в highload-проектах</h2><p>Ранняя оптимизация (микросервисы до 100 пользователей); игнорирование backpressure (OOM и падение системы); отсутствие нагрузочного тестирования до релиза; единая БД для аналитики и транзакций; необратимые миграции без плана отката.</p><h2>Как мы в AXIIOM проектируем highload</h2><p>Анализ нагрузочных профилей (пиковые RPS, чтение/запись); выбор архитектурного стиля (модульный монолит для MVP); прототипирование узких мест (схема БД, кэширование); нагрузочные тесты (K6, JMeter) до написания основного кода; CI/CD с автотестами производительности; пост-релизный мониторинг.</p><p><strong>Пример из портфолио:</strong> платёжный шлюз для агрегатора такси с пиком 15 000 RPS. API на Go в K8s, Redis Cluster (10 нод), Kafka + ClickHouse для аналитики, nginx L7 с circuit breaker. Результат: p99 latency 47 мс, два года без сбоев.</p><h2>Ключевые выводы</h2><p>Highload — это подход, а не технология. Начинайте с монолита, проектируйте модульно. Измеряйте всё. Балансировка и отказоустойчивость — с первого дня. Кэшируйте многоуровнево. Тестируйте нагрузкой до релиза.</p><p>AXIIOM — надёжные highload-решения, которые масштабируются с вашим бизнесом.</p>
+            </div>
+        </div>
+    </div>
+</section>
+<footer class="footer">
+    <div class="container">
+        <div id="footerCopy"></div>
+    </div>
+</footer>
+<script src="/nav.js"></script>
+<script>Nav.init({ cta: true, breadcrumbs: true });</script>
+<script src="/theme.js"></script>
+<script>
+(function() {
+
+    var header = document.getElementById('header');
+    window.addEventListener('scroll', function() {
+        header.classList.toggle('scrolled', window.scrollY > 40);
+    }, { passive: true });
+})();
+</script>
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript">
+(function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};m[i].l=1*new Date();for(var j=0;j<document.scripts.length;j++){if(document.scripts[j].src===r){return}}k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})(window,document,"script","https://mc.yandex.ru/metrika/tag.js?id=109391253","ym");
+ym(109391253,"init",{clickmap:true,trackLinks:true,accurateTrackBounce:true});
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/109391253" style="position:absolute;left:-9999px" alt=""></div></noscript>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-HFS4BDGTV4"></script>
 <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-HFS4BDGTV4');</script>
-</div>
-<div id="header-mount"></div>
-<script src="/nav.js"></script>
-<script>Nav.init({ cta: true, breadcrumbs: false });</script>
-<script src="/theme.js"></script>
 
   <script src="/preloader.js"></script>
+
+<script>
+(function() {
+  var t = document.getElementById('navToggle');
+  var o = document.getElementById('navOverlay');
+  if (!t || !o) return;
+  t.addEventListener('click', function(e) {
+    e.stopPropagation();
+    o.classList.toggle('open');
+    t.classList.toggle('active');
+    document.body.style.overflow = o.classList.contains('open') ? 'hidden' : '';
+  });
+})();
+</script>
 </body>
 </html>

@@ -3,4 +3,4 @@ Allow: /
 Disallow: /admin/
 Disallow: /demo/*/admin/
 
-Sitemap: https://mobiap.com/sitemap.xml
+Sitemap: https://axiiom.ru/sitemap.xml

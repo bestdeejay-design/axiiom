@@ -1,40 +1,39 @@
 <!doctype html>
-<html lang="en" data-theme="dark">
+<html lang="ru" data-theme="dark">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <meta name="theme-color" content="#0A0A0F">
-  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
-  <title>Incident Monitoring — Real-Time Ops Demo | MOBIAP</title>
-  <meta name="description" content="Real-time incident monitoring demo: alerting, escalation, on-call scheduling, and post-mortem tracking.">
-  <link rel="canonical" href="https://mobiap.com/demo/app/incident-monitoring/">
+  <title>Мониторинг инцидентов — Демо-версия | AXIIOM</title>
+  <meta name="description" content="Демо системы мониторинга инцидентов: сбор метрик, алерты, on-call, postmortem, SLA-дашборд. Примеры кода интеграции.">
+  <link rel="canonical" href="https://axiiom.ru/demo/app/incident-monitoring/">
 
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://mobiap.com/demo/app/incident-monitoring/">
-  <meta property="og:title" content="Incident Monitoring — Demo | MOBIAP">
-  <meta property="og:description" content="Real-time incident monitoring demo: alerting, escalation, on-call scheduling, and post-mortem tracking.">
-  <meta property="og:image" content="https://mobiap.com/og-image.png">
+  <meta property="og:url" content="https://axiiom.ru/demo/app/incident-monitoring/">
+  <meta property="og:title" content="Мониторинг инцидентов — Демо | AXIIOM">
+  <meta property="og:description" content="Демо системы мониторинга инцидентов: сбор метрик, алерты, on-call, postmortem, SLA-дашборд. Примеры кода интеграции.">
+  <meta property="og:image" content="https://axiiom.ru/og-image.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
-  <meta property="og:locale" content="en_US">
+  <meta property="og:locale" content="ru_RU">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:url" content="https://mobiap.com/demo/app/incident-monitoring/">
-  <meta name="twitter:title" content="Incident Monitoring — Demo | MOBIAP">
-  <meta name="twitter:description" content="Real-time incident monitoring demo: alerting, escalation, on-call scheduling, and post-mortem tracking.">
-  <meta name="twitter:image" content="https://mobiap.com/og-image.png">
+  <meta name="twitter:url" content="https://axiiom.ru/demo/app/incident-monitoring/">
+  <meta name="twitter:title" content="Мониторинг инцидентов — Демо | AXIIOM">
+  <meta name="twitter:description" content="Демо системы мониторинга инцидентов: сбор метрик, алерты, on-call, postmortem, SLA-дашборд. Примеры кода интеграции.">
+  <meta name="twitter:image" content="https://axiiom.ru/og-image.png">
 
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "SoftwareApplication",
-    "name": "Incident Monitoring — MOBIAP Demo",
-    "description": "Real-time incident monitoring demo: alerting, escalation, on-call scheduling, and post-mortem tracking.",
-    "url": "https://mobiap.com/demo/app/incident-monitoring/",
+    "name": "Мониторинг инцидентов — AXIIOM Demo",
+    "description": "Демо системы мониторинга инцидентов: сбор метрик, алерты, on-call, postmortem, SLA-дашборд. Примеры кода интеграции.",
+    "url": "https://axiiom.ru/demo/app/incident-monitoring/",
     "applicationCategory": "BusinessApplication",
     "operatingSystem": "Web",
     "author": {
       "@type": "Organization",
-      "name": "Incident Monitoring — MOBIAP Demo"
+      "name": "AXIIOM"
     },
     "offers": {
       "@type": "Offer",
@@ -83,8 +82,15 @@
       display: inline-block; padding: 4px 14px; border: 1px solid var(--clr-border);
       border-radius: 20px; font-size: 12px; color: var(--clr-muted);
     }
-
-
+    .demo-nav-back {
+      position: fixed; top: 12px; left: 16px; z-index: 99999;
+      display: inline-flex; align-items: center; gap: 6px;
+      padding: 8px 16px; background: rgba(10,10,15,.9);
+      color: #C7C7CC; border: 1px solid rgba(255,255,255,.08);
+      border-radius: 20px; text-decoration: none;
+      font-family: Inter,sans-serif; font-size: 13px; transition: all .2s;
+    }
+    .demo-nav-back:hover { background: rgba(10,10,15,1); color: #F5F5F7; }
     @media (max-width: 768px) {
       .demo-page-hero { min-height: 50vh; padding-top: 80px; }
       .feature-grid { grid-template-columns: 1fr; }
@@ -94,7 +100,8 @@
 </head>
 <body>
 <div id="preloader">
-<svg class="preloader-svg" viewBox="0 0 36 36" width="80" height="80">
+<script>(function(){var p=document.getElementById('preloader');if(!p)return;if(sessionStorage.getItem('_seen')){p.style.display='none';return}sessionStorage.setItem('_seen','1');var t=Date.now();p._start=t;setTimeout(function(){p.classList.add('_rdy')},500);window.addEventListener('load',function(){var e=Date.now()-t;if(e<2000){setTimeout(function(){p.classList.add('hidden');setTimeout(function(){p.classList.add('hidden-done')},500)},2000-e)}else{p.classList.add('hidden');setTimeout(function(){p.classList.add('hidden-done')},500)}})})()</script>
+  <svg class="preloader-svg" viewBox="0 0 36 36" width="80" height="80">
     <rect class="pr1" x="2" y="2" width="14" height="14" rx="2"/>
     <rect class="pr2" x="20" y="2" width="14" height="14" rx="2"/>
     <rect class="pr3" x="2" y="20" width="14" height="14" rx="2"/>
@@ -106,20 +113,43 @@
 <div class="noise"></div>
 <div class="grid-overlay"></div>
 
+<header class="header" id="header">
+  <div class="container">
+    <nav class="nav">
+      <a href="/" class="logo">
+        <svg width="30" height="30" viewBox="0 0 36 36" fill="none">
+          <rect x="2" y="2" width="14" height="14" rx="2" stroke="currentColor" stroke-width="1.5" opacity=".4"/>
+          <rect x="20" y="2" width="14" height="14" rx="2" stroke="currentColor" stroke-width="1.5" opacity=".4"/>
+          <rect x="2" y="20" width="14" height="14" rx="2" stroke="currentColor" stroke-width="1.5" opacity=".4"/>
+          <rect x="20" y="20" width="14" height="14" rx="2" stroke="currentColor" stroke-width="1.5"/>
+          <circle cx="27" cy="27" r="3" fill="currentColor" opacity=".8"/>
+        </svg>
+        <span>AXIIOM</span>
+      </a>
+      <ul class="nav-links nav-links--desktop" id="desktopNav"></ul>
+      <div class="nav-actions">
+        <a href="/#contact" class="btn btn-nav">Обсудить проект</a>
+        <button class="theme-btn" id="themeToggle" aria-label="Сменить тему">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>
+        </button>
+        <button class="nav-toggle" id="navToggle" aria-label="Меню"><span></span><span></span><span></span></button>
+      </div>
+    </nav>
+  </div>
+</header>
 
-<div id="header-mount"></div>
-
+<div class="nav-overlay" id="navOverlay"><ul class="nav-links" id="mobileNav"></ul></div>
 <nav class="breadcrumbs" id="breadcrumbs" aria-label="Breadcrumb"><div class="container"></div></nav>
 
-
+<a href="/demo/app/" class="demo-nav-back">← Все демо AXIIOM</a>
 
 <section class="demo-page-hero">
   <div class="hero-bg-svg" aria-hidden="true"><svg width="800" height="600" viewBox="0 0 800 600" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="400" cy="300" r="280" stroke="rgba(255,255,255,0.05)" stroke-width="2"/><circle cx="400" cy="300" r="200" stroke="rgba(255,255,255,0.06)" stroke-width="2"/><circle cx="400" cy="300" r="120" stroke="rgba(255,255,255,0.08)" stroke-width="2"/><line x1="50" y1="300" x2="750" y2="300" stroke="rgba(255,255,255,0.05)" stroke-width="2"/><line x1="400" y1="20" x2="400" y2="580" stroke="rgba(255,255,255,0.05)" stroke-width="2"/><path d="M200 300 L400 100 L600 300 L400 500 Z" stroke="rgba(255,255,255,0.06)" stroke-width="2" fill="none"/><circle cx="400" cy="300" r="4" fill="rgba(255,255,255,0.15)"/></svg></div>
   <div class="container">
     <div class="hero-content">
-      <p class="badge">MOBIAP Demo</p>
-      <h1>Incident Monitoring</h1>
-      <p class="hero-desc">Real-time incident monitoring with alerting, escalation policies, on-call scheduling, and post-mortem tracking.</p>
+      <p class="badge">AXIIOM Demo</p>
+      <h1>Мониторинг инцидентов</h1>
+      <p class="hero-desc">Система мониторинга и оповещения: сбор метрик, алерты, on-call, postmortem, SLA-дашборд.</p>
       <div class="tag-list" style="justify-content:center;">
         <span class="tag-item">Go</span>
         <span class="tag-item">Prometheus</span>
@@ -133,10 +163,10 @@
 
 <section class="section">
   <div class="container">
-    <p class="label">Interactive Demo</p>
-    <h2>Try it now</h2>
+    <p class="label">Интерактивное демо</p>
+    <h2>Попробуйте прямо сейчас</h2>
     <div class="dw">
-  <h3 class="dw-t">🔍 Service Monitoring</h3>
+  <h3 class="dw-t">🔍 Мониторинг сервисов</h3>
   <div style="display:flex;flex-direction:column;gap:8px">
     <div class="im-r" data-s="ok"><span class="im-d im-g"></span><span class="im-n">API Gateway</span><span class="im-s">Operational</span></div>
     <div class="im-r" data-s="ok"><span class="im-d im-g"></span><span class="im-n">Database</span><span class="im-s">Operational</span></div>
@@ -144,8 +174,8 @@
     <div class="im-r" data-s="ok"><span class="im-d im-g"></span><span class="im-n">Message Queue</span><span class="im-s">Operational</span></div>
     <div class="im-r" data-s="ok"><span class="im-d im-g"></span><span class="im-n">Frontend CDN</span><span class="im-s">Operational</span></div>
   </div>
-  <div id="im-alert" style="display:none;margin-top:10px;padding:10px 14px;background:#e1705522;border:1px solid #e1705544;border-radius:10px;color:#e17055;font-size:13px;font-weight:500">⚠️ Incident: Service Unavailable</div>
-  <div style="margin-top:10px;font-size:11px;color:var(--clr-muted)">Click a service to toggle status</div>
+  <div id="im-alert" style="display:none;margin-top:10px;padding:10px 14px;background:#e1705522;border:1px solid #e1705544;border-radius:10px;color:#e17055;font-size:13px;font-weight:500">⚠️ Инцидент: сервис недоступен</div>
+  <div style="margin-top:10px;font-size:11px;color:var(--clr-muted)">Нажмите на сервис, чтобы переключить статус</div>
 </div>
 <style>.dw{margin:12px 0;background:var(--clr-surface);border:1px solid var(--clr-border);border-radius:16px;padding:24px}.dw-t{font-size:16px;font-weight:600;margin:0 0 16px;color:var(--clr-heading)}.im-r{display:flex;align-items:center;gap:10px;padding:10px 14px;background:var(--clr-bg);border:1px solid var(--clr-border);border-radius:10px;cursor:pointer;transition:all .2s}.im-r:hover{border-color:var(--clr-accent)}.im-d{width:10px;height:10px;border-radius:50%;flex-shrink:0}.im-g{background:#00b894;box-shadow:0 0 6px #00b89466}.im-y{background:#fdcb6e;box-shadow:0 0 6px #fdcb6e66}.im-red{background:#e17055;box-shadow:0 0 6px #e1705566}.im-n{flex:1;font-size:14px;font-weight:500;color:var(--clr-text)}.im-s{font-size:12px;color:var(--clr-muted)}@media(min-width:768px){.dw{max-width:640px;margin-left:auto;margin-right:auto}}</style>
 <script>(function(){var st={0:'ok',1:'ok',2:'warn',3:'ok',4:'ok'},al=document.getElementById('im-alert');document.querySelectorAll('.im-r').forEach(function(r,i){r.addEventListener('click',function(){var sts=['ok','warn','down'];var ci=sts.indexOf(st[i]);st[i]=sts[(ci+1)%3];var d=r.querySelector('.im-d');d.className='im-d';if(st[i]==='ok'){d.classList.add('im-g');r.querySelector('.im-s').textContent='Operational'}else if(st[i]==='warn'){d.classList.add('im-y');r.querySelector('.im-s').textContent='Degraded'}else{d.classList.add('im-red');r.querySelector('.im-s').textContent='Down'}var hasDown=Object.values(st).some(function(s){return s==='down'});al.style.display=hasDown?'block':'none';al.textContent=hasDown?'⚠️ Инцидент: требуется внимание':'✅ Все сервисы работают';al.style.color=hasDown?'#e17055':'#00b894'});});})();</script>
@@ -154,8 +184,8 @@
 
 <section class="section">
   <div class="container">
-    <p class="label">Code Example</p>
-    <h2>5-Minute Integration</h2>
+    <p class="label">Пример кода</p>
+    <h2>Интеграция за 5 минут</h2>
     <div class="code-block"><code>// Создание алерта
 await monitoring.createAlert({
   name: 'High CPU Usage',
@@ -166,7 +196,7 @@ await monitoring.createAlert({
   channels: ['telegram', 'email', 'sms']
 });
 
-// Registration инцидента
+// Регистрация инцидента
 const incident = await monitoring.incident({
   alertId: 'alert_789',
   status: 'firing',
@@ -184,16 +214,16 @@ await monitoring.acknowledge(incident.id, {
 
 <section class="section dark">
   <div class="container">
-    <p class="label">Features</p>
-    <h2>Key Features</h2>
+    <p class="label">Возможности</p>
+    <h2>Ключевые функции</h2>
     <div class="feature-grid">
       <div class="feature-item">
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#2d3436" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
-        <span>Metrics Collection (Prometheus/StatsD)</span>
+        <span>Сбор метрик (Prometheus/StatsD)</span>
       </div>
       <div class="feature-item">
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#2d3436" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
-        <span>Flexible Alerts with Escalation</span>
+        <span>Гибкие алерты с эскалацией</span>
       </div>
       <div class="feature-item">
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#2d3436" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
@@ -201,15 +231,15 @@ await monitoring.acknowledge(incident.id, {
       </div>
       <div class="feature-item">
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#2d3436" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
-        <span>Postmortem & RCA</span>
+        <span>Postmortem и RCA</span>
       </div>
       <div class="feature-item">
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#2d3436" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
-        <span>SLA/SLO Dashboard</span>
+        <span>SLA/SLO дашборд</span>
       </div>
       <div class="feature-item">
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#2d3436" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
-        <span>PagerDuty, Telegram Integration</span>
+        <span>Интеграция с PagerDuty, Telegram</span>
       </div>
     </div>
   </div>
@@ -218,11 +248,11 @@ await monitoring.acknowledge(incident.id, {
 <section class="section cta-section">
   <div class="container">
     <div class="glass-card" style="padding:48px 32px;text-align:center;border-radius:24px;">
-      <h2 style="margin-bottom:16px;">Want a similar solution?</h2>
-      <p style="color:var(--clr-text);margin-bottom:24px;max-width:480px;margin-left:auto;margin-right:auto;">Let's discuss your project, show a demo, and estimate the cost.</p>
+      <h2 style="margin-bottom:16px;">Хотите такое решение?</h2>
+      <p style="color:var(--clr-text);margin-bottom:24px;max-width:480px;margin-left:auto;margin-right:auto;">Обсудим ваш проект, покажем демо и рассчитаем стоимость.</p>
       <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap;">
-        <a href="mailto:hello@mobiap.com" class="btn">hello@mobiap.com</a>
-        <a href="tel:+13020000000" class="btn btn-outline">+1 (302) 000-0000</a>
+        <a href="mailto:hello@axiiom.ru" class="btn">hello@axiiom.ru</a>
+        <a href="tel:+78129287478" class="btn btn-outline">+7 (812) 928-74-78</a>
       </div>
     </div>
   </div>
@@ -236,6 +266,10 @@ await monitoring.acknowledge(incident.id, {
 
 <script>
 var header = document.getElementById('header');
+window.addEventListener('scroll', function() {
+  header.classList.toggle('scrolled', window.scrollY > 40);
+}, { passive: true });
+
 var reveals = document.querySelectorAll('.reveal');
 var ro = new IntersectionObserver(function(e) {
   e.forEach(function(entry) {
@@ -251,8 +285,24 @@ reveals.forEach(function(r) { ro.observe(r); });
 <script src="/theme.js"></script>
 <script src="/preloader.js"></script>
 
+<script>
+(function() {
+  var t = document.getElementById('navToggle');
+  var o = document.getElementById('navOverlay');
+  if (!t || !o) return;
+  t.addEventListener('click', function(e) {
+    e.stopPropagation();
+    o.classList.toggle('open');
+    t.classList.toggle('active');
+    document.body.style.overflow = o.classList.contains('open') ? 'hidden' : '';
+  });
+})();
+</script>
+
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript">(function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};m[i].l=1*new Date();for(var j=0;j<document.scripts.length;j++){if(document.scripts[j].src===r){return}}k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})(window,document,"script","https://mc.yandex.ru/metrika/tag.js?id=109391253","ym");ym(109391253,"init",{clickmap:true,trackLinks:true,accurateTrackBounce:true});</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/109391253" style="position:absolute;left:-9999px" alt=""></div></noscript>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-HFS4BDGTV4"></script>
 <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-HFS4BDGTV4');</script>
-<script src="/footer.js"></script>
 </body>
 </html>

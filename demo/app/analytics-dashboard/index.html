@@ -1,40 +1,39 @@
 <!doctype html>
-<html lang="en" data-theme="dark">
+<html lang="ru" data-theme="dark">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <meta name="theme-color" content="#0A0A0F">
-  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
-  <title>Analytics Dashboard — Fintech Metrics Demo | MOBIAP</title>
-  <meta name="description" content="Real-time analytics dashboard demo: KPI tracking, funnel analysis, cohort metrics, and custom reports.">
-  <link rel="canonical" href="https://mobiap.com/demo/app/analytics-dashboard/">
+  <title>Аналитическая панель — Демо-версия | AXIIOM</title>
+  <meta name="description" content="Демо аналитической панели: real-time метрики, когорты, воронки, LTV. Примеры кода построения дашбордов и API.">
+  <link rel="canonical" href="https://axiiom.ru/demo/app/analytics-dashboard/">
 
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://mobiap.com/demo/app/analytics-dashboard/">
-  <meta property="og:title" content="Analytics Dashboard — Demo | MOBIAP">
-  <meta property="og:description" content="Real-time analytics dashboard demo: KPI tracking, funnel analysis, cohort metrics, and custom reports.">
-  <meta property="og:image" content="https://mobiap.com/og-image.png">
+  <meta property="og:url" content="https://axiiom.ru/demo/app/analytics-dashboard/">
+  <meta property="og:title" content="Аналитическая панель — Демо | AXIIOM">
+  <meta property="og:description" content="Демо аналитической панели: real-time метрики, когорты, воронки, LTV. Примеры кода построения дашбордов и API.">
+  <meta property="og:image" content="https://axiiom.ru/og-image.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
-  <meta property="og:locale" content="en_US">
+  <meta property="og:locale" content="ru_RU">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:url" content="https://mobiap.com/demo/app/analytics-dashboard/">
-  <meta name="twitter:title" content="Analytics Dashboard — Demo | MOBIAP">
-  <meta name="twitter:description" content="Real-time analytics dashboard demo: KPI tracking, funnel analysis, cohort metrics, and custom reports.">
-  <meta name="twitter:image" content="https://mobiap.com/og-image.png">
+  <meta name="twitter:url" content="https://axiiom.ru/demo/app/analytics-dashboard/">
+  <meta name="twitter:title" content="Аналитическая панель — Демо | AXIIOM">
+  <meta name="twitter:description" content="Демо аналитической панели: real-time метрики, когорты, воронки, LTV. Примеры кода построения дашбордов и API.">
+  <meta name="twitter:image" content="https://axiiom.ru/og-image.png">
 
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "SoftwareApplication",
-    "name": "Analytics Dashboard — MOBIAP Demo",
-    "description": "Real-time analytics dashboard demo: KPI tracking, funnel analysis, cohort metrics, and custom reports.",
-    "url": "https://mobiap.com/demo/app/analytics-dashboard/",
+    "name": "Аналитическая панель — AXIIOM Demo",
+    "description": "Демо аналитической панели: real-time метрики, когорты, воронки, LTV. Примеры кода построения дашбордов и API.",
+    "url": "https://axiiom.ru/demo/app/analytics-dashboard/",
     "applicationCategory": "BusinessApplication",
     "operatingSystem": "Web",
     "author": {
       "@type": "Organization",
-      "name": "Analytics Dashboard — MOBIAP Demo"
+      "name": "AXIIOM"
     },
     "offers": {
       "@type": "Offer",
@@ -83,8 +82,15 @@
       display: inline-block; padding: 4px 14px; border: 1px solid var(--clr-border);
       border-radius: 20px; font-size: 12px; color: var(--clr-muted);
     }
-
-
+    .demo-nav-back {
+      position: fixed; top: 12px; left: 16px; z-index: 99999;
+      display: inline-flex; align-items: center; gap: 6px;
+      padding: 8px 16px; background: rgba(10,10,15,.9);
+      color: #C7C7CC; border: 1px solid rgba(255,255,255,.08);
+      border-radius: 20px; text-decoration: none;
+      font-family: Inter,sans-serif; font-size: 13px; transition: all .2s;
+    }
+    .demo-nav-back:hover { background: rgba(10,10,15,1); color: #F5F5F7; }
     @media (max-width: 768px) {
       .demo-page-hero { min-height: 50vh; padding-top: 80px; }
       .feature-grid { grid-template-columns: 1fr; }
@@ -94,7 +100,8 @@
 </head>
 <body>
 <div id="preloader">
-<svg class="preloader-svg" viewBox="0 0 36 36" width="80" height="80">
+<script>(function(){var p=document.getElementById('preloader');if(!p)return;if(sessionStorage.getItem('_seen')){p.style.display='none';return}sessionStorage.setItem('_seen','1');var t=Date.now();p._start=t;setTimeout(function(){p.classList.add('_rdy')},500);window.addEventListener('load',function(){var e=Date.now()-t;if(e<2000){setTimeout(function(){p.classList.add('hidden');setTimeout(function(){p.classList.add('hidden-done')},500)},2000-e)}else{p.classList.add('hidden');setTimeout(function(){p.classList.add('hidden-done')},500)}})})()</script>
+  <svg class="preloader-svg" viewBox="0 0 36 36" width="80" height="80">
     <rect class="pr1" x="2" y="2" width="14" height="14" rx="2"/>
     <rect class="pr2" x="20" y="2" width="14" height="14" rx="2"/>
     <rect class="pr3" x="2" y="20" width="14" height="14" rx="2"/>
@@ -106,20 +113,43 @@
 <div class="noise"></div>
 <div class="grid-overlay"></div>
 
+<header class="header" id="header">
+  <div class="container">
+    <nav class="nav">
+      <a href="/" class="logo">
+        <svg width="30" height="30" viewBox="0 0 36 36" fill="none">
+          <rect x="2" y="2" width="14" height="14" rx="2" stroke="currentColor" stroke-width="1.5" opacity=".4"/>
+          <rect x="20" y="2" width="14" height="14" rx="2" stroke="currentColor" stroke-width="1.5" opacity=".4"/>
+          <rect x="2" y="20" width="14" height="14" rx="2" stroke="currentColor" stroke-width="1.5" opacity=".4"/>
+          <rect x="20" y="20" width="14" height="14" rx="2" stroke="currentColor" stroke-width="1.5"/>
+          <circle cx="27" cy="27" r="3" fill="currentColor" opacity=".8"/>
+        </svg>
+        <span>AXIIOM</span>
+      </a>
+      <ul class="nav-links nav-links--desktop" id="desktopNav"></ul>
+      <div class="nav-actions">
+        <a href="/#contact" class="btn btn-nav">Обсудить проект</a>
+        <button class="theme-btn" id="themeToggle" aria-label="Сменить тему">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>
+        </button>
+        <button class="nav-toggle" id="navToggle" aria-label="Меню"><span></span><span></span><span></span></button>
+      </div>
+    </nav>
+  </div>
+</header>
 
-<div id="header-mount"></div>
-
+<div class="nav-overlay" id="navOverlay"><ul class="nav-links" id="mobileNav"></ul></div>
 <nav class="breadcrumbs" id="breadcrumbs" aria-label="Breadcrumb"><div class="container"></div></nav>
 
-
+<a href="/demo/app/" class="demo-nav-back">← Все демо AXIIOM</a>
 
 <section class="demo-page-hero">
   <div class="hero-bg-svg" aria-hidden="true"><svg width="800" height="600" viewBox="0 0 800 600" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="400" cy="300" r="280" stroke="rgba(255,255,255,0.05)" stroke-width="2"/><circle cx="400" cy="300" r="200" stroke="rgba(255,255,255,0.06)" stroke-width="2"/><circle cx="400" cy="300" r="120" stroke="rgba(255,255,255,0.08)" stroke-width="2"/><line x1="50" y1="300" x2="750" y2="300" stroke="rgba(255,255,255,0.05)" stroke-width="2"/><line x1="400" y1="20" x2="400" y2="580" stroke="rgba(255,255,255,0.05)" stroke-width="2"/><path d="M200 300 L400 100 L600 300 L400 500 Z" stroke="rgba(255,255,255,0.06)" stroke-width="2" fill="none"/><circle cx="400" cy="300" r="4" fill="rgba(255,255,255,0.15)"/></svg></div>
   <div class="container">
     <div class="hero-content">
-      <p class="badge">MOBIAP Demo</p>
-      <h1>Analytics Dashboard</h1>
-      <p class="hero-desc">Real-time KPI tracking, funnel analysis, and cohort metrics for data-driven decision making.</p>
+      <p class="badge">AXIIOM Demo</p>
+      <h1>Аналитическая панель</h1>
+      <p class="hero-desc">Real-time дашборд с метриками бизнеса: DAU/MAU, LTV, конверсии, когортный анализ, funnel report.</p>
       <div class="tag-list" style="justify-content:center;">
         <span class="tag-item">React</span>
         <span class="tag-item">D3.js</span>
@@ -133,27 +163,27 @@
 
 <section class="section">
   <div class="container">
-    <p class="label">Interactive Demo</p>
-    <h2>Try it now</h2>
+    <p class="label">Интерактивное демо</p>
+    <h2>Попробуйте прямо сейчас</h2>
     <div class="dw">
-  <h3 class="dw-t">📈 Analytics Dashboard</h3>
-  <p style="font-size:13px;color:var(--clr-muted);margin:-8px 0 14px">Click a metric for details</p>
+  <h3 class="dw-t">📈 Аналитическая панель</h3>
+  <p style="font-size:13px;color:var(--clr-muted);margin:-8px 0 14px">Кликните по метрике для детализации</p>
   <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:8px">
     <div class="ad-k" data-i="0"><div style="display:flex;justify-content:space-between;align-items:flex-start"><span style="font-size:11px;color:var(--clr-muted)">DAU</span><span style="font-size:10px;color:#00b894;font-weight:600">+8.2%</span></div><div style="font-size:22px;font-weight:700;color:var(--clr-heading);font-variant-numeric:tabular-nums" id="ad-dau">0</div><div class="ad-sp" style="background:linear-gradient(90deg,#6c5ce7,transparent)"></div></div>
     <div class="ad-k" data-i="1"><div style="display:flex;justify-content:space-between;align-items:flex-start"><span style="font-size:11px;color:var(--clr-muted)">MAU</span><span style="font-size:10px;color:#00b894;font-weight:600">+12.1%</span></div><div style="font-size:22px;font-weight:700;color:var(--clr-heading);font-variant-numeric:tabular-nums" id="ad-mau">0</div><div class="ad-sp" style="background:linear-gradient(90deg,#0984e3,transparent)"></div></div>
     <div class="ad-k" data-i="2"><div style="display:flex;justify-content:space-between;align-items:flex-start"><span style="font-size:11px;color:var(--clr-muted)">LTV</span><span style="font-size:10px;color:#00b894;font-weight:600">+5.4%</span></div><div style="font-size:22px;font-weight:700;color:var(--clr-heading);font-variant-numeric:tabular-nums" id="ad-ltv">0</div><div class="ad-sp" style="background:linear-gradient(90deg,#00b894,transparent)"></div></div>
-    <div class="ad-k" data-i="3"><div style="display:flex;justify-content:space-between;align-items:flex-start"><span style="font-size:11px;color:var(--clr-muted)">Conversion</span><span style="font-size:10px;color:#e17055;font-weight:600">-0.3%</span></div><div style="font-size:22px;font-weight:700;color:var(--clr-heading);font-variant-numeric:tabular-nums" id="ad-conv">0</div><div class="ad-sp" style="background:linear-gradient(90deg,#e17055,transparent)"></div></div>
+    <div class="ad-k" data-i="3"><div style="display:flex;justify-content:space-between;align-items:flex-start"><span style="font-size:11px;color:var(--clr-muted)">Конверсия</span><span style="font-size:10px;color:#e17055;font-weight:600">-0.3%</span></div><div style="font-size:22px;font-weight:700;color:var(--clr-heading);font-variant-numeric:tabular-nums" id="ad-conv">0</div><div class="ad-sp" style="background:linear-gradient(90deg,#e17055,transparent)"></div></div>
   </div>
   <div id="ad-detail" style="display:none;padding:10px 12px;background:var(--clr-bg);border:1px solid var(--clr-border);border-radius:8px;margin-bottom:12px;font-size:13px;color:var(--clr-text);line-height:1.6"></div>
-  <div style="font-size:13px;font-weight:600;color:var(--clr-heading);margin-bottom:8px">Conversion Funnel <span style="font-weight:400;font-size:11px;color:var(--clr-muted)">(click a step)</span></div>
+  <div style="font-size:13px;font-weight:600;color:var(--clr-heading);margin-bottom:8px">Воронка конверсии <span style="font-weight:400;font-size:11px;color:var(--clr-muted)">(кликните по шагу)</span></div>
   <div style="display:flex;flex-direction:column;gap:5px;margin-bottom:14px">
-    <div class="ad-f" data-i="0" style="width:100%"><span>Visit</span><span class="ad-fv">12 450</span></div>
-    <div class="ad-f" data-i="1" style="width:78%"><span>Registration</span><span class="ad-fv">9 711</span></div>
-    <div class="ad-f" data-i="2" style="width:52%"><span>Deposit</span><span class="ad-fv">6 474</span></div>
-    <div class="ad-f" data-i="3" style="width:31%"><span>Purchase</span><span class="ad-fv">3 860</span></div>
+    <div class="ad-f" data-i="0" style="width:100%"><span>Визит</span><span class="ad-fv">12 450</span></div>
+    <div class="ad-f" data-i="1" style="width:78%"><span>Регистрация</span><span class="ad-fv">9 711</span></div>
+    <div class="ad-f" data-i="2" style="width:52%"><span>Депозит</span><span class="ad-fv">6 474</span></div>
+    <div class="ad-f" data-i="3" style="width:31%"><span>Покупка</span><span class="ad-fv">3 860</span></div>
   </div>
   <div id="ad-funnel-info" style="display:none;padding:8px 12px;background:var(--clr-bg);border:1px solid var(--clr-border);border-radius:8px;margin-bottom:14px;font-size:13px;color:var(--clr-text)"></div>
-  <div style="font-size:13px;font-weight:600;color:var(--clr-heading);margin-bottom:4px">DAU over 2 weeks</div>
+  <div style="font-size:13px;font-weight:600;color:var(--clr-heading);margin-bottom:4px">DAU за 2 недели</div>
   <div style="position:relative">
     <svg viewBox="0 0 280 80" style="width:100%;height:68px;display:block" id="ad-chart">
       <polyline id="ad-line" fill="none" stroke="var(--clr-accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
@@ -162,17 +192,17 @@
     </svg>
     <div id="ad-tip" style="display:none;position:absolute;bottom:100%;left:0;transform:translateX(-50%);padding:3px 8px;background:var(--clr-heading);color:var(--clr-bg);border-radius:5px;font-size:11px;font-weight:600;white-space:nowrap;pointer-events:none"></div>
   </div>
-  <div style="display:flex;justify-content:space-between;font-size:10px;color:var(--clr-muted);margin-top:2px"><span>Week 1</span><span>Week 2</span></div>
+  <div style="display:flex;justify-content:space-between;font-size:10px;color:var(--clr-muted);margin-top:2px"><span>1 нед</span><span>2 нед</span></div>
 </div>
 <style>.dw{margin:12px 0;background:var(--clr-surface);border:1px solid var(--clr-border);border-radius:16px;padding:24px}.dw-t{font-size:16px;font-weight:600;margin:0 0 16px;color:var(--clr-heading)}.ad-k{padding:12px;background:var(--clr-bg);border:1px solid var(--clr-border);border-radius:10px;cursor:pointer;transition:all .2s}.ad-k:hover{border-color:var(--clr-accent)}.ad-k.ad-sel{border-color:var(--clr-accent);box-shadow:0 0 0 2px var(--clr-accent)22}.ad-sp{height:2px;margin-top:6px;border-radius:2px;opacity:.4}.ad-f{display:flex;justify-content:space-between;align-items:center;padding:8px 12px;background:var(--clr-bg);border:1px solid var(--clr-border);border-radius:6px;font-size:13px;color:var(--clr-text);box-sizing:border-box;transition:width .8s;cursor:pointer}.ad-f:hover{border-color:var(--clr-accent)}.ad-f.ad-f-sel{border-color:var(--clr-accent);background:var(--clr-accent)0a}.ad-fv{font-weight:600;font-variant-numeric:tabular-nums;font-size:12px;color:var(--clr-muted)}@media(min-width:768px){.dw{max-width:560px;margin-left:auto;margin-right:auto}}</style>
-<script>(function(){var data=[9600,10200,11800,12400,13100,12800,13500,14200,13800,14500,15100,14800,15600,16200];var padX=8,padY=4,w=280,h=80,iw=w-padX*2,ih=h-padY*2;var mx=Math.max.apply(null,data);var pts=data.map(function(v,i){return(i/(data.length-1)*iw+padX)+','+(ih-(v/mx*ih)+padY)}).join(' ');var fillPts='0,'+h+' '+pts+' '+iw+','+h;document.getElementById('ad-line').setAttribute('points',pts);document.getElementById('ad-fill').setAttribute('points',fillPts);var svg=document.getElementById('ad-chart'),tip=document.getElementById('ad-tip');data.forEach(function(v,i){var cx=i/(data.length-1)*iw+padX,cy=ih-(v/mx*ih)+padY;var c=document.createElementNS('http://www.w3.org/2000/svg','circle');c.setAttribute('cx',cx);c.setAttribute('cy',cy);c.setAttribute('r','4');c.setAttribute('fill','var(--clr-accent)');c.setAttribute('stroke','var(--clr-surface)');c.setAttribute('stroke-width','2');c.style.cursor='pointer';c.addEventListener('mouseenter',function(){tip.style.display='block';tip.textContent=v.toLocaleString('en-US');c.setAttribute('r','6')});c.addEventListener('mouseleave',function(){tip.style.display='none';c.setAttribute('r','4')});svg.appendChild(c)});function ct(el,v,s){var c=0,e=document.getElementById(el),i=setInterval(function(){c++;var d=Math.round(v*c/60);e.textContent=d.toLocaleString('en-US')+s;if(c>=60){clearInterval(i);e.textContent=v.toLocaleString('en-US')+s}},20)}ct('ad-dau',12450,'');ct('ad-mau',45200,'');ct('ad-ltv',12500,' $');setTimeout(function(){var el=document.getElementById('ad-conv'),c=0,i=setInterval(function(){c++;var d=Math.round(3.2*c/60*10)/10;el.textContent=d.toLocaleString('en-US')+'%';if(c>=60){clearInterval(i);el.textContent='3,2%'}},20)},200);var kpis=document.querySelectorAll('.ad-k'),detail=document.getElementById('ad-detail'),detailData=[['Пн: 11 200','Вт: 11 800','Ср: 12 400','Чт: 12 100','Пт: 13 000','Сб: 11 500','Вс: 10 800'],['Week 1: 41 200','Week 2: 43 800','3 нед: 44 100','4 нед: 45 200'],['30 д: $8 200 ','60 д: $11 300 ','90 д: $12 500 '],['Organic 4.1%','Social 2.8%','Email 5.2%','Paid 1.9%']];kpis.forEach(function(k,i){k.addEventListener('click',function(){var isSel=k.classList.contains('ad-sel');kpis.forEach(function(x){x.classList.remove('ad-sel')});if(isSel){detail.style.display='none';return}k.classList.add('ad-sel');detail.style.display='block';detail.innerHTML=detailData[i].map(function(d){return'<span style="display:inline-block;margin:0 8px 4px 0;padding:4px 10px;background:var(--clr-surface);border:1px solid var(--clr-border);border-radius:6px;font-size:12px">'+d+'</span>'}).join('')})});var funnelSteps=document.querySelectorAll('.ad-f'),funnelInfo=document.getElementById('ad-funnel-info'),funnelLabels=['','Visit → Registration','Registration → Deposit','Deposit → Purchase'],funnelDrop=['','-22% потеря','-33% потеря','-40% потеря'],funnelVals=[12450,9711,6474,3860];funnelSteps.forEach(function(f,i){f.addEventListener('click',function(){if(i===0){funnelInfo.style.display='none';return}var isSel=f.classList.contains('ad-f-sel');funnelSteps.forEach(function(x){x.classList.remove('ad-f-sel')});if(isSel){funnelInfo.style.display='none';return}f.classList.add('ad-f-sel');funnelInfo.style.display='block';var prev=funnelVals[i-1],cur=funnelVals[i];funnelInfo.innerHTML='<strong>'+funnelLabels[i]+'</strong>: '+funnelDrop[i]+' ('+prev.toLocaleString('en-US')+' → '+cur.toLocaleString('en-US')+')'})})})();</script>
+<script>(function(){var data=[9600,10200,11800,12400,13100,12800,13500,14200,13800,14500,15100,14800,15600,16200];var padX=8,padY=4,w=280,h=80,iw=w-padX*2,ih=h-padY*2;var mx=Math.max.apply(null,data);var pts=data.map(function(v,i){return(i/(data.length-1)*iw+padX)+','+(ih-(v/mx*ih)+padY)}).join(' ');var fillPts='0,'+h+' '+pts+' '+iw+','+h;document.getElementById('ad-line').setAttribute('points',pts);document.getElementById('ad-fill').setAttribute('points',fillPts);var svg=document.getElementById('ad-chart'),tip=document.getElementById('ad-tip');data.forEach(function(v,i){var cx=i/(data.length-1)*iw+padX,cy=ih-(v/mx*ih)+padY;var c=document.createElementNS('http://www.w3.org/2000/svg','circle');c.setAttribute('cx',cx);c.setAttribute('cy',cy);c.setAttribute('r','4');c.setAttribute('fill','var(--clr-accent)');c.setAttribute('stroke','var(--clr-surface)');c.setAttribute('stroke-width','2');c.style.cursor='pointer';c.addEventListener('mouseenter',function(){tip.style.display='block';tip.textContent=v.toLocaleString('ru-RU');c.setAttribute('r','6')});c.addEventListener('mouseleave',function(){tip.style.display='none';c.setAttribute('r','4')});svg.appendChild(c)});function ct(el,v,s){var c=0,e=document.getElementById(el),i=setInterval(function(){c++;var d=Math.round(v*c/60);e.textContent=d.toLocaleString('ru-RU')+s;if(c>=60){clearInterval(i);e.textContent=v.toLocaleString('ru-RU')+s}},20)}ct('ad-dau',12450,'');ct('ad-mau',45200,'');ct('ad-ltv',12500,' ₽');setTimeout(function(){var el=document.getElementById('ad-conv'),c=0,i=setInterval(function(){c++;var d=Math.round(3.2*c/60*10)/10;el.textContent=d.toLocaleString('ru-RU')+'%';if(c>=60){clearInterval(i);el.textContent='3,2%'}},20)},200);var kpis=document.querySelectorAll('.ad-k'),detail=document.getElementById('ad-detail'),detailData=[['Пн: 11 200','Вт: 11 800','Ср: 12 400','Чт: 12 100','Пт: 13 000','Сб: 11 500','Вс: 10 800'],['1 нед: 41 200','2 нед: 43 800','3 нед: 44 100','4 нед: 45 200'],['30 д: 8 200 ₽','60 д: 11 300 ₽','90 д: 12 500 ₽'],['Organic 4.1%','Social 2.8%','Email 5.2%','Paid 1.9%']];kpis.forEach(function(k,i){k.addEventListener('click',function(){var isSel=k.classList.contains('ad-sel');kpis.forEach(function(x){x.classList.remove('ad-sel')});if(isSel){detail.style.display='none';return}k.classList.add('ad-sel');detail.style.display='block';detail.innerHTML=detailData[i].map(function(d){return'<span style="display:inline-block;margin:0 8px 4px 0;padding:4px 10px;background:var(--clr-surface);border:1px solid var(--clr-border);border-radius:6px;font-size:12px">'+d+'</span>'}).join('')})});var funnelSteps=document.querySelectorAll('.ad-f'),funnelInfo=document.getElementById('ad-funnel-info'),funnelLabels=['','Визит → Регистрация','Регистрация → Депозит','Депозит → Покупка'],funnelDrop=['','-22% потеря','-33% потеря','-40% потеря'],funnelVals=[12450,9711,6474,3860];funnelSteps.forEach(function(f,i){f.addEventListener('click',function(){if(i===0){funnelInfo.style.display='none';return}var isSel=f.classList.contains('ad-f-sel');funnelSteps.forEach(function(x){x.classList.remove('ad-f-sel')});if(isSel){funnelInfo.style.display='none';return}f.classList.add('ad-f-sel');funnelInfo.style.display='block';var prev=funnelVals[i-1],cur=funnelVals[i];funnelInfo.innerHTML='<strong>'+funnelLabels[i]+'</strong>: '+funnelDrop[i]+' ('+prev.toLocaleString('ru-RU')+' → '+cur.toLocaleString('ru-RU')+')'})})})();</script>
   </div>
 </section>
 
 <section class="section">
   <div class="container">
-    <p class="label">Code Example</p>
-    <h2>5-Minute Integration</h2>
+    <p class="label">Пример кода</p>
+    <h2>Интеграция за 5 минут</h2>
     <div class="code-block"><code>// Получение метрик за период
 const metrics = await analytics.getMetrics({
   period: 'last_30_days',
@@ -187,7 +217,7 @@ const funnel = await analytics.buildFunnel({
   endDate: '2024-06-30'
 });
 
-// Cohort Analysis
+// Когортный анализ
 const cohorts = await analytics.cohortAnalysis({
   period: 'monthly',
   metric: 'retention'
@@ -197,20 +227,20 @@ const cohorts = await analytics.cohortAnalysis({
 
 <section class="section dark">
   <div class="container">
-    <p class="label">Features</p>
-    <h2>Key Features</h2>
+    <p class="label">Возможности</p>
+    <h2>Ключевые функции</h2>
     <div class="feature-grid">
       <div class="feature-item">
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#74b9ff" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
-        <span>Real-time Metrics (WebSocket)</span>
+        <span>Real-time метрики (WebSocket)</span>
       </div>
       <div class="feature-item">
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#74b9ff" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
-        <span>Cohort Analysis</span>
+        <span>Когортный анализ</span>
       </div>
       <div class="feature-item">
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#74b9ff" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
-        <span>Conversion Funnels</span>
+        <span>Воронки конверсий</span>
       </div>
       <div class="feature-item">
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#74b9ff" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
@@ -218,11 +248,11 @@ const cohorts = await analytics.cohortAnalysis({
       </div>
       <div class="feature-item">
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#74b9ff" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
-        <span>Export to PDF/Excel</span>
+        <span>Экспорт в PDF/Excel</span>
       </div>
       <div class="feature-item">
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#74b9ff" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
-        <span>Alerting & Anomalies</span>
+        <span>Alerting и аномалии</span>
       </div>
     </div>
   </div>
@@ -231,11 +261,11 @@ const cohorts = await analytics.cohortAnalysis({
 <section class="section cta-section">
   <div class="container">
     <div class="glass-card" style="padding:48px 32px;text-align:center;border-radius:24px;">
-      <h2 style="margin-bottom:16px;">Want a similar solution?</h2>
-      <p style="color:var(--clr-text);margin-bottom:24px;max-width:480px;margin-left:auto;margin-right:auto;">Let's discuss your project, show a demo, and estimate the cost.</p>
+      <h2 style="margin-bottom:16px;">Хотите такое решение?</h2>
+      <p style="color:var(--clr-text);margin-bottom:24px;max-width:480px;margin-left:auto;margin-right:auto;">Обсудим ваш проект, покажем демо и рассчитаем стоимость.</p>
       <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap;">
-        <a href="mailto:hello@mobiap.com" class="btn">hello@mobiap.com</a>
-        <a href="tel:+13020000000" class="btn btn-outline">+1 (302) 000-0000</a>
+        <a href="mailto:hello@axiiom.ru" class="btn">hello@axiiom.ru</a>
+        <a href="tel:+78129287478" class="btn btn-outline">+7 (812) 928-74-78</a>
       </div>
     </div>
   </div>
@@ -249,6 +279,10 @@ const cohorts = await analytics.cohortAnalysis({
 
 <script>
 var header = document.getElementById('header');
+window.addEventListener('scroll', function() {
+  header.classList.toggle('scrolled', window.scrollY > 40);
+}, { passive: true });
+
 var reveals = document.querySelectorAll('.reveal');
 var ro = new IntersectionObserver(function(e) {
   e.forEach(function(entry) {
@@ -264,8 +298,24 @@ reveals.forEach(function(r) { ro.observe(r); });
 <script src="/theme.js"></script>
 <script src="/preloader.js"></script>
 
+<script>
+(function() {
+  var t = document.getElementById('navToggle');
+  var o = document.getElementById('navOverlay');
+  if (!t || !o) return;
+  t.addEventListener('click', function(e) {
+    e.stopPropagation();
+    o.classList.toggle('open');
+    t.classList.toggle('active');
+    document.body.style.overflow = o.classList.contains('open') ? 'hidden' : '';
+  });
+})();
+</script>
+
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript">(function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};m[i].l=1*new Date();for(var j=0;j<document.scripts.length;j++){if(document.scripts[j].src===r){return}}k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})(window,document,"script","https://mc.yandex.ru/metrika/tag.js?id=109391253","ym");ym(109391253,"init",{clickmap:true,trackLinks:true,accurateTrackBounce:true});</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/109391253" style="position:absolute;left:-9999px" alt=""></div></noscript>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-HFS4BDGTV4"></script>
 <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-HFS4BDGTV4');</script>
-<script src="/footer.js"></script>
 </body>
 </html>

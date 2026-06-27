@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="theme-color" content="#0A0A0F">
-    <title>Checklists Online — Task Lists, Planner — MOBIAP Tools</title>
-    <meta name="description" content="Free online checklists with 4 ready-made templates: moving, travel, tasks and refactoring. Progress bar and browser storage.">
-    <link rel="canonical" href="https://mobiap.com/tools/checklist/">
+    <title>Чек-листы онлайн — список задач, планировщик — AXIIOM Tools</title>
+    <meta name="description" content="Бесплатные онлайн чек-листы с 4 готовыми шаблонами: переезд, поездка, задачи и рефакторинг. Прогресс-бар и сохранение в браузере.">
+    <link rel="canonical" href="https://axiiom.ru/tools/checklist/">
     <link rel="icon" type="image/svg+xml" href="/favicon.svg">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -15,31 +15,31 @@
 
     <!-- Open Graph -->
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://mobiap.com/tools/checklist/">
-    <meta property="og:title" content="Checklists Online — MOBIAP Tools">
-    <meta property="og:description" content="4 ready-made checklist templates: moving, travel, tasks and refactoring. Progress bar, state saved in browser.">
+    <meta property="og:url" content="https://axiiom.ru/tools/checklist/">
+    <meta property="og:title" content="Чек-листы онлайн — AXIIOM Tools">
+    <meta property="og:description" content="4 готовых шаблона чек-листов: переезд, поездка, задачи и рефакторинг. Прогресс-бар, сохранение состояния в браузере.">
     <meta property="og:image" content="/og-image.png">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
-    <meta property="og:locale" content="en_US">
+    <meta property="og:locale" content="ru_RU">
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:url" content="https://mobiap.com/tools/checklist/">
-    <meta name="twitter:title" content="Checklists Online — MOBIAP Tools">
-    <meta name="twitter:description" content="4 ready-made checklist templates: moving, travel, tasks and refactoring. Progress bar, state saved in browser.">
+    <meta name="twitter:url" content="https://axiiom.ru/tools/checklist/">
+    <meta name="twitter:title" content="Чек-листы онлайн — AXIIOM Tools">
+    <meta name="twitter:description" content="4 готовых шаблона чек-листов: переезд, поездка, задачи и рефакторинг. Прогресс-бар, сохранение состояния в браузере.">
     <meta name="twitter:image" content="/og-image.png">
 
         <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "WebApplication",
-      "name": "Checklists Online — Task Templates",
-      "url": "https://mobiap.com/tools/checklist/",
+      "name": "Чек-листы онлайн — шаблоны задач",
+      "url": "https://axiiom.ru/tools/checklist/",
       "applicationCategory": "UtilityApplication",
       "operatingSystem": "Any",
       "offers": { "@type": "Offer", "price": "0" },
-      "isPartOf": { "@type": "WebSite", "name": "MOBIAP", "url": "https://mobiap.com/" }
+      "isPartOf": { "@type": "WebSite", "name": "AXIIOM", "url": "https://axiiom.ru/" }
     }
     </script>
 
@@ -49,7 +49,8 @@
 </head>
 <body>
 <div id="preloader">
-<svg class="preloader-svg" viewBox="0 0 36 36" width="80" height="80">
+<script>(function(){var p=document.getElementById('preloader');if(!p)return;if(sessionStorage.getItem('_seen')){p.style.display='none';return}sessionStorage.setItem('_seen','1');var t=Date.now();p._start=t;setTimeout(function(){p.classList.add('_rdy')},500);window.addEventListener('load',function(){var e=Date.now()-t;if(e<2000){setTimeout(function(){p.classList.add('hidden');setTimeout(function(){p.classList.add('hidden-done')},500)},2000-e)}else{p.classList.add('hidden');setTimeout(function(){p.classList.add('hidden-done')},500)}})})()</script>
+  <svg class="preloader-svg" viewBox="0 0 36 36" width="80" height="80">
     <rect class="pr1" x="2" y="2" width="14" height="14" rx="2"/>
     <rect class="pr2" x="20" y="2" width="14" height="14" rx="2"/>
     <rect class="pr3" x="2" y="20" width="14" height="14" rx="2"/>
@@ -60,27 +61,57 @@
 <div class="noise"></div>
 <div class="grid-overlay"></div>
 
+<header class="header" id="header">
+    <div class="container">
+        <nav class="nav">
+            <a href="/" class="logo">
+                <svg width="30" height="30" viewBox="0 0 36 36" fill="none">
+                    <rect x="2" y="2" width="14" height="14" rx="2" stroke="currentColor" stroke-width="1.5" opacity=".4"/>
+                    <rect x="20" y="2" width="14" height="14" rx="2" stroke="currentColor" stroke-width="1.5" opacity=".4"/>
+                    <rect x="2" y="20" width="14" height="14" rx="2" stroke="currentColor" stroke-width="1.5" opacity=".4"/>
+                    <rect x="20" y="20" width="14" height="14" rx="2" stroke="currentColor" stroke-width="1.5"/>
+                    <circle cx="27" cy="27" r="3" fill="currentColor" opacity=".8"/>
+                </svg>
+                <span>AXIIOM</span>
+            </a>
+            <ul class="nav-links nav-links--desktop" id="desktopNav"></ul>
+            <div class="nav-actions">
+                <button class="theme-btn" id="themeToggle" aria-label="Сменить тему">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>
+                </button>
+                <button class="nav-toggle nav-toggle" id="navToggle" aria-label="Меню">
+                    <span></span><span></span><span></span>
+                </button>
+            </div>
+        </nav>
+    </div>
+</header>
 
-<div id="header-mount"></div>
+<nav class="breadcrumbs" id="breadcrumbs" aria-label="Breadcrumb">
+    <div class="container"></div>
+</nav>
 
+<div class="nav-overlay" id="navOverlay">
+    <ul class="nav-links" id="mobileNav"></ul>
+</div>
 
 <section class="tool-page">
     <div class="container">
         <div class="tool-page-header">
-            <h1>Checklists</h1>
-            <button class="share-btn" onclick="copyPageUrl(this)" aria-label="Share" title="Share">
+            <h1>Чек-листы</h1>
+            <button class="share-btn" onclick="copyPageUrl(this)" aria-label="Поделиться" title="Поделиться">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                     <path d="M4 12v8a2 2 0 002 2h12a2 2 0 002-2v-8"/>
                     <polyline points="16 6 12 2 8 6"/>
                     <line x1="12" y1="2" x2="12" y2="15"/>
                 </svg>
-                <span class="share-tooltip">Link copied</span>
+                <span class="share-tooltip">Ссылка скопирована</span>
             </button>
             
             
         </div>
 
-        <p class="tool-description">Checklist templates for website launch, SEO audit, development and design.</p>
+        <p class="tool-description">Шаблоны чек-листов для запуска сайта, SEO-аудита, разработки и дизайна.</p>
 
         <div class="tool-page-card">
             <div class="tool-btn-group" id="templateTabs"></div>
@@ -91,8 +122,8 @@
                 <div class="progress-track">
                     <div class="progress-fill" id="progressFill"></div>
                 </div>
-                <span class="progress-text" id="progressText">0 of 0 completed</span>
-                <button class="tool-btn-secondary" id="resetBtn">Reset All</button>
+                <span class="progress-text" id="progressText">0 из 0 выполнено</span>
+                <button class="tool-btn-secondary" id="resetBtn">Сбросить все</button>
             </div>
         </div>
     </div>
@@ -142,79 +173,79 @@ document.addEventListener('mousemove', function(e) {
 var TEMPLATES = [
     {
         id: 'launch',
-        name: 'Website Launch',
+        name: 'Запуск сайта',
         items: [
-            'Domain connected',
-            'Hosting activated',
-            'SSL certificate installed',
-            'Database created',
-            'CMS installed',
-            'All pages created',
-            'Meta tags filled',
-            'Sitemap.xml created',
-            'robots.txt configured',
-            'Analytics connected',
-            'Forms working',
-            'Mobile version checked',
-            'Speed checked',
-            '404 page configured',
-            'Backup configured'
+            'Домен подключён',
+            'Хостинг активирован',
+            'SSL-сертификат установлен',
+            'База данных создана',
+            'CMS установлена',
+            'Все страницы созданы',
+            'Мета-теги заполнены',
+            'Sitemap.xml создан',
+            'robots.txt настроен',
+            'Аналитика подключена',
+            'Формы работают',
+            'Мобильная версия проверена',
+            'Скорость проверена',
+            '404 страница настроена',
+            'Резервное копирование настроено'
         ]
     },
     {
         id: 'seo',
-        name: 'SEO Audit',
+        name: 'SEO-аудит',
         items: [
             'robots.txt',
             'sitemap.xml',
-            'H1-H3 headings',
-            'meta descriptions',
-            'Image alt tags',
-            'Loading speed',
-            'Mobile version',
-            'Broken links',
-            'URL structure',
+            'Заголовки H1-H3',
+            'meta-descriptions',
+            'Alt-теги изображений',
+            'Скорость загрузки',
+            'Мобильная версия',
+            'Битые ссылки',
+            'Структура URL',
             'SSL/HTTPS',
-            'Canonical URLs',
-            'Schema.org markup'
+            'Канонические URL',
+            'Schema.org разметка'
         ]
     },
     {
         id: 'dev',
-        name: 'Development',
+        name: 'Разработка',
         items: [
-            'Git repository',
-            'Development branch',
+            'Git репозиторий',
+            'Ветка разработки',
             'CI/CD',
-            'Unit tests',
+            'Unit-тесты',
             'Code review',
-            'Security',
-            'Documentation',
-            'Cross-browser',
-            'Staging deploy',
-            'Client approval'
+            'Безопасность',
+            'Документация',
+            'Кросс-браузерность',
+            'Деплой на staging',
+            'Approval заказчика'
         ]
     },
     {
         id: 'design',
-        name: 'Design',
+        name: 'Дизайн',
         items: [
-            'References',
-            'Page structure',
-            'Prototype',
-            'Prototype approval',
-            'Visual design',
+            'Референсы',
+            'Структура страниц',
+            'Прототип',
+            'Утверждение прототипа',
+            'Визуальный дизайн',
             'UI-kit',
-            'Typography',
-            'Color palette',
-            'Screen mockups',
-            'Responsive design',
-            'Handoff to development'
+            'Типографика',
+            'Цветовая палитра',
+            'Мокапы экранов',
+            'Адаптивный дизайн',
+            'Передача в разработку'
         ]
     }
 ];
 
-var STORAGE_KEY = 'mobiap_checklist_state';
+var STORAGE_KEY = 'axiiom_checklist_state';
 var activeTemplateId = null;
 
 function getState() {
@@ -335,7 +366,7 @@ function updateProgress(templateId) {
     var pct = total > 0 ? (done / total) * 100 : 0;
 
     document.getElementById('progressFill').style.width = pct + '%';
-    document.getElementById('progressText').textContent = done + ' of ' + total + ' completed';
+    document.getElementById('progressText').textContent = done + ' из ' + total + ' выполнено';
 }
 
 function resetChecked() {
@@ -348,7 +379,7 @@ function resetChecked() {
         }
     }
     if (!template || template.items.length === 0) return;
-    if (!confirm('Reset All marks in template "' + template.name + '"?')) return;
+    if (!confirm('Сбросить все отметки в шаблоне "' + template.name + '"?')) return;
 
     setChecked(activeTemplateId, []);
     renderChecklist(activeTemplateId);
@@ -360,6 +391,13 @@ function resetChecked() {
     document.getElementById('resetBtn').addEventListener('click', resetChecked);
 })();
 </script>
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript">
+(function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};m[i].l=1*new Date();for(var j=0;j<document.scripts.length;j++){if(document.scripts[j].src===r){return}}k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})(window,document,"script","https://mc.yandex.ru/metrika/tag.js?id=109391253","ym");
+ym(109391253,"init",{clickmap:true,trackLinks:true,accurateTrackBounce:true});
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/109391253" style="position:absolute;left:-9999px" alt=""></div></noscript>
+<!-- /Yandex.Metrika counter -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-HFS4BDGTV4"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
@@ -368,10 +406,22 @@ function resetChecked() {
   gtag('config', 'G-HFS4BDGTV4');
 </script>
 <script src="/nav.js"></script>
-<script>Nav.init({ cta: true, breadcrumbs: true });</script>
+<script>Nav.init({ cta: false, breadcrumbs: true });</script>
 <script src="/theme.js"></script>
   <script src="/preloader.js"></script>
 
-<script src="/footer.js"></script>
+<script>
+(function() {
+  var t = document.getElementById('navToggle');
+  var o = document.getElementById('navOverlay');
+  if (!t || !o) return;
+  t.addEventListener('click', function(e) {
+    e.stopPropagation();
+    o.classList.toggle('open');
+    t.classList.toggle('active');
+    document.body.style.overflow = o.classList.contains('open') ? 'hidden' : '';
+  });
+})();
+</script>
 </body>
 </html>

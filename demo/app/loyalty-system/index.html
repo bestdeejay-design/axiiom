@@ -1,40 +1,39 @@
 <!doctype html>
-<html lang="en" data-theme="dark">
+<html lang="ru" data-theme="dark">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <meta name="theme-color" content="#0A0A0F">
-  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
-  <title>Loyalty System — Admin Panel Demo | MOBIAP</title>
-  <meta name="description" content="Loyalty system admin panel demo: rules engine, customer segments, analytics, and reward management.">
-  <link rel="canonical" href="https://mobiap.com/demo/app/loyalty-system/">
+  <title>Система лояльности — Демо-версия | AXIIOM</title>
+  <meta name="description" content="Демо конструктора систем лояльности: правила, сегментация, A/B-тесты, аналитика. Гибкая настройка под любой бизнес.">
+  <link rel="canonical" href="https://axiiom.ru/demo/app/loyalty-system/">
 
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://mobiap.com/demo/app/loyalty-system/">
-  <meta property="og:title" content="Loyalty System — Demo | MOBIAP">
-  <meta property="og:description" content="Loyalty system admin panel demo: rules engine, customer segments, analytics, and reward management.">
-  <meta property="og:image" content="https://mobiap.com/og-image.png">
+  <meta property="og:url" content="https://axiiom.ru/demo/app/loyalty-system/">
+  <meta property="og:title" content="Система лояльности — Демо | AXIIOM">
+  <meta property="og:description" content="Демо конструктора систем лояльности: правила, сегментация, A/B-тесты, аналитика. Гибкая настройка под любой бизнес.">
+  <meta property="og:image" content="https://axiiom.ru/og-image.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
-  <meta property="og:locale" content="en_US">
+  <meta property="og:locale" content="ru_RU">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:url" content="https://mobiap.com/demo/app/loyalty-system/">
-  <meta name="twitter:title" content="Loyalty System — Demo | MOBIAP">
-  <meta name="twitter:description" content="Loyalty system admin panel demo: rules engine, customer segments, analytics, and reward management.">
-  <meta name="twitter:image" content="https://mobiap.com/og-image.png">
+  <meta name="twitter:url" content="https://axiiom.ru/demo/app/loyalty-system/">
+  <meta name="twitter:title" content="Система лояльности — Демо | AXIIOM">
+  <meta name="twitter:description" content="Демо конструктора систем лояльности: правила, сегментация, A/B-тесты, аналитика. Гибкая настройка под любой бизнес.">
+  <meta name="twitter:image" content="https://axiiom.ru/og-image.png">
 
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "SoftwareApplication",
-    "name": "Loyalty System — MOBIAP Demo",
-    "description": "Loyalty system admin panel demo: rules engine, customer segments, analytics, and reward management.",
-    "url": "https://mobiap.com/demo/app/loyalty-system/",
+    "name": "Система лояльности — AXIIOM Demo",
+    "description": "Демо конструктора систем лояльности: правила, сегментация, A/B-тесты, аналитика. Гибкая настройка под любой бизнес.",
+    "url": "https://axiiom.ru/demo/app/loyalty-system/",
     "applicationCategory": "BusinessApplication",
     "operatingSystem": "Web",
     "author": {
       "@type": "Organization",
-      "name": "Loyalty System — MOBIAP Demo"
+      "name": "AXIIOM"
     },
     "offers": {
       "@type": "Offer",
@@ -83,8 +82,15 @@
       display: inline-block; padding: 4px 14px; border: 1px solid var(--clr-border);
       border-radius: 20px; font-size: 12px; color: var(--clr-muted);
     }
-
-
+    .demo-nav-back {
+      position: fixed; top: 12px; left: 16px; z-index: 99999;
+      display: inline-flex; align-items: center; gap: 6px;
+      padding: 8px 16px; background: rgba(10,10,15,.9);
+      color: #C7C7CC; border: 1px solid rgba(255,255,255,.08);
+      border-radius: 20px; text-decoration: none;
+      font-family: Inter,sans-serif; font-size: 13px; transition: all .2s;
+    }
+    .demo-nav-back:hover { background: rgba(10,10,15,1); color: #F5F5F7; }
     @media (max-width: 768px) {
       .demo-page-hero { min-height: 50vh; padding-top: 80px; }
       .feature-grid { grid-template-columns: 1fr; }
@@ -94,7 +100,8 @@
 </head>
 <body>
 <div id="preloader">
-<svg class="preloader-svg" viewBox="0 0 36 36" width="80" height="80">
+<script>(function(){var p=document.getElementById('preloader');if(!p)return;if(sessionStorage.getItem('_seen')){p.style.display='none';return}sessionStorage.setItem('_seen','1');var t=Date.now();p._start=t;setTimeout(function(){p.classList.add('_rdy')},500);window.addEventListener('load',function(){var e=Date.now()-t;if(e<2000){setTimeout(function(){p.classList.add('hidden');setTimeout(function(){p.classList.add('hidden-done')},500)},2000-e)}else{p.classList.add('hidden');setTimeout(function(){p.classList.add('hidden-done')},500)}})})()</script>
+  <svg class="preloader-svg" viewBox="0 0 36 36" width="80" height="80">
     <rect class="pr1" x="2" y="2" width="14" height="14" rx="2"/>
     <rect class="pr2" x="20" y="2" width="14" height="14" rx="2"/>
     <rect class="pr3" x="2" y="20" width="14" height="14" rx="2"/>
@@ -106,20 +113,43 @@
 <div class="noise"></div>
 <div class="grid-overlay"></div>
 
+<header class="header" id="header">
+  <div class="container">
+    <nav class="nav">
+      <a href="/" class="logo">
+        <svg width="30" height="30" viewBox="0 0 36 36" fill="none">
+          <rect x="2" y="2" width="14" height="14" rx="2" stroke="currentColor" stroke-width="1.5" opacity=".4"/>
+          <rect x="20" y="2" width="14" height="14" rx="2" stroke="currentColor" stroke-width="1.5" opacity=".4"/>
+          <rect x="2" y="20" width="14" height="14" rx="2" stroke="currentColor" stroke-width="1.5" opacity=".4"/>
+          <rect x="20" y="20" width="14" height="14" rx="2" stroke="currentColor" stroke-width="1.5"/>
+          <circle cx="27" cy="27" r="3" fill="currentColor" opacity=".8"/>
+        </svg>
+        <span>AXIIOM</span>
+      </a>
+      <ul class="nav-links nav-links--desktop" id="desktopNav"></ul>
+      <div class="nav-actions">
+        <a href="/#contact" class="btn btn-nav">Обсудить проект</a>
+        <button class="theme-btn" id="themeToggle" aria-label="Сменить тему">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>
+        </button>
+        <button class="nav-toggle" id="navToggle" aria-label="Меню"><span></span><span></span><span></span></button>
+      </div>
+    </nav>
+  </div>
+</header>
 
-<div id="header-mount"></div>
-
+<div class="nav-overlay" id="navOverlay"><ul class="nav-links" id="mobileNav"></ul></div>
 <nav class="breadcrumbs" id="breadcrumbs" aria-label="Breadcrumb"><div class="container"></div></nav>
 
-
+<a href="/demo/app/" class="demo-nav-back">← Все демо AXIIOM</a>
 
 <section class="demo-page-hero">
   <div class="hero-bg-svg" aria-hidden="true"><svg width="800" height="600" viewBox="0 0 800 600" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="400" cy="300" r="280" stroke="rgba(255,255,255,0.05)" stroke-width="2"/><circle cx="400" cy="300" r="200" stroke="rgba(255,255,255,0.06)" stroke-width="2"/><circle cx="400" cy="300" r="120" stroke="rgba(255,255,255,0.08)" stroke-width="2"/><line x1="50" y1="300" x2="750" y2="300" stroke="rgba(255,255,255,0.05)" stroke-width="2"/><line x1="400" y1="20" x2="400" y2="580" stroke="rgba(255,255,255,0.05)" stroke-width="2"/><path d="M200 300 L400 100 L600 300 L400 500 Z" stroke="rgba(255,255,255,0.06)" stroke-width="2" fill="none"/><circle cx="400" cy="300" r="4" fill="rgba(255,255,255,0.15)"/></svg></div>
   <div class="container">
     <div class="hero-content">
-      <p class="badge">MOBIAP Demo</p>
-      <h1>Loyalty System</h1>
-      <p class="hero-desc">Full admin panel for loyalty platforms: rules engine, customer segmentation, analytics, and reward management.</p>
+      <p class="badge">AXIIOM Demo</p>
+      <h1>Система лояльности</h1>
+      <p class="hero-desc">Гибкая система лояльности с правилами, сегментацией, A/B-тестами и аналитикой в реальном времени.</p>
       <div class="tag-list" style="justify-content:center;">
         <span class="tag-item">Node.js</span>
         <span class="tag-item">React</span>
@@ -133,35 +163,35 @@
 
 <section class="section">
   <div class="container">
-    <p class="label">Interactive Demo</p>
-    <h2>Try it now</h2>
+    <p class="label">Интерактивное демо</p>
+    <h2>Попробуйте прямо сейчас</h2>
     <div class="dw">
-  <h3 class="dw-t">⚙️ Loyalty System</h3>
-  <p style="font-size:13px;color:var(--clr-muted);margin:-8px 0 14px">Rules Engine — manage rules, segments, and analytics</p>
+  <h3 class="dw-t">⚙️ Система лояльности</h3>
+  <p style="font-size:13px;color:var(--clr-muted);margin:-8px 0 14px">Rules Engine — управляйте правилами, сегментами и аналитикой</p>
   <div style="display:flex;gap:8px;margin-bottom:14px">
-    <button class="ls-tab ls-tab-a" id="ls-t-r" style="flex:1">📋 Rules</button>
-    <button class="ls-tab" id="ls-t-s" style="flex:1">👥 Segments</button>
-    <button class="ls-tab" id="ls-t-a" style="flex:1">📊 Analytics</button>
+    <button class="ls-tab ls-tab-a" id="ls-t-r" style="flex:1">📋 Правила</button>
+    <button class="ls-tab" id="ls-t-s" style="flex:1">👥 Сегменты</button>
+    <button class="ls-tab" id="ls-t-a" style="flex:1">📊 Аналитика</button>
   </div>
   <div id="ls-rules">
-    <div class="ls-r" data-on="1"><div style="display:flex;align-items:center;gap:8px;flex:1"><span style="font-size:18px">🎁</span><div><div style="font-size:13px;font-weight:600;color:var(--clr-heading)">Buy 3 Get 1 Free</div><div style="font-size:11px;color:var(--clr-muted)">Trigger: coffee purchase | Reward: free drink</div></div></div><div class="ls-tog" style="background:var(--clr-accent)"><div class="ls-tog-k" style="transform:translateX(14px)"></div></div></div>
-    <div class="ls-r" data-on="1"><div style="display:flex;align-items:center;gap:8px;flex:1"><span style="font-size:18px">💰</span><div><div style="font-size:13px;font-weight:600;color:var(--clr-heading)">Cashback 5%</div><div style="font-size:11px;color:var(--clr-muted)">Trigger: any payment | Reward: 5% points</div></div></div><div class="ls-tog" style="background:var(--clr-accent)"><div class="ls-tog-k" style="transform:translateX(14px)"></div></div></div>
-    <div class="ls-r" data-on="0"><div style="display:flex;align-items:center;gap:8px;flex:1"><span style="font-size:18px">🔥</span><div><div style="font-size:13px;font-weight:600;color:var(--clr-heading)">Double Points on Weekends</div><div style="font-size:11px;color:var(--clr-muted)">Trigger: weekend purchase | Reward: x2 points</div></div></div><div class="ls-tog" style="background:var(--clr-border)"><div class="ls-tog-k"></div></div></div>
+    <div class="ls-r" data-on="1"><div style="display:flex;align-items:center;gap:8px;flex:1"><span style="font-size:18px">🎁</span><div><div style="font-size:13px;font-weight:600;color:var(--clr-heading)">3+1 бесплатно</div><div style="font-size:11px;color:var(--clr-muted)">Триггер: покупка кофе | Награда: бесплатный напиток</div></div></div><div class="ls-tog" style="background:var(--clr-accent)"><div class="ls-tog-k" style="transform:translateX(14px)"></div></div></div>
+    <div class="ls-r" data-on="1"><div style="display:flex;align-items:center;gap:8px;flex:1"><span style="font-size:18px">💰</span><div><div style="font-size:13px;font-weight:600;color:var(--clr-heading)">Кешбэк 5%</div><div style="font-size:11px;color:var(--clr-muted)">Триггер: любой платёж | Награда: 5% баллами</div></div></div><div class="ls-tog" style="background:var(--clr-accent)"><div class="ls-tog-k" style="transform:translateX(14px)"></div></div></div>
+    <div class="ls-r" data-on="0"><div style="display:flex;align-items:center;gap:8px;flex:1"><span style="font-size:18px">🔥</span><div><div style="font-size:13px;font-weight:600;color:var(--clr-heading)">Двойные баллы на выходные</div><div style="font-size:11px;color:var(--clr-muted)">Триггер: покупка сб-вс | Награда: x2 баллов</div></div></div><div class="ls-tog" style="background:var(--clr-border)"><div class="ls-tog-k"></div></div></div>
   </div>
   <div id="ls-segments" style="display:none">
     <div style="display:flex;flex-direction:column;gap:6px">
-      <div class="ls-s"><div style="display:flex;align-items:center;gap:8px;flex:1"><span style="font-size:16px">👑</span><div><div style="font-size:13px;font-weight:600;color:var(--clr-heading)">VIP</div><div style="font-size:11px;color:var(--clr-muted)">Spent >$50,000 </div></div></div><span style="font-size:15px;font-weight:700;color:var(--clr-heading)">2 450</span></div>
-      <div class="ls-s"><div style="display:flex;align-items:center;gap:8px;flex:1"><span style="font-size:16px">🌟</span><div><div style="font-size:13px;font-weight:600;color:var(--clr-heading)">Active</div><div style="font-size:11px;color:var(--clr-muted)">Purchase за последние 30 дней</div></div></div><span style="font-size:15px;font-weight:700;color:var(--clr-heading)">8 310</span></div>
-      <div class="ls-s"><div style="display:flex;align-items:center;gap:8px;flex:1"><span style="font-size:16px">🌱</span><div><div style="font-size:13px;font-weight:600;color:var(--clr-heading)">New</div><div style="font-size:11px;color:var(--clr-muted)">Registration до 14 дней</div></div></div><span style="font-size:15px;font-weight:700;color:var(--clr-heading)">1 205</span></div>
-      <div class="ls-s"><div style="display:flex;align-items:center;gap:8px;flex:1"><span style="font-size:16px">⚠️</span><div><div style="font-size:13px;font-weight:600;color:var(--clr-heading)">Churned</div><div style="font-size:11px;color:var(--clr-muted)">No purchases for 60+ days</div></div></div><span style="font-size:15px;font-weight:700;color:var(--clr-heading)">643</span></div>
+      <div class="ls-s"><div style="display:flex;align-items:center;gap:8px;flex:1"><span style="font-size:16px">👑</span><div><div style="font-size:13px;font-weight:600;color:var(--clr-heading)">VIP</div><div style="font-size:11px;color:var(--clr-muted)">Потратили >50 000 ₽</div></div></div><span style="font-size:15px;font-weight:700;color:var(--clr-heading)">2 450</span></div>
+      <div class="ls-s"><div style="display:flex;align-items:center;gap:8px;flex:1"><span style="font-size:16px">🌟</span><div><div style="font-size:13px;font-weight:600;color:var(--clr-heading)">Активные</div><div style="font-size:11px;color:var(--clr-muted)">Покупка за последние 30 дней</div></div></div><span style="font-size:15px;font-weight:700;color:var(--clr-heading)">8 310</span></div>
+      <div class="ls-s"><div style="display:flex;align-items:center;gap:8px;flex:1"><span style="font-size:16px">🌱</span><div><div style="font-size:13px;font-weight:600;color:var(--clr-heading)">Новые</div><div style="font-size:11px;color:var(--clr-muted)">Регистрация до 14 дней</div></div></div><span style="font-size:15px;font-weight:700;color:var(--clr-heading)">1 205</span></div>
+      <div class="ls-s"><div style="display:flex;align-items:center;gap:8px;flex:1"><span style="font-size:16px">⚠️</span><div><div style="font-size:13px;font-weight:600;color:var(--clr-heading)">Отток</div><div style="font-size:11px;color:var(--clr-muted)">Не было покупок >60 дней</div></div></div><span style="font-size:15px;font-weight:700;color:var(--clr-heading)">643</span></div>
     </div>
   </div>
   <div id="ls-analytics" style="display:none">
     <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px">
-      <div class="ls-k"><div style="font-size:11px;color:var(--clr-muted)">Participants</div><div style="font-size:20px;font-weight:700;color:var(--clr-heading)">12 450</div><div style="font-size:11px;color:#00b894">+12% за monthsяц</div></div>
-      <div class="ls-k"><div style="font-size:11px;color:var(--clr-muted)">Avg. order value</div><div style="font-size:20px;font-weight:700;color:var(--clr-heading)">+23%</div><div style="font-size:11px;color:#00b894">participants vs non-participants</div></div>
-      <div class="ls-k"><div style="font-size:11px;color:var(--clr-muted)">Retention</div><div style="font-size:20px;font-weight:700;color:var(--clr-heading)">78%</div><div style="font-size:11px;color:#00b894">+5% this quarter</div></div>
-      <div class="ls-k"><div style="font-size:11px;color:var(--clr-muted)">Campaigns Launched</div><div style="font-size:20px;font-weight:700;color:var(--clr-heading)">6</div><div style="font-size:11px;color:var(--clr-muted)">в этом monthsяце</div></div>
+      <div class="ls-k"><div style="font-size:11px;color:var(--clr-muted)">Участников</div><div style="font-size:20px;font-weight:700;color:var(--clr-heading)">12 450</div><div style="font-size:11px;color:#00b894">+12% за месяц</div></div>
+      <div class="ls-k"><div style="font-size:11px;color:var(--clr-muted)">Средний чек</div><div style="font-size:20px;font-weight:700;color:var(--clr-heading)">+23%</div><div style="font-size:11px;color:#00b894">участники vs неучастники</div></div>
+      <div class="ls-k"><div style="font-size:11px;color:var(--clr-muted)">Удержание</div><div style="font-size:20px;font-weight:700;color:var(--clr-heading)">78%</div><div style="font-size:11px;color:#00b894">+5% за квартал</div></div>
+      <div class="ls-k"><div style="font-size:11px;color:var(--clr-muted)">Акций запущено</div><div style="font-size:20px;font-weight:700;color:var(--clr-heading)">6</div><div style="font-size:11px;color:var(--clr-muted)">в этом месяце</div></div>
     </div>
   </div>
 </div>
@@ -172,11 +202,11 @@
 
 <section class="section">
   <div class="container">
-    <p class="label">Code Example</p>
-    <h2>5-Minute Integration</h2>
+    <p class="label">Пример кода</p>
+    <h2>Интеграция за 5 минут</h2>
     <div class="code-block"><code>// Создание правила лояльности
 const rule = await loyalty.createRule({
-  name: 'Buy 3 Get 1 Free',
+  name: '3+1 бесплатно',
   trigger: 'purchase',
   condition: {
     category: 'coffee',
@@ -199,7 +229,7 @@ const segment = await loyalty.createSegment({
 
 // Запуск A/B-теста
 const ab = await loyalty.startABTest({
-  name: 'Cashback 5% vs 10%',
+  name: 'Кешбэк 5% vs 10%',
   segments: ['A', 'B'],
   duration: 14
 });</code></div>
@@ -208,32 +238,32 @@ const ab = await loyalty.startABTest({
 
 <section class="section dark">
   <div class="container">
-    <p class="label">Features</p>
-    <h2>Key Features</h2>
+    <p class="label">Возможности</p>
+    <h2>Ключевые функции</h2>
     <div class="feature-grid">
       <div class="feature-item">
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#e84393" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
-        <span>Rule & Trigger Builder</span>
+        <span>Конструктор правил и триггеров</span>
       </div>
       <div class="feature-item">
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#e84393" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
-        <span>Audience Segmentation</span>
+        <span>Сегментация аудитории</span>
       </div>
       <div class="feature-item">
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#e84393" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
-        <span>A/B Testing Mechanics</span>
+        <span>A/B-тестирование механик</span>
       </div>
       <div class="feature-item">
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#e84393" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
-        <span>Real-time Analytics</span>
+        <span>Real-time аналитика</span>
       </div>
       <div class="feature-item">
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#e84393" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
-        <span>Personalized Offers</span>
+        <span>Персонализированные офферы</span>
       </div>
       <div class="feature-item">
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#e84393" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
-        <span>External System API</span>
+        <span>API для внешних систем</span>
       </div>
     </div>
   </div>
@@ -242,11 +272,11 @@ const ab = await loyalty.startABTest({
 <section class="section cta-section">
   <div class="container">
     <div class="glass-card" style="padding:48px 32px;text-align:center;border-radius:24px;">
-      <h2 style="margin-bottom:16px;">Want a similar solution?</h2>
-      <p style="color:var(--clr-text);margin-bottom:24px;max-width:480px;margin-left:auto;margin-right:auto;">Let's discuss your project, show a demo, and estimate the cost.</p>
+      <h2 style="margin-bottom:16px;">Хотите такое решение?</h2>
+      <p style="color:var(--clr-text);margin-bottom:24px;max-width:480px;margin-left:auto;margin-right:auto;">Обсудим ваш проект, покажем демо и рассчитаем стоимость.</p>
       <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap;">
-        <a href="mailto:hello@mobiap.com" class="btn">hello@mobiap.com</a>
-        <a href="tel:+13020000000" class="btn btn-outline">+1 (302) 000-0000</a>
+        <a href="mailto:hello@axiiom.ru" class="btn">hello@axiiom.ru</a>
+        <a href="tel:+78129287478" class="btn btn-outline">+7 (812) 928-74-78</a>
       </div>
     </div>
   </div>
@@ -260,6 +290,10 @@ const ab = await loyalty.startABTest({
 
 <script>
 var header = document.getElementById('header');
+window.addEventListener('scroll', function() {
+  header.classList.toggle('scrolled', window.scrollY > 40);
+}, { passive: true });
+
 var reveals = document.querySelectorAll('.reveal');
 var ro = new IntersectionObserver(function(e) {
   e.forEach(function(entry) {
@@ -275,8 +309,24 @@ reveals.forEach(function(r) { ro.observe(r); });
 <script src="/theme.js"></script>
 <script src="/preloader.js"></script>
 
+<script>
+(function() {
+  var t = document.getElementById('navToggle');
+  var o = document.getElementById('navOverlay');
+  if (!t || !o) return;
+  t.addEventListener('click', function(e) {
+    e.stopPropagation();
+    o.classList.toggle('open');
+    t.classList.toggle('active');
+    document.body.style.overflow = o.classList.contains('open') ? 'hidden' : '';
+  });
+})();
+</script>
+
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript">(function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};m[i].l=1*new Date();for(var j=0;j<document.scripts.length;j++){if(document.scripts[j].src===r){return}}k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})(window,document,"script","https://mc.yandex.ru/metrika/tag.js?id=109391253","ym");ym(109391253,"init",{clickmap:true,trackLinks:true,accurateTrackBounce:true});</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/109391253" style="position:absolute;left:-9999px" alt=""></div></noscript>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-HFS4BDGTV4"></script>
 <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-HFS4BDGTV4');</script>
-<script src="/footer.js"></script>
 </body>
 </html>

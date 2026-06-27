@@ -8,25 +8,25 @@ base_html = Template('''<!DOCTYPE html>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#0A0A0F">
-<title>${title} — MOBIAP</title>
+<title>${title} — AXIIOM</title>
 <meta name="description" content="${desc}">
-<link rel="canonical" href="https://mobiap.com/industries/${slug}.html">
+<link rel="canonical" href="https://axiiom.ru/industries/${slug}.html">
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" as="style">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <meta property="og:type" content="website">
-<meta property="og:url" content="https://mobiap.com/industries/${slug}.html">
-<meta property="og:title" content="${title} — MOBIAP">
+<meta property="og:url" content="https://axiiom.ru/industries/${slug}.html">
+<meta property="og:title" content="${title} — AXIIOM">
 <meta property="og:description" content="${desc}">
-<meta property="og:image" content="https://mobiap.com/og-image.png">
+<meta property="og:image" content="https://axiiom.ru/og-image.png">
 <meta property="og:locale" content="ru_RU">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:url" content="https://mobiap.com/industries/${slug}.html">
-<meta name="twitter:title" content="${title} — MOBIAP">
+<meta name="twitter:url" content="https://axiiom.ru/industries/${slug}.html">
+<meta name="twitter:title" content="${title} — AXIIOM">
 <meta name="twitter:description" content="${desc}">
-<meta name="twitter:image" content="https://mobiap.com/og-image.png">
+<meta name="twitter:image" content="https://axiiom.ru/og-image.png">
 <link rel="stylesheet" href="/styles.css">
 <style>.breadcrumbs{padding:16px 0 0;border-bottom:1px solid var(--clr-border);background:var(--clr-bg)}.breadcrumbs ol{list-style:none;display:flex;flex-wrap:wrap;gap:8px;align-items:center;padding:0;margin:0}.breadcrumbs li{font-size:.8125rem;color:var(--clr-faint)}.breadcrumbs li+li:before{content:"›";margin-right:8px;color:var(--clr-faint);opacity:.5}.breadcrumbs a{color:var(--clr-accent);text-decoration:none}.breadcrumbs a:hover{text-decoration:underline}}</style>
 </head>
@@ -35,7 +35,7 @@ base_html = Template('''<!DOCTYPE html>
 <header class="header" id="header">
 <div class="container">
 <nav class="nav">
-<a href="/" class="logo"><svg width="30" height="30" viewBox="0 0 36 36" fill="none"><rect x="2" y="2" width="14" height="14" rx="2" stroke="currentColor" stroke-width="1.5" opacity=".4"/><rect x="20" y="2" width="14" height="14" rx="2" stroke="currentColor" stroke-width="1.5" opacity=".4"/><rect x="2" y="20" width="14" height="14" rx="2" stroke="currentColor" stroke-width="1.5" opacity=".4"/><rect x="20" y="20" width="14" height="14" rx="2" stroke="currentColor" stroke-width="1.5"/><circle cx="27" cy="27" r="3" fill="currentColor" opacity=".8"/></svg><span>MOBIAP</span></a>
+<a href="/" class="logo"><svg width="30" height="30" viewBox="0 0 36 36" fill="none"><rect x="2" y="2" width="14" height="14" rx="2" stroke="currentColor" stroke-width="1.5" opacity=".4"/><rect x="20" y="2" width="14" height="14" rx="2" stroke="currentColor" stroke-width="1.5" opacity=".4"/><rect x="2" y="20" width="14" height="14" rx="2" stroke="currentColor" stroke-width="1.5" opacity=".4"/><rect x="20" y="20" width="14" height="14" rx="2" stroke="currentColor" stroke-width="1.5"/><circle cx="27" cy="27" r="3" fill="currentColor" opacity=".8"/></svg><span>AXIIOM</span></a>
 <ul class="nav-links nav-links--desktop industries-nav-links" id="industriesNav"></ul>
 <div class="nav-actions">
 <button class="theme-btn" id="themeToggle" aria-label="Сменить тему"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg></button>

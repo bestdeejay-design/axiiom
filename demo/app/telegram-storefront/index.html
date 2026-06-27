@@ -1,40 +1,39 @@
 <!doctype html>
-<html lang="en" data-theme="dark">
+<html lang="ru" data-theme="dark">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <meta name="theme-color" content="#0A0A0F">
-  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
-  <title>Live Chat Widget — Customer Support Demo | MOBIAP</title>
-  <meta name="description" content="Live chat and customer support widget demo: real-time messaging with order tracking, automated responses, and human handoff.">
-  <link rel="canonical" href="https://mobiap.com/demo/app/telegram-storefront/">
+  <title>Витрина в Telegram — Демо-версия | AXIIOM</title>
+  <meta name="description" content="Демо Telegram Mini App: витрина товаров с оплатой внутри Telegram, каталог, корзина, уведомления. Примеры кода создания Mini App.">
+  <link rel="canonical" href="https://axiiom.ru/demo/app/telegram-storefront/">
 
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://mobiap.com/demo/app/telegram-storefront/">
-  <meta property="og:title" content="Live Chat Widget — Demo | MOBIAP">
-  <meta property="og:description" content="Live chat and customer support widget demo: real-time messaging with order tracking, automated responses, and human handoff.">
-  <meta property="og:image" content="https://mobiap.com/og-image.png">
+  <meta property="og:url" content="https://axiiom.ru/demo/app/telegram-storefront/">
+  <meta property="og:title" content="Витрина в Telegram — Демо | AXIIOM">
+  <meta property="og:description" content="Демо Telegram Mini App: витрина товаров с оплатой внутри Telegram, каталог, корзина, уведомления. Примеры кода создания Mini App.">
+  <meta property="og:image" content="https://axiiom.ru/og-image.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
-  <meta property="og:locale" content="en_US">
+  <meta property="og:locale" content="ru_RU">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:url" content="https://mobiap.com/demo/app/telegram-storefront/">
-  <meta name="twitter:title" content="Live Chat Widget — Demo | MOBIAP">
-  <meta name="twitter:description" content="Live chat and customer support widget demo: real-time messaging with order tracking, automated responses, and human handoff.">
-  <meta name="twitter:image" content="https://mobiap.com/og-image.png">
+  <meta name="twitter:url" content="https://axiiom.ru/demo/app/telegram-storefront/">
+  <meta name="twitter:title" content="Витрина в Telegram — Демо | AXIIOM">
+  <meta name="twitter:description" content="Демо Telegram Mini App: витрина товаров с оплатой внутри Telegram, каталог, корзина, уведомления. Примеры кода создания Mini App.">
+  <meta name="twitter:image" content="https://axiiom.ru/og-image.png">
 
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "SoftwareApplication",
-    "name": "Live Chat Widget — MOBIAP Demo",
-    "description": "Live chat and customer support widget demo: real-time messaging with order tracking, automated responses, and human handoff.",
-    "url": "https://mobiap.com/demo/app/telegram-storefront/",
+    "name": "Витрина в Telegram — AXIIOM Demo",
+    "description": "Демо Telegram Mini App: витрина товаров с оплатой внутри Telegram, каталог, корзина, уведомления. Примеры кода создания Mini App.",
+    "url": "https://axiiom.ru/demo/app/telegram-storefront/",
     "applicationCategory": "BusinessApplication",
     "operatingSystem": "Web",
     "author": {
       "@type": "Organization",
-      "name": "Live Chat Widget — MOBIAP Demo"
+      "name": "AXIIOM"
     },
     "offers": {
       "@type": "Offer",
@@ -83,8 +82,15 @@
       display: inline-block; padding: 4px 14px; border: 1px solid var(--clr-border);
       border-radius: 20px; font-size: 12px; color: var(--clr-muted);
     }
-
-
+    .demo-nav-back {
+      position: fixed; top: 12px; left: 16px; z-index: 99999;
+      display: inline-flex; align-items: center; gap: 6px;
+      padding: 8px 16px; background: rgba(10,10,15,.9);
+      color: #C7C7CC; border: 1px solid rgba(255,255,255,.08);
+      border-radius: 20px; text-decoration: none;
+      font-family: Inter,sans-serif; font-size: 13px; transition: all .2s;
+    }
+    .demo-nav-back:hover { background: rgba(10,10,15,1); color: #F5F5F7; }
     @media (max-width: 768px) {
       .demo-page-hero { min-height: 50vh; padding-top: 80px; }
       .feature-grid { grid-template-columns: 1fr; }
@@ -94,7 +100,8 @@
 </head>
 <body>
 <div id="preloader">
-<svg class="preloader-svg" viewBox="0 0 36 36" width="80" height="80">
+<script>(function(){var p=document.getElementById('preloader');if(!p)return;if(sessionStorage.getItem('_seen')){p.style.display='none';return}sessionStorage.setItem('_seen','1');var t=Date.now();p._start=t;setTimeout(function(){p.classList.add('_rdy')},500);window.addEventListener('load',function(){var e=Date.now()-t;if(e<2000){setTimeout(function(){p.classList.add('hidden');setTimeout(function(){p.classList.add('hidden-done')},500)},2000-e)}else{p.classList.add('hidden');setTimeout(function(){p.classList.add('hidden-done')},500)}})})()</script>
+  <svg class="preloader-svg" viewBox="0 0 36 36" width="80" height="80">
     <rect class="pr1" x="2" y="2" width="14" height="14" rx="2"/>
     <rect class="pr2" x="20" y="2" width="14" height="14" rx="2"/>
     <rect class="pr3" x="2" y="20" width="14" height="14" rx="2"/>
@@ -106,24 +113,47 @@
 <div class="noise"></div>
 <div class="grid-overlay"></div>
 
+<header class="header" id="header">
+  <div class="container">
+    <nav class="nav">
+      <a href="/" class="logo">
+        <svg width="30" height="30" viewBox="0 0 36 36" fill="none">
+          <rect x="2" y="2" width="14" height="14" rx="2" stroke="currentColor" stroke-width="1.5" opacity=".4"/>
+          <rect x="20" y="2" width="14" height="14" rx="2" stroke="currentColor" stroke-width="1.5" opacity=".4"/>
+          <rect x="2" y="20" width="14" height="14" rx="2" stroke="currentColor" stroke-width="1.5" opacity=".4"/>
+          <rect x="20" y="20" width="14" height="14" rx="2" stroke="currentColor" stroke-width="1.5"/>
+          <circle cx="27" cy="27" r="3" fill="currentColor" opacity=".8"/>
+        </svg>
+        <span>AXIIOM</span>
+      </a>
+      <ul class="nav-links nav-links--desktop" id="desktopNav"></ul>
+      <div class="nav-actions">
+        <a href="/#contact" class="btn btn-nav">Обсудить проект</a>
+        <button class="theme-btn" id="themeToggle" aria-label="Сменить тему">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>
+        </button>
+        <button class="nav-toggle" id="navToggle" aria-label="Меню"><span></span><span></span><span></span></button>
+      </div>
+    </nav>
+  </div>
+</header>
 
-<div id="header-mount"></div>
-
+<div class="nav-overlay" id="navOverlay"><ul class="nav-links" id="mobileNav"></ul></div>
 <nav class="breadcrumbs" id="breadcrumbs" aria-label="Breadcrumb"><div class="container"></div></nav>
 
-
+<a href="/demo/app/" class="demo-nav-back">← Все демо AXIIOM</a>
 
 <section class="demo-page-hero">
   <div class="hero-bg-svg" aria-hidden="true"><svg width="800" height="600" viewBox="0 0 800 600" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="400" cy="300" r="280" stroke="rgba(255,255,255,0.05)" stroke-width="2"/><circle cx="400" cy="300" r="200" stroke="rgba(255,255,255,0.06)" stroke-width="2"/><circle cx="400" cy="300" r="120" stroke="rgba(255,255,255,0.08)" stroke-width="2"/><line x1="50" y1="300" x2="750" y2="300" stroke="rgba(255,255,255,0.05)" stroke-width="2"/><line x1="400" y1="20" x2="400" y2="580" stroke="rgba(255,255,255,0.05)" stroke-width="2"/><path d="M200 300 L400 100 L600 300 L400 500 Z" stroke="rgba(255,255,255,0.06)" stroke-width="2" fill="none"/><circle cx="400" cy="300" r="4" fill="rgba(255,255,255,0.15)"/></svg></div>
   <div class="container">
     <div class="hero-content">
-      <p class="badge">MOBIAP Demo</p>
-      <h1>Live Chat & Support</h1>
-      <p class="hero-desc">Real-time customer support widget with live chat, order tracking, and automated responses. Built for e-commerce and SaaS platforms.</p>
+      <p class="badge">AXIIOM Demo</p>
+      <h1>Витрина в Telegram</h1>
+      <p class="hero-desc">Telegram Mini App — витрина товаров/услуг с оплатой прямо в мессенджере. Каталог, корзина, платежи, уведомления.</p>
       <div class="tag-list" style="justify-content:center;">
         <span class="tag-item">React</span>
         <span class="tag-item">Node.js</span>
-        <span class="tag-item">WebSocket</span>
+        <span class="tag-item">Telegram API</span>
         <span class="tag-item">PostgreSQL</span>
       </div>
     </div>
@@ -132,32 +162,32 @@
 
 <section class="section">
   <div class="container">
-    <p class="label">Interactive Demo</p>
-    <h2>Try it now</h2>
+    <p class="label">Интерактивное демо</p>
+    <h2>Попробуйте прямо сейчас</h2>
     <div class="dw">
   <h3 class="dw-t"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="var(--clr-heading)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-3px;margin-right:6px"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="4"/><line x1="21.17" y1="8" x2="12" y2="8"/><line x1="3.95" y1="6.06" x2="8.54" y2="14"/><line x1="10.88" y1="21.94" x2="15.46" y2="14"/></svg>Telegram Shop</h3>
   <div style="border:2px solid var(--clr-border);border-radius:20px;padding:0;max-width:340px;margin:0 auto;position:relative;overflow:hidden;background:var(--clr-bg)">
     <div style="height:22px;width:130px;background:var(--clr-bg);border-radius:0 0 10px 10px;margin:0 auto;border:1px solid var(--clr-border);border-top:none;position:relative;z-index:2"></div>
     <div id="ts-shop" style="padding:10px 12px 12px">
       <div style="display:flex;flex-direction:column;gap:8px;margin-bottom:10px">
-        <div class="ts-c"><div style="background:linear-gradient(135deg,#6c5ce7,#a29bfe);width:36px;height:36px;border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"/><line x1="12" y1="18" x2="12" y2="18"/></svg></div><div style="flex:1;min-width:0"><div style="font-size:13px;font-weight:600;color:var(--clr-text)">Phone X</div><div style="font-size:13px;font-weight:700;color:var(--clr-heading);margin-top:1px">$79 990 </div></div><button class="ts-b" data-i="0" data-p="799">Buy</button></div>
-        <div class="ts-c"><div style="background:linear-gradient(135deg,#00b894,#55efc4);width:36px;height:36px;border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg></div><div style="flex:1;min-width:0"><div style="font-size:13px;font-weight:600;color:var(--clr-text)">Buds Pro</div><div style="font-size:13px;font-weight:700;color:var(--clr-heading);margin-top:1px">$14 990 </div></div><button class="ts-b" data-i="1" data-p="149">Buy</button></div>
-        <div class="ts-c"><div style="background:linear-gradient(135deg,#fdcb6e,#f39c12);width:36px;height:36px;border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="7"/><polyline points="12 9 12 12 13.5 13.5"/><path d="M16.51 17.35l-.35 3.83a2 2 0 0 1-2 1.82H9.83a2 2 0 0 1-2-1.82l-.35-3.83"/></svg></div><div style="flex:1;min-width:0"><div style="font-size:13px;font-weight:600;color:var(--clr-text)">Watch</div><div style="font-size:13px;font-weight:700;color:var(--clr-heading);margin-top:1px">$49 990 </div></div><button class="ts-b" data-i="2" data-p="499">Buy</button></div>
+        <div class="ts-c"><div style="background:linear-gradient(135deg,#6c5ce7,#a29bfe);width:36px;height:36px;border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"/><line x1="12" y1="18" x2="12" y2="18"/></svg></div><div style="flex:1;min-width:0"><div style="font-size:13px;font-weight:600;color:var(--clr-text)">Phone X</div><div style="font-size:13px;font-weight:700;color:var(--clr-heading);margin-top:1px">79 990 ₽</div></div><button class="ts-b" data-i="0" data-p="79990">Купить</button></div>
+        <div class="ts-c"><div style="background:linear-gradient(135deg,#00b894,#55efc4);width:36px;height:36px;border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg></div><div style="flex:1;min-width:0"><div style="font-size:13px;font-weight:600;color:var(--clr-text)">Buds Pro</div><div style="font-size:13px;font-weight:700;color:var(--clr-heading);margin-top:1px">14 990 ₽</div></div><button class="ts-b" data-i="1" data-p="14990">Купить</button></div>
+        <div class="ts-c"><div style="background:linear-gradient(135deg,#fdcb6e,#f39c12);width:36px;height:36px;border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="7"/><polyline points="12 9 12 12 13.5 13.5"/><path d="M16.51 17.35l-.35 3.83a2 2 0 0 1-2 1.82H9.83a2 2 0 0 1-2-1.82l-.35-3.83"/></svg></div><div style="flex:1;min-width:0"><div style="font-size:13px;font-weight:600;color:var(--clr-text)">Watch</div><div style="font-size:13px;font-weight:700;color:var(--clr-heading);margin-top:1px">49 990 ₽</div></div><button class="ts-b" data-i="2" data-p="49990">Купить</button></div>
       </div>
       <div id="ts-cart" style="display:none;flex-direction:column;gap:4px;padding:8px 0;border-top:1px solid var(--clr-border);margin-top:2px"></div>
       <div style="display:flex;justify-content:space-between;align-items:center;padding:6px 0 0;border-top:1px solid var(--clr-border)">
-        <span style="font-size:12px;color:var(--clr-muted)">Items: <strong id="ts-cnt" style="color:var(--clr-heading)">0</strong></span>
-        <span style="font-size:15px;font-weight:700;color:var(--clr-heading)" id="ts-tot">$0</span>
-        <button class="ts-pay" id="ts-pay">Pay</button>
+        <span style="font-size:12px;color:var(--clr-muted)">Товаров: <strong id="ts-cnt" style="color:var(--clr-heading)">0</strong></span>
+        <span style="font-size:15px;font-weight:700;color:var(--clr-heading)" id="ts-tot">0 ₽</span>
+        <button class="ts-pay" id="ts-pay">Оплатить</button>
       </div>
-      <button id="ts-reset" style="margin-top:8px;width:100%;padding:6px;background:none;border:1px solid var(--clr-border);border-radius:8px;color:var(--clr-muted);font-size:11px;cursor:pointer;transition:all .2s">⟳ Reset корзину</button>
+      <button id="ts-reset" style="margin-top:8px;width:100%;padding:6px;background:none;border:1px solid var(--clr-border);border-radius:8px;color:var(--clr-muted);font-size:11px;cursor:pointer;transition:all .2s">⟳ Сбросить корзину</button>
     </div>
     <div id="ts-chat" style="display:none;flex-direction:column;height:340px;background:var(--clr-bg)">
       <div style="display:flex;align-items:center;gap:8px;padding:8px 12px;background:var(--clr-accent);color:#fff">
         <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="4"/><line x1="21.17" y1="8" x2="12" y2="8"/><line x1="3.95" y1="6.06" x2="8.54" y2="14"/><line x1="10.88" y1="21.94" x2="15.46" y2="14"/></svg>
-        <div><div style="font-size:13px;font-weight:600">MOBIAP Shop Bot</div><div style="font-size:10px;opacity:.8">online</div></div>
+        <div><div style="font-size:13px;font-weight:600">AXIIOM Shop Bot</div><div style="font-size:10px;opacity:.8">онлайн</div></div>
         <div style="margin-left:auto;display:flex;gap:4px">
-          <button class="ts-chat-btn" id="ts-back" style="font-size:11px">⟳ Back to Store</button>
+          <button class="ts-chat-btn" id="ts-back" style="font-size:11px">⟳ Магазин</button>
         </div>
       </div>
       <div id="ts-msgs" style="flex:1;overflow-y:auto;padding:8px 12px;display:flex;flex-direction:column;gap:6px;background:var(--clr-surface)"></div>
@@ -169,69 +199,70 @@
   </div>
 </div>
 <style>.dw{margin:12px 0;background:var(--clr-surface);border:1px solid var(--clr-border);border-radius:16px;padding:24px}.dw-t{font-size:16px;font-weight:600;margin:0 0 16px;color:var(--clr-heading)}.ts-c{display:flex;align-items:center;gap:10px;padding:8px 10px;background:var(--clr-bg);border:1px solid var(--clr-border);border-radius:10px}.ts-b{padding:6px 14px;background:var(--clr-accent);border:none;border-radius:8px;color:#fff;font-size:11px;font-weight:600;cursor:pointer;transition:all .2s;white-space:nowrap}.ts-b:hover{opacity:.85}.ts-b.added{background:var(--clr-muted)}.ts-pay{padding:8px 16px;background:var(--clr-accent);border:none;border-radius:10px;color:#fff;font-size:12px;font-weight:600;cursor:pointer;transition:all .2s;white-space:nowrap}.ts-pay:hover{opacity:.85}.ts-pay:disabled{opacity:.35;cursor:default}.ts-msg{max-width:80%;padding:8px 12px;border-radius:12px;font-size:12px;line-height:1.4;animation:tsIn .2s ease}.ts-msg.bot{align-self:flex-start;background:var(--clr-bg);border:1px solid var(--clr-border);border-bottom-left-radius:4px;color:var(--clr-text)}.ts-msg.user{align-self:flex-end;background:var(--clr-accent);color:#fff;border-bottom-right-radius:4px}.ts-chat-btn{background:none;border:1px solid rgba(255,255,255,.3);border-radius:6px;color:#fff;padding:4px 8px;cursor:pointer;font-size:11px;transition:opacity .2s}.ts-chat-btn:hover{opacity:.8}#ts-reset:hover{border-color:var(--clr-accent);color:var(--clr-accent)}@keyframes tsIn{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}@media(min-width:768px){.dw{max-width:420px;margin-left:auto;margin-right:auto}}</style>
-<script>(function(){var cart={},total=0,count=0,orderId='MK-'+Math.floor(100000+Math.random()*900000);var names=['Phone X','Buds Pro','Watch'],prices=[799,149,499];function up(){var cEl=document.getElementById('ts-cnt'),tEl=document.getElementById('ts-tot'),pEl=document.getElementById('ts-pay');cEl.textContent=count;tEl.textContent=total.toLocaleString('en-US')+' $';pEl.disabled=count===0;document.querySelectorAll('.ts-b').forEach(function(b){var i=parseInt(b.dataset.i);b.classList.toggle('added',cart[i]);b.textContent=cart[i]?'✓ '+cart[i]:'Buy'});var cartEl=document.getElementById('ts-cart');cartEl.innerHTML='';if(count>0){cartEl.style.display='flex';Object.keys(cart).forEach(function(i){var item=document.createElement('div');item.style.cssText='display:flex;align-items:center;gap:6px;padding:4px 6px;background:var(--clr-surface);border-radius:6px;font-size:11px';item.innerHTML='<span style="white-space:nowrap;overflow:hidden;text-overflow:ellipsis;flex:1;color:var(--clr-text)">'+names[i]+'</span><span style="color:var(--clr-muted)">×'+cart[i]+'</span><span style="font-weight:600;color:var(--clr-heading)">'+(prices[i]*cart[i]).toLocaleString('en-US')+' $</span><button class="ts-rm" data-i="'+i+'" style="background:none;border:none;color:var(--clr-muted);cursor:pointer;font-size:14px;padding:0 2px;line-height:1">×</button>';cartEl.appendChild(item)});document.querySelectorAll('.ts-rm').forEach(function(b){b.addEventListener('click',function(e){e.stopPropagation();var i=this.dataset.i;total-=prices[i]*cart[i];count-=cart[i];delete cart[i];up()})})}else{cartEl.style.display='none'}}document.querySelectorAll('.ts-b').forEach(function(b){b.addEventListener('click',function(){var i=parseInt(this.dataset.i),p=parseInt(this.dataset.p);if(!cart[i]){cart[i]=1;total+=p;count++}else{cart[i]++;total+=p;count++}up()})});document.getElementById('ts-pay').addEventListener('click',function(){var pay=this;pay.disabled=true;pay.textContent='⏳ Processing...';setTimeout(function(){pay.textContent='✅ Paid';var shop=document.getElementById('ts-shop'),chat=document.getElementById('ts-chat'),msgs=document.getElementById('ts-msgs');shop.style.display='none';chat.style.display='flex';var items=Object.keys(cart).map(function(i){return names[i]+' x'+cart[i]}).join(', ');var t=total.toLocaleString('en-US');var ms=[{t:'bot',m:'✅ Order <b>#'+orderId+'</b> confirmed'},{t:'bot',m:'🛒 <b>'+items+'</b>'},{t:'bot',m:'💳 Paid <b>'+total.toLocaleString('en-US')+' $</b>'},{t:'bot',m:'📦 Tracking: <b>#'+orderId+'</b>'},{t:'bot',m:'Thank you for your purchase! 🎉
-
-<i>Available commands:</i>
-• <b>status</b> — check delivery
-• <b>cancel</b> — cancel order
-• <b>help</b> — contact support'}];function addMsg(i){if(i>=ms.length)return;var d=document.createElement('div');d.className='ts-msg '+(ms[i].t==='bot'?'bot':'user');d.innerHTML=ms[i].m;msgs.appendChild(d);msgs.scrollTop=msgs.scrollHeight;setTimeout(function(){addMsg(i+1)},i%2===0?500:300)}addMsg(0)},1500)});document.getElementById('ts-send').addEventListener('click',function(){var inp=document.getElementById('ts-input'),txt=inp.value.trim();if(!txt)return;inp.value='';var msgs=document.getElementById('ts-msgs');var ud=document.createElement('div');ud.className='ts-msg user';ud.textContent=txt;msgs.appendChild(ud);msgs.scrollTop=msgs.scrollHeight;setTimeout(function(){var bd=document.createElement('div');bd.className='ts-msg bot';var low=txt.toLowerCase();if(low.indexOf('status')>=0||low.indexOf('track')>=0||low.indexOf('where')>=0){bd.innerHTML='📦 Order <b>#'+orderId+'</b> in transit.<br>📍 Status: <b>Sorting Center</b><br>🚚 ETA: <b>3-5 business days</b>'}else if(low.indexOf('cancel')>=0||low.indexOf('return')>=0){bd.innerHTML='❌ Cancellation unavailable — order already shipped.<br>Contact support for assistance.'}else if(low.indexOf('help')>=0||low.indexOf('support')>=0||low.indexOf('agent')>=0){bd.innerHTML='👋 A support agent will be with you shortly.<br>Avg response time: <b>~2 min</b>'}else{bd.innerHTML='❓ Command not recognized.<br><i>Try: status, track, cancel, help</i>'}msgs.appendChild(bd);msgs.scrollTop=msgs.scrollHeight},600)});document.getElementById('ts-input').addEventListener('keydown',function(e){if(e.key==='Enter'){e.preventDefault();document.getElementById('ts-send').click()}});document.getElementById('ts-back').addEventListener('click',function(){document.getElementById('ts-chat').style.display='none';document.getElementById('ts-shop').style.display='block';document.getElementById('ts-pay').textContent='Pay';document.getElementById('ts-pay').disabled=false;document.getElementById('ts-msgs').innerHTML=''});document.getElementById('ts-reset').addEventListener('click',function(){cart={};total=0;count=0;document.getElementById('ts-msgs').innerHTML='';document.getElementById('ts-chat').style.display='none';document.getElementById('ts-shop').style.display='block';document.getElementById('ts-pay').textContent='Pay';document.getElementById('ts-pay').disabled=false;up()});up()})();</script>
+<script>(function(){var cart={},total=0,count=0,orderId='MK-'+Math.floor(100000+Math.random()*900000);var names=['Phone X','Buds Pro','Watch'],prices=[79990,14990,49990];function up(){var cEl=document.getElementById('ts-cnt'),tEl=document.getElementById('ts-tot'),pEl=document.getElementById('ts-pay');cEl.textContent=count;tEl.textContent=total.toLocaleString('ru')+' ₽';pEl.disabled=count===0;document.querySelectorAll('.ts-b').forEach(function(b){var i=parseInt(b.dataset.i);b.classList.toggle('added',cart[i]);b.textContent=cart[i]?'✓ '+cart[i]:'Купить'});var cartEl=document.getElementById('ts-cart');cartEl.innerHTML='';if(count>0){cartEl.style.display='flex';Object.keys(cart).forEach(function(i){var item=document.createElement('div');item.style.cssText='display:flex;align-items:center;gap:6px;padding:4px 6px;background:var(--clr-surface);border-radius:6px;font-size:11px';item.innerHTML='<span style="white-space:nowrap;overflow:hidden;text-overflow:ellipsis;flex:1;color:var(--clr-text)">'+names[i]+'</span><span style="color:var(--clr-muted)">×'+cart[i]+'</span><span style="font-weight:600;color:var(--clr-heading)">'+(prices[i]*cart[i]).toLocaleString('ru')+' ₽</span><button class="ts-rm" data-i="'+i+'" style="background:none;border:none;color:var(--clr-muted);cursor:pointer;font-size:14px;padding:0 2px;line-height:1">×</button>';cartEl.appendChild(item)});document.querySelectorAll('.ts-rm').forEach(function(b){b.addEventListener('click',function(e){e.stopPropagation();var i=this.dataset.i;total-=prices[i]*cart[i];count-=cart[i];delete cart[i];up()})})}else{cartEl.style.display='none'}}document.querySelectorAll('.ts-b').forEach(function(b){b.addEventListener('click',function(){var i=parseInt(this.dataset.i),p=parseInt(this.dataset.p);if(!cart[i]){cart[i]=1;total+=p;count++}else{cart[i]++;total+=p;count++}up()})});document.getElementById('ts-pay').addEventListener('click',function(){var pay=this;pay.disabled=true;pay.textContent='⏳ Оплата...';setTimeout(function(){pay.textContent='✅ Оплачено';var shop=document.getElementById('ts-shop'),chat=document.getElementById('ts-chat'),msgs=document.getElementById('ts-msgs');shop.style.display='none';chat.style.display='flex';var items=Object.keys(cart).map(function(i){return names[i]+' x'+cart[i]}).join(', ');var t=total.toLocaleString('ru');var ms=[{t:'bot',m:'✅ Заказ <b>№'+orderId+'</b> оформлен'},{t:'bot',m:'🛒 <b>'+items+'</b>'},{t:'bot',m:'💳 Оплачено <b>'+t+' ₽</b> через Telegram Stars'},{t:'bot',m:'📦 Трек-номер: <b>TG-'+orderId+'</b>'},{t:'bot',m:'Спасибо за покупку! 🎉\n\n<i>Доступные команды:</i>\n• <b>статус</b> — проверить доставку\n• <b>отмена</b> — отменить заказ\n• <b>помощь</b> — поддержка'}];function addMsg(i){if(i>=ms.length)return;var d=document.createElement('div');d.className='ts-msg '+(ms[i].t==='bot'?'bot':'user');d.innerHTML=ms[i].m;msgs.appendChild(d);msgs.scrollTop=msgs.scrollHeight;setTimeout(function(){addMsg(i+1)},i%2===0?500:300)}addMsg(0)},1500)});document.getElementById('ts-send').addEventListener('click',function(){var inp=document.getElementById('ts-input'),txt=inp.value.trim();if(!txt)return;inp.value='';var msgs=document.getElementById('ts-msgs');var ud=document.createElement('div');ud.className='ts-msg user';ud.textContent=txt;msgs.appendChild(ud);msgs.scrollTop=msgs.scrollHeight;setTimeout(function(){var bd=document.createElement('div');bd.className='ts-msg bot';var low=txt.toLowerCase();if(low.indexOf('статус')>=0||low.indexOf('трек')>=0||low.indexOf('где')>=0){bd.innerHTML='📦 Заказ <b>'+orderId+'</b> в пути.<br>📍 Текущий статус: <b>Сортировка</b><br>🚚 Ожидаемая дата: <b>20 июня</b>'}else if(low.indexOf('отмен')>=0||low.indexOf('верн')>=0){bd.innerHTML='❌ Отмена невозможна — заказ уже передан в доставку.<br>Свяжитесь с поддержкой: @axiiom_support'}else if(low.indexOf('помощ')>=0||low.indexOf('support')>=0||low.indexOf('поддерж')>=0){bd.innerHTML='👋 Напишите @axiiom_support<br>Время ответа: ~5 минут'}else{bd.innerHTML='❓ Команда не распознана.<br><i>Доступно: статус, отмена, помощь</i>'}msgs.appendChild(bd);msgs.scrollTop=msgs.scrollHeight},600)});document.getElementById('ts-input').addEventListener('keydown',function(e){if(e.key==='Enter'){e.preventDefault();document.getElementById('ts-send').click()}});document.getElementById('ts-back').addEventListener('click',function(){document.getElementById('ts-chat').style.display='none';document.getElementById('ts-shop').style.display='block';document.getElementById('ts-pay').textContent='Оплатить';document.getElementById('ts-pay').disabled=false;document.getElementById('ts-msgs').innerHTML=''});document.getElementById('ts-reset').addEventListener('click',function(){cart={};total=0;count=0;document.getElementById('ts-msgs').innerHTML='';document.getElementById('ts-chat').style.display='none';document.getElementById('ts-shop').style.display='block';document.getElementById('ts-pay').textContent='Оплатить';document.getElementById('ts-pay').disabled=false;up()});up()})();</script>
   </div>
 </section>
 
 <section class="section">
   <div class="container">
-    <p class="label">Code Example</p>
-    <h2>Integration in 5 Minutes</h2>
-    <div class="code-block"><code>// Initialize Live Chat widget
-const chat = new LiveChatWidget({
-  apiKey: 'mobiap_live_xxxxxxxx',
-  position: 'bottom-right',
-  theme: 'dark'
+    <p class="label">Пример кода</p>
+    <h2>Интеграция за 5 минут</h2>
+    <div class="code-block"><code>// Инициализация Telegram Mini App
+const tg = window.Telegram.WebApp;
+tg.ready();
+tg.expand();
+
+// Получение данных пользователя
+const user = tg.initDataUnsafe.user;
+// { id: 123456, first_name: 'Иван', ... }
+
+// Загрузка каталога товаров
+const products = await store.getProducts({
+  category: 'electronics',
+  page: 1,
+  limit: 20
 });
 
-// Configure auto-responses
-chat.on('message', async (msg) => {
-  if (msg.text.includes('order')) {
-    const order = await api.getOrder(msg.userId);
-    chat.reply('Your order #' + order.id + ' is ' + order.status);
-  } else if (msg.text.includes('help')) {
-    chat.transferToAgent('support');
-  }
+// Оформление заказа
+const order = await store.createOrder({
+  userId: user.id,
+  items: cart,
+  delivery: 'pickup'
 });
 
-// Open chat
-chat.open();</code></div>
+// Закрытие Mini App
+tg.close();</code></div>
   </div>
 </section>
 
 <section class="section dark">
   <div class="container">
-    <p class="label">Features</p>
-    <h2>Key Features</h2>
+    <p class="label">Возможности</p>
+    <h2>Ключевые функции</h2>
     <div class="feature-grid">
       <div class="feature-item">
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#55efc4" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
-        <span>Real-time messaging (WebSocket)</span>
+        <span>Telegram Mini App (TWA)</span>
       </div>
       <div class="feature-item">
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#55efc4" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
-        <span>Smart routing to support agents</span>
+        <span>Каталог с поиском и фильтрацией</span>
       </div>
       <div class="feature-item">
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#55efc4" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
-        <span>Order tracking & status updates</span>
+        <span>Оплата через Telegram Stars</span>
       </div>
       <div class="feature-item">
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#55efc4" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
-        <span>Auto-responses for FAQs</span>
+        <span>Push-уведомления через бота</span>
       </div>
       <div class="feature-item">
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#55efc4" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
-        <span>Chat history & transcripts</span>
+        <span>История заказов</span>
       </div>
       <div class="feature-item">
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#55efc4" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
-        <span>Analytics dashboard</span>
+        <span>Аналитика продаж</span>
       </div>
     </div>
   </div>
@@ -240,11 +271,11 @@ chat.open();</code></div>
 <section class="section cta-section">
   <div class="container">
     <div class="glass-card" style="padding:48px 32px;text-align:center;border-radius:24px;">
-      <h2 style="margin-bottom:16px;">Need a custom solution?</h2>
-      <p style="color:var(--clr-text);margin-bottom:24px;max-width:480px;margin-left:auto;margin-right:auto;">Discuss your project. We'll show a demo and estimate cost.</p>
+      <h2 style="margin-bottom:16px;">Хотите такое решение?</h2>
+      <p style="color:var(--clr-text);margin-bottom:24px;max-width:480px;margin-left:auto;margin-right:auto;">Обсудим ваш проект, покажем демо и рассчитаем стоимость.</p>
       <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap;">
-        <a href="mailto:hello@mobiap.com" class="btn">hello@mobiap.com</a>
-        <a href="tel:+13020000000" class="btn btn-outline">+1 (302) 000-0000</a>
+        <a href="mailto:hello@axiiom.ru" class="btn">hello@axiiom.ru</a>
+        <a href="tel:+78129287478" class="btn btn-outline">+7 (812) 928-74-78</a>
       </div>
     </div>
   </div>
@@ -258,6 +289,10 @@ chat.open();</code></div>
 
 <script>
 var header = document.getElementById('header');
+window.addEventListener('scroll', function() {
+  header.classList.toggle('scrolled', window.scrollY > 40);
+}, { passive: true });
+
 var reveals = document.querySelectorAll('.reveal');
 var ro = new IntersectionObserver(function(e) {
   e.forEach(function(entry) {
@@ -273,8 +308,24 @@ reveals.forEach(function(r) { ro.observe(r); });
 <script src="/theme.js"></script>
 <script src="/preloader.js"></script>
 
+<script>
+(function() {
+  var t = document.getElementById('navToggle');
+  var o = document.getElementById('navOverlay');
+  if (!t || !o) return;
+  t.addEventListener('click', function(e) {
+    e.stopPropagation();
+    o.classList.toggle('open');
+    t.classList.toggle('active');
+    document.body.style.overflow = o.classList.contains('open') ? 'hidden' : '';
+  });
+})();
+</script>
+
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript">(function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};m[i].l=1*new Date();for(var j=0;j<document.scripts.length;j++){if(document.scripts[j].src===r){return}}k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})(window,document,"script","https://mc.yandex.ru/metrika/tag.js?id=109391253","ym");ym(109391253,"init",{clickmap:true,trackLinks:true,accurateTrackBounce:true});</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/109391253" style="position:absolute;left:-9999px" alt=""></div></noscript>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-HFS4BDGTV4"></script>
 <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-HFS4BDGTV4');</script>
-<script src="/footer.js"></script>
 </body>
 </html>

@@ -1,40 +1,39 @@
 <!doctype html>
-<html lang="en" data-theme="dark">
+<html lang="ru" data-theme="dark">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <meta name="theme-color" content="#0A0A0F">
-  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
-  <title>Marketplace Platform — Multi-Vendor Demo | MOBIAP</title>
-  <meta name="description" content="Multi-vendor marketplace demo: catalog, cart, split payments, vendor dashboard, and commission engine.">
-  <link rel="canonical" href="https://mobiap.com/demo/app/marketplace/">
+  <title>Маркетплейс — Демо-версия | AXIIOM</title>
+  <meta name="description" content="Демо маркетплейс-платформы: каталог товаров, корзина, мультиэквайринг, доставка, личный кабинет продавца. Full-stack решение.">
+  <link rel="canonical" href="https://axiiom.ru/demo/app/marketplace/">
 
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://mobiap.com/demo/app/marketplace/">
-  <meta property="og:title" content="Marketplace — Demo | MOBIAP">
-  <meta property="og:description" content="Multi-vendor marketplace demo: catalog, cart, split payments, vendor dashboard, and commission engine.">
-  <meta property="og:image" content="https://mobiap.com/og-image.png">
+  <meta property="og:url" content="https://axiiom.ru/demo/app/marketplace/">
+  <meta property="og:title" content="Маркетплейс — Демо | AXIIOM">
+  <meta property="og:description" content="Демо маркетплейс-платформы: каталог товаров, корзина, мультиэквайринг, доставка, личный кабинет продавца. Full-stack решение.">
+  <meta property="og:image" content="https://axiiom.ru/og-image.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
-  <meta property="og:locale" content="en_US">
+  <meta property="og:locale" content="ru_RU">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:url" content="https://mobiap.com/demo/app/marketplace/">
-  <meta name="twitter:title" content="Marketplace — Demo | MOBIAP">
-  <meta name="twitter:description" content="Multi-vendor marketplace demo: catalog, cart, split payments, vendor dashboard, and commission engine.">
-  <meta name="twitter:image" content="https://mobiap.com/og-image.png">
+  <meta name="twitter:url" content="https://axiiom.ru/demo/app/marketplace/">
+  <meta name="twitter:title" content="Маркетплейс — Демо | AXIIOM">
+  <meta name="twitter:description" content="Демо маркетплейс-платформы: каталог товаров, корзина, мультиэквайринг, доставка, личный кабинет продавца. Full-stack решение.">
+  <meta name="twitter:image" content="https://axiiom.ru/og-image.png">
 
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "SoftwareApplication",
-    "name": "Marketplace — MOBIAP Demo",
-    "description": "Multi-vendor marketplace demo: catalog, cart, split payments, vendor dashboard, and commission engine.",
-    "url": "https://mobiap.com/demo/app/marketplace/",
+    "name": "Маркетплейс — AXIIOM Demo",
+    "description": "Демо маркетплейс-платформы: каталог товаров, корзина, мультиэквайринг, доставка, личный кабинет продавца. Full-stack решение.",
+    "url": "https://axiiom.ru/demo/app/marketplace/",
     "applicationCategory": "BusinessApplication",
     "operatingSystem": "Web",
     "author": {
       "@type": "Organization",
-      "name": "Marketplace — MOBIAP Demo"
+      "name": "AXIIOM"
     },
     "offers": {
       "@type": "Offer",
@@ -83,8 +82,15 @@
       display: inline-block; padding: 4px 14px; border: 1px solid var(--clr-border);
       border-radius: 20px; font-size: 12px; color: var(--clr-muted);
     }
-
-
+    .demo-nav-back {
+      position: fixed; top: 12px; left: 16px; z-index: 99999;
+      display: inline-flex; align-items: center; gap: 6px;
+      padding: 8px 16px; background: rgba(10,10,15,.9);
+      color: #C7C7CC; border: 1px solid rgba(255,255,255,.08);
+      border-radius: 20px; text-decoration: none;
+      font-family: Inter,sans-serif; font-size: 13px; transition: all .2s;
+    }
+    .demo-nav-back:hover { background: rgba(10,10,15,1); color: #F5F5F7; }
     @media (max-width: 768px) {
       .demo-page-hero { min-height: 50vh; padding-top: 80px; }
       .feature-grid { grid-template-columns: 1fr; }
@@ -94,7 +100,8 @@
 </head>
 <body>
 <div id="preloader">
-<svg class="preloader-svg" viewBox="0 0 36 36" width="80" height="80">
+<script>(function(){var p=document.getElementById('preloader');if(!p)return;if(sessionStorage.getItem('_seen')){p.style.display='none';return}sessionStorage.setItem('_seen','1');var t=Date.now();p._start=t;setTimeout(function(){p.classList.add('_rdy')},500);window.addEventListener('load',function(){var e=Date.now()-t;if(e<2000){setTimeout(function(){p.classList.add('hidden');setTimeout(function(){p.classList.add('hidden-done')},500)},2000-e)}else{p.classList.add('hidden');setTimeout(function(){p.classList.add('hidden-done')},500)}})})()</script>
+  <svg class="preloader-svg" viewBox="0 0 36 36" width="80" height="80">
     <rect class="pr1" x="2" y="2" width="14" height="14" rx="2"/>
     <rect class="pr2" x="20" y="2" width="14" height="14" rx="2"/>
     <rect class="pr3" x="2" y="20" width="14" height="14" rx="2"/>
@@ -106,20 +113,43 @@
 <div class="noise"></div>
 <div class="grid-overlay"></div>
 
+<header class="header" id="header">
+  <div class="container">
+    <nav class="nav">
+      <a href="/" class="logo">
+        <svg width="30" height="30" viewBox="0 0 36 36" fill="none">
+          <rect x="2" y="2" width="14" height="14" rx="2" stroke="currentColor" stroke-width="1.5" opacity=".4"/>
+          <rect x="20" y="2" width="14" height="14" rx="2" stroke="currentColor" stroke-width="1.5" opacity=".4"/>
+          <rect x="2" y="20" width="14" height="14" rx="2" stroke="currentColor" stroke-width="1.5" opacity=".4"/>
+          <rect x="20" y="20" width="14" height="14" rx="2" stroke="currentColor" stroke-width="1.5"/>
+          <circle cx="27" cy="27" r="3" fill="currentColor" opacity=".8"/>
+        </svg>
+        <span>AXIIOM</span>
+      </a>
+      <ul class="nav-links nav-links--desktop" id="desktopNav"></ul>
+      <div class="nav-actions">
+        <a href="/#contact" class="btn btn-nav">Обсудить проект</a>
+        <button class="theme-btn" id="themeToggle" aria-label="Сменить тему">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>
+        </button>
+        <button class="nav-toggle" id="navToggle" aria-label="Меню"><span></span><span></span><span></span></button>
+      </div>
+    </nav>
+  </div>
+</header>
 
-<div id="header-mount"></div>
-
+<div class="nav-overlay" id="navOverlay"><ul class="nav-links" id="mobileNav"></ul></div>
 <nav class="breadcrumbs" id="breadcrumbs" aria-label="Breadcrumb"><div class="container"></div></nav>
 
-
+<a href="/demo/app/" class="demo-nav-back">← Все демо AXIIOM</a>
 
 <section class="demo-page-hero">
   <div class="hero-bg-svg" aria-hidden="true"><svg width="800" height="600" viewBox="0 0 800 600" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="400" cy="300" r="280" stroke="rgba(255,255,255,0.05)" stroke-width="2"/><circle cx="400" cy="300" r="200" stroke="rgba(255,255,255,0.06)" stroke-width="2"/><circle cx="400" cy="300" r="120" stroke="rgba(255,255,255,0.08)" stroke-width="2"/><line x1="50" y1="300" x2="750" y2="300" stroke="rgba(255,255,255,0.05)" stroke-width="2"/><line x1="400" y1="20" x2="400" y2="580" stroke="rgba(255,255,255,0.05)" stroke-width="2"/><path d="M200 300 L400 100 L600 300 L400 500 Z" stroke="rgba(255,255,255,0.06)" stroke-width="2" fill="none"/><circle cx="400" cy="300" r="4" fill="rgba(255,255,255,0.15)"/></svg></div>
   <div class="container">
     <div class="hero-content">
-      <p class="badge">MOBIAP Demo</p>
-      <h1>Marketplace</h1>
-      <p class="hero-desc">Multi-vendor marketplace with split payments, vendor onboarding, commission engine, and escrow. Built for two-sided platforms.</p>
+      <p class="badge">AXIIOM Demo</p>
+      <h1>Маркетплейс</h1>
+      <p class="hero-desc">Готовая платформа маркетплейса: каталог, корзина, оплата, доставка, отзывы и личный кабинет продавца.</p>
       <div class="tag-list" style="justify-content:center;">
         <span class="tag-item">Vue.js</span>
         <span class="tag-item">Node.js</span>
@@ -133,40 +163,40 @@
 
 <section class="section">
   <div class="container">
-    <p class="label">Interactive Demo</p>
-    <h2>Try it now</h2>
+    <p class="label">Интерактивное демо</p>
+    <h2>Попробуйте прямо сейчас</h2>
     <div class="dw">
-  <h3 class="dw-t" style="display:flex;justify-content:space-between;align-items:center">🛒 Marketplace <span id="mp-cnt-badge" style="background:var(--clr-accent);color:#fff;font-size:11px;font-weight:600;min-width:20px;height:20px;border-radius:10px;display:none;align-items:center;justify-content:center">0</span></h3>
+  <h3 class="dw-t" style="display:flex;justify-content:space-between;align-items:center">🛒 Маркетплейс <span id="mp-cnt-badge" style="background:var(--clr-accent);color:#fff;font-size:11px;font-weight:600;min-width:20px;height:20px;border-radius:10px;display:none;align-items:center;justify-content:center">0</span></h3>
   <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(130px,1fr));gap:10px">
-    <div class="mp-c"><div class="mp-img" style="background:linear-gradient(135deg,#6c5ce7,#a29bfe)">📱</div><div class="mp-n">Phone X Pro</div><div class="mp-p">$79 990 </div><button class="dw-btn mp-b" data-n="Phone X Pro" data-p="799">Add to cart</button></div>
-    <div class="mp-c"><div class="mp-img" style="background:linear-gradient(135deg,#00b894,#55efc4)">💻</div><div class="mp-n">NoteBook Air</div><div class="mp-p">$129 990 </div><button class="dw-btn mp-b" data-n="NoteBook Air" data-p="1299">Add to cart</button></div>
-    <div class="mp-c"><div class="mp-img" style="background:linear-gradient(135deg,#fd79a8,#e84393)">🎧</div><div class="mp-n">Headphones Pro</div><div class="mp-p">$14 990 </div><button class="dw-btn mp-b" data-n="Headphones Pro" data-p="149">Add to cart</button></div>
-    <div class="mp-c"><div class="mp-img" style="background:linear-gradient(135deg,#fdcb6e,#f39c12)">⌚</div><div class="mp-n">Watch Ultra</div><div class="mp-p">$49 990 </div><button class="dw-btn mp-b" data-n="Watch Ultra" data-p="499">Add to cart</button></div>
+    <div class="mp-c"><div class="mp-img" style="background:linear-gradient(135deg,#6c5ce7,#a29bfe)">📱</div><div class="mp-n">Phone X Pro</div><div class="mp-p">79 990 ₽</div><button class="dw-btn mp-b" data-n="Phone X Pro" data-p="79990">В корзину</button></div>
+    <div class="mp-c"><div class="mp-img" style="background:linear-gradient(135deg,#00b894,#55efc4)">💻</div><div class="mp-n">NoteBook Air</div><div class="mp-p">129 990 ₽</div><button class="dw-btn mp-b" data-n="NoteBook Air" data-p="129990">В корзину</button></div>
+    <div class="mp-c"><div class="mp-img" style="background:linear-gradient(135deg,#fd79a8,#e84393)">🎧</div><div class="mp-n">Headphones Pro</div><div class="mp-p">14 990 ₽</div><button class="dw-btn mp-b" data-n="Headphones Pro" data-p="14990">В корзину</button></div>
+    <div class="mp-c"><div class="mp-img" style="background:linear-gradient(135deg,#fdcb6e,#f39c12)">⌚</div><div class="mp-n">Watch Ultra</div><div class="mp-p">49 990 ₽</div><button class="dw-btn mp-b" data-n="Watch Ultra" data-p="49990">В корзину</button></div>
   </div>
   <div id="mp-cart" style="display:none;margin-top:16px;padding:16px;background:var(--clr-bg);border:1px solid var(--clr-border);border-radius:12px">
-    <div style="font-size:14px;font-weight:600;color:var(--clr-heading);margin-bottom:8px">Cart</div>
+    <div style="font-size:14px;font-weight:600;color:var(--clr-heading);margin-bottom:8px">Корзина</div>
     <div id="mp-items"></div>
-    <div style="display:flex;justify-content:space-between;padding-top:8px;border-top:1px solid var(--clr-border);margin-top:8px;font-weight:700;color:var(--clr-heading)"><span>Total:</span><span id="mp-total">$0</span></div>
-    <button class="dw-btn" id="mp-checkout-btn" style="margin-top:12px;width:100%">Checkout</button>
+    <div style="display:flex;justify-content:space-between;padding-top:8px;border-top:1px solid var(--clr-border);margin-top:8px;font-weight:700;color:var(--clr-heading)"><span>Итого:</span><span id="mp-total">0 ₽</span></div>
+    <button class="dw-btn" id="mp-checkout-btn" style="margin-top:12px;width:100%">Оформить заказ</button>
   </div>
 </div>
 <div id="mp-modal" style="display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,.7);z-index:99999;align-items:center;justify-content:center">
   <div style="background:var(--clr-bg);border:1px solid var(--clr-border);border-radius:16px;padding:32px;max-width:400px;width:90%;text-align:center">
-    <h3 style="color:var(--clr-heading);margin-bottom:16px">Order Checkout</h3>
+    <h3 style="color:var(--clr-heading);margin-bottom:16px">Оформление заказа</h3>
     <div id="mp-modal-items" style="font-size:13px;color:var(--clr-muted);margin-bottom:16px;text-align:left"></div>
     <div id="mp-modal-total" style="font-size:18px;font-weight:700;color:var(--clr-heading);margin-bottom:20px"></div>
-    <button class="dw-btn" id="mp-confirm" style="width:100%;margin-bottom:8px">Confirm Order</button>
-    <button class="dw-btn" id="mp-cancel" style="background:transparent;border:1px solid var(--clr-border);color:var(--clr-muted)">Cancel</button>
-    <div id="mp-success" style="display:none;padding:20px"><svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#00b894" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg><h3 style="color:#00b894;margin-top:12px">Order Complete!</h3><p style="font-size:13px;color:var(--clr-muted);margin-top:4px">Order: MK-<span id="mp-order-year"></span>-<span id="mp-order-num"></span></p></div>
+    <button class="dw-btn" id="mp-confirm" style="width:100%;margin-bottom:8px">Подтвердить заказ</button>
+    <button class="dw-btn" id="mp-cancel" style="background:transparent;border:1px solid var(--clr-border);color:var(--clr-muted)">Отмена</button>
+    <div id="mp-success" style="display:none;padding:20px"><svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#00b894" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg><h3 style="color:#00b894;margin-top:12px">Заказ оформлен!</h3><p style="font-size:13px;color:var(--clr-muted);margin-top:4px">Номер: MK-<span id="mp-order-year"></span>-<span id="mp-order-num"></span></p></div>
   </div>
 </div>
 <style>.dw{margin:12px 0;background:var(--clr-surface);border:1px solid var(--clr-border);border-radius:16px;padding:24px}.dw-t{font-size:16px;font-weight:600;margin:0 0 16px;color:var(--clr-heading)}.dw-btn{padding:8px 12px;background:var(--clr-accent);border:none;border-radius:8px;color:#fff;font-size:13px;font-weight:600;cursor:pointer;transition:opacity .2s;width:100%}.dw-btn:hover{opacity:.85}.mp-c{background:var(--clr-bg);border:1px solid var(--clr-border);border-radius:12px;padding:12px;text-align:center}.mp-img{width:100%;height:80px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:32px;margin-bottom:8px}.mp-n{font-size:13px;font-weight:500;color:var(--clr-text);margin-bottom:4px}.mp-p{font-size:15px;font-weight:700;color:var(--clr-heading);margin-bottom:8px}.mp-ci{display:flex;justify-content:space-between;padding:4px 0;font-size:13px;color:var(--clr-text)}.mp-ci button{background:none;border:none;color:var(--clr-muted);cursor:pointer;font-size:11px;text-decoration:underline;padding:0}@media(min-width:768px){.dw{max-width:640px;margin-left:auto;margin-right:auto}}</style>
 <script>(function(){
 var items={},badge=document.getElementById('mp-cnt-badge'),cart=document.getElementById('mp-cart'),list=document.getElementById('mp-items'),total=document.getElementById('mp-total'),modal=document.getElementById('mp-modal'),mItems=document.getElementById('mp-modal-items'),mTotal=document.getElementById('mp-modal-total');
-function render(){var html='',t=0,c=0;for(var k in items){var it=items[k];html+='<div class="mp-ci"><span>'+it.n+' × '+it.q+'</span><span>'+((it.p*it.q).toLocaleString('en-US'))+' $ <button class="mp-rm" data-k="'+k+'">✕</button></span></div>';t+=it.p*it.q;c+=it.q}list.innerHTML=html;total.textContent=t.toLocaleString('en-US')+' $';badge.textContent=c;badge.style.display=c?'flex':'none';cart.style.display=c?'block':'none';Array.from(list.querySelectorAll('.mp-rm')).forEach(function(b){b.addEventListener('click',function(){var k=this.dataset.k;delete items[k];render()})})};
-document.querySelectorAll('.mp-b').forEach(function(b){b.addEventListener('click',function(){var n=this.dataset.n,p=parseInt(this.dataset.p);if(!items[n])items[n]={n:n,p:p,q:0};items[n].q++;render();this.textContent='✓ '+n;var t=this;setTimeout(function(){t.textContent='Add to cart'},800)})});
-document.getElementById('mp-checkout-btn').addEventListener('click',function(){var h='';for(var k in items){h+='<div style="display:flex;justify-content:space-between;padding:2px 0"><span>'+items[k].n+' × '+items[k].q+'</span><span>'+((items[k].p*items[k].q).toLocaleString('en-US'))+' $</span></div>'}mItems.innerHTML=h;var t=0;for(var k in items)t+=items[k].p*items[k].q;mTotal.textContent='Total: '+t.toLocaleString('en-US')+' $';modal.style.display='flex'});
-document.getElementById('mp-confirm').addEventListener('click',function(){var s=document.getElementById('mp-success');s.style.display='block';s.querySelector('h3').textContent='Order Complete!';document.getElementById('mp-order-year').textContent=new Date().getFullYear();document.getElementById('mp-order-num').textContent=Math.floor(100000+Math.random()*900000);document.querySelector('#mp-modal > div > h3').style.display='none';document.getElementById('mp-modal-items').style.display='none';document.getElementById('mp-modal-total').style.display='none';this.style.display='none';document.getElementById('mp-cancel').style.display='none';items={};render();setTimeout(function(){modal.style.display='none';location.reload()},2500)});
+function render(){var html='',t=0,c=0;for(var k in items){var it=items[k];html+='<div class="mp-ci"><span>'+it.n+' × '+it.q+'</span><span>'+((it.p*it.q).toLocaleString('ru'))+' ₽ <button class="mp-rm" data-k="'+k+'">✕</button></span></div>';t+=it.p*it.q;c+=it.q}list.innerHTML=html;total.textContent=t.toLocaleString('ru')+' ₽';badge.textContent=c;badge.style.display=c?'flex':'none';cart.style.display=c?'block':'none';Array.from(list.querySelectorAll('.mp-rm')).forEach(function(b){b.addEventListener('click',function(){var k=this.dataset.k;delete items[k];render()})})};
+document.querySelectorAll('.mp-b').forEach(function(b){b.addEventListener('click',function(){var n=this.dataset.n,p=parseInt(this.dataset.p);if(!items[n])items[n]={n:n,p:p,q:0};items[n].q++;render();this.textContent='✓ '+n;var t=this;setTimeout(function(){t.textContent='В корзину'},800)})});
+document.getElementById('mp-checkout-btn').addEventListener('click',function(){var h='';for(var k in items){h+='<div style="display:flex;justify-content:space-between;padding:2px 0"><span>'+items[k].n+' × '+items[k].q+'</span><span>'+((items[k].p*items[k].q).toLocaleString('ru'))+' ₽</span></div>'}mItems.innerHTML=h;var t=0;for(var k in items)t+=items[k].p*items[k].q;mTotal.textContent='Итого: '+t.toLocaleString('ru')+' ₽';modal.style.display='flex'});
+document.getElementById('mp-confirm').addEventListener('click',function(){var s=document.getElementById('mp-success');s.style.display='block';s.querySelector('h3').textContent='Заказ оформлен!';document.getElementById('mp-order-year').textContent=new Date().getFullYear();document.getElementById('mp-order-num').textContent=Math.floor(100000+Math.random()*900000);document.querySelector('#mp-modal > div > h3').style.display='none';document.getElementById('mp-modal-items').style.display='none';document.getElementById('mp-modal-total').style.display='none';this.style.display='none';document.getElementById('mp-cancel').style.display='none';items={};render();setTimeout(function(){modal.style.display='none';location.reload()},2500)});
 document.getElementById('mp-cancel').addEventListener('click',function(){modal.style.display='none'});
 modal.addEventListener('click',function(e){if(e.target===modal)modal.style.display='none'});
 })();</script>
@@ -175,18 +205,18 @@ modal.addEventListener('click',function(e){if(e.target===modal)modal.style.displ
 
 <section class="section">
   <div class="container">
-    <p class="label">Code Example</p>
-    <h2>5-Minute Integration</h2>
+    <p class="label">Пример кода</p>
+    <h2>Интеграция за 5 минут</h2>
     <div class="code-block"><code>// Добавление товара продавцом
 await marketplace.addProduct({
   sellerId: 'seller_789',
-  name: 'Phone X Pro',
+  name: 'Смартфон X Pro',
   price: 79990,
   category: 'electronics',
   stock: 50
 });
 
-// Order Checkout покупателем
+// Оформление заказа покупателем
 const order = await marketplace.checkout({
   items: [
     { productId: 'prod_123', quantity: 1 },
@@ -196,39 +226,39 @@ const order = await marketplace.checkout({
   paymentMethod: 'card'
 });
 
-// Splitование выплаты продавцу
+// Сплитование выплаты продавцу
 await marketplace.settle(order.id);</code></div>
   </div>
 </section>
 
 <section class="section dark">
   <div class="container">
-    <p class="label">Features</p>
-    <h2>Key Features</h2>
+    <p class="label">Возможности</p>
+    <h2>Ключевые функции</h2>
     <div class="feature-grid">
       <div class="feature-item">
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0984e3" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
-        <span>Catalog with Filters & Search</span>
+        <span>Каталог с фильтрацией и поиском</span>
       </div>
       <div class="feature-item">
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0984e3" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
-        <span>Multi-acquiring & Split Payments</span>
+        <span>Мультиэквайринг и сплитование</span>
       </div>
       <div class="feature-item">
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0984e3" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
-        <span>Seller Dashboard</span>
+        <span>Личный кабинет продавца</span>
       </div>
       <div class="feature-item">
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0984e3" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
-        <span>FedEx, UPS Integration</span>
+        <span>Интеграция с СДЭК, Почтой России</span>
       </div>
       <div class="feature-item">
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0984e3" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
-        <span>Reviews & Ratings</span>
+        <span>Система отзывов и рейтингов</span>
       </div>
       <div class="feature-item">
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0984e3" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
-        <span>Sales Analytics</span>
+        <span>Аналитика продаж</span>
       </div>
     </div>
   </div>
@@ -237,11 +267,11 @@ await marketplace.settle(order.id);</code></div>
 <section class="section cta-section">
   <div class="container">
     <div class="glass-card" style="padding:48px 32px;text-align:center;border-radius:24px;">
-      <h2 style="margin-bottom:16px;">Want a similar solution?</h2>
-      <p style="color:var(--clr-text);margin-bottom:24px;max-width:480px;margin-left:auto;margin-right:auto;">Let's discuss your project, show a demo, and estimate the cost.</p>
+      <h2 style="margin-bottom:16px;">Хотите такое решение?</h2>
+      <p style="color:var(--clr-text);margin-bottom:24px;max-width:480px;margin-left:auto;margin-right:auto;">Обсудим ваш проект, покажем демо и рассчитаем стоимость.</p>
       <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap;">
-        <a href="mailto:hello@mobiap.com" class="btn">hello@mobiap.com</a>
-        <a href="tel:+13020000000" class="btn btn-outline">+1 (302) 000-0000</a>
+        <a href="mailto:hello@axiiom.ru" class="btn">hello@axiiom.ru</a>
+        <a href="tel:+78129287478" class="btn btn-outline">+7 (812) 928-74-78</a>
       </div>
     </div>
   </div>
@@ -255,6 +285,10 @@ await marketplace.settle(order.id);</code></div>
 
 <script>
 var header = document.getElementById('header');
+window.addEventListener('scroll', function() {
+  header.classList.toggle('scrolled', window.scrollY > 40);
+}, { passive: true });
+
 var reveals = document.querySelectorAll('.reveal');
 var ro = new IntersectionObserver(function(e) {
   e.forEach(function(entry) {
@@ -270,8 +304,24 @@ reveals.forEach(function(r) { ro.observe(r); });
 <script src="/theme.js"></script>
 <script src="/preloader.js"></script>
 
+<script>
+(function() {
+  var t = document.getElementById('navToggle');
+  var o = document.getElementById('navOverlay');
+  if (!t || !o) return;
+  t.addEventListener('click', function(e) {
+    e.stopPropagation();
+    o.classList.toggle('open');
+    t.classList.toggle('active');
+    document.body.style.overflow = o.classList.contains('open') ? 'hidden' : '';
+  });
+})();
+</script>
+
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript">(function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};m[i].l=1*new Date();for(var j=0;j<document.scripts.length;j++){if(document.scripts[j].src===r){return}}k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})(window,document,"script","https://mc.yandex.ru/metrika/tag.js?id=109391253","ym");ym(109391253,"init",{clickmap:true,trackLinks:true,accurateTrackBounce:true});</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/109391253" style="position:absolute;left:-9999px" alt=""></div></noscript>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-HFS4BDGTV4"></script>
 <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-HFS4BDGTV4');</script>
-<script src="/footer.js"></script>
 </body>
 </html>
