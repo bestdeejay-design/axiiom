@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="theme-color" content="#0A0A0F">
-    <title>Калькулятор дат онлайн — разница между датами — AXIIOM Tools</title>
-    <meta name="description" content="Бесплатный онлайн калькулятор дат. Вычислите разницу между двумя датами, прибавьте или отнимите дни от любой даты.">
-    <link rel="canonical" href="https://axiiom.ru/tools/date-calc/">
+    <title>Date Calculator Online — Difference Between Dates — MOBIAP Tools</title>
+    <meta name="description" content="Free online date calculator. Calculate the difference between two dates, add or subtract days from any date.">
+    <link rel="canonical" href="https://mobiap.com/tools/date-calc/">
     <link rel="icon" type="image/svg+xml" href="/favicon.svg">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -15,31 +15,31 @@
 
     <!-- Open Graph -->
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://axiiom.ru/tools/date-calc/">
-    <meta property="og:title" content="Калькулятор дат онлайн — AXIIOM Tools">
-    <meta property="og:description" content="Расчёт разницы между датами в днях, прибавление и вычитание дней. Удобный онлайн-инструмент для работы с датами.">
+    <meta property="og:url" content="https://mobiap.com/tools/date-calc/">
+    <meta property="og:title" content="Date Calculator Online — MOBIAP Tools">
+    <meta property="og:description" content="Calculate date differences in days, add and subtract days. Handy online tool for working with dates.">
     <meta property="og:image" content="/og-image.png">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
-    <meta property="og:locale" content="ru_RU">
+    <meta property="og:locale" content="en_US">
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:url" content="https://axiiom.ru/tools/date-calc/">
-    <meta name="twitter:title" content="Калькулятор дат онлайн — AXIIOM Tools">
-    <meta name="twitter:description" content="Расчёт разницы между датами в днях, прибавление и вычитание дней. Удобный онлайн-инструмент для работы с датами.">
+    <meta name="twitter:url" content="https://mobiap.com/tools/date-calc/">
+    <meta name="twitter:title" content="Date Calculator Online — MOBIAP Tools">
+    <meta name="twitter:description" content="Calculate date differences in days, add and subtract days. Handy online tool for working with dates.">
     <meta name="twitter:image" content="/og-image.png">
 
         <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "WebApplication",
-      "name": "Калькулятор дат онлайн — разница, сложение, вычитание",
-      "url": "https://axiiom.ru/tools/date-calc/",
+      "name": "Date Calculator Online — Difference, Addition, Subtraction",
+      "url": "https://mobiap.com/tools/date-calc/",
       "applicationCategory": "UtilityApplication",
       "operatingSystem": "Any",
       "offers": { "@type": "Offer", "price": "0" },
-      "isPartOf": { "@type": "WebSite", "name": "AXIIOM", "url": "https://axiiom.ru/" }
+      "isPartOf": { "@type": "WebSite", "name": "MOBIAP", "url": "https://mobiap.com/" }
     }
     </script>
 
@@ -49,8 +49,7 @@
 </head>
 <body>
 <div id="preloader">
-<script>(function(){var p=document.getElementById('preloader');if(!p)return;if(sessionStorage.getItem('_seen')){p.style.display='none';return}sessionStorage.setItem('_seen','1');var t=Date.now();p._start=t;setTimeout(function(){p.classList.add('_rdy')},500);window.addEventListener('load',function(){var e=Date.now()-t;if(e<2000){setTimeout(function(){p.classList.add('hidden');setTimeout(function(){p.classList.add('hidden-done')},500)},2000-e)}else{p.classList.add('hidden');setTimeout(function(){p.classList.add('hidden-done')},500)}})})()</script>
-  <svg class="preloader-svg" viewBox="0 0 36 36" width="80" height="80">
+<svg class="preloader-svg" viewBox="0 0 36 36" width="80" height="80">
     <rect class="pr1" x="2" y="2" width="14" height="14" rx="2"/>
     <rect class="pr2" x="20" y="2" width="14" height="14" rx="2"/>
     <rect class="pr3" x="2" y="20" width="14" height="14" rx="2"/>
@@ -61,86 +60,56 @@
 <div class="noise"></div>
 <div class="grid-overlay"></div>
 
-<header class="header" id="header">
-    <div class="container">
-        <nav class="nav">
-            <a href="/" class="logo">
-                <svg width="30" height="30" viewBox="0 0 36 36" fill="none">
-                    <rect x="2" y="2" width="14" height="14" rx="2" stroke="currentColor" stroke-width="1.5" opacity=".4"/>
-                    <rect x="20" y="2" width="14" height="14" rx="2" stroke="currentColor" stroke-width="1.5" opacity=".4"/>
-                    <rect x="2" y="20" width="14" height="14" rx="2" stroke="currentColor" stroke-width="1.5" opacity=".4"/>
-                    <rect x="20" y="20" width="14" height="14" rx="2" stroke="currentColor" stroke-width="1.5"/>
-                    <circle cx="27" cy="27" r="3" fill="currentColor" opacity=".8"/>
-                </svg>
-                <span>AXIIOM</span>
-            </a>
-            <ul class="nav-links nav-links--desktop" id="desktopNav"></ul>
-            <div class="nav-actions">
-                <button class="theme-btn" id="themeToggle" aria-label="Сменить тему">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>
-                </button>
-                <button class="nav-toggle nav-toggle" id="navToggle" aria-label="Меню">
-                    <span></span><span></span><span></span>
-                </button>
-            </div>
-        </nav>
-    </div>
-</header>
 
-<nav class="breadcrumbs" id="breadcrumbs" aria-label="Breadcrumb">
-    <div class="container"></div>
-</nav>
+<div id="header-mount"></div>
 
-<div class="nav-overlay" id="navOverlay">
-    <ul class="nav-links" id="mobileNav"></ul>
-</div>
 
 <section class="tool-page">
     <div class="container">
         <div class="tool-page-header">
-            <h1>Калькулятор дат</h1>
-            <button class="share-btn" onclick="copyPageUrl(this)" aria-label="Поделиться" title="Поделиться">
+            <h1>Date Calculator</h1>
+            <button class="share-btn" onclick="copyPageUrl(this)" aria-label="Share" title="Share">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                     <path d="M4 12v8a2 2 0 002 2h12a2 2 0 002-2v-8"/>
                     <polyline points="16 6 12 2 8 6"/>
                     <line x1="12" y1="2" x2="12" y2="15"/>
                 </svg>
-                <span class="share-tooltip">Ссылка скопирована</span>
+                <span class="share-tooltip">Link copied</span>
             </button>
             
             
         </div>
-        <p class="tool-description">Расчёт разницы между датами, прибавление и вычитание дней.</p>
+        <p class="tool-description">Calculate the difference between dates, add or subtract days.</p>
         <div class="tool-page-card">
             <div class="date-mode">
-                <h2>Разница между датами</h2>
+                <h2>Difference Between Dates</h2>
                 <form class="calc-form" id="formDiff">
                     <div class="row-2">
                         <div class="field-group">
-                            <label class="tool-label" for="startDate">Дата начала</label>
+                            <label class="tool-label" for="startDate">Start Date</label>
                             <input class="tool-input" type="date" id="startDate">
                         </div>
                         <div class="field-group">
-                            <label class="tool-label" for="endDate">Дата окончания</label>
+                            <label class="tool-label" for="endDate">End Date</label>
                             <input class="tool-input" type="date" id="endDate">
                         </div>
                     </div>
                     <div class="tool-btn-group">
-                        <button class="tool-btn" type="submit">Рассчитать</button>
+                        <button class="tool-btn" type="submit">Calculate</button>
                     </div>
                 </form>
                 <div id="resultDiff" style="display:none">
                     <div class="result-grid">
-                        <div class="result-item"><span class="val" id="diffYears">0</span><span class="lbl">лет</span></div>
-                        <div class="result-item"><span class="val" id="diffMonths">0</span><span class="lbl">месяцев</span></div>
-                        <div class="result-item"><span class="val" id="diffDays">0</span><span class="lbl">дней</span></div>
-                        <div class="result-item"><span class="val" id="diffHours">0</span><span class="lbl">часов</span></div>
-                        <div class="result-item"><span class="val" id="diffMinutes">0</span><span class="lbl">минут</span></div>
+                        <div class="result-item"><span class="val" id="diffYears">0</span><span class="lbl">years</span></div>
+                        <div class="result-item"><span class="val" id="diffMonths">0</span><span class="lbl">months</span></div>
+                        <div class="result-item"><span class="val" id="diffDays">0</span><span class="lbl">days</span></div>
+                        <div class="result-item"><span class="val" id="diffHours">0</span><span class="lbl">hours</span></div>
+                        <div class="result-item"><span class="val" id="diffMinutes">0</span><span class="lbl">minutes</span></div>
                     </div>
                     <hr class="result-divider">
                     <div class="result-sub">
-                        <div><span class="val" id="diffTotalDays">0</span><div class="lbl">всего дней</div></div>
-                        <div><span class="val" id="diffTotalWeeks">0</span><div class="lbl">всего недель</div></div>
+                        <div><span class="val" id="diffTotalDays">0</span><div class="lbl">total days</div></div>
+                        <div><span class="val" id="diffTotalWeeks">0</span><div class="lbl">total weeks</div></div>
                     </div>
                 </div>
             </div>
@@ -148,25 +117,25 @@
             <hr class="result-divider">
 
             <div class="date-mode">
-                <h2>Прибавить / вычесть дни</h2>
+                <h2>Add / Subtract Days</h2>
                 <form class="calc-form" id="formAddsub">
                     <div class="row-2">
                         <div class="field-group">
-                            <label class="tool-label" for="refDate">Исходная дата</label>
+                            <label class="tool-label" for="refDate">Reference Date</label>
                             <input class="tool-input" type="date" id="refDate">
                         </div>
                         <div class="field-group">
-                            <label class="tool-label" for="daysOffset">Количество дней</label>
+                            <label class="tool-label" for="daysOffset">Number of days</label>
                             <input class="tool-input" type="number" id="daysOffset" value="0" step="1">
                         </div>
                     </div>
                     <div class="tool-btn-group">
-                        <button class="tool-btn" type="submit">Рассчитать</button>
+                        <button class="tool-btn" type="submit">Calculate</button>
                     </div>
                 </form>
                 <div id="resultAddsub" style="display:none">
                     <div class="result-sub" style="margin-top:16px">
-                        <div><span class="val" id="addsubResult">—</span><div class="lbl">итоговая дата</div></div>
+                        <div><span class="val" id="addsubResult">—</span><div class="lbl">result date</div></div>
                     </div>
                 </div>
             </div>
@@ -308,13 +277,6 @@ if (document.getElementById('startDate')) document.getElementById('startDate').v
 if (document.getElementById('endDate')) document.getElementById('endDate').value = ts;
 if (document.getElementById('refDate')) document.getElementById('refDate').value = ts;
 </script>
-<!-- Yandex.Metrika counter -->
-<script type="text/javascript">
-(function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};m[i].l=1*new Date();for(var j=0;j<document.scripts.length;j++){if(document.scripts[j].src===r){return}}k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})(window,document,"script","https://mc.yandex.ru/metrika/tag.js?id=109391253","ym");
-ym(109391253,"init",{clickmap:true,trackLinks:true,accurateTrackBounce:true});
-</script>
-<noscript><div><img src="https://mc.yandex.ru/watch/109391253" style="position:absolute;left:-9999px" alt=""></div></noscript>
-<!-- /Yandex.Metrika counter -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-HFS4BDGTV4"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
@@ -323,22 +285,10 @@ ym(109391253,"init",{clickmap:true,trackLinks:true,accurateTrackBounce:true});
   gtag('config', 'G-HFS4BDGTV4');
 </script>
 <script src="/nav.js"></script>
-<script>Nav.init({ cta: false, breadcrumbs: true });</script>
+<script>Nav.init({ cta: true, breadcrumbs: true });</script>
 <script src="/theme.js"></script>
   <script src="/preloader.js"></script>
 
-<script>
-(function() {
-  var t = document.getElementById('navToggle');
-  var o = document.getElementById('navOverlay');
-  if (!t || !o) return;
-  t.addEventListener('click', function(e) {
-    e.stopPropagation();
-    o.classList.toggle('open');
-    t.classList.toggle('active');
-    document.body.style.overflow = o.classList.contains('open') ? 'hidden' : '';
-  });
-})();
-</script>
+<script src="/footer.js"></script>
 </body>
 </html>

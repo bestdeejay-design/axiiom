@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="theme-color" content="#0A0A0F">
-    <title>Блог AXIIOM — статьи о финтехе, разработке и технологиях</title>
-    <meta name="description" content="Блог компании AXIIOM: тренды финтеха, руководства по PCI DSS и 161-ФЗ, архитектура highload-систем, UX платёжных приложений.">
-    <link rel="canonical" href="https://axiiom.ru/blog/">
+    <title>MOBIAP Blog — articles on fintech, development, and technology</title>
+    <meta name="description" content="MOBIAP company blog: fintech trends, PCI DSS guides, highload architecture, payment UX.">
+    <link rel="canonical" href="https://mobiap.com/blog/">
     <link rel="icon" type="image/svg+xml" href="/favicon.svg">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -15,21 +15,21 @@
 
     <!-- Open Graph -->
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://axiiom.ru/blog/">
-    <meta property="og:title" content="Блог AXIIOM — статьи о финтехе, разработке и технологиях">
-    <meta property="og:description" content="Блог компании AXIIOM: тренды финтеха, руководства по PCI DSS и 161-ФЗ, архитектура highload-систем, UX платёжных приложений.">
-    <meta property="og:image" content="https://axiiom.ru/og-image.png">
+    <meta property="og:url" content="https://mobiap.com/blog/">
+    <meta property="og:title" content="MOBIAP Blog — articles on fintech, development, and technology">
+    <meta property="og:description" content="MOBIAP company blog: fintech trends, PCI DSS guides, highload architecture, payment UX.">
+    <meta property="og:image" content="https://mobiap.com/og-image.png">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
-    <meta property="og:locale" content="ru_RU">
-    <meta property="og:site_name" content="AXIIOM">
+    <meta property="og:locale" content="en_US">
+    <meta property="og:site_name" content="MOBIAP">
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:url" content="https://axiiom.ru/blog/">
-    <meta name="twitter:title" content="Блог AXIIOM — статьи о финтехе, разработке и технологиях">
-    <meta name="twitter:description" content="Блог компании AXIIOM: тренды финтеха, руководства по PCI DSS и 161-ФЗ, архитектура highload-систем, UX платёжных приложений.">
-    <meta name="twitter:image" content="https://axiiom.ru/og-image.png">
+    <meta name="twitter:url" content="https://mobiap.com/blog/">
+    <meta name="twitter:title" content="MOBIAP Blog — articles on fintech, development, and technology">
+    <meta name="twitter:description" content="MOBIAP company blog: fintech trends, PCI DSS guides, highload architecture, payment UX.">
+    <meta name="twitter:image" content="https://mobiap.com/og-image.png">
 
     <!-- JSON-LD BreadcrumbList -->
     <script type="application/ld+json">
@@ -38,16 +38,16 @@
       "@graph": [
         {
           "@type": "WebPage",
-          "name": "Блог AXIIOM",
-          "description": "Статьи о финтехе, разработке и технологиях от компании AXIIOM.",
-          "url": "https://axiiom.ru/blog/",
-          "isPartOf": { "@type": "WebSite", "name": "AXIIOM", "url": "https://axiiom.ru/" }
+          "name": "MOBIAP Blog",
+          "description": "Articles about fintech, development and technology from MOBIAP.",
+          "url": "https://mobiap.com/blog/",
+          "isPartOf": { "@type": "WebSite", "name": "MOBIAP", "url": "https://mobiap.com/" }
         },
         {
           "@type": "BreadcrumbList",
           "itemListElement": [
-            { "@type": "ListItem", "position": 1, "name": "Главная", "item": "https://axiiom.ru/" },
-            { "@type": "ListItem", "position": 2, "name": "Блог", "item": "https://axiiom.ru/blog/" }
+            { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://mobiap.com/" },
+            { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://mobiap.com/blog/" }
           ]
         }
       ]
@@ -59,181 +59,17 @@
 </head>
 <body>
 <div id="preloader">
-<script>(function(){var p=document.getElementById('preloader');if(!p)return;if(sessionStorage.getItem('_seen')){p.style.display='none';return}sessionStorage.setItem('_seen','1');var t=Date.now();p._start=t;setTimeout(function(){p.classList.add('_rdy')},500);window.addEventListener('load',function(){var e=Date.now()-t;if(e<2000){setTimeout(function(){p.classList.add('hidden');setTimeout(function(){p.classList.add('hidden-done')},500)},2000-e)}else{p.classList.add('hidden');setTimeout(function(){p.classList.add('hidden-done')},500)}})})()</script>
-  <svg class="preloader-svg" viewBox="0 0 36 36" width="80" height="80">
-    <rect class="pr1" x="2" y="2" width="14" height="14" rx="2"/>
-    <rect class="pr2" x="20" y="2" width="14" height="14" rx="2"/>
-    <rect class="pr3" x="2" y="20" width="14" height="14" rx="2"/>
-    <rect class="pr4" x="20" y="20" width="14" height="14" rx="2"/>
-    <circle class="pc" cx="27" cy="27" r="3"/>
-  </svg>
-</div>
-<div class="noise"></div>
-<div class="grid-overlay"></div>
-
-<div class="nav-overlay" id="navOverlay">
-    <ul class="nav-links" id="mobileNav"></ul>
-</div>
-
-<header class="header" id="header">
-    <div class="container">
-        <nav class="nav">
-            <a href="/" class="logo">
-                <svg width="36" height="36" viewBox="0 0 36 36" fill="none">
-                    <rect x="2" y="2" width="14" height="14" rx="2" stroke="currentColor" stroke-width="1.5" opacity=".4"/>
-                    <rect x="20" y="2" width="14" height="14" rx="2" stroke="currentColor" stroke-width="1.5" opacity=".4"/>
-                    <rect x="2" y="20" width="14" height="14" rx="2" stroke="currentColor" stroke-width="1.5" opacity=".4"/>
-                    <rect x="20" y="20" width="14" height="14" rx="2" stroke="currentColor" stroke-width="1.5"/>
-                    <circle cx="27" cy="27" r="3" fill="currentColor" opacity=".8"/>
-                </svg>
-                <span>AXIIOM</span>
-            </a>
-            <ul class="nav-links nav-links--desktop" id="desktopNav"></ul>
-            <div class="nav-actions">
-                <a href="/#contact" class="btn btn-nav">Обсудить проект</a>
-                <button class="theme-btn" id="themeToggle" aria-label="Сменить тему">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>
-                </button>
-                <button class="nav-toggle" id="navToggle" aria-label="Меню">
-                    <span></span><span></span><span></span>
-                </button>
-            </div>
-        </nav>
-    </div>
-</header>
-
-<nav class="breadcrumbs" id="breadcrumbs" aria-label="Breadcrumb">
-    <div class="container"></div>
-</nav>
-
-<section class="hero industries-hero">
-    <div class="container">
-        <div class="hero-content">
-            <div class="hero-bg-svg"><svg width="800" height="600" viewBox="0 0 800 600" fill="none">
-  <circle cx="400" cy="300" r="280" stroke="rgba(255,255,255,0.05)" stroke-width="2"/>
-  <circle cx="400" cy="300" r="200" stroke="rgba(255,255,255,0.06)" stroke-width="2"/>
-  <circle cx="400" cy="300" r="120" stroke="rgba(255,255,255,0.08)" stroke-width="2"/>
-  <line x1="50" y1="300" x2="750" y2="300" stroke="rgba(255,255,255,0.04)" stroke-width="2"/>
-  <line x1="400" y1="20" x2="400" y2="580" stroke="rgba(255,255,255,0.04)" stroke-width="2"/>
-  <path d="M200 300 L400 100 L600 300 L400 500 Z" stroke="rgba(255,255,255,0.05)" stroke-width="2" fill="none"/>
-  <circle cx="400" cy="300" r="4" fill="rgba(255,255,255,0.12)"/>
-</svg></div>
-            <div class="badge-row"><p class="badge">AXIIOM Articles</p>
-<button class="share-btn" onclick="copyPageUrl(this)" aria-label="Поделиться" title="Поделиться"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12v8a2 2 0 002 2h12a2 2 0 002-2v-8"/><polyline points="16 6 12 2 8 6"/><line x1="12" y1="2" x2="12" y2="15"/></svg><span class="share-tooltip">Ссылка копирована</span></button>
-            </div>
-            <h1>Блог AXIIOM</h1>
-            <p class="hero-desc">Статьи о финтехе, платёжных системах, highload-архитектуре и разработке под ключ</p>
-        </div>
-    </div>
-</section>
-<section class="section">
-    <div class="container">
-        <div id="blogList">
-            <div class="tools-grid" id="blogGrid"></div>
-        </div>
-    </div>
-</section>
-
-<footer class="footer">
-    <div class="container">
-        <div id="footerCopy"></div>
-    </div>
-</footer>
-
-<script src="/blog/posts.js"></script>
-<script>
-(function() {
-    var grid = document.getElementById('blogGrid');
-
-    function formatDate(str) {
-        var d = new Date(str + 'T00:00:00');
-        var months = ['января','февраля','марта','апреля','мая','июня','июля','августа','сентября','октября','ноября','декабря'];
-        return d.getDate() + ' ' + months[d.getMonth()] + ' ' + d.getFullYear();
-    }
-
-    var BLOG_ICONS = {
-  'highload-architecture': '<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="4" y="4" width="16" height="6" rx="1"/><rect x="8" y="14" width="8" height="6" rx="1"/><path d="M12 10v4"/><path d="M8 20H4"/><path d="M16 20h4"/></svg>',
-  'pci-dss-compliance': '<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 3l7 4v5c0 4-2.5 7.5-7 9-4.5-1.5-7-5-7-9V7l7-4z"/><path d="M9 12l2 2 4-4"/></svg>',
-  'fintech-trends-2026': '<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 20h18"/><path d="M7 16v-4"/><path d="M12 16v-6"/><path d="M17 16V8"/><path d="M21 8l-4-4-4 4"/></svg>',
-  'loyalty-program-roi': '<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="9"/><path d="M12 7v10"/><path d="M7 12h10"/></svg>',
-  '161-fz-guideline': '<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M14 3v4a1 1 0 001 1h4"/><path d="M17 21H7a2 2 0 01-2-2V5a2 2 0 012-2h7l5 5v11a2 2 0 01-2 2z"/><path d="M9 12h6"/><path d="M9 16h4"/></svg>',
-  'mobile-payment-ux': '<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="5" y="2" width="14" height="20" rx="2"/><path d="M12 18h.01"/><path d="M9 6h6"/></svg>',
-  'loyalty-platform-not-option-necessity': '<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>',
-};
-
-function renderList() {
-        grid.innerHTML = POSTS.map(function(p) {
-            var icon = BLOG_ICONS[p.slug] || '';
-            return '<a href="/blog/' + p.slug + '/" class="tool-card blog-card reveal">' +
-                '<div class="tool-icon">' + icon + '</div>' +
-                '<h3>' + p.title + '</h3>' +
-                '<p>' + p.desc + '</p>' +
-                '<span class="blog-read">Читать →</span>' +
-            '</a>';
-        }).join('');
-    }
-
-    var initialSlug = window.location.hash.replace('#', '');
-    if (initialSlug && POSTS.some(function(p) { return p.slug === initialSlug; })) {
-        window.location.replace('/blog/' + initialSlug + '/');
-    } else {
-        renderList();
-    }
-
-    window.addEventListener('hashchange', function() {
-        var slug = window.location.hash.replace('#', '');
-        if (slug && POSTS.some(function(p) { return p.slug === slug; })) {
-            window.location.replace('/blog/' + slug + '/');
-        }
-    });
-
-
-    // Header scroll
-    var header = document.getElementById('header');
-    window.addEventListener('scroll', function() {
-        header.classList.toggle('scrolled', window.scrollY > 40);
-    }, { passive: true });
-
-    // Reveal animation
-    var reveals = document.querySelectorAll('.reveal');
-    var ro = new IntersectionObserver(function(e) {
-        e.forEach(function(entry) {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('visible');
-            }
-        });
-    }, { threshold: 0.15 });
-    reveals.forEach(function(r) { ro.observe(r); });
-})();
-</script>
-<script src="/config.js"></script>
-<script src="/nav.js"></script>
-<script>Nav.init({ cta: true, breadcrumbs: true });</script>
-<script src="/theme.js"></script>
-<!-- Yandex.Metrika counter -->
-<script type="text/javascript">
-(function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};m[i].l=1*new Date();for(var j=0;j<document.scripts.length;j++){if(document.scripts[j].src===r){return}}k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})(window,document,"script","https://mc.yandex.ru/metrika/tag.js?id=109391253","ym");
-ym(109391253,"init",{clickmap:true,trackLinks:true,accurateTrackBounce:true});
-</script>
-<noscript><div><img src="https://mc.yandex.ru/watch/109391253" style="position:absolute;left:-9999px" alt=""></div></noscript>
+<svg class="preloader-svg" viewBox="0 0 36 36" width="80" height="80"><rect class="pr1" x="2" y="2" width="14" height="14" rx="2"/><rect class="pr2" x="20" y="2" width="14" height="14" rx="2"/><rect class="pr3" x="2" y="20" width="14" height="14" rx="2"/><rect class="pr4" x="20" y="20" width="14" height="14" rx="2"/><circle class="pc" cx="27" cy="27" r="3"/></svg>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-HFS4BDGTV4"></script>
 <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-HFS4BDGTV4');</script>
+</div>
+<div id="header-mount"></div>
+<script src="/nav.js"></script>
+<script>Nav.init({ cta: true, breadcrumbs: false });</script>
+<script src="/theme.js"></script>
 
   <script src="/preloader.js"></script>
 
-<script>
-(function() {
-  var t = document.getElementById('navToggle');
-  var o = document.getElementById('navOverlay');
-  if (!t || !o) return;
-  t.addEventListener('click', function(e) {
-    e.stopPropagation();
-    o.classList.toggle('open');
-    t.classList.toggle('active');
-    document.body.style.overflow = o.classList.contains('open') ? 'hidden' : '';
-  });
-})();
-</script>
 <script>
 function copyPageUrl(btn) {
   var url = window.location.href;

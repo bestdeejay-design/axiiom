@@ -1,39 +1,40 @@
 <!doctype html>
-<html lang="ru" data-theme="dark">
+<html lang="en" data-theme="dark">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <meta name="theme-color" content="#0A0A0F">
-  <title>Платёжный шлюз — Демо-версия | AXIIOM</title>
-  <meta name="description" content="Демо платёжного шлюза: приём платежей по картам, SBP, токенизация, сплитование. Соответствие 161-ФЗ и PCI DSS. Примеры кода интеграции.">
-  <link rel="canonical" href="https://axiiom.ru/demo/app/payment-gateway/">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <title>Payment Gateway — Processing Engine Demo | MOBIAP</title>
+  <meta name="description" content="Payment gateway demo: multi-acquiring, tokenization, split payments, escrow, and PCI DSS compliance.">
+  <link rel="canonical" href="https://mobiap.com/demo/app/payment-gateway/">
 
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://axiiom.ru/demo/app/payment-gateway/">
-  <meta property="og:title" content="Платёжный шлюз — Демо | AXIIOM">
-  <meta property="og:description" content="Демо платёжного шлюза: приём платежей по картам, SBP, токенизация, сплитование. Соответствие 161-ФЗ и PCI DSS. Примеры кода интеграции.">
-  <meta property="og:image" content="https://axiiom.ru/og-image.png">
+  <meta property="og:url" content="https://mobiap.com/demo/app/payment-gateway/">
+  <meta property="og:title" content="Payment Gateway — Demo | MOBIAP">
+  <meta property="og:description" content="Payment gateway demo: multi-acquiring, tokenization, split payments, escrow, and PCI DSS compliance.">
+  <meta property="og:image" content="https://mobiap.com/og-image.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
-  <meta property="og:locale" content="ru_RU">
+  <meta property="og:locale" content="en_US">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:url" content="https://axiiom.ru/demo/app/payment-gateway/">
-  <meta name="twitter:title" content="Платёжный шлюз — Демо | AXIIOM">
-  <meta name="twitter:description" content="Демо платёжного шлюза: приём платежей по картам, SBP, токенизация, сплитование. Соответствие 161-ФЗ и PCI DSS. Примеры кода интеграции.">
-  <meta name="twitter:image" content="https://axiiom.ru/og-image.png">
+  <meta name="twitter:url" content="https://mobiap.com/demo/app/payment-gateway/">
+  <meta name="twitter:title" content="Payment Gateway — Demo | MOBIAP">
+  <meta name="twitter:description" content="Payment gateway demo: multi-acquiring, tokenization, split payments, escrow, and PCI DSS compliance.">
+  <meta name="twitter:image" content="https://mobiap.com/og-image.png">
 
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "SoftwareApplication",
-    "name": "Платёжный шлюз — AXIIOM Demo",
-    "description": "Демо платёжного шлюза: приём платежей по картам, SBP, токенизация, сплитование. Соответствие 161-ФЗ и PCI DSS. Примеры кода интеграции.",
-    "url": "https://axiiom.ru/demo/app/payment-gateway/",
+    "name": "Payment Gateway — MOBIAP Demo",
+    "description": "Payment gateway demo: multi-acquiring, tokenization, split payments, escrow, and PCI DSS compliance.",
+    "url": "https://mobiap.com/demo/app/payment-gateway/",
     "applicationCategory": "BusinessApplication",
     "operatingSystem": "Web",
     "author": {
       "@type": "Organization",
-      "name": "AXIIOM"
+      "name": "Payment Gateway — MOBIAP Demo"
     },
     "offers": {
       "@type": "Offer",
@@ -82,15 +83,8 @@
       display: inline-block; padding: 4px 14px; border: 1px solid var(--clr-border);
       border-radius: 20px; font-size: 12px; color: var(--clr-muted);
     }
-    .demo-nav-back {
-      position: fixed; top: 12px; left: 16px; z-index: 99999;
-      display: inline-flex; align-items: center; gap: 6px;
-      padding: 8px 16px; background: rgba(10,10,15,.9);
-      color: #C7C7CC; border: 1px solid rgba(255,255,255,.08);
-      border-radius: 20px; text-decoration: none;
-      font-family: Inter,sans-serif; font-size: 13px; transition: all .2s;
-    }
-    .demo-nav-back:hover { background: rgba(10,10,15,1); color: #F5F5F7; }
+
+
     @media (max-width: 768px) {
       .demo-page-hero { min-height: 50vh; padding-top: 80px; }
       .feature-grid { grid-template-columns: 1fr; }
@@ -100,8 +94,7 @@
 </head>
 <body>
 <div id="preloader">
-<script>(function(){var p=document.getElementById('preloader');if(!p)return;if(sessionStorage.getItem('_seen')){p.style.display='none';return}sessionStorage.setItem('_seen','1');var t=Date.now();p._start=t;setTimeout(function(){p.classList.add('_rdy')},500);window.addEventListener('load',function(){var e=Date.now()-t;if(e<2000){setTimeout(function(){p.classList.add('hidden');setTimeout(function(){p.classList.add('hidden-done')},500)},2000-e)}else{p.classList.add('hidden');setTimeout(function(){p.classList.add('hidden-done')},500)}})})()</script>
-  <svg class="preloader-svg" viewBox="0 0 36 36" width="80" height="80">
+<svg class="preloader-svg" viewBox="0 0 36 36" width="80" height="80">
     <rect class="pr1" x="2" y="2" width="14" height="14" rx="2"/>
     <rect class="pr2" x="20" y="2" width="14" height="14" rx="2"/>
     <rect class="pr3" x="2" y="20" width="14" height="14" rx="2"/>
@@ -113,43 +106,20 @@
 <div class="noise"></div>
 <div class="grid-overlay"></div>
 
-<header class="header" id="header">
-  <div class="container">
-    <nav class="nav">
-      <a href="/" class="logo">
-        <svg width="30" height="30" viewBox="0 0 36 36" fill="none">
-          <rect x="2" y="2" width="14" height="14" rx="2" stroke="currentColor" stroke-width="1.5" opacity=".4"/>
-          <rect x="20" y="2" width="14" height="14" rx="2" stroke="currentColor" stroke-width="1.5" opacity=".4"/>
-          <rect x="2" y="20" width="14" height="14" rx="2" stroke="currentColor" stroke-width="1.5" opacity=".4"/>
-          <rect x="20" y="20" width="14" height="14" rx="2" stroke="currentColor" stroke-width="1.5"/>
-          <circle cx="27" cy="27" r="3" fill="currentColor" opacity=".8"/>
-        </svg>
-        <span>AXIIOM</span>
-      </a>
-      <ul class="nav-links nav-links--desktop" id="desktopNav"></ul>
-      <div class="nav-actions">
-        <a href="/#contact" class="btn btn-nav">Обсудить проект</a>
-        <button class="theme-btn" id="themeToggle" aria-label="Сменить тему">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>
-        </button>
-        <button class="nav-toggle" id="navToggle" aria-label="Меню"><span></span><span></span><span></span></button>
-      </div>
-    </nav>
-  </div>
-</header>
 
-<div class="nav-overlay" id="navOverlay"><ul class="nav-links" id="mobileNav"></ul></div>
+<div id="header-mount"></div>
+
 <nav class="breadcrumbs" id="breadcrumbs" aria-label="Breadcrumb"><div class="container"></div></nav>
 
-<a href="/demo/app/" class="demo-nav-back">← Все демо AXIIOM</a>
+
 
 <section class="demo-page-hero">
   <div class="hero-bg-svg" aria-hidden="true"><svg width="800" height="600" viewBox="0 0 800 600" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="400" cy="300" r="280" stroke="rgba(255,255,255,0.05)" stroke-width="2"/><circle cx="400" cy="300" r="200" stroke="rgba(255,255,255,0.06)" stroke-width="2"/><circle cx="400" cy="300" r="120" stroke="rgba(255,255,255,0.08)" stroke-width="2"/><line x1="50" y1="300" x2="750" y2="300" stroke="rgba(255,255,255,0.05)" stroke-width="2"/><line x1="400" y1="20" x2="400" y2="580" stroke="rgba(255,255,255,0.05)" stroke-width="2"/><path d="M200 300 L400 100 L600 300 L400 500 Z" stroke="rgba(255,255,255,0.06)" stroke-width="2" fill="none"/><circle cx="400" cy="300" r="4" fill="rgba(255,255,255,0.15)"/></svg></div>
   <div class="container">
     <div class="hero-content">
-      <p class="badge">AXIIOM Demo</p>
-      <h1>Платёжный шлюз</h1>
-      <p class="hero-desc">Универсальный платёжный шлюз с поддержкой мультиэквайринга, сплитования платежей и escrow-счетов. Соответствие 161-ФЗ и PCI DSS.</p>
+      <p class="badge">MOBIAP Demo</p>
+      <h1>Payment Gateway</h1>
+      <p class="hero-desc">Multi-acquiring payment gateway with tokenization, split payments, escrow, and PCI DSS Level 1 certification.</p>
       <div class="tag-list" style="justify-content:center;">
         <span class="tag-item">PHP</span>
         <span class="tag-item">Go</span>
@@ -163,16 +133,16 @@
 
 <section class="section">
   <div class="container">
-    <p class="label">Интерактивное демо</p>
-    <h2>Попробуйте прямо сейчас</h2>
+    <p class="label">Interactive Demo</p>
+    <h2>Try it now</h2>
     <div class="pg-card">
   <div class="pg-header">
     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--clr-accent)" stroke-width="1.8"><rect x="1" y="4" width="22" height="16" rx="2"/><line x1="1" y1="10" x2="23" y2="10"/><line x1="7" y1="15" x2="11" y2="15"/></svg>
-    <span>Оплата картой</span>
+    <span>Card Payment</span>
   </div>
   <div class="pg-body">
     <div class="pg-fld">
-      <label class="pg-lbl">Номер карты</label>
+      <label class="pg-lbl">Card number</label>
       <div class="pg-inp-wrap">
         <input class="pg-inp" id="w1n" placeholder="0000 0000 0000 0000" maxlength="19">
         <svg class="pg-card-icon" width="22" height="16" viewBox="0 0 24 16" fill="none">
@@ -185,7 +155,7 @@
     </div>
     <div class="pg-row">
       <div class="pg-fld">
-        <label class="pg-lbl">Срок действия</label>
+        <label class="pg-lbl">Expiry</label>
         <input class="pg-inp" id="w1e" placeholder="MM / YY" maxlength="7">
       </div>
       <div class="pg-fld">
@@ -196,27 +166,27 @@
         </div>
       </div>
       <div class="pg-fld">
-        <label class="pg-lbl">Сумма</label>
+        <label class="pg-lbl">Amount</label>
         <div class="pg-inp-wrap">
-          <span class="pg-currency">₽</span>
+          <span class="pg-currency">$</span>
           <input class="pg-inp pg-inp-amt" id="w1a" type="number" value="1500">
         </div>
       </div>
     </div>
     <button class="pg-btn" id="w1b">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="10" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/><circle cx="12" cy="16" r="1"/></svg>
-      Оплатить 1 500 ₽
+      Pay $1 500 
     </button>
     <div class="pg-secure">
       <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="var(--clr-faint)" stroke-width="2"><rect x="3" y="11" width="18" height="10" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
-      Защищено PCI DSS
+      Secured by PCI DSS
     </div>
     <div class="pg-result" id="w1x">
       <div class="pg-spinner" id="w1sp"></div>
       <div class="pg-success" id="w1ok">
         <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#00b894" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="16 8 10 16 7 12"/></svg>
-        <span class="pg-success-t">Платёж выполнен</span>
-        <span class="pg-success-sub">Спасибо! Ваш платёж прошёл успешно.</span>
+        <span class="pg-success-t">Payment Complete</span>
+        <span class="pg-success-sub">Thank you! Your payment was successful.</span>
       </div>
     </div>
   </div>
@@ -261,8 +231,8 @@ document.getElementById('w1b').addEventListener('click',function(){var b=this,x=
 
 <section class="section">
   <div class="container">
-    <p class="label">Пример кода</p>
-    <h2>Интеграция за 5 минут</h2>
+    <p class="label">Code Example</p>
+    <h2>5-Minute Integration</h2>
     <div class="code-block"><code>// Инициализация платёжного шлюза
 const gateway = new PaymentGateway({
   apiKey: 'your_api_key',
@@ -289,32 +259,32 @@ window.location.href = payment.paymentUrl;</code></div>
 
 <section class="section dark">
   <div class="container">
-    <p class="label">Возможности</p>
-    <h2>Ключевые функции</h2>
+    <p class="label">Features</p>
+    <h2>Key Features</h2>
     <div class="feature-grid">
       <div class="feature-item">
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#6c5ce7" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
-        <span>Мультиэквайринг (Visa, MC, Мир, SBP)</span>
+        <span>Multi-acquiring (Visa, MC, Mir, SBP)</span>
       </div>
       <div class="feature-item">
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#6c5ce7" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
-        <span>Сплитование платежей и escrow</span>
+        <span>Splitование платежей и escrow</span>
       </div>
       <div class="feature-item">
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#6c5ce7" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
-        <span>Токенизация карт (PCI DSS)</span>
+        <span>Card Tokenization (PCI DSS)</span>
       </div>
       <div class="feature-item">
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#6c5ce7" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
-        <span>Холдирование и возвраты</span>
+        <span>Holds & Refunds</span>
       </div>
       <div class="feature-item">
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#6c5ce7" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
-        <span>Webhook-уведомления</span>
+        <span>Webhook Notifications</span>
       </div>
       <div class="feature-item">
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#6c5ce7" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
-        <span>Личный кабинет мерчанта</span>
+        <span>Merchant Dashboard</span>
       </div>
     </div>
   </div>
@@ -323,11 +293,11 @@ window.location.href = payment.paymentUrl;</code></div>
 <section class="section cta-section">
   <div class="container">
     <div class="glass-card" style="padding:48px 32px;text-align:center;border-radius:24px;">
-      <h2 style="margin-bottom:16px;">Хотите такое решение?</h2>
-      <p style="color:var(--clr-text);margin-bottom:24px;max-width:480px;margin-left:auto;margin-right:auto;">Обсудим ваш проект, покажем демо и рассчитаем стоимость.</p>
+      <h2 style="margin-bottom:16px;">Want a similar solution?</h2>
+      <p style="color:var(--clr-text);margin-bottom:24px;max-width:480px;margin-left:auto;margin-right:auto;">Let's discuss your project, show a demo, and estimate the cost.</p>
       <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap;">
-        <a href="mailto:hello@axiiom.ru" class="btn">hello@axiiom.ru</a>
-        <a href="tel:+78129287478" class="btn btn-outline">+7 (812) 928-74-78</a>
+        <a href="mailto:hello@mobiap.com" class="btn">hello@mobiap.com</a>
+        <a href="tel:+13020000000" class="btn btn-outline">+1 (302) 000-0000</a>
       </div>
     </div>
   </div>
@@ -341,10 +311,6 @@ window.location.href = payment.paymentUrl;</code></div>
 
 <script>
 var header = document.getElementById('header');
-window.addEventListener('scroll', function() {
-  header.classList.toggle('scrolled', window.scrollY > 40);
-}, { passive: true });
-
 var reveals = document.querySelectorAll('.reveal');
 var ro = new IntersectionObserver(function(e) {
   e.forEach(function(entry) {
@@ -360,24 +326,8 @@ reveals.forEach(function(r) { ro.observe(r); });
 <script src="/theme.js"></script>
 <script src="/preloader.js"></script>
 
-<script>
-(function() {
-  var t = document.getElementById('navToggle');
-  var o = document.getElementById('navOverlay');
-  if (!t || !o) return;
-  t.addEventListener('click', function(e) {
-    e.stopPropagation();
-    o.classList.toggle('open');
-    t.classList.toggle('active');
-    document.body.style.overflow = o.classList.contains('open') ? 'hidden' : '';
-  });
-})();
-</script>
-
-<!-- Yandex.Metrika counter -->
-<script type="text/javascript">(function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};m[i].l=1*new Date();for(var j=0;j<document.scripts.length;j++){if(document.scripts[j].src===r){return}}k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})(window,document,"script","https://mc.yandex.ru/metrika/tag.js?id=109391253","ym");ym(109391253,"init",{clickmap:true,trackLinks:true,accurateTrackBounce:true});</script>
-<noscript><div><img src="https://mc.yandex.ru/watch/109391253" style="position:absolute;left:-9999px" alt=""></div></noscript>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-HFS4BDGTV4"></script>
 <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-HFS4BDGTV4');</script>
+<script src="/footer.js"></script>
 </body>
 </html>

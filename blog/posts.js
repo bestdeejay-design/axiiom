@@ -1,44 +1,38 @@
 var POSTS = [
   {
     slug: 'highload-architecture',
-    title: 'Архитектура highload-систем: опыт AXIIOM | Блог AXIIOM',
+    title: 'Highload Architecture: MOBIAP Expertise | MOBIAP Blog',
     date: '2026-07-05',
-    desc: 'Как проектировать highload-системы: микросервисы vs монолит, балансировка, многоуровневое кэширование, K8s, шардирование БД, очереди и observability. Опыт AXIIOM.'
+    desc: 'How to design highload systems: microservices vs monolith, load balancing, multi-level caching, K8s, DB sharding, queues, and observability. MOBIAP expertise.'
   },
   {
     slug: 'pci-dss-compliance',
-    title: 'PCI DSS: что нужно знать о сертификации, чтобы не потерять деньги и репутацию | Блог AXIIOM',
+    title: 'PCI DSS Compliance Guide: What You Need to Know | MOBIAP Blog',
     date: '2026-06-20',
-    desc: 'Полное руководство по PCI DSS: 12 требований человеческим языком, частые ошибки, уровни сертификации, пошаговый план подготовки и опыт AXIIOM.'
+    desc: 'Complete PCI DSS guide: 12 requirements in plain English, common mistakes, certification levels, step-by-step preparation plan, and MOBIAP expertise.'
   },
   {
     slug: 'fintech-trends-2026',
-    title: 'Главные тренды финтеха в 2026 году | Блог AXIIOM',
+    title: 'Top Fintech Trends in 2026 | MOBIAP Blog',
     date: '2026-06-10',
-    desc: 'Открытый банкинг, цифровой рубль и AI в платежах — разбираем три главных тренда 2026 года с цифрами, примерами и дорожной картой для бизнеса.'
+    desc: 'Open banking, digital currency, and AI in payments — analyzing three major 2026 trends with data, examples, and a business roadmap.'
   },
   {
     slug: 'loyalty-program-roi',
-    title: 'Как окупается платформа лояльности: расчёт ROI | Блог AXIIOM',
+    title: 'Loyalty Platform ROI: How to Calculate and Maximize Returns | MOBIAP Blog',
     date: '2026-04-15',
-    desc: 'Реальные метрики и формулы: как рассчитать ROI программы лояльности. Примеры расчёта для розницы и онлайн-сервисов. Сроки окупаемости white-label и кастомной разработки.'
-  },
-  {
-    slug: '161-fz-guideline',
-    title: '161-ФЗ: руководство для финтех-стартапов | Блог AXIIOM',
-    date: '2026-02-20',
-    desc: 'Всё о 161-ФЗ: требования к операторам ЭДС, лицензия ЦБ, альтернатива через партнёра, требования к архитектуре и безопасности. Опыт AXIIOM и реальные кейсы.'
+    desc: 'Real metrics and formulas: how to calculate loyalty program ROI. Examples for retail and online services. White-label vs custom development payback periods.'
   },
   {
     slug: 'mobile-payment-ux',
-    title: 'UX платёжных мобильных приложений: лучшие практики | Блог AXIIOM',
+    title: 'Mobile Payment UX: Best Practices for Higher Conversion | MOBIAP Blog',
     date: '2026-01-30',
-    desc: 'Платежи — момент истины. 70% пользователей бросают заказ из-за сложной оплаты. Как сделать мобильный платёжный UX удобным, безопасным и конверсионным — лучшие практики и чек-лист.'
+    desc: 'Payments are the moment of truth. 70% of users abandon orders due to complex checkout. How to make mobile payment UX convenient, secure, and conversion-driven.'
   },
   {
     slug: 'loyalty-platform-not-option-necessity',
-    title: 'Платформа лояльности — не опция, а необходимость: разбор по сегментам рынка | Блог AXIIOM',
+    title: 'Loyalty Platform: Not Optional, Essential — Market Segment Analysis | MOBIAP Blog',
     date: '2025-12-15',
-    desc: 'Разбираем, почему каждому сегменту бизнеса нужна своя платформа лояльности, какие механики реально работают и как не ошибиться с выбором решения.'
+    desc: 'Why every business segment needs its own loyalty platform, which mechanics actually work, and how to choose the right solution.'
   }
 ];

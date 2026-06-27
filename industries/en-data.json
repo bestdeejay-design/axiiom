@@ -1,0 +1,86 @@
+{
+  "fintech-saas": {
+    "title": "Fintech SaaS That Ships Fast and Stays Compliant",
+    "subtitle": "Custom fintech SaaS development: payment platforms, lending systems, compliance engine. SOC 2 & PCI DSS. Built for scale.",
+    "body": "<p>Building a fintech SaaS platform means juggling rapid feature delivery with regulatory compliance. Most development shops treat compliance as an afterthought — we bake SOC 2 Type II readiness and PCI DSS Level 1 into the architecture from day one. The result: shorter audit cycles and faster time-to-market, not the other way around.</p><p>We specialize in payment infrastructure, lending origination systems, and B2B embedded finance. Our team has delivered production platforms processing over $50M in transaction volume, with 99.99% uptime SLA. Every deployment runs through automated security scanning, penetration testing, and compliance validation before it touches production.</p><p>From seed-stage fintech startups to established financial institutions, we build platforms that pass due diligence from the first review.</p>",
+    "techs": [
+      "Python",
+      "Go",
+      "PostgreSQL",
+      "Kubernetes",
+      "AWS",
+      "Temporal"
+    ],
+    "cta": "Estimate your fintech project cost"
+  },
+  "real-estate": {
+    "title": "Real Estate Software That Moves Deals Faster",
+    "subtitle": "Custom real estate CRM, MLS platforms, property management software. Built for brokers, agents, and enterprise teams.",
+    "body": "<p>Real estate runs on relationships, listings, and speed. Yet most CRMs force agents into workflows designed for general sales teams — not for property transactions. We build platforms that map to actual real estate workflows: MLS integration, automated CMA generation, commission splitting, and document e-signing with audit trails.</p><p>Our real estate solutions handle the complexity of multi-brokerage data sharing, IDX/IXL compliance, and transaction management across multiple jurisdictions. We've delivered platforms that reduced average deal cycle time by 34% and automated 70% of back-office paperwork through intelligent document processing.</p><p>Whether you're a proptech startup or an enterprise brokerage, we build the software infrastructure to scale your operations.</p>",
+    "techs": [
+      "Python",
+      "React",
+      "PostgreSQL",
+      "Elasticsearch",
+      "AWS",
+      "DocuSign API"
+    ],
+    "cta": "Calculate your real estate platform build"
+  },
+  "healthcare": {
+    "title": "Healthcare Technology That Passes Audit",
+    "subtitle": "HIPAA-compliant healthcare software: EHR systems, telemedicine platforms, medical CRM, and patient portals.",
+    "body": "<p>Healthcare software carries the highest compliance bar of any industry. HIPAA, HITECH, and state privacy regulations aren't optional — and neither is usability. We build healthcare platforms that clinicians actually want to use, without cutting corners on data protection or regulatory compliance.</p><p>Our team has delivered EHR integrations, telemedicine platforms, and patient engagement systems for practices ranging from 5-person clinics to multi-state healthcare networks. Every solution includes BAA-ready architecture, audit logging, RBAC with fine-grained permissions, and automated HIPAA compliance reporting.</p><p>We don't just build to comply — we build to pass the first audit without findings.</p>",
+    "techs": [
+      "Python",
+      "React Native",
+      "PostgreSQL",
+      "FHIR",
+      "AWS HIPAA",
+      "Okta"
+    ],
+    "cta": "Plan your healthcare platform"
+  },
+  "logistics-supply-chain": {
+    "title": "Logistics Software That Cuts Costs and Delivers Visibility",
+    "subtitle": "Custom logistics software: TMS, WMS, route optimization, real-time tracking, and supply chain analytics.",
+    "body": "<p>Supply chains are only as strong as the software that runs them. Off-the-shelf TMS and WMS solutions force your operations into rigid workflows — custom development lets you build exactly what your logistics network needs. We create platforms that unify fleet management, warehouse operations, route optimization, and real-time customer tracking under one interface.</p><p>Our logistics solutions have helped companies reduce delivery costs by 22%, improve on-time performance to 98.5%, and automate 85% of manual dispatch workflows. We integrate with major carriers (UPS, FedEx, USPS), ELD mandates, and inventory systems to create a single source of truth for your supply chain operations.</p><p>From last-mile delivery startups to enterprise 3PL providers, we build logistics platforms that scale with your volume.</p>",
+    "techs": [
+      "Python",
+      "Go",
+      "PostgreSQL",
+      "Redis",
+      "AWS",
+      "Google Maps API"
+    ],
+    "cta": "Build your logistics platform"
+  },
+  "cybersecurity": {
+    "title": "Security Software Built by Engineers Who Think Like Attackers",
+    "subtitle": "Custom cybersecurity solutions: SIEM, SOAR, vulnerability management, compliance automation, and security analytics.",
+    "body": "<p>Building security software means understanding both the offense and the defense. Our team includes engineers with backgrounds in penetration testing, incident response, and security architecture who bring that adversarial mindset to every project. We build SIEM platforms, SOAR automation, vulnerability management systems, and compliance monitoring tools for security teams that need more than off-the-shelf solutions.</p><p>Every security product we build goes through internal red-teaming before delivery. We implement zero-trust architecture by default, encrypt data at rest and in transit, and build audit trails that satisfy SOC 2, FedRAMP, and ISO 27001 requirements. Our platforms typically process 50,000+ events per second with sub-second alert latency.</p><p>If you're building the next generation of security tools, we can help you ship faster without compromising on the security of your own product.</p>",
+    "techs": [
+      "Python",
+      "Rust",
+      "Go",
+      "ClickHouse",
+      "Kafka",
+      "AWS"
+    ],
+    "cta": "Discuss your security platform"
+  },
+  "hospitality": {
+    "title": "Hospitality Tech That Books More Rooms and Delights Guests",
+    "subtitle": "Custom hospitality software: hotel booking engines, PMS, channel management, and guest experience platforms.",
+    "body": "<p>The hospitality industry runs on margins measured in single digits. Every booking engine, every PMS integration, every channel management decision directly impacts revenue. We build hospitality platforms that optimize direct bookings, automate rate management across OTAs, and create guest experiences that drive repeat stays.</p><p>Our solutions include custom booking engines with dynamic pricing, PMS integrations with major providers (Oracle Opera, Mews, Cloudbeds), automated channel management, and guest-facing apps for check-in, room service, and concierge requests. We've helped hotels increase direct booking share from 22% to 47% and reduce front desk workload by 55% through self-service automation.</p><p>From boutique hotels to large hospitality groups, we build software that drives revenue per available room (RevPAR) and guest satisfaction scores.</p>",
+    "techs": [
+      "Python",
+      "React",
+      "PostgreSQL",
+      "Redis",
+      "AWS",
+      "Stripe"
+    ],
+    "cta": "Start your hospitality project"
+  }
+}

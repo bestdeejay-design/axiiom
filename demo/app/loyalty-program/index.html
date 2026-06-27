@@ -1,39 +1,40 @@
 <!doctype html>
-<html lang="ru" data-theme="dark">
+<html lang="en" data-theme="dark">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <meta name="theme-color" content="#0A0A0F">
-  <title>Программа лояльности — Демо-версия | AXIIOM</title>
-  <meta name="description" content="Демо white-label платформы лояльности: балльная система, уровни, кэшбэк, промокоды, push-уведомления. Интеграция с iiko и r_keeper.">
-  <link rel="canonical" href="https://axiiom.ru/demo/app/loyalty-program/">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <title>Loyalty Program — Points Engine Demo | MOBIAP</title>
+  <meta name="description" content="Loyalty program demo: points accrual, tiered rewards, cashback engine, and partner integrations.">
+  <link rel="canonical" href="https://mobiap.com/demo/app/loyalty-program/">
 
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://axiiom.ru/demo/app/loyalty-program/">
-  <meta property="og:title" content="Программа лояльности — Демо | AXIIOM">
-  <meta property="og:description" content="Демо white-label платформы лояльности: балльная система, уровни, кэшбэк, промокоды, push-уведомления. Интеграция с iiko и r_keeper.">
-  <meta property="og:image" content="https://axiiom.ru/og-image.png">
+  <meta property="og:url" content="https://mobiap.com/demo/app/loyalty-program/">
+  <meta property="og:title" content="Loyalty Program — Demo | MOBIAP">
+  <meta property="og:description" content="Loyalty program demo: points accrual, tiered rewards, cashback engine, and partner integrations.">
+  <meta property="og:image" content="https://mobiap.com/og-image.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
-  <meta property="og:locale" content="ru_RU">
+  <meta property="og:locale" content="en_US">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:url" content="https://axiiom.ru/demo/app/loyalty-program/">
-  <meta name="twitter:title" content="Программа лояльности — Демо | AXIIOM">
-  <meta name="twitter:description" content="Демо white-label платформы лояльности: балльная система, уровни, кэшбэк, промокоды, push-уведомления. Интеграция с iiko и r_keeper.">
-  <meta name="twitter:image" content="https://axiiom.ru/og-image.png">
+  <meta name="twitter:url" content="https://mobiap.com/demo/app/loyalty-program/">
+  <meta name="twitter:title" content="Loyalty Program — Demo | MOBIAP">
+  <meta name="twitter:description" content="Loyalty program demo: points accrual, tiered rewards, cashback engine, and partner integrations.">
+  <meta name="twitter:image" content="https://mobiap.com/og-image.png">
 
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "SoftwareApplication",
-    "name": "Программа лояльности — AXIIOM Demo",
-    "description": "Демо white-label платформы лояльности: балльная система, уровни, кэшбэк, промокоды, push-уведомления. Интеграция с iiko и r_keeper.",
-    "url": "https://axiiom.ru/demo/app/loyalty-program/",
+    "name": "Loyalty Program — MOBIAP Demo",
+    "description": "Loyalty program demo: points accrual, tiered rewards, cashback engine, and partner integrations.",
+    "url": "https://mobiap.com/demo/app/loyalty-program/",
     "applicationCategory": "BusinessApplication",
     "operatingSystem": "Web",
     "author": {
       "@type": "Organization",
-      "name": "AXIIOM"
+      "name": "Loyalty Program — MOBIAP Demo"
     },
     "offers": {
       "@type": "Offer",
@@ -82,15 +83,8 @@
       display: inline-block; padding: 4px 14px; border: 1px solid var(--clr-border);
       border-radius: 20px; font-size: 12px; color: var(--clr-muted);
     }
-    .demo-nav-back {
-      position: fixed; top: 12px; left: 16px; z-index: 99999;
-      display: inline-flex; align-items: center; gap: 6px;
-      padding: 8px 16px; background: rgba(10,10,15,.9);
-      color: #C7C7CC; border: 1px solid rgba(255,255,255,.08);
-      border-radius: 20px; text-decoration: none;
-      font-family: Inter,sans-serif; font-size: 13px; transition: all .2s;
-    }
-    .demo-nav-back:hover { background: rgba(10,10,15,1); color: #F5F5F7; }
+
+
     @media (max-width: 768px) {
       .demo-page-hero { min-height: 50vh; padding-top: 80px; }
       .feature-grid { grid-template-columns: 1fr; }
@@ -100,8 +94,7 @@
 </head>
 <body>
 <div id="preloader">
-<script>(function(){var p=document.getElementById('preloader');if(!p)return;if(sessionStorage.getItem('_seen')){p.style.display='none';return}sessionStorage.setItem('_seen','1');var t=Date.now();p._start=t;setTimeout(function(){p.classList.add('_rdy')},500);window.addEventListener('load',function(){var e=Date.now()-t;if(e<2000){setTimeout(function(){p.classList.add('hidden');setTimeout(function(){p.classList.add('hidden-done')},500)},2000-e)}else{p.classList.add('hidden');setTimeout(function(){p.classList.add('hidden-done')},500)}})})()</script>
-  <svg class="preloader-svg" viewBox="0 0 36 36" width="80" height="80">
+<svg class="preloader-svg" viewBox="0 0 36 36" width="80" height="80">
     <rect class="pr1" x="2" y="2" width="14" height="14" rx="2"/>
     <rect class="pr2" x="20" y="2" width="14" height="14" rx="2"/>
     <rect class="pr3" x="2" y="20" width="14" height="14" rx="2"/>
@@ -113,43 +106,20 @@
 <div class="noise"></div>
 <div class="grid-overlay"></div>
 
-<header class="header" id="header">
-  <div class="container">
-    <nav class="nav">
-      <a href="/" class="logo">
-        <svg width="30" height="30" viewBox="0 0 36 36" fill="none">
-          <rect x="2" y="2" width="14" height="14" rx="2" stroke="currentColor" stroke-width="1.5" opacity=".4"/>
-          <rect x="20" y="2" width="14" height="14" rx="2" stroke="currentColor" stroke-width="1.5" opacity=".4"/>
-          <rect x="2" y="20" width="14" height="14" rx="2" stroke="currentColor" stroke-width="1.5" opacity=".4"/>
-          <rect x="20" y="20" width="14" height="14" rx="2" stroke="currentColor" stroke-width="1.5"/>
-          <circle cx="27" cy="27" r="3" fill="currentColor" opacity=".8"/>
-        </svg>
-        <span>AXIIOM</span>
-      </a>
-      <ul class="nav-links nav-links--desktop" id="desktopNav"></ul>
-      <div class="nav-actions">
-        <a href="/#contact" class="btn btn-nav">Обсудить проект</a>
-        <button class="theme-btn" id="themeToggle" aria-label="Сменить тему">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>
-        </button>
-        <button class="nav-toggle" id="navToggle" aria-label="Меню"><span></span><span></span><span></span></button>
-      </div>
-    </nav>
-  </div>
-</header>
 
-<div class="nav-overlay" id="navOverlay"><ul class="nav-links" id="mobileNav"></ul></div>
+<div id="header-mount"></div>
+
 <nav class="breadcrumbs" id="breadcrumbs" aria-label="Breadcrumb"><div class="container"></div></nav>
 
-<a href="/demo/app/" class="demo-nav-back">← Все демо AXIIOM</a>
+
 
 <section class="demo-page-hero">
   <div class="hero-bg-svg" aria-hidden="true"><svg width="800" height="600" viewBox="0 0 800 600" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="400" cy="300" r="280" stroke="rgba(255,255,255,0.05)" stroke-width="2"/><circle cx="400" cy="300" r="200" stroke="rgba(255,255,255,0.06)" stroke-width="2"/><circle cx="400" cy="300" r="120" stroke="rgba(255,255,255,0.08)" stroke-width="2"/><line x1="50" y1="300" x2="750" y2="300" stroke="rgba(255,255,255,0.05)" stroke-width="2"/><line x1="400" y1="20" x2="400" y2="580" stroke="rgba(255,255,255,0.05)" stroke-width="2"/><path d="M200 300 L400 100 L600 300 L400 500 Z" stroke="rgba(255,255,255,0.06)" stroke-width="2" fill="none"/><circle cx="400" cy="300" r="4" fill="rgba(255,255,255,0.15)"/></svg></div>
   <div class="container">
     <div class="hero-content">
-      <p class="badge">AXIIOM Demo</p>
-      <h1>Программа лояльности</h1>
-      <p class="hero-desc">White-label платформа лояльности LOVII: баллы, уровни, кэшбэк, промокоды и геймификация. Готовая экосистема для любого бизнеса.</p>
+      <p class="badge">MOBIAP Demo</p>
+      <h1>Loyalty Program</h1>
+      <p class="hero-desc">Points-based loyalty program with tiered rewards, cashback engine, and partner integrations. Drive retention and repeat purchases.</p>
       <div class="tag-list" style="justify-content:center;">
         <span class="tag-item">React</span>
         <span class="tag-item">Node.js</span>
@@ -163,18 +133,18 @@
 
 <section class="section">
   <div class="container">
-    <p class="label">Интерактивное демо</p>
-    <h2>Попробуйте прямо сейчас</h2>
+    <p class="label">Interactive Demo</p>
+    <h2>Try it now</h2>
     <div class="dw">
-  <h3 class="dw-t">🏆 Программа лояльности</h3>
+  <h3 class="dw-t">🏆 Loyalty Program</h3>
   <div style="display:flex;gap:8px;margin-bottom:14px">
-    <div class="loy-t" data-l="silver"><div style="font-size:20px">🥈</div><div style="font-size:12px;font-weight:600;color:var(--clr-heading);margin-top:2px">Silver</div><div style="font-size:10px;color:var(--clr-muted)">0 баллов</div></div>
-    <div class="loy-t" data-l="gold"><div style="font-size:20px">🥇</div><div style="font-size:12px;font-weight:600;color:var(--clr-heading);margin-top:2px">Gold</div><div style="font-size:10px;color:var(--clr-muted)">от 1 000</div></div>
-    <div class="loy-t" data-l="platinum"><div style="font-size:20px">💎</div><div style="font-size:12px;font-weight:600;color:var(--clr-heading);margin-top:2px">Platinum</div><div style="font-size:10px;color:var(--clr-muted)">от 3 000</div></div>
+    <div class="loy-t" data-l="silver"><div style="font-size:20px">🥈</div><div style="font-size:12px;font-weight:600;color:var(--clr-heading);margin-top:2px">Silver</div><div style="font-size:10px;color:var(--clr-muted)">0 points</div></div>
+    <div class="loy-t" data-l="gold"><div style="font-size:20px">🥇</div><div style="font-size:12px;font-weight:600;color:var(--clr-heading);margin-top:2px">Gold</div><div style="font-size:10px;color:var(--clr-muted)">from 1,000</div></div>
+    <div class="loy-t" data-l="platinum"><div style="font-size:20px">💎</div><div style="font-size:12px;font-weight:600;color:var(--clr-heading);margin-top:2px">Platinum</div><div style="font-size:10px;color:var(--clr-muted)">from 3,000</div></div>
   </div>
   <div style="padding:14px;background:var(--clr-bg);border:1px solid var(--clr-border);border-radius:12px;margin-bottom:12px">
     <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px">
-      <span style="font-size:13px;font-weight:500;color:var(--clr-text)">👤 Клиент: <span id="loy-name">Анна С.</span></span>
+      <span style="font-size:13px;font-weight:500;color:var(--clr-text)">👤 Client: <span id="loy-name">Anna S.</span></span>
       <span id="loy-bal" style="font-size:24px;font-weight:700;color:var(--clr-heading);font-variant-numeric:tabular-nums">2 450</span>
     </div>
     <div style="height:6px;background:var(--clr-surface);border-radius:3px;overflow:hidden;margin-bottom:4px"><div id="loy-bar" style="height:100%;width:45%;background:linear-gradient(90deg,var(--clr-accent),#f6d365);border-radius:3px;transition:width .5s"></div></div>
@@ -182,23 +152,23 @@
   </div>
   <div id="loy-b" style="display:flex;flex-direction:column;gap:5px;margin-bottom:12px"></div>
   <div style="display:flex;gap:6px;margin-bottom:12px">
-    <button class="dw-btn" id="loy-earn">💳 Покупка 5 000 ₽</button>
-    <button class="dw-btn dw-btn-o" id="loy-redeem">🎁 Списать</button>
+    <button class="dw-btn" id="loy-earn">💳 Purchase $5 000 </button>
+    <button class="dw-btn dw-btn-o" id="loy-redeem">🎁 Redeem</button>
   </div>
-  <div id="loy-r" style="display:none;margin-bottom:12px"><div style="font-size:13px;font-weight:600;color:var(--clr-heading);margin-bottom:8px">Выберите вознаграждение:</div><div id="loy-shop" style="display:flex;flex-direction:column;gap:6px"></div></div>
-  <div style="margin-bottom:12px"><div style="font-size:13px;font-weight:600;color:var(--clr-heading);margin-bottom:8px">📊 Статистика программы</div><div style="display:flex;gap:8px"><div style="flex:1;text-align:center;padding:10px 6px;background:var(--clr-bg);border:1px solid var(--clr-border);border-radius:10px"><div id="loy-mem" style="font-size:20px;font-weight:700;color:var(--clr-heading)">256</div><div style="font-size:10px;color:var(--clr-muted)">участников</div></div><div style="flex:1;text-align:center;padding:10px 6px;background:var(--clr-bg);border:1px solid var(--clr-border);border-radius:10px"><div id="loy-pts" style="font-size:20px;font-weight:700;color:var(--clr-heading)">15.4K</div><div style="font-size:10px;color:var(--clr-muted)">баллов выдано</div></div><div style="flex:1;text-align:center;padding:10px 6px;background:var(--clr-bg);border:1px solid var(--clr-border);border-radius:10px"><div id="loy-red" style="font-size:20px;font-weight:700;color:var(--clr-heading)">89</div><div style="font-size:10px;color:var(--clr-muted)">списаний</div></div></div></div>
-  <div><div style="font-size:13px;font-weight:600;color:var(--clr-heading);margin-bottom:8px">📢 Активные кампании</div><div id="loy-camps" style="display:flex;flex-direction:column;gap:6px;margin-bottom:8px"><div class="loy-camp"><span style="font-size:16px">🔥</span><span style="flex:1;font-size:13px;color:var(--clr-text)">Двойные баллы на всё</span><span style="font-size:11px;color:var(--clr-accent);font-weight:600">до 30 июня</span></div></div><button class="dw-btn-sm" id="loy-add">+ Создать кампанию</button></div>
+  <div id="loy-r" style="display:none;margin-bottom:12px"><div style="font-size:13px;font-weight:600;color:var(--clr-heading);margin-bottom:8px">Choose reward:</div><div id="loy-shop" style="display:flex;flex-direction:column;gap:6px"></div></div>
+  <div style="margin-bottom:12px"><div style="font-size:13px;font-weight:600;color:var(--clr-heading);margin-bottom:8px">📊 Program Stats</div><div style="display:flex;gap:8px"><div style="flex:1;text-align:center;padding:10px 6px;background:var(--clr-bg);border:1px solid var(--clr-border);border-radius:10px"><div id="loy-mem" style="font-size:20px;font-weight:700;color:var(--clr-heading)">256</div><div style="font-size:10px;color:var(--clr-muted)">participants</div></div><div style="flex:1;text-align:center;padding:10px 6px;background:var(--clr-bg);border:1px solid var(--clr-border);border-radius:10px"><div id="loy-pts" style="font-size:20px;font-weight:700;color:var(--clr-heading)">15.4K</div><div style="font-size:10px;color:var(--clr-muted)">points issued</div></div><div style="flex:1;text-align:center;padding:10px 6px;background:var(--clr-bg);border:1px solid var(--clr-border);border-radius:10px"><div id="loy-red" style="font-size:20px;font-weight:700;color:var(--clr-heading)">89</div><div style="font-size:10px;color:var(--clr-muted)">redemptions</div></div></div></div>
+  <div><div style="font-size:13px;font-weight:600;color:var(--clr-heading);margin-bottom:8px">📢 Active Campaigns</div><div id="loy-camps" style="display:flex;flex-direction:column;gap:6px;margin-bottom:8px"><div class="loy-camp"><span style="font-size:16px">🔥</span><span style="flex:1;font-size:13px;color:var(--clr-text)">Double Points on Everything</span><span style="font-size:11px;color:var(--clr-accent);font-weight:600">until June 30</span></div></div><button class="dw-btn-sm" id="loy-add">+ Create Campaign</button></div>
   <div id="loy-msg" style="display:none;margin-top:12px;padding:10px 14px;border-radius:10px;font-size:13px;font-weight:500"></div>
 </div>
 <style>.dw{margin:12px 0;background:var(--clr-surface);border:1px solid var(--clr-border);border-radius:16px;padding:24px}.dw-t{font-size:16px;font-weight:600;margin:0 0 16px;color:var(--clr-heading)}.dw-btn{padding:10px;border:none;border-radius:10px;font-size:13px;font-weight:600;cursor:pointer;transition:opacity .2s;flex:1}.dw-btn:hover{opacity:.85}.dw-btn-o{background:var(--clr-bg);border:1px solid var(--clr-border);color:var(--clr-text)}.dw-btn-sm{padding:8px 14px;background:none;border:1px dashed var(--clr-border);border-radius:8px;color:var(--clr-text);font-size:12px;font-weight:500;cursor:pointer;transition:all .2s;width:100%}.dw-btn-sm:hover{border-color:var(--clr-accent);color:var(--clr-accent)}.loy-t{flex:1;text-align:center;padding:8px 4px;border:2px solid var(--clr-border);border-radius:12px;transition:all .4s;cursor:default}.loy-t.active{background:var(--clr-accent)12;border-color:var(--clr-accent)}.loy-camp{display:flex;align-items:center;gap:8px;padding:8px 12px;background:var(--clr-bg);border:1px solid var(--clr-border);border-radius:8px}.loy-shop-item{display:flex;align-items:center;gap:10px;padding:10px 12px;background:var(--clr-surface);border:1px solid var(--clr-border);border-radius:8px;cursor:pointer;transition:all .15s}.loy-shop-item:hover{border-color:var(--clr-accent);background:var(--clr-accent)06}.loy-shop-item:active{transform:scale(.98)}@keyframes fIn{from{opacity:0;transform:translateY(4px)}to{opacity:1;transform:translateY(0)}}@media(min-width:768px){.dw{max-width:480px;margin-left:auto;margin-right:auto}}</style>
-<script>(function(){var bal=2450,mem=256,pts=15400,red=89,balEl=document.getElementById('loy-bal'),bar=document.getElementById('loy-bar'),levelEl=document.getElementById('loy-level'),nextEl=document.getElementById('loy-next'),bEl=document.getElementById('loy-b'),msg=document.getElementById('loy-msg'),rEl=document.getElementById('loy-r'),shop=document.getElementById('loy-shop'),memEl=document.getElementById('loy-mem'),ptsEl=document.getElementById('loy-pts'),redEl=document.getElementById('loy-red'),campEl=document.getElementById('loy-camps'),cards=document.querySelectorAll('.loy-t'),lvls=[{n:'Silver',m:0,b:[{i:'🎁',t:'Приветственный бонус 100 баллов'}]},{n:'Gold',m:1000,b:[{i:'💰',t:'Кешбэк 5% баллами'},{i:'🚚',t:'Бесплатная доставка'}]},{n:'Platinum',m:3000,b:[{i:'💰',t:'Кешбэк 10% баллами'},{i:'🚚',t:'Бесплатная доставка'},{i:'🎂',t:'Бонус в день рождения 500 баллов'},{i:'⭐',t:'Персональный менеджер'}]}],rw=[{e:'Скидка 10%',p:500,i:'🏷️'},{e:'Бесплатная доставка',p:300,i:'🚚'},{e:'Подарок при заказе',p:800,i:'🎁'}],camps=['Двойные баллы на всё'];function fmt(n){return n.toLocaleString('ru')}function upd(){var cu=lvls.filter(function(l){return bal>=l.m}),cl=cu[cu.length-1];cards.forEach(function(c){c.classList.toggle('active',c.dataset.l===cl.n.toLowerCase())});levelEl.textContent=cl.n;var nx=lvls.filter(function(l){return l.m>bal});if(nx.length){nextEl.textContent=nx[0].n+' ('+fmt(nx[0].m-bal)+' баллов)'}else{nextEl.textContent='Максимальный уровень'}bar.style.width=Math.min(100,(bal-(cl.m||0))/((nx.length?nx[0].m:bal)-cl.m)*100)+'%';bEl.innerHTML='';cl.b.forEach(function(b){var e=document.createElement('div');e.style.cssText='display:flex;align-items:center;gap:8px;padding:7px 10px;background:var(--clr-surface);border:1px solid var(--clr-border);border-radius:8px;font-size:12px;color:var(--clr-text);animation:fIn .25s';e.innerHTML='<span>'+b.i+'</span><span>'+b.t+'</span>';bEl.appendChild(e)});memEl.textContent=fmt(mem);ptsEl.textContent=pts>=1000?fmt(Math.round(pts/100)/10)+'K':fmt(pts);redEl.textContent=fmt(red)}function rebuildShop(){shop.innerHTML='';rw.forEach(function(r,i){var e=document.createElement('div');e.className='loy-shop-item';e.innerHTML='<span style="font-size:18px">'+r.i+'</span><span style="flex:1;font-size:13px;color:var(--clr-text)">'+r.e+'</span><span style="font-size:12px;font-weight:600;color:var(--clr-muted)">'+fmt(r.p)+' баллов</span>';e.addEventListener('click',function(){if(bal<r.p){msg.style.display='block';msg.style.background='#e1705514';msg.style.border='1px solid #e1705544';msg.style.color='#e17055';msg.textContent='Недостаточно баллов';return}bal-=r.p;red++;balEl.textContent=fmt(bal);redEl.textContent=fmt(red);upd();rEl.style.display='none';msg.style.display='block';msg.style.background='#00b89414';msg.style.border='1px solid #00b89444';msg.style.color='#00b894';msg.textContent='🎉 '+r.e+' — баллы списаны'});shop.appendChild(e)})}document.getElementById('loy-earn').addEventListener('click',function(){msg.style.display='none';bal+=100;pts+=100;balEl.textContent=fmt(bal);ptsEl.textContent=pts>=1000?fmt(Math.round(pts/100)/10)+'K':fmt(pts);upd();msg.style.display='block';msg.style.background='#00b89414';msg.style.border='1px solid #00b89444';msg.style.color='#00b894';msg.textContent='+100 баллов за покупку 5 000 ₽'});document.getElementById('loy-redeem').addEventListener('click',function(){rebuildShop();rEl.style.display=rEl.style.display==='none'?'block':'none'});document.getElementById('loy-add').addEventListener('click',function(){var names=['🔥 Кешбэк удвоен','🎂 День рождения — баллы x3','⚡ Flash sale: +200 баллов','💎 Platinum early access','🏆 Конкурс: 2x баллы'];var n=names[Math.floor(Math.random()*names.length)];if(camps.indexOf(n)>-1)names=n;var el=document.createElement('div');el.className='loy-camp';el.style.animation='fIn .3s';el.innerHTML='<span style="font-size:16px">'+n.split(' ')[0]+'</span><span style="flex:1;font-size:13px;color:var(--clr-text)">'+n.split(' ').slice(1).join(' ')+'</span><span style="font-size:11px;color:var(--clr-accent);font-weight:600">с '+new Date().toLocaleDateString('ru-RU',{day:'numeric',month:'long'})+'</span>';campEl.appendChild(el);camps.push(n);mem++;memEl.textContent=fmt(mem)});upd()})();</script>
+<script>(function(){var bal=2450,mem=256,pts=15400,red=89,balEl=document.getElementById('loy-bal'),bar=document.getElementById('loy-bar'),levelEl=document.getElementById('loy-level'),nextEl=document.getElementById('loy-next'),bEl=document.getElementById('loy-b'),msg=document.getElementById('loy-msg'),rEl=document.getElementById('loy-r'),shop=document.getElementById('loy-shop'),memEl=document.getElementById('loy-mem'),ptsEl=document.getElementById('loy-pts'),redEl=document.getElementById('loy-red'),campEl=document.getElementById('loy-camps'),cards=document.querySelectorAll('.loy-t'),lvls=[{n:'Silver',m:0,b:[{i:'🎁',t:'Hiственный бонус 100 points'}]},{n:'Gold',m:1000,b:[{i:'💰',t:'Cashback 5% баллами'},{i:'🚚',t:'Бесплатная доставка'}]},{n:'Platinum',m:3000,b:[{i:'💰',t:'Cashback 10% баллами'},{i:'🚚',t:'Бесплатная доставка'},{i:'🎂',t:'Бонус в день рождения 500 points'},{i:'⭐',t:'Персональный менеджер'}]}],rw=[{e:'Скидка 10%',p:500,i:'🏷️'},{e:'Бесплатная доставка',p:300,i:'🚚'},{e:'Подарок при заказе',p:800,i:'🎁'}],camps=['Double Points on Everything'];function fmt(n){return n.toLocaleString('en-US')}function upd(){var cu=lvls.filter(function(l){return bal>=l.m}),cl=cu[cu.length-1];cards.forEach(function(c){c.classList.toggle('active',c.dataset.l===cl.n.toLowerCase())});levelEl.textContent=cl.n;var nx=lvls.filter(function(l){return l.m>bal});if(nx.length){nextEl.textContent=nx[0].n+' ('+fmt(nx[0].m-bal)+' баллов)'}else{nextEl.textContent='Максимальный уровень'}bar.style.width=Math.min(100,(bal-(cl.m||0))/((nx.length?nx[0].m:bal)-cl.m)*100)+'%';bEl.innerHTML='';cl.b.forEach(function(b){var e=document.createElement('div');e.style.cssText='display:flex;align-items:center;gap:8px;padding:7px 10px;background:var(--clr-surface);border:1px solid var(--clr-border);border-radius:8px;font-size:12px;color:var(--clr-text);animation:fIn .25s';e.innerHTML='<span>'+b.i+'</span><span>'+b.t+'</span>';bEl.appendChild(e)});memEl.textContent=fmt(mem);ptsEl.textContent=pts>=1000?fmt(Math.round(pts/100)/10)+'K':fmt(pts);redEl.textContent=fmt(red)}function rebuildShop(){shop.innerHTML='';rw.forEach(function(r,i){var e=document.createElement('div');e.className='loy-shop-item';e.innerHTML='<span style="font-size:18px">'+r.i+'</span><span style="flex:1;font-size:13px;color:var(--clr-text)">'+r.e+'</span><span style="font-size:12px;font-weight:600;color:var(--clr-muted)">'+fmt(r.p)+' баллов</span>';e.addEventListener('click',function(){if(bal<r.p){msg.style.display='block';msg.style.background='#e1705514';msg.style.border='1px solid #e1705544';msg.style.color='#e17055';msg.textContent='Недостаточно баллов';return}bal-=r.p;red++;balEl.textContent=fmt(bal);redEl.textContent=fmt(red);upd();rEl.style.display='none';msg.style.display='block';msg.style.background='#00b89414';msg.style.border='1px solid #00b89444';msg.style.color='#00b894';msg.textContent='🎉 '+r.e+' — баллы списаны'});shop.appendChild(e)})}document.getElementById('loy-earn').addEventListener('click',function(){msg.style.display='none';bal+=100;pts+=100;balEl.textContent=fmt(bal);ptsEl.textContent=pts>=1000?fmt(Math.round(pts/100)/10)+'K':fmt(pts);upd();msg.style.display='block';msg.style.background='#00b89414';msg.style.border='1px solid #00b89444';msg.style.color='#00b894';msg.textContent='+100 points за покупку $5 000 '});document.getElementById('loy-redeem').addEventListener('click',function(){rebuildShop();rEl.style.display=rEl.style.display==='none'?'block':'none'});document.getElementById('loy-add').addEventListener('click',function(){var names=['🔥 Cashback удвоен','🎂 День рождения — баллы x3','⚡ Flash sale: +200 points','💎 Platinum early access','🏆 Конкурс: 2x баллы'];var n=names[Math.floor(Math.random()*names.length)];if(camps.indexOf(n)>-1)names=n;var el=document.createElement('div');el.className='loy-camp';el.style.animation='fIn .3s';el.innerHTML='<span style="font-size:16px">'+n.split(' ')[0]+'</span><span style="flex:1;font-size:13px;color:var(--clr-text)">'+n.split(' ').slice(1).join(' ')+'</span><span style="font-size:11px;color:var(--clr-accent);font-weight:600">с '+new Date().toLocaleDateString('ru-RU',{day:'numeric',month:'long'})+'</span>';campEl.appendChild(el);camps.push(n);mem++;memEl.textContent=fmt(mem)});upd()})();</script>
   </div>
 </section>
 
 <section class="section">
   <div class="container">
-    <p class="label">Пример кода</p>
-    <h2>Интеграция за 5 минут</h2>
+    <p class="label">Code Example</p>
+    <h2>5-Minute Integration</h2>
     <div class="code-block"><code>// Начисление баллов
 await loyalty.accruePoints({
   userId: 'user_456',
@@ -221,32 +191,32 @@ const promo = await loyalty.applyPromo({
 
 <section class="section dark">
   <div class="container">
-    <p class="label">Возможности</p>
-    <h2>Ключевые функции</h2>
+    <p class="label">Features</p>
+    <h2>Key Features</h2>
     <div class="feature-grid">
       <div class="feature-item">
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fd79a8" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
-        <span>Балльно-бонусная система с уровнями</span>
+        <span>Tiered Points System</span>
       </div>
       <div class="feature-item">
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fd79a8" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
-        <span>Промокоды и персональные офферы</span>
+        <span>Promo Codes & Personal Offers</span>
       </div>
       <div class="feature-item">
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fd79a8" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
-        <span>Push и Email-уведомления</span>
+        <span>Push & Email Notifications</span>
       </div>
       <div class="feature-item">
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fd79a8" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
-        <span>Интеграция с iiko, r_keeper, 1С</span>
+        <span>Integration with iiko, r_keeper, 1C</span>
       </div>
       <div class="feature-item">
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fd79a8" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
-        <span>Аналитика LTV и когорт</span>
+        <span>LTV & Cohort Analytics</span>
       </div>
       <div class="feature-item">
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fd79a8" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
-        <span>White Label под ваш бренд</span>
+        <span>White Label for Your Brand</span>
       </div>
     </div>
   </div>
@@ -255,11 +225,11 @@ const promo = await loyalty.applyPromo({
 <section class="section cta-section">
   <div class="container">
     <div class="glass-card" style="padding:48px 32px;text-align:center;border-radius:24px;">
-      <h2 style="margin-bottom:16px;">Хотите такое решение?</h2>
-      <p style="color:var(--clr-text);margin-bottom:24px;max-width:480px;margin-left:auto;margin-right:auto;">Обсудим ваш проект, покажем демо и рассчитаем стоимость.</p>
+      <h2 style="margin-bottom:16px;">Want a similar solution?</h2>
+      <p style="color:var(--clr-text);margin-bottom:24px;max-width:480px;margin-left:auto;margin-right:auto;">Let's discuss your project, show a demo, and estimate the cost.</p>
       <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap;">
-        <a href="mailto:hello@axiiom.ru" class="btn">hello@axiiom.ru</a>
-        <a href="tel:+78129287478" class="btn btn-outline">+7 (812) 928-74-78</a>
+        <a href="mailto:hello@mobiap.com" class="btn">hello@mobiap.com</a>
+        <a href="tel:+13020000000" class="btn btn-outline">+1 (302) 000-0000</a>
       </div>
     </div>
   </div>
@@ -273,10 +243,6 @@ const promo = await loyalty.applyPromo({
 
 <script>
 var header = document.getElementById('header');
-window.addEventListener('scroll', function() {
-  header.classList.toggle('scrolled', window.scrollY > 40);
-}, { passive: true });
-
 var reveals = document.querySelectorAll('.reveal');
 var ro = new IntersectionObserver(function(e) {
   e.forEach(function(entry) {
@@ -292,24 +258,8 @@ reveals.forEach(function(r) { ro.observe(r); });
 <script src="/theme.js"></script>
 <script src="/preloader.js"></script>
 
-<script>
-(function() {
-  var t = document.getElementById('navToggle');
-  var o = document.getElementById('navOverlay');
-  if (!t || !o) return;
-  t.addEventListener('click', function(e) {
-    e.stopPropagation();
-    o.classList.toggle('open');
-    t.classList.toggle('active');
-    document.body.style.overflow = o.classList.contains('open') ? 'hidden' : '';
-  });
-})();
-</script>
-
-<!-- Yandex.Metrika counter -->
-<script type="text/javascript">(function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};m[i].l=1*new Date();for(var j=0;j<document.scripts.length;j++){if(document.scripts[j].src===r){return}}k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})(window,document,"script","https://mc.yandex.ru/metrika/tag.js?id=109391253","ym");ym(109391253,"init",{clickmap:true,trackLinks:true,accurateTrackBounce:true});</script>
-<noscript><div><img src="https://mc.yandex.ru/watch/109391253" style="position:absolute;left:-9999px" alt=""></div></noscript>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-HFS4BDGTV4"></script>
 <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-HFS4BDGTV4');</script>
+<script src="/footer.js"></script>
 </body>
 </html>

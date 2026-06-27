@@ -1,16 +1,16 @@
 var TOOLS = [
-  { name: 'Счётчик символов', path: 'char-counter/' },
-  { name: 'Генератор паролей', path: 'password-gen/' },
-  { name: 'Транслитератор', path: 'translit/' },
+  { name: 'Char Counter', path: 'char-counter/' },
+  { name: 'Password Generator', path: 'password-gen/' },
+  { name: 'Transliterator', path: 'translit/' },
   { name: 'Base64', path: 'base64/' },
   { name: 'URL Encode', path: 'url-encode/' },
   { name: 'Lorem Ipsum', path: 'lorem-ipsum/' },
   { name: 'Color Picker', path: 'color-picker/' },
-  { name: 'Конвертер валют', path: 'currency/' },
-  { name: 'Калькулятор дат', path: 'date-calc/' },
-  { name: 'Конвертер единиц', path: 'unit-converter/' },
-  { name: 'SEO Сниппет', path: 'snippet-gen/' },
-  { name: 'Чек-листы', path: 'checklist/' }
+  { name: 'Currency Converter', path: 'currency/' },
+  { name: 'Date Calculator', path: 'date-calc/' },
+  { name: 'Unit Converter', path: 'unit-converter/' },
+  { name: 'SEO Snippet', path: 'snippet-gen/' },
+  { name: 'Checklists', path: 'checklist/' }
 ];
 
 function initToolsNav(currentPath) {
@@ -23,7 +23,7 @@ function initToolsNav(currentPath) {
 
   if (mobileNav) {
     var extraLinks = [
-      { name: 'На главную axiiom.ru', href: '/' },
+      { name: 'На главную mobiap.com', href: '/' },
       { name: 'Все инструменты', href: '/tools/' }
     ];
     extraLinks.forEach(function(e) {

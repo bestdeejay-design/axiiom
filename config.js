@@ -1,35 +1,21 @@
-window.AXIIOM_CONFIG = {
+window.MOBIAP_CONFIG = {
   company: {
-    name: 'AXIIOM',
-    nameRu: 'ООО Аксиома',
-    nameRuQuoted: 'ООО «Аксиома»',
-    shortName: 'Аксиома',
-    domain: 'axiiom.ru',
-    siteUrl: 'https://axiiom.ru/',
-    ogImage: 'https://axiiom.ru/og-image.png',
-    foundingYear: 2004,
+    name: 'MOBIAP',
+    shortName: 'MOBIAP',
+    domain: 'mobiap.com',
+    siteUrl: 'https://mobiap.com/',
+    ogImage: 'https://mobiap.com/og-image.png',
+    foundingYear: 2024,
     copyrightStart: 2024
   },
   contact: {
-    email: 'hello@axiiom.ru',
-    phone: '+7 (812) 928-74-78',
-    phoneLink: '+78129287478',
-    telegram: 'https://t.me/axiiom'
+    email: 'hello@mobiap.com',
+    phone: '+1 (302) 000-0000',
+    phoneLink: '+13020000000'
   },
-  address: {
-    spb: 'Санкт-Петербург, Большой В.О. пр-кт, 83А, офис 329',
-    msk: 'Москва, ул. Перерва, д. 16, пом. 16П'
-  },
-  legal: {
-    inn: '7842223709',
-    ogrn: '1247800067690',
-    okved: '62.01 — Разработка компьютерного программного обеспечения',
-    bank: 'АО БАНК «ПСКБ»',
-    account: 'р/с 40702810200000906387',
-    bik: '044030852'
-  },
+  address: {},
+  legal: {},
   analytics: {
-    yandexMetrika: '109391253',
     googleAnalytics: 'G-HFS4BDGTV4'
   }
 };
