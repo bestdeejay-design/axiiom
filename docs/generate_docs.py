@@ -142,6 +142,30 @@ DOCS = [
         "source": "airport_restaurants_tz.txt",
         "tags": ["foodtech", "airport", "PWA", "iiko", "delivery"],
     },
+    {
+        "slug": "lovii-loyalty-constructor",
+        "title": "LOVII — Конструктор лояльности для малого бизнеса",
+        "desc": "Пакет документации для реализации ИИ-агентами: 18 механик роста среднего чека и удержания (порог чека, кэшбэк, штампы, счастливые часы, купоны, win-back…), движок правил, JSON Schema, OpenAPI, SQL, golden-тесты и интерактивный прототип.",
+        "category": "Проектная документация",
+        "type": "md-pack",
+        "source": "lovii-loyalty-constructor/README.md",
+        "sources": [
+            "lovii-loyalty-constructor/README.md",
+            "lovii-loyalty-constructor/01-product-overview.md",
+            "lovii-loyalty-constructor/02-mechanics-catalog.md",
+            "lovii-loyalty-constructor/03-rules-engine.md",
+            "lovii-loyalty-constructor/04-data-model.md",
+            "lovii-loyalty-constructor/05-api.md",
+            "lovii-loyalty-constructor/06-ui-spec.md",
+            "lovii-loyalty-constructor/07-analytics-kpi.md",
+            "lovii-loyalty-constructor/08-integrations.md",
+            "lovii-loyalty-constructor/09-nfr-security-compliance.md",
+            "lovii-loyalty-constructor/10-implementation-plan.md",
+            "lovii-loyalty-constructor/AGENTS.md",
+        ],
+        "demo": "/demo/app/loyalty-constructor/",
+        "tags": ["LOVII", "loyalty", "mechanics", "rules engine", "OpenAPI", "JSON Schema", "PostgreSQL", "AI agents"],
+    },
 
     # ── Юридическая документация ──
     {
@@ -1095,6 +1119,43 @@ def build_page(doc):
         print(f"  OK: /docs/{slug}/")
         return
 
+    if dtype == "md-pack":
+        # Пакет из нескольких markdown-файлов одной папки → одна страница с оглавлением и якорями #doc-<имя>.
+        sections = []
+        for rel in doc.get("sources", []):
+            path = os.path.join(SRC, rel)
+            if not os.path.exists(path):
+                print(f"  SKIP (not found): {rel}")
+                continue
+            md = read_file(path)
+            fname = os.path.basename(rel)
+            anchor = "doc-" + re.sub(r'[^a-z0-9]+', '-', fname.lower().replace('.md', '')).strip('-')
+            m = re.match(r'\A#\s+(.*?)\s*(\n|$)', md)
+            sec_title = m.group(1).strip() if m else fname
+            md = re.sub(r'\A#\s+.*(\n|$)', '', md)
+            # ссылки на соседние файлы пакета → якоря на этой странице; остальные относительные ссылки оставляем (файлы лежат рядом)
+            def _relink(mm):
+                target = mm.group(2)
+                base = re.sub(r'#.*$', '', target)
+                if re.fullmatch(r'[A-Za-z0-9_.-]+\.md', base):
+                    return f'{mm.group(1)}#doc-' + re.sub(r'[^a-z0-9]+', '-', base.lower().replace('.md', '')).strip('-') + ')'
+                return mm.group(0)
+            md = re.sub(r'(\]\()((?!https?://|/|#|mailto:)[^)\s]+)\)', _relink, md)
+            sections.append((anchor, sec_title, fname, md_to_html(md)))
+        toc = ''.join(f'<li><a href="#{a}">{t}</a> <small>{f}</small></li>' for a, t, f, _ in sections)
+        body = ''
+        for a, t, f, html in sections:
+            body += f'<section class="doc-pack-section" id="{a}"><div class="doc-pack-head"><span class="doc-pack-file">{f}</span><h2>{t}</h2><a class="doc-pack-top" href="#doc-toc">↑ к оглавлению</a></div>{html}</section>'
+        demo_link = f'<a href="{doc["demo"]}" class="btn">Открыть прототип →</a>' if doc.get("demo") else ''
+        raw_link = f'<a href="/docs/{os.path.dirname(doc["sources"][0])}/README.md" class="btn btn-outline">Исходники (Markdown)</a>' if doc.get("sources") else ''
+        content = (f'<div class="feature-page-hero"><h1>{title}</h1><p>{desc}</p><div class="doc-actions">{demo_link}{raw_link}<a href="/docs/" class="btn btn-outline">← Все документы</a></div></div>'
+                   f'<nav class="doc-pack-toc" id="doc-toc"><h2>Состав пакета</h2><ol>{toc}</ol></nav>{body}'
+                   '<style>.doc-pack-toc{margin:32px 0 48px;padding:24px 28px;border:1px solid var(--clr-border,rgba(255,255,255,.08));border-radius:16px;background:var(--clr-surface,#12121A)}.doc-pack-toc h2{font-size:1rem;letter-spacing:1px;text-transform:uppercase;margin:0 0 12px;color:var(--clr-faint,#78787D)}.doc-pack-toc ol{margin:0;padding-left:22px}.doc-pack-toc li{margin:4px 0}.doc-pack-toc small{color:var(--clr-faint,#78787D);font-size:.75rem;margin-left:6px}.doc-pack-section{margin-top:56px;padding-top:24px;border-top:1px solid var(--clr-border,rgba(255,255,255,.08))}.doc-pack-head{display:flex;flex-wrap:wrap;align-items:baseline;gap:10px 16px;margin-bottom:8px}.doc-pack-head h2{margin:0;flex:1 1 auto}.doc-pack-file{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.75rem;color:var(--clr-accent,#D4A574);border:1px solid var(--clr-border,rgba(255,255,255,.08));border-radius:6px;padding:2px 8px;order:-1;flex-basis:100%}.doc-pack-top{font-size:.75rem;color:var(--clr-faint,#78787D);text-decoration:none}.doc-pack-top:hover{color:var(--clr-heading,#F5F5F7)}.doc-actions .btn{margin:0 8px 8px 0}</style>')
+        page = page_template(title, desc, slug, content)
+        write_file(out_path, page)
+        print(f"  OK: /docs/{slug}/ ({len(sections)} sections)")
+        return
+
     src_path = os.path.join(SRC, src)
     if not os.path.exists(src_path):
         print(f"  SKIP (not found): {src}")
@@ -1116,6 +1177,16 @@ def build_page(doc):
     print(f"  OK: /docs/{slug}/")
 
 def main():
+    import sys
+    only = None
+    if len(sys.argv) > 2 and sys.argv[1] == "--only":
+        only = set(sys.argv[2:])
+    if only:
+        # Точечная сборка: только указанные slug'и, индекс не трогаем.
+        for doc in DOCS:
+            if doc["slug"] in only and not doc.get("url"):
+                build_page(doc)
+        return
     print("Generating documentation pages...")
     for doc in DOCS:
         if doc.get("url"):

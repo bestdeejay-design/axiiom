@@ -81,6 +81,7 @@
         { header: true, name: 'Лояльность' },
         { name: 'Программа лояльности', path: '/demo/app/loyalty-program/' },
         { name: 'Система лояльности', path: '/demo/app/loyalty-system/' },
+        { name: 'Конструктор лояльности LOVII', path: '/demo/app/loyalty-constructor/' },
         { separator: true },
         { header: true, name: 'Аналитика' },
         { name: 'Аналитическая панель', path: '/demo/app/analytics-dashboard/' },
